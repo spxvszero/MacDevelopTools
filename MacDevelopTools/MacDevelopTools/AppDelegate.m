@@ -151,7 +151,12 @@ static float const     kStatusBarIconPadding = 0.25;
 {
     if (!_popOver) {
         _popOver = [[NSPopover alloc] init];
-        _popOver.contentViewController = [JKMeunPanelViewController fromStoryBoard];
+        JKMeunPanelViewController *menuVC = [JKMeunPanelViewController fromStoryBoard];
+        __weak typeof(self) weakSelf = self;
+        menuVC.MeunSizeChangeBlock = ^(NSSize size) {
+            weakSelf.popOver.contentSize = size;
+        };
+        _popOver.contentViewController = menuVC;
     }
     return _popOver;
 }

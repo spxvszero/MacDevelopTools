@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="JKCollectionMenuPanelItem">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="286" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-5B-UyX">
+                    <rect key="frame" x="0.0" y="0.0" width="286" height="180"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="q" id="m4r-Gw-DQJ"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ESv-5B-UyX" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="DaA-D6-kew"/>
+                <constraint firstAttribute="trailing" secondItem="ESv-5B-UyX" secondAttribute="trailing" id="IqN-le-l56"/>
+                <constraint firstItem="ESv-5B-UyX" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="TTk-ft-zJh"/>
+                <constraint firstAttribute="bottom" secondItem="ESv-5B-UyX" secondAttribute="bottom" id="XFK-1W-iGN"/>
+            </constraints>
+            <point key="canvasLocation" x="42" y="122"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="q" width="86" height="86"/>
+    </resources>
+</document>

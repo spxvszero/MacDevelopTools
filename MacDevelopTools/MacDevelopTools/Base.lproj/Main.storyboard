@@ -694,7 +694,55 @@
                     <view key="view" id="uwB-uM-eTu">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="wKf-8O-Zv8">
+                                <rect key="frame" x="10" y="265" width="430" height="25"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="oxV-2U-D0N">
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="e9c-SD-1Ip">
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="OIe-jI-1lC">
+                                                <size key="itemSize" width="20" height="20"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="s3M-T2-cnX"/>
+                                </constraints>
+                                <edgeInsets key="scrollerInsets" left="0.0" right="0.0" top="0.0" bottom="100"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="DwY-b4-1zq">
+                                    <rect key="frame" x="-100" y="-100" width="428" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="4PG-p2-Zer">
+                                    <rect key="frame" x="-100" y="-100" width="16" height="25"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <containerView autoresizesSubviews="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAI-fZ-yNv">
+                                <rect key="frame" x="10" y="10" width="430" height="245"/>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="jAI-fZ-yNv" firstAttribute="top" secondItem="wKf-8O-Zv8" secondAttribute="bottom" constant="10" id="Zwv-Zv-UdY"/>
+                            <constraint firstItem="jAI-fZ-yNv" firstAttribute="leading" secondItem="uwB-uM-eTu" secondAttribute="leading" constant="10" id="aNO-bh-Sc8"/>
+                            <constraint firstAttribute="trailing" secondItem="jAI-fZ-yNv" secondAttribute="trailing" constant="10" id="bCU-PV-QX9"/>
+                            <constraint firstAttribute="trailing" secondItem="wKf-8O-Zv8" secondAttribute="trailing" constant="10" id="cVW-vZ-Z2t"/>
+                            <constraint firstItem="wKf-8O-Zv8" firstAttribute="top" secondItem="uwB-uM-eTu" secondAttribute="top" constant="10" id="rYG-C7-hmP"/>
+                            <constraint firstAttribute="bottom" secondItem="jAI-fZ-yNv" secondAttribute="bottom" constant="10" id="weR-9k-w9w"/>
+                            <constraint firstItem="wKf-8O-Zv8" firstAttribute="leading" secondItem="uwB-uM-eTu" secondAttribute="leading" constant="10" id="x91-zP-hJ6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="containView" destination="jAI-fZ-yNv" id="Xvh-dk-Ygw"/>
+                        <outlet property="itemCollectionView" destination="e9c-SD-1Ip" id="bkM-2M-ufH"/>
+                    </connections>
                 </viewController>
                 <customObject id="ADn-6v-bs7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

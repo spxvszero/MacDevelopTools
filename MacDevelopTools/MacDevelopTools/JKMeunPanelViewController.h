@@ -2,7 +2,7 @@
 //  JKMeunPanelViewController.h
 //  MacDevelopTools
 //
-//  Created by 曾坚 on 2018/12/13.
+//  Created by jk on 2018/12/13.
 //  Copyright © 2018年 JK. All rights reserved.
 //
 
@@ -11,5 +11,7 @@
 @interface JKMeunPanelViewController : NSViewController
 
 + (JKMeunPanelViewController *)fromStoryBoard;
+
+@property (nonatomic, strong) void (^MeunSizeChangeBlock)(NSSize size);
 
 @end
