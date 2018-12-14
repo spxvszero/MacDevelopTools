@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="egd-g1-JrB">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Wall Paper View Controller-->
+        <scene sceneID="hbr-PB-0iB">
+            <objects>
+                <viewController storyboardIdentifier="JKWallPaperViewController" id="egd-g1-JrB" customClass="JKWallPaperViewController" sceneMemberID="viewController">
+                    <view key="view" id="tDH-ns-ZnJ">
+                        <rect key="frame" x="0.0" y="0.0" width="377" height="120"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gpB-fr-yXH" customClass="JKWellImageView">
+                                <rect key="frame" x="264" y="7" width="106" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Frv-qH-7Ez"/>
+                                    <constraint firstAttribute="width" secondItem="gpB-fr-yXH" secondAttribute="height" multiplier="1:1" id="S5F-Be-e26"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="SrU-t7-WF3"/>
+                            </imageView>
+                            <containerView autoresizesSubviews="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERP-QG-w3f">
+                                <rect key="frame" x="10" y="41" width="247" height="69"/>
+                            </containerView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DMU-Q8-Kdr">
+                                <rect key="frame" x="78" y="3" width="122" height="32"/>
+                                <buttonCell key="cell" type="push" title="Replace Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="p6E-hK-QjO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="startButtonClickAction:" target="egd-g1-JrB" id="ly6-lY-byp"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="DMU-Q8-Kdr" firstAttribute="centerX" secondItem="tDH-ns-ZnJ" secondAttribute="centerX" constant="-50" id="1lr-RM-OJm"/>
+                            <constraint firstItem="DMU-Q8-Kdr" firstAttribute="top" secondItem="ERP-QG-w3f" secondAttribute="bottom" constant="10" id="8Xo-Ma-GHo"/>
+                            <constraint firstItem="ERP-QG-w3f" firstAttribute="top" secondItem="tDH-ns-ZnJ" secondAttribute="top" constant="10" id="PaZ-c5-cZr"/>
+                            <constraint firstItem="ERP-QG-w3f" firstAttribute="leading" secondItem="tDH-ns-ZnJ" secondAttribute="leading" constant="10" id="QsD-gJ-Lg7"/>
+                            <constraint firstAttribute="bottom" secondItem="DMU-Q8-Kdr" secondAttribute="bottom" constant="10" id="Rp5-dp-Zph"/>
+                            <constraint firstAttribute="trailing" secondItem="gpB-fr-yXH" secondAttribute="trailing" constant="10" id="qvv-Wx-WVe"/>
+                            <constraint firstItem="gpB-fr-yXH" firstAttribute="leading" secondItem="ERP-QG-w3f" secondAttribute="trailing" constant="10" id="rN3-qj-vfN"/>
+                            <constraint firstItem="gpB-fr-yXH" firstAttribute="top" secondItem="tDH-ns-ZnJ" secondAttribute="top" constant="10" id="zPj-0S-EN2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="controlContainView" destination="ERP-QG-w3f" id="NUw-2d-GNJ"/>
+                        <outlet property="imageWallView" destination="gpB-fr-yXH" id="yHP-Hk-z5p"/>
+                        <outlet property="startButton" destination="DMU-Q8-Kdr" id="tIk-L1-QWw"/>
+                    </connections>
+                </viewController>
+                <customObject id="FxV-aA-EuX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.5" y="-36"/>
+        </scene>
+        <!--Wall Paper Image Panel Controller-->
+        <scene sceneID="iTJ-f0-xHZ">
+            <objects>
+                <viewController storyboardIdentifier="JKWallPaperImagePanelController" id="1t7-pc-EBy" customClass="JKWallPaperImagePanelController" sceneMemberID="viewController">
+                    <view key="view" id="uoD-eQ-tWs">
+                        <rect key="frame" x="0.0" y="0.0" width="244" height="72"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tqX-Qr-skt">
+                                <rect key="frame" x="9" y="45" width="55" height="18"/>
+                                <buttonCell key="cell" type="radio" title="None" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="NCR-ae-W1o">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="buttonSelectAction:" target="1t7-pc-EBy" id="NIX-wX-Nep"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mWo-DO-GiW">
+                                <rect key="frame" x="143" y="45" width="93" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="4qI-AN-3Hj"/>
+                                </constraints>
+                                <buttonCell key="cell" type="radio" title="CenterTop" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="cPJ-Ck-lW1">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="buttonSelectAction:" target="1t7-pc-EBy" id="Hb7-jc-Ftb"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ntf-vA-4CS">
+                                <rect key="frame" x="9" y="19" width="127" height="18"/>
+                                <buttonCell key="cell" type="radio" title="SizeToFill" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="rcn-oo-pYH">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="buttonSelectAction:" target="1t7-pc-EBy" id="vYS-Xq-AXd"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qzr-yB-jib">
+                                <rect key="frame" x="143" y="19" width="76" height="18"/>
+                                <buttonCell key="cell" type="radio" title="SizeToFit" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="eMR-xP-Iae">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="buttonSelectAction:" target="1t7-pc-EBy" id="NL0-C8-DJb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="tqX-Qr-skt" firstAttribute="top" secondItem="uoD-eQ-tWs" secondAttribute="top" constant="10" id="8KC-xI-zfn"/>
+                            <constraint firstAttribute="trailing" secondItem="mWo-DO-GiW" secondAttribute="trailing" constant="10" id="8na-UL-eYc"/>
+                            <constraint firstItem="mWo-DO-GiW" firstAttribute="centerY" secondItem="tqX-Qr-skt" secondAttribute="centerY" id="Dv0-8g-kd8"/>
+                            <constraint firstItem="Ntf-vA-4CS" firstAttribute="leading" secondItem="tqX-Qr-skt" secondAttribute="leading" id="MIl-Z0-WJB"/>
+                            <constraint firstItem="Ntf-vA-4CS" firstAttribute="top" secondItem="tqX-Qr-skt" secondAttribute="bottom" constant="10" id="N5a-qC-tpm"/>
+                            <constraint firstItem="Qzr-yB-jib" firstAttribute="leading" secondItem="mWo-DO-GiW" secondAttribute="leading" id="Omp-HC-MKS"/>
+                            <constraint firstItem="mWo-DO-GiW" firstAttribute="leading" secondItem="Ntf-vA-4CS" secondAttribute="trailing" constant="10" id="avv-7v-tHk"/>
+                            <constraint firstItem="Qzr-yB-jib" firstAttribute="centerY" secondItem="Ntf-vA-4CS" secondAttribute="centerY" id="cm4-0j-CjE"/>
+                            <constraint firstItem="tqX-Qr-skt" firstAttribute="leading" secondItem="uoD-eQ-tWs" secondAttribute="leading" constant="10" id="r3g-43-3oN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="centerTopButton" destination="mWo-DO-GiW" id="nly-Qi-KA7"/>
+                        <outlet property="noneButton" destination="tqX-Qr-skt" id="uyi-26-a3e"/>
+                        <outlet property="sizeToFillButton" destination="Ntf-vA-4CS" id="6y1-zA-tLd"/>
+                        <outlet property="sizeToFitButton" destination="Qzr-yB-jib" id="J18-SC-T1A"/>
+                    </connections>
+                </viewController>
+                <customObject id="s8Q-Zd-JyE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304" y="201"/>
+        </scene>
+    </scenes>
+</document>

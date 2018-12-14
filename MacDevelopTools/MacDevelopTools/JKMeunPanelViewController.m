@@ -9,6 +9,7 @@
 #import "JKMeunPanelViewController.h"
 #import "JKCollectionMenuPanelItem.h"
 #import "PushViewController.h"
+#import "JKWallPaperViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -19,6 +20,8 @@
 
 @property (nonatomic, strong) NSMutableArray *viewControllerArr;
 @property (nonatomic, strong) NSMutableDictionary *viewControllerDic;
+
+@property (nonatomic, weak) NSView *currentView;
 
 @end
 
@@ -34,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    
+    self.viewControllerDic = [NSMutableDictionary dictionary];
     
     self.view.wantsLayer = YES;
     self.itemCollectionView.layer.backgroundColor = [NSColor clearColor].CGColor;
@@ -44,24 +47,6 @@
     
     [self.itemCollectionView registerClass:[JKCollectionMenuPanelItem class] forItemWithIdentifier:kCollectionItemIdentify];
 }
-
-
-//- (void)configureCollectionView
-//{
-//    NSCollectionViewFlowLayout *layout = [[NSCollectionViewFlowLayout alloc] init];
-//
-//    // 1
-//    let flowLayout = NSCollectionViewFlowLayout()
-//    flowLayout.itemSize = NSSize(width: 160.0, height: 140.0)
-//    flowLayout.sectionInset = NSEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
-//    flowLayout.minimumInteritemSpacing = 20.0
-//    flowLayout.minimumLineSpacing = 20.0
-//    collectionView.collectionViewLayout = flowLayout
-//    // 2
-//    view.wantsLayer = true
-//    // 3
-//    collectionView.layer?.backgroundColor = NSColor.blackColor().CGColor
-//}
 
 #pragma mark - collectionview datasource
 
@@ -94,11 +79,21 @@
         vc = [self getVCFromClass:className];
         [self.viewControllerDic setObject:vc forKey:NSStringFromClass(className)];
     }
-    [self.containView addSubview:vc.view];
-    [self resizeWithView:vc.view];
+    
+    [self changeToNewView:vc.view];
 }
 
 #pragma mark - tool
+
+- (void)changeToNewView:(NSView *)view
+{
+    if (self.currentView.superview) {
+        [self.currentView removeFromSuperview];
+    }
+    [self.containView addSubview:view];
+    self.currentView = view;
+    [self resizeWithView:view];
+}
 
 - (void)resizeWithView:(NSView *)view
 {
@@ -115,6 +110,12 @@
         return vc;
     }
     
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKWallPaperViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"WallPaper" bundle:nil];
+        PushViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
+    
     return nil;
 }
 
@@ -123,7 +124,7 @@
 - (NSMutableArray *)viewControllerArr
 {
     if (!_viewControllerArr) {
-        _viewControllerArr = [NSMutableArray arrayWithObjects:[PushViewController class], nil];
+        _viewControllerArr = [NSMutableArray arrayWithObjects:[PushViewController class],[JKWallPaperViewController class], nil];
     }
     return _viewControllerArr;
 }
