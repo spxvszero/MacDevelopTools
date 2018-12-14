@@ -20,6 +20,11 @@
 #import "Sec.h"
 @implementation PushViewController
 
+- (void)dealloc
+{
+    NSLog(@"push vc dealloc");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

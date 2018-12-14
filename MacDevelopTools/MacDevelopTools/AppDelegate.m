@@ -10,13 +10,20 @@ static float const     kStatusBarIconPadding = 0.25;
 
 #import "AppDelegate.h"
 #import "JKIconMenu.h"
+#import "JKApplicationHoldManager.h"
+#import "JKMeunPanelViewController.h"
 
 @interface AppDelegate ()
+
 @property (weak) IBOutlet NSMenu *fileMenu;
+
+@property (nonatomic, strong) JKApplicationHoldManager *holdManager;
 
 @property (nonatomic, strong) JKIconMenu *iconMenu;
 
 @property (nonatomic, strong) NSStatusItem *statusBarItem;
+
+@property (nonatomic, strong) NSPopover *popOver;
 
 @end
 
@@ -32,6 +39,8 @@ static float const     kStatusBarIconPadding = 0.25;
     // Set the title/tooltip to "Background Music".
     self.statusBarItem.title = [NSRunningApplication currentApplication].localizedName;
     self.statusBarItem.toolTip = self.statusBarItem.title;
+    
+    
     
     if (buttonAvailable) {
 #pragma clang diagnostic push
@@ -83,21 +92,51 @@ static float const     kStatusBarIconPadding = 0.25;
         }
     }
     
-    self.iconMenu = [[JKIconMenu alloc] initWithTitle:@"hi"];
-    __weak typeof(self) weakSelf = self;
-    self.iconMenu.MenuClickBlock = ^(NSInteger index) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"SmartPush" bundle:nil];
-        NSWindowController *windowController = [sb instantiateInitialController];
-        [windowController showWindow:weakSelf];
-    };
+//    self.iconMenu = [[JKIconMenu alloc] initWithTitle:@"hi"];
+//    __weak typeof(self) weakSelf = self;
+//    self.iconMenu.MenuClickBlock = ^(NSInteger index) {
+//
+//        NSWindowController *windowController;
+//        if ([weakSelf.holdManager hasObjectClass:@"PushViewController"]) {
+//            NSViewController *pushVC = [weakSelf.holdManager getAnyObjWithClass:@"PushViewController"];
+//            windowController = [[NSWindowController alloc] initWithWindow:[NSApplication sharedApplication].keyWindow];
+//            windowController.contentViewController = pushVC;
+//            NSLog(@"reload pushVC");
+//        }else{
+//            NSStoryboard *sb = [NSStoryboard storyboardWithName:@"SmartPush" bundle:nil];
+//            windowController = [sb instantiateInitialController];
+//            [weakSelf.holdManager addObject:windowController.contentViewController];
+//        }
+//        [windowController showWindow:weakSelf];
+//    };
     // Set the main menu
     self.statusBarItem.menu = self.iconMenu;
+    self.statusBarItem.action = @selector(popOverAction:);
+}
+
+- (void)popOverAction:(id)sender
+{
+    if (self.popOver.isShown) {
+        [self closePopOver:sender];
+    }else{
+        [self showPopOver:sender];
+    }
+}
+
+- (void)showPopOver:(id)sender
+{
+    [self.popOver showRelativeToRect:self.statusBarItem.button.bounds ofView:self.statusBarItem.button preferredEdge:NSRectEdgeMinY];
+}
+
+- (void)closePopOver:(id)sender
+{
+    [self.popOver performClose:sender];
 }
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    
+    self.holdManager = [[JKApplicationHoldManager alloc] init];
     [self initStatusBarItem];
 }
 
@@ -106,5 +145,15 @@ static float const     kStatusBarIconPadding = 0.25;
     // Insert code here to tear down your application
 }
 
+#pragma mark - getter
+
+- (NSPopover *)popOver
+{
+    if (!_popOver) {
+        _popOver = [[NSPopover alloc] init];
+        _popOver.contentViewController = [JKMeunPanelViewController fromStoryBoard];
+    }
+    return _popOver;
+}
 
 @end

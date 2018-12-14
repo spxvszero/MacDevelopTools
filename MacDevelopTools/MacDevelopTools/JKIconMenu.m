@@ -7,6 +7,7 @@
 //
 
 #import "JKIconMenu.h"
+#import "JKMouseButton.h"
 
 #define kButtonTag 1999
 
@@ -24,7 +25,7 @@
 {
     NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"you" action:nil keyEquivalent:@""];
     NSView *itemV = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 400, 20)];
-    NSButton *btn1 = [self createButton:@"J" tag:kButtonTag];
+    NSButton *btn1 = [self createButton:@"P" tag:kButtonTag];
     btn1.frame = NSMakeRect(0, 0, 20, 20);
     [itemV addSubview:btn1];
     item.view = itemV;
@@ -35,11 +36,16 @@
 
 - (NSButton *)createButton:(NSString *)title tag:(NSInteger)tag
 {
-    NSButton *btn = [[NSButton alloc] init];
+    JKMouseButton *btn = [[JKMouseButton alloc] init];
     [btn setTitle:title];
     btn.tag = tag;
-    btn.target = self;
-    btn.action = @selector(btnAction:);
+    __weak typeof(self) weakSelf = self;
+    btn.MouseDownBlock = ^(JKMouseButton *button) {
+        [weakSelf cancelTracking];
+    };
+    btn.MouseUpBlock = ^(JKMouseButton *button) {
+        [weakSelf btnAction:button];
+    };
     return btn;
 }
 

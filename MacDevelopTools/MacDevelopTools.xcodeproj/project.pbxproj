@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		966289F421C23B63005463F8 /* PushWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F321C23B63005463F8 /* PushWindowController.m */; };
+		966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F621C23CB9005463F8 /* TestObjectClass.m */; };
+		966289FA21C26CFA005463F8 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F921C26CFA005463F8 /* WindowController.m */; };
+		966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */; };
 		96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335C121C0A8E100C9374E /* AppDelegate.m */; };
 		96C335C521C0A8E100C9374E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335C421C0A8E100C9374E /* ViewController.m */; };
 		96C335C721C0A8E400C9374E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C335C621C0A8E400C9374E /* Assets.xcassets */; };
@@ -21,9 +25,19 @@
 		96C335EE21C10A0700C9374E /* TextFieldDrag.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335EA21C10A0600C9374E /* TextFieldDrag.m */; };
 		96C335F121C10A1D00C9374E /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F021C10A1D00C9374E /* PushViewController.m */; };
 		96C335F321C10A2F00C9374E /* SmartPush.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C335F221C10A2F00C9374E /* SmartPush.storyboard */; };
+		96C335F621C1233400C9374E /* JKMouseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F521C1233400C9374E /* JKMouseButton.m */; };
+		96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		966289F221C23B63005463F8 /* PushWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushWindowController.h; sourceTree = "<group>"; };
+		966289F321C23B63005463F8 /* PushWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushWindowController.m; sourceTree = "<group>"; };
+		966289F521C23CB9005463F8 /* TestObjectClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObjectClass.h; sourceTree = "<group>"; };
+		966289F621C23CB9005463F8 /* TestObjectClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjectClass.m; sourceTree = "<group>"; };
+		966289F821C26CFA005463F8 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
+		966289F921C26CFA005463F8 /* WindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
+		966289FB21C26F1B005463F8 /* JKMeunPanelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKMeunPanelViewController.h; sourceTree = "<group>"; };
+		966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKMeunPanelViewController.m; sourceTree = "<group>"; };
 		96C335BD21C0A8E100C9374E /* MacDevelopTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDevelopTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C335C021C0A8E100C9374E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96C335C121C0A8E100C9374E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,6 +64,10 @@
 		96C335EF21C10A1D00C9374E /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
 		96C335F021C10A1D00C9374E /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
 		96C335F221C10A2F00C9374E /* SmartPush.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SmartPush.storyboard; sourceTree = "<group>"; };
+		96C335F421C1233400C9374E /* JKMouseButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKMouseButton.h; sourceTree = "<group>"; };
+		96C335F521C1233400C9374E /* JKMouseButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKMouseButton.m; sourceTree = "<group>"; };
+		96C335F721C1F84400C9374E /* JKApplicationHoldManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKApplicationHoldManager.h; sourceTree = "<group>"; };
+		96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKApplicationHoldManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +103,20 @@
 				96C335DB21C1095B00C9374E /* SmartPush */,
 				96C335C021C0A8E100C9374E /* AppDelegate.h */,
 				96C335C121C0A8E100C9374E /* AppDelegate.m */,
+				96C335F721C1F84400C9374E /* JKApplicationHoldManager.h */,
+				96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */,
 				96C335C321C0A8E100C9374E /* ViewController.h */,
 				96C335C421C0A8E100C9374E /* ViewController.m */,
+				966289F821C26CFA005463F8 /* WindowController.h */,
+				966289F921C26CFA005463F8 /* WindowController.m */,
+				966289F521C23CB9005463F8 /* TestObjectClass.h */,
+				966289F621C23CB9005463F8 /* TestObjectClass.m */,
 				96C335D821C0E3AA00C9374E /* JKIconMenu.h */,
 				96C335D921C0E3AA00C9374E /* JKIconMenu.m */,
+				966289FB21C26F1B005463F8 /* JKMeunPanelViewController.h */,
+				966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */,
+				96C335F421C1233400C9374E /* JKMouseButton.h */,
+				96C335F521C1233400C9374E /* JKMouseButton.m */,
 				96C335C621C0A8E400C9374E /* Assets.xcassets */,
 				96C335C821C0A8E400C9374E /* Main.storyboard */,
 				96C335D621C0E07700C9374E /* MainMenu.xib */,
@@ -103,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				96C335F221C10A2F00C9374E /* SmartPush.storyboard */,
+				966289F221C23B63005463F8 /* PushWindowController.h */,
+				966289F321C23B63005463F8 /* PushWindowController.m */,
 				96C335EF21C10A1D00C9374E /* PushViewController.h */,
 				96C335F021C10A1D00C9374E /* PushViewController.m */,
 				96C335E821C10A0600C9374E /* Common */,
@@ -235,8 +265,14 @@
 				96C335E721C10A0000C9374E /* ioSock.c in Sources */,
 				96C335F121C10A1D00C9374E /* PushViewController.m in Sources */,
 				96C335EE21C10A0700C9374E /* TextFieldDrag.m in Sources */,
+				96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */,
+				966289F421C23B63005463F8 /* PushWindowController.m in Sources */,
+				966289FA21C26CFA005463F8 /* WindowController.m in Sources */,
 				96C335DA21C0E3AA00C9374E /* JKIconMenu.m in Sources */,
 				96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */,
+				96C335F621C1233400C9374E /* JKMouseButton.m in Sources */,
+				966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */,
+				966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +403,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
@@ -385,6 +422,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
