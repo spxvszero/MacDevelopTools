@@ -12,6 +12,7 @@ static float const     kStatusBarIconPadding = 0.25;
 #import "JKIconMenu.h"
 #import "JKApplicationHoldManager.h"
 #import "JKMeunPanelViewController.h"
+#import "NSButton+JKRightAction.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +20,9 @@ static float const     kStatusBarIconPadding = 0.25;
 
 @property (nonatomic, strong) JKApplicationHoldManager *holdManager;
 
-@property (nonatomic, strong) JKIconMenu *iconMenu;
+//@property (nonatomic, strong) JKIconMenu *iconMenu;
 
+@property (nonatomic, strong) NSMenu *rightMenu;
 @property (nonatomic, strong) NSStatusItem *statusBarItem;
 
 @property (nonatomic, strong) NSPopover *popOver;
@@ -33,63 +35,27 @@ static float const     kStatusBarIconPadding = 0.25;
     
     self.statusBarItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     
-    // NSStatusItem doesn't have the "button" property on OS X 10.9.
-    BOOL buttonAvailable = (floor(NSAppKitVersionNumber) >= NSAppKitVersionNumber10_10);
     
-    // Set the title/tooltip to "Background Music".
     self.statusBarItem.title = [NSRunningApplication currentApplication].localizedName;
     self.statusBarItem.toolTip = self.statusBarItem.title;
     
+    self.statusBarItem.button.accessibilityLabel = self.statusBarItem.title;
     
-    
-    if (buttonAvailable) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wpartial-availability"
-        self.statusBarItem.button.accessibilityLabel = self.statusBarItem.title;
-#pragma clang diagnostic pop
-    }
-    
-    // Set the icon.
-    NSImage* icon = [NSImage imageNamed:@"FermataIcon"];
+    // Set the icon
+    NSImage* icon = [NSImage imageNamed:@"icon"];
     
     if (icon != nil) {
         NSRect statusBarItemFrame;
-        
-        if (buttonAvailable) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wpartial-availability"
-            statusBarItemFrame = self.statusBarItem.button.frame;
-#pragma clang diagnostic pop
-        } else {
-            // OS X 10.9 fallback. I haven't tested this (or anything else on 10.9).
-            statusBarItemFrame = self.statusBarItem.view.frame;
-        }
+        statusBarItemFrame = self.statusBarItem.button.frame;
         
         CGFloat lengthMinusPadding = statusBarItemFrame.size.height * (1 - kStatusBarIconPadding);
         [icon setSize:NSMakeSize(lengthMinusPadding, lengthMinusPadding)];
         
-        // Make the icon a "template image" so it gets drawn colour-inverted when it's highlighted or the status
-        // bar's in dark mode
         [icon setTemplate:YES];
         
-        if (buttonAvailable) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wpartial-availability"
-            self.statusBarItem.button.image = icon;
-#pragma clang diagnostic pop
-        } else {
-            self.statusBarItem.image = icon;
-        }
-    } else {
-        // If our icon is missing for some reason, fallback to a fermata character (1D110)
-        if (buttonAvailable) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wpartial-availability"
-            self.statusBarItem.button.title = @"";
-#pragma clang diagnostic pop
-        } else {
-            self.statusBarItem.title = @"";
-        }
+        self.statusBarItem.button.image = icon;
+    }else{
+        self.statusBarItem.button.title = @"";
     }
     
 //    self.iconMenu = [[JKIconMenu alloc] initWithTitle:@"hi"];
@@ -110,8 +76,18 @@ static float const     kStatusBarIconPadding = 0.25;
 //        [windowController showWindow:weakSelf];
 //    };
     // Set the main menu
-    self.statusBarItem.menu = self.iconMenu;
-    self.statusBarItem.action = @selector(popOverAction:);
+//    self.statusBarItem.menu = self.iconMenu;
+    
+    
+//    self.statusBarItem.button.menu = self.iconMenu;
+    self.statusBarItem.button.action = @selector(popOverAction:);
+    self.statusBarItem.button.rightClickTarget = self;
+    self.statusBarItem.button.rightClickAction = @selector(popUpMenu);
+}
+
+- (void)popUpMenu
+{
+    [self.statusBarItem popUpStatusItemMenu:self.rightMenu];
 }
 
 - (void)popOverAction:(id)sender
@@ -145,7 +121,28 @@ static float const     kStatusBarIconPadding = 0.25;
     // Insert code here to tear down your application
 }
 
+- (void)quitApp
+{
+    [NSApp terminate:self];
+}
+
 #pragma mark - getter
+
+- (NSMenu *)rightMenu
+{
+    if (!_rightMenu) {
+        _rightMenu = [[NSMenu alloc] init];
+        
+        //quit Item
+        NSMenuItem *quitItem = [[NSMenuItem alloc] init];
+        quitItem.action = @selector(quitApp);
+        quitItem.target = self;
+        quitItem.title = @"Quit";
+        
+        [_rightMenu addItem:quitItem];
+    }
+    return _rightMenu;
+}
 
 - (NSPopover *)popOver
 {

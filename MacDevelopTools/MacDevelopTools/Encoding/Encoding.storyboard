@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="GGA-KJ-b2P">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Encoding View Controller-->
+        <scene sceneID="YY1-Et-Bfv">
+            <objects>
+                <viewController storyboardIdentifier="JKEncodingViewController" id="GGA-KJ-b2P" customClass="JKEncodingViewController" sceneMemberID="viewController">
+                    <view key="view" id="3ey-uo-5lG">
+                        <rect key="frame" x="0.0" y="0.0" width="557" height="301"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tk-Uc-NpP">
+                                <rect key="frame" x="10" y="171" width="537" height="120"/>
+                                <clipView key="contentView" id="V4c-gW-Ec0">
+                                    <rect key="frame" x="1" y="1" width="535" height="118"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="igs-Sr-ONG">
+                                            <rect key="frame" x="0.0" y="0.0" width="535" height="118"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="535" height="118"/>
+                                            <size key="maxSize" width="537" height="10000000"/>
+                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="xUk-d8-pEf"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="dyL-ZI-eHf">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aw1-PL-eG4">
+                                    <rect key="frame" x="520" y="1" width="16" height="118"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVR-JW-MNM">
+                                <rect key="frame" x="10" y="10" width="537" height="120"/>
+                                <clipView key="contentView" id="NGQ-hq-9jD">
+                                    <rect key="frame" x="1" y="1" width="535" height="118"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="VAK-Ln-jUT">
+                                            <rect key="frame" x="0.0" y="0.0" width="535" height="118"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="535" height="118"/>
+                                            <size key="maxSize" width="537" height="10000000"/>
+                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="lhe-HC-x1k"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="TjX-P3-OqE">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Gpm-yx-FDZ">
+                                    <rect key="frame" x="520" y="1" width="16" height="118"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="64D-Hq-13g">
+                                <rect key="frame" x="483" y="133" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ara-XG-oEe">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startButtonAction:" target="GGA-KJ-b2P" id="gJY-TP-gYy"/>
+                                </connections>
+                            </button>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gaY-6f-q81">
+                                <rect key="frame" x="8" y="137" width="158" height="26"/>
+                                <popUpButtonCell key="cell" type="push" title="Unicode -&gt; Chinese" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="k7G-bM-TOo" id="Ui7-k2-vhM">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="SJa-J3-qG1">
+                                        <items>
+                                            <menuItem title="Unicode -&gt; Chinese" state="on" id="k7G-bM-TOo"/>
+                                            <menuItem title="Chinese -&gt; Unicode" id="YuS-sC-2V4"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="popUpSelectAction:" target="GGA-KJ-b2P" id="VZJ-HL-pkO"/>
+                                </connections>
+                            </popUpButton>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8Tk-Uc-NpP" secondAttribute="trailing" constant="10" id="AwK-bG-jdh"/>
+                            <constraint firstItem="OVR-JW-MNM" firstAttribute="top" secondItem="64D-Hq-13g" secondAttribute="bottom" constant="10" id="CsB-j8-yLX"/>
+                            <constraint firstAttribute="trailing" secondItem="64D-Hq-13g" secondAttribute="trailing" constant="10" id="GU2-zv-nWl"/>
+                            <constraint firstAttribute="trailing" secondItem="OVR-JW-MNM" secondAttribute="trailing" constant="10" id="LVN-gy-ld3"/>
+                            <constraint firstItem="OVR-JW-MNM" firstAttribute="leading" secondItem="3ey-uo-5lG" secondAttribute="leading" constant="10" id="MoJ-RG-gRx"/>
+                            <constraint firstItem="64D-Hq-13g" firstAttribute="top" secondItem="8Tk-Uc-NpP" secondAttribute="bottom" constant="10" id="X8B-xf-bM6"/>
+                            <constraint firstItem="OVR-JW-MNM" firstAttribute="top" secondItem="gaY-6f-q81" secondAttribute="bottom" constant="10" id="Xd7-t5-77g"/>
+                            <constraint firstItem="gaY-6f-q81" firstAttribute="top" secondItem="8Tk-Uc-NpP" secondAttribute="bottom" constant="10" id="bUL-pJ-Bdm"/>
+                            <constraint firstItem="8Tk-Uc-NpP" firstAttribute="top" secondItem="3ey-uo-5lG" secondAttribute="top" constant="10" id="ckJ-Jb-tCr"/>
+                            <constraint firstItem="8Tk-Uc-NpP" firstAttribute="leading" secondItem="3ey-uo-5lG" secondAttribute="leading" constant="10" id="dnL-bd-cQn"/>
+                            <constraint firstItem="gaY-6f-q81" firstAttribute="leading" secondItem="3ey-uo-5lG" secondAttribute="leading" constant="10" id="o1u-K4-YCm"/>
+                            <constraint firstAttribute="bottom" secondItem="OVR-JW-MNM" secondAttribute="bottom" constant="10" id="zjf-fK-iUm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="originTextView" destination="igs-Sr-ONG" id="aKl-0e-dCF"/>
+                        <outlet property="outPutTextView" destination="VAK-Ln-jUT" id="eoN-AB-B9j"/>
+                        <outlet property="popUpButton" destination="gaY-6f-q81" id="wvr-Ee-a0B"/>
+                        <outlet property="startButton" destination="64D-Hq-13g" id="Z8x-of-NfU"/>
+                    </connections>
+                </viewController>
+                <customObject id="Xb2-nb-Uiu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="174.5" y="87"/>
+        </scene>
+    </scenes>
+</document>

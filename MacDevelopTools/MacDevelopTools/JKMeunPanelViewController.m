@@ -10,6 +10,7 @@
 #import "JKCollectionMenuPanelItem.h"
 #import "PushViewController.h"
 #import "JKWallPaperViewController.h"
+#import "JKEncodingViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -106,13 +107,18 @@
 {
     if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([PushViewController class])]) {
         NSStoryboard *sb = [NSStoryboard storyboardWithName:@"SmartPush" bundle:nil];
-        PushViewController *vc = [sb instantiateInitialController];
+        NSViewController *vc = [sb instantiateInitialController];
         return vc;
     }
     
     if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKWallPaperViewController class])]) {
         NSStoryboard *sb = [NSStoryboard storyboardWithName:@"WallPaper" bundle:nil];
-        PushViewController *vc = [sb instantiateInitialController];
+        NSViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKEncodingViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"Encoding" bundle:nil];
+        NSViewController *vc = [sb instantiateInitialController];
         return vc;
     }
     
@@ -124,7 +130,7 @@
 - (NSMutableArray *)viewControllerArr
 {
     if (!_viewControllerArr) {
-        _viewControllerArr = [NSMutableArray arrayWithObjects:[PushViewController class],[JKWallPaperViewController class], nil];
+        _viewControllerArr = [NSMutableArray arrayWithObjects:[PushViewController class],[JKWallPaperViewController class],[JKEncodingViewController class], nil];
     }
     return _viewControllerArr;
 }

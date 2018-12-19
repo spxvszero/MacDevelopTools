@@ -1,6 +1,9 @@
 # MacDevelopTools
 A Mac application for useful tools
 
+# Some Tips
+
+* Right Click on Status Item can quit App
 
 # Contains
 
