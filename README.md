@@ -9,6 +9,7 @@ A Mac application for useful tools
 
 * Apple Push
 * Wallpaper
+* Encode
 
 
 
