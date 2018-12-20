@@ -2,7 +2,7 @@
 //  NSButton+JKRightAction.h
 //  MacDevelopTools
 //
-//  Created by 曾坚 on 2018/12/18.
+//  Created by jk on 2018/12/18.
 //  Copyright © 2018年 JK. All rights reserved.
 //
 

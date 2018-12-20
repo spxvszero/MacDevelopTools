@@ -2,17 +2,20 @@
 //  JKEncodingViewController.m
 //  MacDevelopTools
 //
-//  Created by 曾坚 on 2018/12/14.
+//  Created by jk on 2018/12/14.
 //  Copyright © 2018年 JK. All rights reserved.
 //
 
 #import "JKEncodingViewController.h"
+#import "NSString+URLEncode.h"
 
 #define kErrorConvert @"error: convert failed!"
 
 typedef enum : NSUInteger {
     EncodingOperationTypeUniToChin,
     EncodingOperationTypeChinToUni,
+    EncodingOperationTypeURLEncode,
+    EncodingOperationTypeURLDecode,
 } JKEncodingOperationType;
 
 #define kOperationItemTag 132
@@ -44,7 +47,7 @@ typedef enum : NSUInteger {
 
 - (IBAction)popUpSelectAction:(NSPopUpButton *)sender
 {
-    NSLog(@"asdf %@",sender.selectedItem.title);
+    NSLog(@"select %@",sender.selectedItem.title);
     
     self.currentSelectedType = sender.selectedItem.tag - kOperationItemTag;
 }
@@ -61,6 +64,16 @@ typedef enum : NSUInteger {
         case EncodingOperationTypeUniToChin:
         {
             [self unicodeToChinese];
+        }
+            break;
+        case EncodingOperationTypeURLEncode:
+        {
+            [self urlEncode];
+        }
+            break;
+        case EncodingOperationTypeURLDecode:
+        {
+            [self urlDecode];
         }
             break;
             
@@ -95,6 +108,31 @@ typedef enum : NSUInteger {
     
     if (resStr) {
         self.outPutTextView.string = resStr;
+    }else{
+        self.outPutTextView.string = kErrorConvert;
+    }
+}
+
+- (void)urlEncode
+{
+    NSString *originStr = self.originTextView.string;
+    
+    NSString *encodedString = [originStr URLEncode];
+    if (encodedString) {
+        self.outPutTextView.string = encodedString;
+    }else{
+        self.outPutTextView.string = kErrorConvert;
+    }
+}
+
+- (void)urlDecode
+{
+    NSString *originStr = self.originTextView.string;
+    
+    NSString *decodeString = [originStr URLDecode];
+    
+    if (decodeString) {
+        self.outPutTextView.string = decodeString;
     }else{
         self.outPutTextView.string = kErrorConvert;
     }

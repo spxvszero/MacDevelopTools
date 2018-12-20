@@ -88,8 +88,18 @@
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="SJa-J3-qG1">
                                         <items>
-                                            <menuItem title="Unicode -&gt; Chinese" state="on" id="k7G-bM-TOo"/>
-                                            <menuItem title="Chinese -&gt; Unicode" id="YuS-sC-2V4"/>
+                                            <menuItem title="Unicode -&gt; Chinese" state="on" id="k7G-bM-TOo">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Chinese -&gt; Unicode" id="YuS-sC-2V4">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="URLEncode" id="tYo-HP-b4t">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="URLDecode" id="eMo-l7-405">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>

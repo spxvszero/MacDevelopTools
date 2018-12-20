@@ -11,6 +11,7 @@
 #import "PushViewController.h"
 #import "JKWallPaperViewController.h"
 #import "JKEncodingViewController.h"
+#import "JKJSONModelViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -116,8 +117,15 @@
         NSViewController *vc = [sb instantiateInitialController];
         return vc;
     }
+    
     if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKEncodingViewController class])]) {
         NSStoryboard *sb = [NSStoryboard storyboardWithName:@"Encoding" bundle:nil];
+        NSViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
+    
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKJSONModelViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"JSONModel" bundle:nil];
         NSViewController *vc = [sb instantiateInitialController];
         return vc;
     }
@@ -130,7 +138,7 @@
 - (NSMutableArray *)viewControllerArr
 {
     if (!_viewControllerArr) {
-        _viewControllerArr = [NSMutableArray arrayWithObjects:[PushViewController class],[JKWallPaperViewController class],[JKEncodingViewController class], nil];
+        _viewControllerArr = [NSMutableArray arrayWithObjects:[PushViewController class],[JKWallPaperViewController class],[JKEncodingViewController class],[JKJSONModelViewController class], nil];
     }
     return _viewControllerArr;
 }

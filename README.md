@@ -1,5 +1,5 @@
 # MacDevelopTools
-A Mac application for useful tools
+A Mac application for useful tools, build it just for learning :)
 
 # Some Tips
 
@@ -10,6 +10,7 @@ A Mac application for useful tools
 * Apple Push
 * Wallpaper
 * Encode
+* JsonToModel
 
 
 

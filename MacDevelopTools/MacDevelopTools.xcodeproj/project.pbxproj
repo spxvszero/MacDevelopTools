@@ -19,6 +19,10 @@
 		96628A1321C3C704005463F8 /* JKEncodingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96628A1121C3C704005463F8 /* JKEncodingViewController.m */; };
 		96628A1621C3C714005463F8 /* Encoding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96628A1521C3C714005463F8 /* Encoding.storyboard */; };
 		96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A14E21C8FC0C00F21813 /* NSButton+JKRightAction.m */; };
+		96A9A15621CA57F600F21813 /* JKJSONModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A15521CA57F600F21813 /* JKJSONModelViewController.m */; };
+		96A9A15821CA582400F21813 /* JSONModel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9A15721CA582400F21813 /* JSONModel.storyboard */; };
+		96A9A15B21CB2FB800F21813 /* JKJSONModelObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A15A21CB2FB800F21813 /* JKJSONModelObjectiveC.m */; };
+		96A9A15E21CB922A00F21813 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A15C21CB922A00F21813 /* NSString+URLEncode.m */; };
 		96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335C121C0A8E100C9374E /* AppDelegate.m */; };
 		96C335C521C0A8E100C9374E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335C421C0A8E100C9374E /* ViewController.m */; };
 		96C335C721C0A8E400C9374E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C335C621C0A8E400C9374E /* Assets.xcassets */; };
@@ -59,6 +63,13 @@
 		96628A1521C3C714005463F8 /* Encoding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Encoding.storyboard; sourceTree = "<group>"; };
 		96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSButton+JKRightAction.h"; sourceTree = "<group>"; };
 		96A9A14E21C8FC0C00F21813 /* NSButton+JKRightAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSButton+JKRightAction.m"; sourceTree = "<group>"; };
+		96A9A15421CA57F600F21813 /* JKJSONModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONModelViewController.h; sourceTree = "<group>"; };
+		96A9A15521CA57F600F21813 /* JKJSONModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJSONModelViewController.m; sourceTree = "<group>"; };
+		96A9A15721CA582400F21813 /* JSONModel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JSONModel.storyboard; sourceTree = "<group>"; };
+		96A9A15921CB2FB800F21813 /* JKJSONModelObjectiveC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONModelObjectiveC.h; sourceTree = "<group>"; };
+		96A9A15A21CB2FB800F21813 /* JKJSONModelObjectiveC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJSONModelObjectiveC.m; sourceTree = "<group>"; };
+		96A9A15C21CB922A00F21813 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		96A9A15D21CB922A00F21813 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		96C335BD21C0A8E100C9374E /* MacDevelopTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDevelopTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C335C021C0A8E100C9374E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96C335C121C0A8E100C9374E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,9 +132,23 @@
 			children = (
 				96628A1021C3C704005463F8 /* JKEncodingViewController.h */,
 				96628A1121C3C704005463F8 /* JKEncodingViewController.m */,
+				96A9A15D21CB922A00F21813 /* NSString+URLEncode.h */,
+				96A9A15C21CB922A00F21813 /* NSString+URLEncode.m */,
 				96628A1521C3C714005463F8 /* Encoding.storyboard */,
 			);
 			path = Encoding;
+			sourceTree = "<group>";
+		};
+		96A9A15321CA57D500F21813 /* JSONToModel */ = {
+			isa = PBXGroup;
+			children = (
+				96A9A15421CA57F600F21813 /* JKJSONModelViewController.h */,
+				96A9A15521CA57F600F21813 /* JKJSONModelViewController.m */,
+				96A9A15921CB2FB800F21813 /* JKJSONModelObjectiveC.h */,
+				96A9A15A21CB2FB800F21813 /* JKJSONModelObjectiveC.m */,
+				96A9A15721CA582400F21813 /* JSONModel.storyboard */,
+			);
+			path = JSONToModel;
 			sourceTree = "<group>";
 		};
 		96C335B421C0A8E100C9374E = {
@@ -145,6 +170,7 @@
 		96C335BF21C0A8E100C9374E /* MacDevelopTools */ = {
 			isa = PBXGroup;
 			children = (
+				96A9A15321CA57D500F21813 /* JSONToModel */,
 				96628A0F21C3BF14005463F8 /* Encoding */,
 				96628A0321C38491005463F8 /* WallPaper */,
 				96C335DB21C1095B00C9374E /* SmartPush */,
@@ -299,6 +325,7 @@
 				96C335CA21C0A8E400C9374E /* Main.storyboard in Resources */,
 				96C335D721C0E07700C9374E /* MainMenu.xib in Resources */,
 				96C335F321C10A2F00C9374E /* SmartPush.storyboard in Resources */,
+				96A9A15821CA582400F21813 /* JSONModel.storyboard in Resources */,
 				96628A0821C384D6005463F8 /* WallPaper.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,7 +342,9 @@
 				96628A0E21C3B590005463F8 /* JKWallPaperImagePanelController.m in Sources */,
 				96C335ED21C10A0700C9374E /* DragPopUpButton.m in Sources */,
 				96C335CD21C0A8E400C9374E /* main.m in Sources */,
+				96A9A15621CA57F600F21813 /* JKJSONModelViewController.m in Sources */,
 				96628A0621C384AD005463F8 /* JKWallPaperViewController.m in Sources */,
+				96A9A15B21CB2FB800F21813 /* JKJSONModelObjectiveC.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
 				96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */,
 				96C335E721C10A0000C9374E /* ioSock.c in Sources */,
@@ -327,6 +356,7 @@
 				96C335DA21C0E3AA00C9374E /* JKIconMenu.m in Sources */,
 				96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */,
 				96C335F621C1233400C9374E /* JKMouseButton.m in Sources */,
+				96A9A15E21CB922A00F21813 /* NSString+URLEncode.m in Sources */,
 				966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */,
 				96628A0B21C3ADCB005463F8 /* JKWellImageView.m in Sources */,
 				966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */,
