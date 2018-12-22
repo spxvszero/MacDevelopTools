@@ -8,10 +8,13 @@
 
 #import "JKMeunPanelViewController.h"
 #import "JKCollectionMenuPanelItem.h"
+
 #import "PushViewController.h"
 #import "JKWallPaperViewController.h"
 #import "JKEncodingViewController.h"
 #import "JKJSONModelViewController.h"
+#import "JKResizeImageViewController.h"
+#import "JKMoveFileViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -130,6 +133,18 @@
         return vc;
     }
     
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKResizeImageViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"ResizeImage" bundle:nil];
+        NSViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
+    
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKMoveFileViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"MoveFile" bundle:nil];
+        NSViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
+    
     return nil;
 }
 
@@ -138,7 +153,14 @@
 - (NSMutableArray *)viewControllerArr
 {
     if (!_viewControllerArr) {
-        _viewControllerArr = [NSMutableArray arrayWithObjects:[PushViewController class],[JKWallPaperViewController class],[JKEncodingViewController class],[JKJSONModelViewController class], nil];
+        _viewControllerArr = [NSMutableArray arrayWithObjects:
+                              [PushViewController class],
+                              [JKWallPaperViewController class],
+                              [JKEncodingViewController class],
+                              [JKJSONModelViewController class],
+                              [JKResizeImageViewController class],
+                              [JKMoveFileViewController class],
+                              nil];
     }
     return _viewControllerArr;
 }

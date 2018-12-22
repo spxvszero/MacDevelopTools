@@ -11,6 +11,8 @@ A Mac application for useful tools, build it just for learning :)
 * Wallpaper
 * Encode
 * JsonToModel
+* ResizeImage(not implement)
+* Move Files
 
 
 
