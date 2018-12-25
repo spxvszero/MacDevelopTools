@@ -8,6 +8,7 @@
 
 #import "JKMoveFileViewController.h"
 
+
 @interface JKMoveFileViewController ()
 
 @property (weak) IBOutlet NSTextField *sourceTxtField;
@@ -22,10 +23,25 @@
 
 @implementation JKMoveFileViewController
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
 }
+
+- (void)statusItemClose
+{
+    [self.openPanel cancel:self];
+}
+
+
+
 - (IBAction)buttonAction:(id)sender
 {
     NSString *shellPath = [[NSBundle mainBundle] pathForResource:@"packupResource" ofType:@"sh"];
@@ -77,6 +93,7 @@
     [self.openPanel beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse result) {
         if (result == NSModalResponseOK) {
             weakSelf.sourceTxtField.stringValue = weakSelf.openPanel.URL.relativePath;
+            weakSelf.sourceTxtField.toolTip = weakSelf.sourceTxtField.stringValue;
         }
     }];
 }
@@ -88,6 +105,7 @@
     [self.openPanel beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse result) {
         if (result == NSModalResponseOK) {
             weakSelf.outPutTxtField.stringValue = weakSelf.openPanel.URL.relativePath;
+            weakSelf.outPutTxtField.toolTip = weakSelf.outPutTxtField.stringValue;
         }
     }];
     

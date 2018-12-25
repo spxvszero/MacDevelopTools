@@ -10,4 +10,6 @@
 
 @interface JKCollectionMenuPanelItem : NSCollectionViewItem
 
+@property (nonatomic, strong) NSString *toolTips;
+
 @end

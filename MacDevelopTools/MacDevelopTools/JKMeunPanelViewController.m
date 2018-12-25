@@ -24,6 +24,7 @@
 @property (weak) IBOutlet NSView *containView;
 
 @property (nonatomic, strong) NSMutableArray *viewControllerArr;
+@property (nonatomic, strong) NSMutableArray *toolTipArr;
 @property (nonatomic, strong) NSMutableDictionary *viewControllerDic;
 
 @property (nonatomic, weak) NSView *currentView;
@@ -68,6 +69,11 @@
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath
 {
     JKCollectionMenuPanelItem *item = [collectionView makeItemWithIdentifier:kCollectionItemIdentify forIndexPath:indexPath];
+    if (indexPath.item < self.toolTipArr.count) {
+        item.toolTips = [self.toolTipArr objectAtIndex:indexPath.item];
+    }else{
+        item.toolTips = @"No Description";
+    }
     
     return item;
 }
@@ -163,6 +169,20 @@
                               nil];
     }
     return _viewControllerArr;
+}
+- (NSMutableArray *)toolTipArr
+{
+    if (!_toolTipArr) {
+        _toolTipArr = [NSMutableArray arrayWithObjects:
+                       @"Apple Push",
+                       @"Wallpaper",
+                       @"Encode",
+                       @"Json To Model",
+                       @"Resize Image",
+                       @"Move File",
+                       nil];
+    }
+    return _toolTipArr;
 }
 
 @end

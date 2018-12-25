@@ -25,7 +25,13 @@
     [super viewDidLoad];
     // Do view setup here.
     self.imageView.editable = YES;
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
 }
+
+//- (void)statusItemClose
+//{
+//
+//}
 
 - (IBAction)startButtonAction:(NSButton *)sender
 {

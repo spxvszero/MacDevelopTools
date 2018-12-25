@@ -21,3 +21,6 @@ A Mac application for useful tools, build it just for learning :)
 [Smart Push](https://github.com/shaojiankui/SmartPush "Github")
 
 [wallpaperEngine for Mac](https://github.com/rutti-bep/wallpaperEngine-for-mac "Github")
+
+[ImageMagick](http://www.imagemagick.org/script/index.php "Web Home")
+

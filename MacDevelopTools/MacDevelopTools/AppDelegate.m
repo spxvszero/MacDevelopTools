@@ -87,6 +87,9 @@ static float const     kStatusBarIconPadding = 0.25;
 
 - (void)popUpMenu
 {
+    if (self.popOver.isShown) {
+        [self closePopOver:self];
+    }
     [self.statusBarItem popUpStatusItemMenu:self.rightMenu];
 }
 
@@ -102,10 +105,12 @@ static float const     kStatusBarIconPadding = 0.25;
 - (void)showPopOver:(id)sender
 {
     [self.popOver showRelativeToRect:self.statusBarItem.button.bounds ofView:self.statusBarItem.button preferredEdge:NSRectEdgeMinY];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kJKStatusItemPopOverShowNotification object:nil];
 }
 
 - (void)closePopOver:(id)sender
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kJKStatusItemPopOverCloseNotification object:nil];
     [self.popOver performClose:sender];
 }
 
