@@ -9,6 +9,7 @@
 #import "JKWallPaperViewController.h"
 #import "JKWellImageView.h"
 #import "JKWallPaperImagePanelController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface JKWallPaperViewController ()
 
@@ -22,6 +23,9 @@
 @property (nonatomic, assign) BOOL showWindow;
 @property (nonatomic, strong) NSImageView *backImageView;
 @property (nonatomic, assign) NSImageScaling selectedImageScaling;
+@property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) NSView *playerLayerBackView;
+@property (nonatomic, strong) AVPlayerLayer *playerlayer;
 
 @end
 
@@ -32,19 +36,38 @@
     // Do view setup here.
     
     [self defaultSetting];
+    [self addNotification];
     
     __weak typeof(self) weakSelf = self;
-    self.imageWallView.ImageDidChangeBlock = ^(JKWellImageView *imageView, NSImage *image) {
-        weakSelf.backImageView.image = image;
-        if (image) {
-            if (weakSelf.controlContainView.subviews.count <= 0) {
-                weakSelf.imagePanelController.currentScaling = weakSelf.selectedImageScaling;
-                [weakSelf.controlContainView addSubview:weakSelf.imagePanelController.view];
+    self.imageWallView.ImageDidChangeBlock = ^(JKWellImageView *imageView, NSImage *image, NSURL *fileUrl, BOOL isImage) {
+        
+        if (isImage) {
+            weakSelf.backImageView.image = image;
+            weakSelf.backImageView.hidden = NO;
+            weakSelf.playerLayerBackView.hidden = YES;
+            [weakSelf stopPlay];
+            if (image) {
+                if (weakSelf.controlContainView.subviews.count <= 0) {
+                    weakSelf.imagePanelController.currentScaling = weakSelf.selectedImageScaling;
+                    [weakSelf.controlContainView addSubview:weakSelf.imagePanelController.view];
+                }
+            }else{
+                if (weakSelf.imagePanelController.view.superview) {
+                    [weakSelf.imagePanelController.view removeFromSuperview];
+                }
             }
         }else{
+            weakSelf.backImageView.hidden = YES;
+            weakSelf.playerLayerBackView.hidden = NO;
             if (weakSelf.imagePanelController.view.superview) {
                 [weakSelf.imagePanelController.view removeFromSuperview];
             }
+            
+            AVPlayerItem *item = [AVPlayerItem playerItemWithURL:fileUrl];
+            self.playerlayer.player = self.player;
+            [self.player replaceCurrentItemWithPlayerItem:item];
+            [self.player play];
+            
         }
     };
     
@@ -80,10 +103,18 @@
         self.startButton.title = @"Stop Replace";
         self.imageWallView.editable = YES;
     }else{
+        [self stopPlay];
         self.startButton.title = @"Replace Start";
         self.imageWallView.editable = NO;
     }
     
+}
+
+- (void)stopPlay
+{
+    if (_player) {
+        [self.player pause];
+    }
 }
 
 
@@ -112,14 +143,56 @@
 {
     self.backImageView = [[NSImageView alloc] init];
     self.backImageView.frame = NSMakeRect(0, 0, size.width, size.height);
+    self.backImageView.hidden = YES;
     self.backImageView.imageScaling = self.selectedImageScaling;
+    
+    self.playerLayerBackView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
+    self.playerLayerBackView.wantsLayer = YES;
+    
+    self.playerlayer = [[AVPlayerLayer alloc] init];
+    self.playerlayer.frame = NSMakeRect(0, 0, size.width, size.height);
+    [self.playerLayerBackView.layer addSublayer:self.playerlayer];
+    
+    
+    self.window.contentView.wantsLayer = YES;
     [self.window.contentView addSubview:self.backImageView];
+    [self.window.contentView addSubview:self.playerLayerBackView];
 }
 
 - (void)setSelectedImageScaling:(NSImageScaling)selectedImageScaling
 {
     _selectedImageScaling = selectedImageScaling;
     self.backImageView.imageScaling = _selectedImageScaling;
+}
+
+#pragma mark - notification
+
+- (void)addNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerReachEndOfItem:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+}
+
+- (void)playerReachEndOfItem:(NSNotification *)notify
+{
+    if (_player && notify.object == self.player.currentItem) {
+        [self.player seekToTime:CMTimeMake(0, 30)];
+        [self.player play];
+    }
+}
+
+#pragma mark - getter
+
+- (AVPlayer *)player
+{
+    if (!_player) {
+        _player = [[AVPlayer alloc] init];
+//        CMTime timeInterval = CMTimeMake(1, 30);
+//        [_player addPeriodicTimeObserverForInterval:timeInterval queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+//            NSLog(@"play time - %lld",time.value/time.timescale);
+//        }];
+    }
+    return _player;
+    
 }
 
 - (JKWallPaperImagePanelController *)imagePanelController

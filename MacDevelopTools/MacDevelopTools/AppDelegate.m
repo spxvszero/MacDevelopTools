@@ -13,6 +13,7 @@ static float const     kStatusBarIconPadding = 0.25;
 #import "JKApplicationHoldManager.h"
 #import "JKMeunPanelViewController.h"
 #import "NSButton+JKRightAction.h"
+#import <objc/runtime.h>
 
 @interface AppDelegate ()
 
@@ -100,6 +101,40 @@ static float const     kStatusBarIconPadding = 0.25;
     }else{
         [self showPopOver:sender];
     }
+}
+
+static const char *getPropertyType(objc_property_t property) {
+    const char *attributes = property_getAttributes(property);
+    char buffer[1 + strlen(attributes)];
+    strcpy(buffer, attributes);
+    char *state = buffer, *attribute;
+    while ((attribute = strsep(&state, ",")) != NULL) {
+        if (attribute[0] == 'T') {
+            if (strlen(attribute) <= 4) {
+                break;
+            }
+            return (const char *)[[NSData dataWithBytes:(attribute + 3) length:strlen(attribute) - 4] bytes];
+        }
+    }
+    return "@";
+}
+
+- (void)myMethod {
+    unsigned int outCount, i;
+    objc_property_t *properties = class_copyPropertyList([NSStatusBar class], &outCount);
+    for(i = 0; i < outCount; i++) {
+        objc_property_t property = properties[i];
+        const char *propName = property_getName(property);
+        if(propName) {
+            const char *propType = getPropertyType(property);
+            NSString *propertyName = [NSString stringWithCString:propName
+                                                        encoding:[NSString defaultCStringEncoding]];
+            NSString *propertyType = [NSString stringWithCString:propType
+                                                        encoding:[NSString defaultCStringEncoding]];
+            NSLog(@"propertyName %@ type %@",propertyName,propertyType);
+        }
+    }
+    free(properties);
 }
 
 - (void)showPopOver:(id)sender

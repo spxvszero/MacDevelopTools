@@ -10,6 +10,6 @@
 
 @interface JKWellImageView : NSImageView
 
-@property (nonatomic, strong) void (^ImageDidChangeBlock)(JKWellImageView *imageView, NSImage *image);
+@property (nonatomic, strong) void (^ImageDidChangeBlock)(JKWellImageView *imageView, NSImage *image, NSURL *fileUrl,BOOL isImage);
 
 @end

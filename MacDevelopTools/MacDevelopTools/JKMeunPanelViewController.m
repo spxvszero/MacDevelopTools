@@ -15,6 +15,7 @@
 #import "JKJSONModelViewController.h"
 #import "JKResizeImageViewController.h"
 #import "JKMoveFileViewController.h"
+#import "JKStatusIconManagerViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -151,6 +152,13 @@
         return vc;
     }
     
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKStatusIconManagerViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"StatusIcon" bundle:nil];
+        NSViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
+    
+    
     return nil;
 }
 
@@ -166,6 +174,7 @@
                               [JKJSONModelViewController class],
                               [JKResizeImageViewController class],
                               [JKMoveFileViewController class],
+                              [JKStatusIconManagerViewController class],
                               nil];
     }
     return _viewControllerArr;
@@ -180,6 +189,7 @@
                        @"Json To Model",
                        @"Resize Image",
                        @"Move File",
+                       @"Status Icon Manager",
                        nil];
     }
     return _toolTipArr;

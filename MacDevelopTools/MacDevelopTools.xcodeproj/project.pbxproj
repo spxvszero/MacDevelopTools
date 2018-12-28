@@ -23,6 +23,8 @@
 		962FCAE021D0F08600D79971 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FCADF21D0F08500D79971 /* libfreetype.a */; };
 		962FCB2221D0F95C00D79971 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FCB1C21D0F78700D79971 /* Carbon.framework */; };
 		962FCB2321D0FA3600D79971 /* LittleCMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FCB1E21D0F91000D79971 /* LittleCMS.framework */; };
+		962FCB2A21D207C100D79971 /* StatusIcon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962FCB2921D207C100D79971 /* StatusIcon.storyboard */; };
+		962FCB2D21D207EA00D79971 /* JKStatusIconManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB2C21D207EA00D79971 /* JKStatusIconManagerViewController.m */; };
 		966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F621C23CB9005463F8 /* TestObjectClass.m */; };
 		966289FA21C26CFA005463F8 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F921C26CFA005463F8 /* WindowController.m */; };
 		966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */; };
@@ -302,6 +304,9 @@
 		962FCB1C21D0F78700D79971 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		962FCB1E21D0F91000D79971 /* LittleCMS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LittleCMS.framework; sourceTree = "<group>"; };
 		962FCB2421D1C1F800D79971 /* JKMacDevelopToolsPrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKMacDevelopToolsPrefixHeader.h; sourceTree = "<group>"; };
+		962FCB2921D207C100D79971 /* StatusIcon.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StatusIcon.storyboard; sourceTree = "<group>"; };
+		962FCB2B21D207EA00D79971 /* JKStatusIconManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKStatusIconManagerViewController.h; sourceTree = "<group>"; };
+		962FCB2C21D207EA00D79971 /* JKStatusIconManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKStatusIconManagerViewController.m; sourceTree = "<group>"; };
 		966289F521C23CB9005463F8 /* TestObjectClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObjectClass.h; sourceTree = "<group>"; };
 		966289F621C23CB9005463F8 /* TestObjectClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjectClass.m; sourceTree = "<group>"; };
 		966289F821C26CFA005463F8 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
@@ -722,6 +727,16 @@
 			path = config;
 			sourceTree = "<group>";
 		};
+		962FCB2521D2079800D79971 /* StatusIconManager */ = {
+			isa = PBXGroup;
+			children = (
+				962FCB2921D207C100D79971 /* StatusIcon.storyboard */,
+				962FCB2B21D207EA00D79971 /* JKStatusIconManagerViewController.h */,
+				962FCB2C21D207EA00D79971 /* JKStatusIconManagerViewController.m */,
+			);
+			path = StatusIconManager;
+			sourceTree = "<group>";
+		};
 		96628A0321C38491005463F8 /* WallPaper */ = {
 			isa = PBXGroup;
 			children = (
@@ -843,6 +858,7 @@
 			isa = PBXGroup;
 			children = (
 				96A9A17521D0A87A00F21813 /* ThirdParty */,
+				962FCB2521D2079800D79971 /* StatusIconManager */,
 				96A9A16821CCB7EE00F21813 /* MoveFile */,
 				96A9A15F21CB9B7C00F21813 /* ResizeImage */,
 				96A9A15321CA57D500F21813 /* JSONToModel */,
@@ -1000,6 +1016,7 @@
 				96C335C721C0A8E400C9374E /* Assets.xcassets in Resources */,
 				96C335CA21C0A8E400C9374E /* Main.storyboard in Resources */,
 				96A9A16421CB9BC500F21813 /* ResizeImage.storyboard in Resources */,
+				962FCB2A21D207C100D79971 /* StatusIcon.storyboard in Resources */,
 				96A9A16D21CCB80D00F21813 /* MoveFile.storyboard in Resources */,
 				96C335D721C0E07700C9374E /* MainMenu.xib in Resources */,
 				96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */,
@@ -1018,6 +1035,7 @@
 			files = (
 				96C335DF21C109F200C9374E /* SecManager.m in Sources */,
 				96C335C521C0A8E100C9374E /* ViewController.m in Sources */,
+				962FCB2D21D207EA00D79971 /* JKStatusIconManagerViewController.m in Sources */,
 				96628A0E21C3B590005463F8 /* JKWallPaperImagePanelController.m in Sources */,
 				96C335ED21C10A0700C9374E /* DragPopUpButton.m in Sources */,
 				96A9A16221CB9BB900F21813 /* JKResizeImageViewController.mm in Sources */,
