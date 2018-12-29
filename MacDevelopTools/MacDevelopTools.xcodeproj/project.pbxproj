@@ -27,6 +27,9 @@
 		962FCB2D21D207EA00D79971 /* JKStatusIconManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB2C21D207EA00D79971 /* JKStatusIconManagerViewController.m */; };
 		962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB2F21D6364800D79971 /* JKWallPaperVideoPanelController.m */; };
 		962FCB3321D7081C00D79971 /* JKBaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB3221D7081C00D79971 /* JKBaseViewController.mm */; };
+		962FCB3721D75A3B00D79971 /* JKImageInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB3621D75A3B00D79971 /* JKImageInfoViewController.mm */; };
+		962FCB3921D75A4600D79971 /* ImageInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962FCB3821D75A4600D79971 /* ImageInfo.storyboard */; };
+		962FCB3C21D7628C00D79971 /* JKImageInfoInspectorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB3B21D7628C00D79971 /* JKImageInfoInspectorViewController.mm */; };
 		966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F621C23CB9005463F8 /* TestObjectClass.m */; };
 		966289FA21C26CFA005463F8 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F921C26CFA005463F8 /* WindowController.m */; };
 		966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */; };
@@ -313,6 +316,11 @@
 		962FCB2F21D6364800D79971 /* JKWallPaperVideoPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKWallPaperVideoPanelController.m; sourceTree = "<group>"; };
 		962FCB3121D7081C00D79971 /* JKBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKBaseViewController.h; sourceTree = "<group>"; };
 		962FCB3221D7081C00D79971 /* JKBaseViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JKBaseViewController.mm; sourceTree = "<group>"; };
+		962FCB3521D75A3B00D79971 /* JKImageInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKImageInfoViewController.h; sourceTree = "<group>"; };
+		962FCB3621D75A3B00D79971 /* JKImageInfoViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JKImageInfoViewController.mm; sourceTree = "<group>"; };
+		962FCB3821D75A4600D79971 /* ImageInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageInfo.storyboard; sourceTree = "<group>"; };
+		962FCB3A21D7628C00D79971 /* JKImageInfoInspectorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKImageInfoInspectorViewController.h; sourceTree = "<group>"; };
+		962FCB3B21D7628C00D79971 /* JKImageInfoInspectorViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JKImageInfoInspectorViewController.mm; sourceTree = "<group>"; };
 		966289F521C23CB9005463F8 /* TestObjectClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObjectClass.h; sourceTree = "<group>"; };
 		966289F621C23CB9005463F8 /* TestObjectClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjectClass.m; sourceTree = "<group>"; };
 		966289F821C26CFA005463F8 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
@@ -743,6 +751,18 @@
 			path = StatusIconManager;
 			sourceTree = "<group>";
 		};
+		962FCB3421D75A0100D79971 /* ImageInfo */ = {
+			isa = PBXGroup;
+			children = (
+				962FCB3521D75A3B00D79971 /* JKImageInfoViewController.h */,
+				962FCB3621D75A3B00D79971 /* JKImageInfoViewController.mm */,
+				962FCB3A21D7628C00D79971 /* JKImageInfoInspectorViewController.h */,
+				962FCB3B21D7628C00D79971 /* JKImageInfoInspectorViewController.mm */,
+				962FCB3821D75A4600D79971 /* ImageInfo.storyboard */,
+			);
+			path = ImageInfo;
+			sourceTree = "<group>";
+		};
 		96628A0321C38491005463F8 /* WallPaper */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,6 +888,7 @@
 				96A9A17521D0A87A00F21813 /* ThirdParty */,
 				962FCB2521D2079800D79971 /* StatusIconManager */,
 				96A9A16821CCB7EE00F21813 /* MoveFile */,
+				962FCB3421D75A0100D79971 /* ImageInfo */,
 				96A9A15F21CB9B7C00F21813 /* ResizeImage */,
 				96A9A15321CA57D500F21813 /* JSONToModel */,
 				96628A0F21C3BF14005463F8 /* Encoding */,
@@ -1029,6 +1050,7 @@
 				962FCB2A21D207C100D79971 /* StatusIcon.storyboard in Resources */,
 				96A9A16D21CCB80D00F21813 /* MoveFile.storyboard in Resources */,
 				96C335D721C0E07700C9374E /* MainMenu.xib in Resources */,
+				962FCB3921D75A4600D79971 /* ImageInfo.storyboard in Resources */,
 				96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */,
 				96C335F321C10A2F00C9374E /* SmartPush.storyboard in Resources */,
 				96A9A15821CA582400F21813 /* JSONModel.storyboard in Resources */,
@@ -1052,6 +1074,7 @@
 				96C335CD21C0A8E400C9374E /* main.m in Sources */,
 				96A9A15621CA57F600F21813 /* JKJSONModelViewController.m in Sources */,
 				96628A0621C384AD005463F8 /* JKWallPaperViewController.m in Sources */,
+				962FCB3C21D7628C00D79971 /* JKImageInfoInspectorViewController.mm in Sources */,
 				96A9A15B21CB2FB800F21813 /* JKJSONModelObjectiveC.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
 				96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */,
@@ -1069,6 +1092,7 @@
 				96C335F621C1233400C9374E /* JKMouseButton.m in Sources */,
 				96A9A15E21CB922A00F21813 /* NSString+URLEncode.m in Sources */,
 				966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */,
+				962FCB3721D75A3B00D79971 /* JKImageInfoViewController.mm in Sources */,
 				96628A0B21C3ADCB005463F8 /* JKWellImageView.m in Sources */,
 				966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */,
 				96628A0121C35698005463F8 /* JKCollectionMenuPanelItem.m in Sources */,

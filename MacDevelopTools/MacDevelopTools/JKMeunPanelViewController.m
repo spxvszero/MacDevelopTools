@@ -16,6 +16,7 @@
 #import "JKResizeImageViewController.h"
 #import "JKMoveFileViewController.h"
 #import "JKStatusIconManagerViewController.h"
+#import "JKImageInfoViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -164,6 +165,12 @@
         return vc;
     }
     
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKImageInfoViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"ImageInfo" bundle:nil];
+        NSViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
+    
     
     return nil;
 }
@@ -181,6 +188,7 @@
                               [JKResizeImageViewController class],
                               [JKMoveFileViewController class],
                               [JKStatusIconManagerViewController class],
+                              [JKImageInfoViewController class],
                               nil];
     }
     return _viewControllerArr;
@@ -196,6 +204,7 @@
                        @"Resize Image",
                        @"Move File",
                        @"Status Icon Manager",
+                       @"Image Info",
                        nil];
     }
     return _toolTipArr;
