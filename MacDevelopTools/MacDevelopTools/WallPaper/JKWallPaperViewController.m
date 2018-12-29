@@ -9,6 +9,7 @@
 #import "JKWallPaperViewController.h"
 #import "JKWellImageView.h"
 #import "JKWallPaperImagePanelController.h"
+#import "JKWallPaperVideoPanelController.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface JKWallPaperViewController ()
@@ -18,6 +19,8 @@
 @property (weak) IBOutlet NSView *controlContainView;
 
 @property (nonatomic, strong) JKWallPaperImagePanelController *imagePanelController;
+@property (nonatomic, strong) JKWallPaperVideoPanelController *videoPanelController;
+@property (nonatomic, weak) NSView *currentPanelView;
 
 @property (nonatomic, strong) NSWindow *window;
 @property (nonatomic, assign) BOOL showWindow;
@@ -47,40 +50,29 @@
             weakSelf.playerLayerBackView.hidden = YES;
             [weakSelf stopPlay];
             if (image) {
-                if (weakSelf.controlContainView.subviews.count <= 0) {
-                    weakSelf.imagePanelController.currentScaling = weakSelf.selectedImageScaling;
-                    [weakSelf.controlContainView addSubview:weakSelf.imagePanelController.view];
-                }
+                weakSelf.imagePanelController.currentScaling = weakSelf.selectedImageScaling;
+                weakSelf.currentPanelView = weakSelf.imagePanelController.view;
             }else{
-                if (weakSelf.imagePanelController.view.superview) {
-                    [weakSelf.imagePanelController.view removeFromSuperview];
-                }
+                weakSelf.currentPanelView = nil;
             }
         }else{
             weakSelf.backImageView.hidden = YES;
             weakSelf.playerLayerBackView.hidden = NO;
-            if (weakSelf.imagePanelController.view.superview) {
-                [weakSelf.imagePanelController.view removeFromSuperview];
-            }
             
             AVPlayerItem *item = [AVPlayerItem playerItemWithURL:fileUrl];
             self.playerlayer.player = self.player;
             [self.player replaceCurrentItemWithPlayerItem:item];
             [self.player play];
             
+            weakSelf.currentPanelView = weakSelf.videoPanelController.view;
         }
+        [weakSelf resizeView];
     };
     
 }
 
 - (void)defaultSetting
 {
-    /*
-    NSImageScaleProportionallyDown = 0, // Scale image down if it is too large for destination. Preserve aspect ratio.
-    NSImageScaleAxesIndependently,      // Scale each dimension to exactly fit destination. Do not preserve aspect ratio.
-    NSImageScaleNone,                   // Do not scale.
-    NSImageScaleProportionallyUpOrDown,
-     */
     _selectedImageScaling = NSImageScaleNone;
     
 }
@@ -100,10 +92,20 @@
     }
     
     if (self.showWindow) {
+        if (self.currentPanelView) {
+            [self.controlContainView addSubview:self.currentPanelView];
+            if (self.currentPanelView == self.videoPanelController.view) {
+                [self.player play];
+            }
+            [self resizeView];
+        }
         self.startButton.title = @"Stop Replace";
         self.imageWallView.editable = YES;
     }else{
         [self stopPlay];
+        if (self.currentPanelView.superview) {
+            [self.currentPanelView removeFromSuperview];
+        }
         self.startButton.title = @"Replace Start";
         self.imageWallView.editable = NO;
     }
@@ -114,6 +116,19 @@
 {
     if (_player) {
         [self.player pause];
+    }
+}
+
+- (void)resizeView
+{
+    if (self.MeunSizeChangeBlock) {
+        CGFloat width = self.currentPanelView.bounds.size.width + self.imageWallView.bounds.size.width + 30;
+        CGFloat height = self.currentPanelView.bounds.size.height + self.startButton.bounds.size.height + 30;
+        
+        self.view.frame = CGRectMake(0, 0, width, height);
+        
+        self.MeunSizeChangeBlock(NSMakeSize(width, height));
+    
     }
 }
 
@@ -150,6 +165,7 @@
     self.playerLayerBackView.wantsLayer = YES;
     
     self.playerlayer = [[AVPlayerLayer alloc] init];
+    self.playerlayer.videoGravity = AVLayerVideoGravityResizeAspect;
     self.playerlayer.frame = NSMakeRect(0, 0, size.width, size.height);
     [self.playerLayerBackView.layer addSublayer:self.playerlayer];
     
@@ -180,6 +196,20 @@
     }
 }
 
+#pragma mark - setter
+
+- (void)setCurrentPanelView:(NSView *)currentPanelView
+{
+    if (_currentPanelView.superview) {
+        [_currentPanelView removeFromSuperview];
+    }
+    
+    _currentPanelView = currentPanelView;
+    
+    [self.controlContainView addSubview:_currentPanelView];
+    
+}
+
 #pragma mark - getter
 
 - (AVPlayer *)player
@@ -190,6 +220,9 @@
 //        [_player addPeriodicTimeObserverForInterval:timeInterval queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
 //            NSLog(@"play time - %lld",time.value/time.timescale);
 //        }];
+        self.videoPanelController.voiceValue = _player.volume;
+        self.videoPanelController.selectedIndex = 0;
+        
     }
     return _player;
     
@@ -206,6 +239,47 @@
         };
     }
     return _imagePanelController;
+}
+
+- (JKWallPaperVideoPanelController *)videoPanelController
+{
+    if (!_videoPanelController) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"WallPaper" bundle:nil];
+        _videoPanelController = [sb instantiateControllerWithIdentifier:@"JKWallPaperVideoPanelController"];
+        __weak typeof(self) weakSelf = self;
+        _videoPanelController.VideoAspectSelectBlock = ^(NSInteger selectIndex) {
+            NSString *resStr = AVLayerVideoGravityResizeAspect;
+            switch (selectIndex) {
+                case 0:
+                    resStr = AVLayerVideoGravityResizeAspect;
+                    break;
+                case 1:
+                    resStr = AVLayerVideoGravityResizeAspectFill;
+                    break;
+                case 2:
+                    resStr = AVLayerVideoGravityResize;
+                    break;
+                default:
+                    break;
+            }
+            
+            weakSelf.playerlayer.videoGravity =  resStr;
+        };
+        
+        _videoPanelController.VideoVoiceEnableBlock = ^(BOOL enable) {
+            if (enable) {
+                weakSelf.player.volume = 0;
+            }else{
+                weakSelf.player.volume = 0;
+            }
+        };
+        
+        _videoPanelController.VideoVoiceValueChangeBlock = ^(CGFloat value) {
+            weakSelf.player.volume = value;
+        };
+        
+    }
+    return _videoPanelController;
 }
 
 @end

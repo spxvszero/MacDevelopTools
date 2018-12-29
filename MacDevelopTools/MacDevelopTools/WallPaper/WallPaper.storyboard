@@ -10,12 +10,12 @@
         <scene sceneID="hbr-PB-0iB">
             <objects>
                 <viewController storyboardIdentifier="JKWallPaperViewController" id="egd-g1-JrB" customClass="JKWallPaperViewController" sceneMemberID="viewController">
-                    <view key="view" id="tDH-ns-ZnJ">
-                        <rect key="frame" x="0.0" y="0.0" width="377" height="120"/>
+                    <view key="view" autoresizesSubviews="NO" id="tDH-ns-ZnJ">
+                        <rect key="frame" x="0.0" y="0.0" width="401" height="146"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gpB-fr-yXH" customClass="JKWellImageView">
-                                <rect key="frame" x="264" y="7" width="106" height="106"/>
+                            <imageView horizontalHuggingPriority="750" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gpB-fr-yXH" customClass="JKWellImageView">
+                                <rect key="frame" x="288" y="33" width="106" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Frv-qH-7Ez"/>
                                     <constraint firstAttribute="width" secondItem="gpB-fr-yXH" secondAttribute="height" multiplier="1:1" id="S5F-Be-e26"/>
@@ -23,10 +23,10 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="SrU-t7-WF3"/>
                             </imageView>
                             <containerView autoresizesSubviews="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERP-QG-w3f">
-                                <rect key="frame" x="10" y="41" width="247" height="69"/>
+                                <rect key="frame" x="10" y="41" width="271" height="95"/>
                             </containerView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DMU-Q8-Kdr">
-                                <rect key="frame" x="78" y="3" width="122" height="32"/>
+                                <rect key="frame" x="90" y="3" width="122" height="32"/>
                                 <buttonCell key="cell" type="push" title="Replace Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="p6E-hK-QjO">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -55,13 +55,13 @@
                 </viewController>
                 <customObject id="FxV-aA-EuX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.5" y="-36"/>
+            <point key="canvasLocation" x="316.5" y="-23"/>
         </scene>
         <!--Wall Paper Image Panel Controller-->
         <scene sceneID="iTJ-f0-xHZ">
             <objects>
                 <viewController storyboardIdentifier="JKWallPaperImagePanelController" id="1t7-pc-EBy" customClass="JKWallPaperImagePanelController" sceneMemberID="viewController">
-                    <view key="view" id="uoD-eQ-tWs">
+                    <view key="view" autoresizesSubviews="NO" id="uoD-eQ-tWs">
                         <rect key="frame" x="0.0" y="0.0" width="244" height="72"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -130,7 +130,100 @@
                 </viewController>
                 <customObject id="s8Q-Zd-JyE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304" y="201"/>
+            <point key="canvasLocation" x="97" y="203"/>
+        </scene>
+        <!--Wall Paper Video Panel Controller-->
+        <scene sceneID="Da6-X2-88s">
+            <objects>
+                <viewController storyboardIdentifier="JKWallPaperVideoPanelController" id="BB8-Co-eyd" customClass="JKWallPaperVideoPanelController" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" id="syh-wk-icG">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="70"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zf2-Qc-yCz">
+                                <rect key="frame" x="9" y="43" width="123" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="1sU-Nn-KLh"/>
+                                </constraints>
+                                <buttonCell key="cell" type="radio" title="ResizeAspect" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="gge-71-o8C">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="aspectSelectAction:" target="BB8-Co-eyd" id="2Js-u3-YbG"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dJA-4a-l3Z">
+                                <rect key="frame" x="139" y="43" width="123" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Apt-Nl-Zie"/>
+                                </constraints>
+                                <buttonCell key="cell" type="radio" title="ResizeAspectFill" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="UbE-DR-QzZ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="aspectSelectAction:" target="BB8-Co-eyd" id="hWF-Qr-rZq"/>
+                                </connections>
+                            </button>
+                            <button horizontalHuggingPriority="1000" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Iy-OE-KlX">
+                                <rect key="frame" x="269" y="43" width="73" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="5Yy-Hg-0T6"/>
+                                </constraints>
+                                <buttonCell key="cell" type="radio" title="Resize" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="aNP-7f-bnF">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="aspectSelectAction:" target="BB8-Co-eyd" id="3ge-ZO-nhM"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bjn-4l-q2m">
+                                <rect key="frame" x="8" y="8" width="54" height="18"/>
+                                <buttonCell key="cell" type="check" title="voice" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="27r-a2-hAN">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="voiceEnableAction:" target="BB8-Co-eyd" id="oyX-sk-ahs"/>
+                                </connections>
+                            </button>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QTT-0Y-8fb">
+                                <rect key="frame" x="78" y="8" width="254" height="19"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="c4f-Y7-IzB"/>
+                                <connections>
+                                    <action selector="voiceSliderValueChanged:" target="BB8-Co-eyd" id="YII-2r-mhs"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="QTT-0Y-8fb" firstAttribute="centerY" secondItem="Bjn-4l-q2m" secondAttribute="centerY" id="2gc-Mb-bF0"/>
+                            <constraint firstItem="zf2-Qc-yCz" firstAttribute="top" secondItem="syh-wk-icG" secondAttribute="top" constant="10" id="Bi4-gm-S01"/>
+                            <constraint firstItem="0Iy-OE-KlX" firstAttribute="centerY" secondItem="dJA-4a-l3Z" secondAttribute="centerY" id="ElF-yM-5WI"/>
+                            <constraint firstAttribute="trailing" secondItem="0Iy-OE-KlX" secondAttribute="trailing" constant="10" id="FiK-qw-cLB"/>
+                            <constraint firstItem="QTT-0Y-8fb" firstAttribute="leading" secondItem="Bjn-4l-q2m" secondAttribute="trailing" constant="20" id="LNX-Xs-3P7"/>
+                            <constraint firstAttribute="trailing" secondItem="QTT-0Y-8fb" secondAttribute="trailing" constant="20" id="Lm0-CH-DMZ"/>
+                            <constraint firstItem="Bjn-4l-q2m" firstAttribute="top" secondItem="zf2-Qc-yCz" secondAttribute="bottom" constant="20" id="VDT-NI-xDe"/>
+                            <constraint firstItem="Bjn-4l-q2m" firstAttribute="leading" secondItem="syh-wk-icG" secondAttribute="leading" constant="10" id="VzY-8t-P8q"/>
+                            <constraint firstItem="0Iy-OE-KlX" firstAttribute="leading" secondItem="dJA-4a-l3Z" secondAttribute="trailing" constant="10" id="YvX-6c-O0o"/>
+                            <constraint firstAttribute="bottom" secondItem="Bjn-4l-q2m" secondAttribute="bottom" constant="10" id="cfc-yJ-qpX"/>
+                            <constraint firstItem="dJA-4a-l3Z" firstAttribute="leading" secondItem="zf2-Qc-yCz" secondAttribute="trailing" constant="10" id="ibS-Tq-7J4"/>
+                            <constraint firstItem="zf2-Qc-yCz" firstAttribute="leading" secondItem="syh-wk-icG" secondAttribute="leading" constant="10" id="l2j-iB-hT1"/>
+                            <constraint firstItem="dJA-4a-l3Z" firstAttribute="centerY" secondItem="zf2-Qc-yCz" secondAttribute="centerY" id="npc-yN-lGd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resizeAspectButton" destination="zf2-Qc-yCz" id="pkD-3U-37V"/>
+                        <outlet property="resizeAspectFillButton" destination="dJA-4a-l3Z" id="2hn-c5-6gE"/>
+                        <outlet property="resizeButton" destination="0Iy-OE-KlX" id="mb2-sb-tbL"/>
+                        <outlet property="voiceEnableButton" destination="Bjn-4l-q2m" id="aOK-5a-Qpd"/>
+                        <outlet property="voiceVolumnSlider" destination="QTT-0Y-8fb" id="Qgj-YJ-ja3"/>
+                    </connections>
+                </viewController>
+                <customObject id="6W2-5q-73M" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="511" y="256"/>
         </scene>
     </scenes>
 </document>

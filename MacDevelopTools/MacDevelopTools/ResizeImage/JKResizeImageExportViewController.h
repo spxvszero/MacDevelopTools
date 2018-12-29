@@ -10,7 +10,7 @@
 
 @interface JKResizeImageExportViewController : NSViewController
 
-@property (nonatomic, strong) NSImage *image;
 @property (nonatomic, strong) NSString *imageUrl;
+@property (nonatomic, assign) BOOL single;
 
 @end

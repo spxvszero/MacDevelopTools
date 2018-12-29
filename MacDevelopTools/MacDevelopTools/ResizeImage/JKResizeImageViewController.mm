@@ -11,11 +11,18 @@
 
 @interface JKResizeImageViewController ()
 
-@property (weak) IBOutlet NSButton *startButton;
 
-@property (weak) IBOutlet NSImageView *imageView;
+@property (nonatomic, strong) NSString *singlePath;
+@property (nonatomic, strong) NSString *multiPath;
+@property (weak) IBOutlet NSButton *chooseSingleBtn;
+@property (weak) IBOutlet NSButton *chooseMultiBtn;
+
+@property (nonatomic, strong) NSOpenPanel *openPanel;
+
 
 @property (nonatomic, strong) JKResizeImageExportViewController *exportVC;
+
+@property (nonatomic, assign) BOOL selectedSingleBtn;
 
 @end
 
@@ -24,31 +31,87 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.imageView.editable = YES;
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
 }
 
-//- (void)statusItemClose
-//{
-//
-//}
-
-- (IBAction)startButtonAction:(NSButton *)sender
+- (void)statusItemClose
 {
-    if (!self.imageView.image) {
+    [self.openPanel close];
+}
+
+- (void)startButtonAction:(NSButton *)sender
+{
+    NSString *single = self.singlePath;
+    NSString *multi = self.multiPath;
+    
+    if (!single && !multi) {
         NSAlert *alert = [[NSAlert alloc] init];
-        alert.messageText = @"There is no image";
-        alert.informativeText = @"Try to Drag an image into box";
+        alert.messageText = @"There is no file path";
+        alert.informativeText = @"Try to choose image file path";
         [alert beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse returnCode) {
             
         }];
         return;
     }
     
-    self.exportVC.image = self.imageView.image;
+    if (single && single.length > 0) {
+        self.exportVC.imageUrl = single;
+        self.exportVC.single = YES;
+    }
+    
+    if (multi && multi.length > 0) {
+        self.exportVC.imageUrl = multi;
+        self.exportVC.single = NO;
+    }
+    
     [self presentViewControllerAsSheet:self.exportVC];
 }
 
+
+- (IBAction)choosePathAction:(NSButton *)sender
+{
+    if (self.openPanel.visible) {
+        return;
+    }
+    
+    if (sender == self.chooseSingleBtn) {
+        self.openPanel.canChooseFiles = YES;
+        self.openPanel.canChooseDirectories = NO;
+        self.selectedSingleBtn = YES;
+    }
+    if (sender == self.chooseMultiBtn) {
+        self.openPanel.canChooseFiles = NO;
+        self.openPanel.canChooseDirectories = YES;
+        self.selectedSingleBtn = NO;
+    }
+    
+    __weak typeof(self) weakSelf = self;
+    [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
+        if (result == NSModalResponseOK) {
+            if (weakSelf.selectedSingleBtn) {
+                weakSelf.singlePath = weakSelf.openPanel.URL.relativePath;
+                weakSelf.multiPath = nil;
+            }else{
+                weakSelf.multiPath = weakSelf.openPanel.URL.relativePath;
+                weakSelf.singlePath = nil;
+            }
+            
+            [weakSelf startButtonAction:nil];
+        }
+    }];
+}
+
+- (NSOpenPanel *)openPanel
+{
+    if (!_openPanel) {
+        _openPanel = [NSOpenPanel openPanel];
+        _openPanel.showsHiddenFiles = YES;
+        _openPanel.canCreateDirectories = YES;
+        _openPanel.showsResizeIndicator = YES;
+    }
+    return _openPanel;
+}
 
 
 - (JKResizeImageExportViewController *)exportVC

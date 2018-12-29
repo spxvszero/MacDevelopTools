@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "JKBaseViewController.h"
 
-@interface JKWallPaperViewController : NSViewController
+@interface JKWallPaperViewController : JKBaseViewController
 
 @end

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="wNU-qY-SMU">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,52 +11,53 @@
             <objects>
                 <viewController storyboardIdentifier="JKResizeImageViewController" id="wNU-qY-SMU" customClass="JKResizeImageViewController" sceneMemberID="viewController">
                     <view key="view" id="D6L-bZ-P4k">
-                        <rect key="frame" x="0.0" y="0.0" width="120" height="151"/>
+                        <rect key="frame" x="0.0" y="0.0" width="146" height="74"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i3m-mQ-wvH">
-                                <rect key="frame" x="7" y="38" width="106" height="106"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="i3m-mQ-wvH" secondAttribute="height" multiplier="1:1" id="0SO-Nb-hCu"/>
-                                    <constraint firstAttribute="width" constant="100" id="KhF-WP-lpL"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="t6l-fN-z8x"/>
-                            </imageView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rek-Ao-1fw">
-                                <rect key="frame" x="4" y="3" width="112" height="32"/>
-                                <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dsS-Qf-Oex">
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hgh-mP-LFb">
+                                <rect key="frame" x="4" y="5" width="138" height="32"/>
+                                <buttonCell key="cell" type="push" title="Select Directory" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8RZ-zB-AfR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="startButtonAction:" target="wNU-qY-SMU" id="D48-gR-gdH"/>
+                                    <action selector="choosePathAction:" target="wNU-qY-SMU" id="arT-6V-gka"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UBS-tn-ePd">
+                                <rect key="frame" x="4" y="36" width="138" height="32"/>
+                                <buttonCell key="cell" type="push" title="Single Image" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UVp-Zt-bJx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="choosePathAction:" target="wNU-qY-SMU" id="cNR-Zm-9iF"/>
                                 </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Rek-Ao-1fw" firstAttribute="top" secondItem="i3m-mQ-wvH" secondAttribute="bottom" constant="10" id="3wH-xB-WmC"/>
-                            <constraint firstAttribute="trailing" secondItem="i3m-mQ-wvH" secondAttribute="trailing" constant="10" id="CVA-NP-iwC"/>
-                            <constraint firstItem="Rek-Ao-1fw" firstAttribute="leading" secondItem="D6L-bZ-P4k" secondAttribute="leading" constant="10" id="Geo-nF-Oqe"/>
-                            <constraint firstItem="i3m-mQ-wvH" firstAttribute="leading" secondItem="D6L-bZ-P4k" secondAttribute="leading" constant="10" id="GmQ-AP-vc8"/>
-                            <constraint firstAttribute="bottom" secondItem="Rek-Ao-1fw" secondAttribute="bottom" constant="10" id="IHQ-Pa-AvV"/>
-                            <constraint firstAttribute="trailing" secondItem="Rek-Ao-1fw" secondAttribute="trailing" constant="10" id="OWZ-vb-LWh"/>
-                            <constraint firstItem="i3m-mQ-wvH" firstAttribute="top" secondItem="D6L-bZ-P4k" secondAttribute="top" constant="10" id="vlr-YP-3vT"/>
+                            <constraint firstItem="UBS-tn-ePd" firstAttribute="top" secondItem="D6L-bZ-P4k" secondAttribute="top" constant="10" id="CUv-gS-05k"/>
+                            <constraint firstAttribute="trailing" secondItem="Hgh-mP-LFb" secondAttribute="trailing" constant="10" id="lnu-RE-uiw"/>
+                            <constraint firstItem="UBS-tn-ePd" firstAttribute="leading" secondItem="D6L-bZ-P4k" secondAttribute="leading" constant="10" id="q99-J6-mx8"/>
+                            <constraint firstAttribute="trailing" secondItem="UBS-tn-ePd" secondAttribute="trailing" constant="10" id="tgg-i3-ZSt"/>
+                            <constraint firstItem="Hgh-mP-LFb" firstAttribute="leading" secondItem="D6L-bZ-P4k" secondAttribute="leading" constant="10" id="vlL-1c-ogs"/>
+                            <constraint firstItem="Hgh-mP-LFb" firstAttribute="top" secondItem="UBS-tn-ePd" secondAttribute="bottom" constant="10" id="xWs-no-cV0"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="i3m-mQ-wvH" id="3Gy-Db-9S9"/>
-                        <outlet property="startButton" destination="Rek-Ao-1fw" id="t6u-cB-hgF"/>
+                        <outlet property="chooseMultiBtn" destination="Hgh-mP-LFb" id="v2O-dY-qSa"/>
+                        <outlet property="chooseSingleBtn" destination="UBS-tn-ePd" id="tKA-Zw-BbC"/>
                     </connections>
                 </viewController>
                 <customObject id="hUu-9x-YZw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31" y="161"/>
+            <point key="canvasLocation" x="-86.5" y="174"/>
         </scene>
         <!--Resize Image Export View Controller-->
         <scene sceneID="yBi-wD-qrv">
             <objects>
                 <viewController storyboardIdentifier="JKResizeImageExportViewController" id="fIi-53-oKn" customClass="JKResizeImageExportViewController" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="HIO-rW-JCZ">
+                    <view key="view" id="HIO-rW-JCZ">
                         <rect key="frame" x="0.0" y="0.0" width="353" height="113"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>

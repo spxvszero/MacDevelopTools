@@ -104,13 +104,13 @@
     }
     [self.containView addSubview:view];
     self.currentView = view;
-    [self resizeWithView:view];
+    [self resizeWithViewSize:view.bounds.size];
 }
 
-- (void)resizeWithView:(NSView *)view
+- (void)resizeWithViewSize:(NSSize)viewSize
 {
     if (self.MeunSizeChangeBlock) {
-        self.MeunSizeChangeBlock(NSMakeSize(view.bounds.size.width + 20, view.bounds.size.height + 50));
+        self.MeunSizeChangeBlock(NSMakeSize(viewSize.width + 20, viewSize.height + 50));
     }
 }
 
@@ -124,7 +124,13 @@
     
     if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKWallPaperViewController class])]) {
         NSStoryboard *sb = [NSStoryboard storyboardWithName:@"WallPaper" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
+        JKBaseViewController *vc = [sb instantiateInitialController];
+        __weak typeof(self) weakSelf = self;
+        vc.MeunSizeChangeBlock = ^(NSSize size) {
+            
+            [weakSelf resizeWithViewSize:size];
+            
+        };
         return vc;
     }
     

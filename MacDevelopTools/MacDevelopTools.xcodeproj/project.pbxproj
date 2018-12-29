@@ -25,6 +25,8 @@
 		962FCB2321D0FA3600D79971 /* LittleCMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FCB1E21D0F91000D79971 /* LittleCMS.framework */; };
 		962FCB2A21D207C100D79971 /* StatusIcon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962FCB2921D207C100D79971 /* StatusIcon.storyboard */; };
 		962FCB2D21D207EA00D79971 /* JKStatusIconManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB2C21D207EA00D79971 /* JKStatusIconManagerViewController.m */; };
+		962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB2F21D6364800D79971 /* JKWallPaperVideoPanelController.m */; };
+		962FCB3321D7081C00D79971 /* JKBaseViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB3221D7081C00D79971 /* JKBaseViewController.mm */; };
 		966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F621C23CB9005463F8 /* TestObjectClass.m */; };
 		966289FA21C26CFA005463F8 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F921C26CFA005463F8 /* WindowController.m */; };
 		966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */; };
@@ -307,6 +309,10 @@
 		962FCB2921D207C100D79971 /* StatusIcon.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StatusIcon.storyboard; sourceTree = "<group>"; };
 		962FCB2B21D207EA00D79971 /* JKStatusIconManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKStatusIconManagerViewController.h; sourceTree = "<group>"; };
 		962FCB2C21D207EA00D79971 /* JKStatusIconManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKStatusIconManagerViewController.m; sourceTree = "<group>"; };
+		962FCB2E21D6364800D79971 /* JKWallPaperVideoPanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKWallPaperVideoPanelController.h; sourceTree = "<group>"; };
+		962FCB2F21D6364800D79971 /* JKWallPaperVideoPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKWallPaperVideoPanelController.m; sourceTree = "<group>"; };
+		962FCB3121D7081C00D79971 /* JKBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKBaseViewController.h; sourceTree = "<group>"; };
+		962FCB3221D7081C00D79971 /* JKBaseViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JKBaseViewController.mm; sourceTree = "<group>"; };
 		966289F521C23CB9005463F8 /* TestObjectClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObjectClass.h; sourceTree = "<group>"; };
 		966289F621C23CB9005463F8 /* TestObjectClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjectClass.m; sourceTree = "<group>"; };
 		966289F821C26CFA005463F8 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
@@ -744,6 +750,8 @@
 				96628A0521C384AD005463F8 /* JKWallPaperViewController.m */,
 				96628A0C21C3B590005463F8 /* JKWallPaperImagePanelController.h */,
 				96628A0D21C3B590005463F8 /* JKWallPaperImagePanelController.m */,
+				962FCB2E21D6364800D79971 /* JKWallPaperVideoPanelController.h */,
+				962FCB2F21D6364800D79971 /* JKWallPaperVideoPanelController.m */,
 				96628A0921C3ADCB005463F8 /* JKWellImageView.h */,
 				96628A0A21C3ADCB005463F8 /* JKWellImageView.m */,
 				96628A0721C384D6005463F8 /* WallPaper.storyboard */,
@@ -880,6 +888,8 @@
 				96C335D821C0E3AA00C9374E /* JKIconMenu.h */,
 				96C335D921C0E3AA00C9374E /* JKIconMenu.m */,
 				962FCB2421D1C1F800D79971 /* JKMacDevelopToolsPrefixHeader.h */,
+				962FCB3121D7081C00D79971 /* JKBaseViewController.h */,
+				962FCB3221D7081C00D79971 /* JKBaseViewController.mm */,
 				966289FB21C26F1B005463F8 /* JKMeunPanelViewController.h */,
 				966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */,
 				966289FE21C35698005463F8 /* JKCollectionMenuPanelItem.h */,
@@ -1049,8 +1059,10 @@
 				96628A1321C3C704005463F8 /* JKEncodingViewController.m in Sources */,
 				96C335F121C10A1D00C9374E /* PushViewController.m in Sources */,
 				96A9A16B21CCB80000F21813 /* JKMoveFileViewController.m in Sources */,
+				962FCB3321D7081C00D79971 /* JKBaseViewController.mm in Sources */,
 				96C335EE21C10A0700C9374E /* TextFieldDrag.m in Sources */,
 				96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */,
+				962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */,
 				966289FA21C26CFA005463F8 /* WindowController.m in Sources */,
 				96C335DA21C0E3AA00C9374E /* JKIconMenu.m in Sources */,
 				96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */,

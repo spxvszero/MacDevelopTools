@@ -7,11 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "JKBaseViewController.h"
 
-@interface JKMeunPanelViewController : NSViewController
+@interface JKMeunPanelViewController : JKBaseViewController
 
 + (JKMeunPanelViewController *)fromStoryBoard;
-
-@property (nonatomic, strong) void (^MeunSizeChangeBlock)(NSSize size);
 
 @end

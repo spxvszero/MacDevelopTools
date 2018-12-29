@@ -31,6 +31,8 @@ typedef enum : NSInteger {
 
 @property (nonatomic, assign) JKResizeSelectType currentSelectType;
 
+@property (nonatomic, strong) NSArray *iconsSize;
+
 @end
 
 @implementation JKResizeImageExportViewController
@@ -52,9 +54,10 @@ typedef enum : NSInteger {
     
     [self buttonSelectAction:self.appIconButton];
     
-    self.imageUrl = @"/Users/jason/Desktop/123.png";
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
+    
+//    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
+//    Magick::InitializeMagick([arguments[1] cStringUsingEncoding:NSASCIIStringEncoding]);
 }
 
 - (void)statusItemClose
@@ -65,7 +68,8 @@ typedef enum : NSInteger {
 - (void)viewWillAppear
 {
     [super viewWillAppear];
-    self.imageSizeLabel.stringValue = [NSString stringWithFormat:@"ImageSize: %ldx%ld px",(long)(self.image.size.width),(long)(self.image.size.height)];
+    
+//    self.imageSizeLabel.stringValue = [NSString stringWithFormat:@"ImageSize: %ldx%ld px",(long)(self.image.size.width),(long)(self.image.size.height)];
 }
 
 
@@ -74,15 +78,15 @@ typedef enum : NSInteger {
     __weak typeof(self) weakSelf = self;
     if (self.currentSelectType == ResizeTypeIcon) {
         [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
-
+            if (result == NSModalResponseOK) {
+                [self appIconExport];
+            }
         }];
     }else{
         [self.savePanel beginWithCompletionHandler:^(NSModalResponse result) {
             NSLog(@"save -- %@",weakSelf.savePanel.URL);
         }];
     }
-    
-//    [self resizeImageWithSize:NSZeroSize];
 }
 
 - (IBAction)cancelAction:(id)sender
@@ -147,27 +151,69 @@ typedef enum : NSInteger {
     return _openPanel;
 }
 
-
-- (NSImage *)resizeImageWithSize:(NSSize)size
+- (void)appIconExport
 {
-   NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
-   const void *imageData = [data bytes];
-
-   NSArray *arguments = [[NSProcessInfo processInfo] arguments];
-   Magick::InitializeMagick([arguments[1] cStringUsingEncoding:NSASCIIStringEncoding]);
-
-   MagickCore::Image *imageInfo = MagickCore::BlobToImage(MagickCore::AcquireImageInfo(), imageData, data.length, MagickCore::AcquireExceptionInfo());
-
-   MagickCore::Image *outPutimageInfo = MagickCore::AutoOrientImage(imageInfo, MagickCore::LeftBottomOrientation, MagickCore::AcquireExceptionInfo());
-
-   size_t outputSize;
-   const void *outputData = MagickCore::ImageToBlob(MagickCore::AcquireImageInfo(), outPutimageInfo, &outputSize, MagickCore::AcquireExceptionInfo());
-
-   NSData *resData = [[NSData alloc] initWithBytes:outputData length:outputSize];
-
-   [resData writeToFile:@"/Users/jason/Desktop/magic/res" atomically:YES];
+    NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
+    const void *imageData = [data bytes];
     
-    return nil;
+    MagickCore::Image *imageInfo = MagickCore::BlobToImage(MagickCore::AcquireImageInfo(), imageData, data.length, MagickCore::AcquireExceptionInfo());
+    
+    for (NSNumber *size in self.iconsSize) {
+        int intValue = [size intValue];
+        [self resizeImageWithWidth:intValue height:intValue image:imageInfo name:[NSString stringWithFormat:@"%dx%d.png",intValue,intValue]];
+    }
+    NSLog(@"finish");
+    
+    MagickCore::DestroyImage(imageInfo);
+}
+
+
+
+- (void)resizeImageWithWidth:(size_t)width height:(size_t)height image:(MagickCore::Image *)imageInfo name:(NSString *)nameStr
+{
+    MagickCore::Image *outPutimageInfo = MagickCore::ResizeImage(imageInfo, width, height, MagickCore::UndefinedFilter, MagickCore::AcquireExceptionInfo());
+    
+    NSString *outputPath = [[self.openPanel directoryURL] relativePath];
+    [self outputData:outPutimageInfo withUrl:[outputPath stringByAppendingPathComponent:nameStr]];
+    
+    MagickCore::DestroyImage(outPutimageInfo);
+}
+
+
+- (NSSize)imageSize
+{
+    NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
+    const void *imageData = [data bytes];
+    MagickCore::ImageInfo *info = MagickCore::AcquireImageInfo();
+    
+    MagickCore::Image *imageInfo = MagickCore::BlobToImage(info, imageData, data.length, MagickCore::AcquireExceptionInfo());
+    
+    NSLog(@"imageInfo -- %zu,%zu",imageInfo->columns,imageInfo->rows);
+    
+    MagickCore::Image *outPutimageInfo = MagickCore::ResizeImage(imageInfo, 20, 20, MagickCore::UndefinedFilter, MagickCore::AcquireExceptionInfo());
+    
+    [self outputData:outPutimageInfo withUrl:@"/Users/jason/Desktop/magic/resxxx"];
+    
+    return NSZeroSize;
+}
+
+- (void)outputData:(MagickCore::Image *)imageInfo withUrl:(NSString *)urlStr
+{
+    NSLog(@"output url -- %@",urlStr);
+    size_t outputSize;
+    const void *outputData = MagickCore::ImageToBlob(MagickCore::AcquireImageInfo(), imageInfo, &outputSize, MagickCore::AcquireExceptionInfo());
+    
+    NSData *resData = [[NSData alloc] initWithBytes:outputData length:outputSize];
+    
+    [resData writeToFile:urlStr atomically:YES];
+}
+
+- (NSArray *)iconsSize
+{
+    if (!_iconsSize) {
+        _iconsSize = @[@(1024),@(180),@(120),@(80),@(60),@(58),@(40),@(20)];
+    }
+    return _iconsSize;
 }
 
 @end
