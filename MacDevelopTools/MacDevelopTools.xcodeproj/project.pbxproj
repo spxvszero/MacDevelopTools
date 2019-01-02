@@ -30,6 +30,8 @@
 		962FCB3721D75A3B00D79971 /* JKImageInfoViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB3621D75A3B00D79971 /* JKImageInfoViewController.mm */; };
 		962FCB3921D75A4600D79971 /* ImageInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962FCB3821D75A4600D79971 /* ImageInfo.storyboard */; };
 		962FCB3C21D7628C00D79971 /* JKImageInfoInspectorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB3B21D7628C00D79971 /* JKImageInfoInspectorViewController.mm */; };
+		962FCB4521DC53D700D79971 /* JKImageInfoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB4421DC53D700D79971 /* JKImageInfoCellView.m */; };
+		962FCB4821DC8AA600D79971 /* JKInfoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB4721DC8AA600D79971 /* JKInfoImageView.m */; };
 		966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F621C23CB9005463F8 /* TestObjectClass.m */; };
 		966289FA21C26CFA005463F8 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F921C26CFA005463F8 /* WindowController.m */; };
 		966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */; };
@@ -321,6 +323,10 @@
 		962FCB3821D75A4600D79971 /* ImageInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageInfo.storyboard; sourceTree = "<group>"; };
 		962FCB3A21D7628C00D79971 /* JKImageInfoInspectorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKImageInfoInspectorViewController.h; sourceTree = "<group>"; };
 		962FCB3B21D7628C00D79971 /* JKImageInfoInspectorViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JKImageInfoInspectorViewController.mm; sourceTree = "<group>"; };
+		962FCB4321DC53D700D79971 /* JKImageInfoCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKImageInfoCellView.h; sourceTree = "<group>"; };
+		962FCB4421DC53D700D79971 /* JKImageInfoCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKImageInfoCellView.m; sourceTree = "<group>"; };
+		962FCB4621DC8AA600D79971 /* JKInfoImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKInfoImageView.h; sourceTree = "<group>"; };
+		962FCB4721DC8AA600D79971 /* JKInfoImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKInfoImageView.m; sourceTree = "<group>"; };
 		966289F521C23CB9005463F8 /* TestObjectClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObjectClass.h; sourceTree = "<group>"; };
 		966289F621C23CB9005463F8 /* TestObjectClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjectClass.m; sourceTree = "<group>"; };
 		966289F821C26CFA005463F8 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
@@ -758,6 +764,10 @@
 				962FCB3621D75A3B00D79971 /* JKImageInfoViewController.mm */,
 				962FCB3A21D7628C00D79971 /* JKImageInfoInspectorViewController.h */,
 				962FCB3B21D7628C00D79971 /* JKImageInfoInspectorViewController.mm */,
+				962FCB4321DC53D700D79971 /* JKImageInfoCellView.h */,
+				962FCB4421DC53D700D79971 /* JKImageInfoCellView.m */,
+				962FCB4621DC8AA600D79971 /* JKInfoImageView.h */,
+				962FCB4721DC8AA600D79971 /* JKInfoImageView.m */,
 				962FCB3821D75A4600D79971 /* ImageInfo.storyboard */,
 			);
 			path = ImageInfo;
@@ -1078,11 +1088,13 @@
 				96A9A15B21CB2FB800F21813 /* JKJSONModelObjectiveC.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
 				96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */,
+				962FCB4521DC53D700D79971 /* JKImageInfoCellView.m in Sources */,
 				96C335E721C10A0000C9374E /* ioSock.c in Sources */,
 				96628A1321C3C704005463F8 /* JKEncodingViewController.m in Sources */,
 				96C335F121C10A1D00C9374E /* PushViewController.m in Sources */,
 				96A9A16B21CCB80000F21813 /* JKMoveFileViewController.m in Sources */,
 				962FCB3321D7081C00D79971 /* JKBaseViewController.mm in Sources */,
+				962FCB4821DC8AA600D79971 /* JKInfoImageView.m in Sources */,
 				96C335EE21C10A0700C9374E /* TextFieldDrag.m in Sources */,
 				96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */,
 				962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */,

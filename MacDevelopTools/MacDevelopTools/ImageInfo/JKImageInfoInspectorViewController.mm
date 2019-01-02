@@ -7,12 +7,32 @@
 //
 
 #import "JKImageInfoInspectorViewController.h"
+#import "JKImageInfoCellView.h"
+
+@interface JKKeyItemObject : NSObject
+
+@property (nonatomic, strong) NSString *key;
+@property (nonatomic, strong) id value;
+
++ (instancetype)itemWithKey:(NSString *)key value:(id)value;
+
+@end
+@implementation JKKeyItemObject
++ (instancetype)itemWithKey:(NSString *)key value:(id)value
+{
+    JKKeyItemObject *obj = [[JKKeyItemObject alloc] init];
+    obj.key = key;
+    obj.value = value;
+    return obj;
+}
+@end
+
 
 @interface JKImageInfoInspectorViewController ()<NSOutlineViewDelegate,NSOutlineViewDataSource>
 
 @property (weak) IBOutlet NSOutlineView *outlineView;
 
-@property (nonatomic, strong) NSDictionary *dic;
+@property (nonatomic, strong) NSMutableDictionary *keysFromDic;
 
 @end
 
@@ -21,80 +41,101 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.dic = @{@"root":@{@"child":@"1",@"child":@"2",@"child":@"3",@"child":@"4"},@"root2":@"???"};
+
+    self.outlineView.delegate = self;
+    self.outlineView.dataSource = self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.outlineView.delegate = self;
-    self.outlineView.dataSource = self;
     
-    
+    self.keysFromDic = [NSMutableDictionary dictionary];
     
 }
 
 - (void)reloadData
 {
+    [self.keysFromDic removeAllObjects];
     [self.outlineView reloadData];
 }
 
 
-/* NOTE: it is not acceptable to call reloadData or reloadItem from the implementation of any of the following four methods, and doing so can cause corruption in NSOutlineViews internal structures.
- */
-
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(nullable id)item
 {
     if (item) {
-        if ([item isKindOfClass:[NSDictionary class]]) {
-            return [[(NSDictionary *)item allKeys] count];
+        if ([item isKindOfClass:[JKKeyItemObject class]] && [[(JKKeyItemObject *)item value] isKindOfClass:[NSDictionary class]]) {
+            NSString *key = [NSString stringWithFormat:@"%p",[(JKKeyItemObject *)item value]];
+            if ([self.keysFromDic objectForKey:key]) {
+                return [[self.keysFromDic objectForKey:key] count];
+            }else{
+                NSArray *allkeys = [[(JKKeyItemObject *)item value] allKeys];
+                [self.keysFromDic setObject:allkeys forKey:key];
+                return [allkeys count];
+            }
         }else{
             return 0;
         }
     }else{
-        return [[self.dic allKeys] count];
+        if (self.dic) {
+            NSString *key = [NSString stringWithFormat:@"%p",self.dic];
+            if ([self.keysFromDic objectForKey:key]) {
+                return [[self.keysFromDic objectForKey:key] count];
+            }else{
+                NSArray *allkeys = [self.dic allKeys];
+                [self.keysFromDic setObject:allkeys forKey:key];
+                return [allkeys count];
+            }
+        }else{
+            return 0;
+        }
     }
 }
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(nullable id)item
 {
-    if ([item isKindOfClass:[NSDictionary class]]) {
-        NSString *key = [[item allKeys] objectAtIndex:index];
-        return [(NSDictionary *)item objectForKey:key];
+    if ([item isKindOfClass:[JKKeyItemObject class]] && [[(JKKeyItemObject *)item value] isKindOfClass:[NSDictionary class]]) {
+        NSString *arrayKey = [NSString stringWithFormat:@"%p",[(JKKeyItemObject *)item value]];
+        NSString *key = [[self.keysFromDic objectForKey:arrayKey] objectAtIndex:index];
+        id obj = [(NSDictionary *)[(JKKeyItemObject *)item value] objectForKey:key];
+        return [JKKeyItemObject itemWithKey:key value:obj];
     }else{
-        NSString *key = [[self.dic allKeys] objectAtIndex:index];
-        return [self.dic objectForKey:key];
+        NSString *arrayKey = [NSString stringWithFormat:@"%p",self.dic];
+        NSString *key = [[self.keysFromDic objectForKey:arrayKey] objectAtIndex:index];
+        id obj = [self.dic objectForKey:key];
+        return [JKKeyItemObject itemWithKey:key value:obj];
     }
 }
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
-    if ([item isKindOfClass:[NSDictionary class]]) {
-        return YES;
-    }else{
-        return NO;
+    if ([item isKindOfClass:[JKKeyItemObject class]]) {
+        JKKeyItemObject *itemObj = (JKKeyItemObject *)item;
+        if ([itemObj.value isKindOfClass:[NSDictionary class]] && [[itemObj.value allKeys] count] > 0) {
+            return YES;
+        }
     }
+    return NO;
 }
 
-/* NOTE: this method is optional for the View Based OutlineView.
- */
-- (nullable id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(nullable NSTableColumn *)tableColumn byItem:(nullable id)item
+- (NSView *)outlineView:(NSOutlineView *)outlineView viewForTableColumn:(NSTableColumn *)tableColumn item:(JKKeyItemObject *)item
 {
-    NSTableCellView *reuseView = [outlineView makeViewWithIdentifier:tableColumn.identifier owner:self];
-
+    JKImageInfoCellView *reuseView = [outlineView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    
     if ([tableColumn.identifier isEqualToString:@"Key"]) {
-        reuseView.textField.stringValue = @"key";
+        reuseView.textField.stringValue = item.key?:@"No Key";
     }else{
-        reuseView.textField.stringValue = @"value";
+        if ([item.value isKindOfClass:[NSDictionary class]]) {
+            reuseView.textField.stringValue = @"Dictionary";
+        }else{
+            reuseView.textField.stringValue = item.value?[NSString stringWithFormat:@"%@",item.value]:@"Null";
+        }
     }
     
     [reuseView.textField sizeToFit];
     
-//    NSTextField *tf = [[NSTextField alloc] init];
-//    tf.editable = NO;
-//    tf.stringValue = @"asdfffff";
-//    tf.textColor = [NSColor blackColor];
-    
     return reuseView;
 }
+
+
 
 
 @end

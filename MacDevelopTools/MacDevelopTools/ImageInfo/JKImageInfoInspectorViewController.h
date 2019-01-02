@@ -10,6 +10,8 @@
 
 @interface JKImageInfoInspectorViewController : NSViewController
 
+@property (nonatomic, strong) NSDictionary *dic;
+
 - (void)reloadData;
 
 @end
