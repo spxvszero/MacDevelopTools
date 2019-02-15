@@ -10,6 +10,7 @@
 #import "JKImageInfoInspectorViewController.h"
 #import "JKInfoImageView.h"
 #import "Magick++.h"
+#import "ImageInfoHelper.hpp"
 
 @interface JKImageInfoViewController ()
 
@@ -58,17 +59,18 @@
     NSMutableDictionary *resDic = [NSMutableDictionary dictionary];
     
 //    ClassType storage_class;
-    [resDic setObject:@(imageInfo->storage_class) forKey:@"ClassType"];
+    
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKClassType[imageInfo->storage_class]] forKey:@"ClassType"];
 //    ColorspaceType colorspace;         /* colorspace of image data */
-    [resDic setObject:@(imageInfo->colorspace) forKey:@"ColorspaceType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKColorspaceType[imageInfo->colorspace]] forKey:@"ColorspaceType"];
 //    CompressionType compression;        /* compression of image when read/write */
-    [resDic setObject:@(imageInfo->compression) forKey:@"CompressionType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKCompressionType[imageInfo->compression]] forKey:@"CompressionType"];
 //    size_t quality;            /* compression quality setting, meaning varies */
     [resDic setObject:@(imageInfo->quality) forKey:@"Quality"];
 //    OrientationType orientation;        /* photo orientation of image */
-    [resDic setObject:@(imageInfo->orientation) forKey:@"OrientationType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKCompressionType[imageInfo->orientation]] forKey:@"OrientationType"];
 //    MagickBooleanType taint;              /* has image been modified since reading */
-    [resDic setObject:@(imageInfo->taint) forKey:@"Taint"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->taint]] forKey:@"Taint"];
     
     //    size_t
     //    columns,            /* physical size of image */
@@ -100,14 +102,14 @@
 //    imageInfo->chromaticity;
     
 //    RenderingIntent rendering_intent;
-    [resDic setObject:@(imageInfo->rendering_intent) forKey:@"RenderingIntent"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKRenderingIntent[imageInfo->rendering_intent]] forKey:@"RenderingIntent"];
     
 //    void *profiles;
 #warning not finish
 //    imageInfo->profiles;
     
 //    ResolutionType units;          /* resolution/density  ppi or ppc */
-    [resDic setObject:@(imageInfo->units) forKey:@"ResolutionType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKRenderingIntent[imageInfo->units]] forKey:@"ResolutionType"];
     
 //    char *montage,
     //    *directory,
@@ -136,29 +138,29 @@
     
     //    FilterType
     //    filter;         /* resize/distort filter to apply */
-    [resDic setObject:@(imageInfo->filter) forKey:@"filter"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKFilterType[imageInfo->filter]] forKey:@"filter"];
     
     
     //    PixelIntensityMethod intensity;      /* method to generate an intensity value from a pixel */
-    [resDic setObject:@(imageInfo->intensity) forKey:@"PixelIntensity"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKPixelIntensityMethod[imageInfo->intensity]] forKey:@"PixelIntensity"];
     
 //    InterlaceType    interlace;
-    [resDic setObject:@(imageInfo->interlace) forKey:@"InterlaceType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKInterlaceType[imageInfo->interlace]] forKey:@"InterlaceType"];
     
     //    EndianType
     //    endian;         /* raw data integer ordering on read/write */
-    [resDic setObject:@(imageInfo->endian) forKey:@"EndianType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKEndianType[imageInfo->endian]] forKey:@"EndianType"];
     
     //    GravityType   gravity;        /* Gravity attribute for positioning in image */
-    [resDic setObject:@(imageInfo->gravity) forKey:@"GravityType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKGravityType[imageInfo->gravity + 1]] forKey:@"GravityType"];
     
     //    CompositeOperator
     //    compose;        /* alpha composition method for layered images */
-    [resDic setObject:@(imageInfo->compose) forKey:@"CompositeOperator"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKCompositeOperator[imageInfo->compose]] forKey:@"CompositeOperator"];
     
     //    DisposeType
     //    dispose;        /* GIF animation disposal method */
-    [resDic setObject:@(imageInfo->dispose) forKey:@"DisposeType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKDisposeType[imageInfo->dispose + 1]] forKey:@"DisposeType"];
     
     //    size_t
     //    scene,          /* index of image in multi-image file */
@@ -184,11 +186,11 @@
     
     //    PixelInterpolateMethod
     //    interpolate;       /* Interpolation of color for between pixel lookups */
-    [resDic setObject:@(imageInfo->interpolate) forKey:@"PixelInterpolate"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKPixelInterpolateMethod[imageInfo->interpolate]] forKey:@"PixelInterpolate"];
     
     //    MagickBooleanType
     //    black_point_compensation;
-    [resDic setObject:@(imageInfo->black_point_compensation) forKey:@"PixelInterpolate"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->black_point_compensation]] forKey:@"PixelInterpolate"];
     
     //    RectangleInfo
     //    tile_offset;
@@ -197,11 +199,11 @@
     
     //    ImageType
     //    type;
-    [resDic setObject:@(imageInfo->type) forKey:@"ImageType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKImageType[imageInfo->type]]  forKey:@"ImageType"];
     
     //    MagickBooleanType
     //    dither;            /* dithering on/off */
-    [resDic setObject:@(imageInfo->dither) forKey:@"dither"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->dither]] forKey:@"dither"];
     
     //    MagickSizeType
     //    extent;            /* Size of image read from disk */
@@ -209,13 +211,13 @@
     
     //    MagickBooleanType
     //    ping;              /* no image data read, just attributes */
-    [resDic setObject:@(imageInfo->ping) forKey:@"ping"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->ping]] forKey:@"ping"];
     
     //    MagickBooleanType
     //    read_mask,
     //    write_mask;
-    [resDic setObject:@(imageInfo->read_mask) forKey:@"read_mask"];
-    [resDic setObject:@(imageInfo->write_mask) forKey:@"write_mask"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->read_mask]] forKey:@"read_mask"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->write_mask]] forKey:@"write_mask"];
     
     //    PixelTrait
     //    alpha_trait;       /* is transparency channel defined and active */
@@ -296,7 +298,7 @@
     
     //    MagickBooleanType
     //    debug;             /* debug output attribute */
-    [resDic setObject:@(imageInfo->debug) forKey:@"debug"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->debug]] forKey:@"debug"];
     
     //    volatile ssize_t
     //    reference_count;   /* image data sharing memory management */
@@ -328,7 +330,7 @@
     
     //    MagickBooleanType
     //    composite_mask;
-    [resDic setObject:@(imageInfo->composite_mask) forKey:@"composite_mask"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->composite_mask]] forKey:@"composite_mask"];
     
     
     //    PixelTrait
