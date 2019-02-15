@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Jx7-C1-MK8">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auto Pack View Controller-->
+        <scene sceneID="Rke-5c-gti">
+            <objects>
+                <viewController storyboardIdentifier="JKAutoPackViewController" id="Jx7-C1-MK8" customClass="JKAutoPackViewController" sceneMemberID="viewController">
+                    <view key="view" id="CIH-Hj-Ewv">
+                        <rect key="frame" x="0.0" y="0.0" width="305" height="213"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <box boxType="custom" borderType="none" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="hKK-Ec-Ygc">
+                                <rect key="frame" x="10" y="177" width="142" height="26"/>
+                                <view key="contentView" id="vz1-v7-GpR">
+                                    <rect key="frame" x="0.0" y="0.0" width="142" height="26"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mDg-2e-f3B">
+                                            <rect key="frame" x="-1" y="9" width="41" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="ipa" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dyO-lc-yhN">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="packTypeAction:" target="Jx7-C1-MK8" id="DvI-I1-HwX"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mVM-SY-Er7">
+                                            <rect key="frame" x="47" y="9" width="87" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="framework" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="9LD-0r-TzZ">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="packTypeAction:" target="Jx7-C1-MK8" id="F58-vs-Xcc"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="mDg-2e-f3B" firstAttribute="top" secondItem="vz1-v7-GpR" secondAttribute="top" id="BIl-S1-TKJ"/>
+                                        <constraint firstItem="mVM-SY-Er7" firstAttribute="leading" secondItem="mDg-2e-f3B" secondAttribute="trailing" constant="10" id="L6U-Lh-3JC"/>
+                                        <constraint firstItem="mVM-SY-Er7" firstAttribute="centerY" secondItem="mDg-2e-f3B" secondAttribute="centerY" id="WHk-h2-XVm"/>
+                                        <constraint firstAttribute="trailing" secondItem="mVM-SY-Er7" secondAttribute="trailing" constant="10" id="crS-zT-ttP"/>
+                                        <constraint firstAttribute="bottom" secondItem="mDg-2e-f3B" secondAttribute="bottom" constant="10" id="yXq-3f-PAu"/>
+                                        <constraint firstItem="mDg-2e-f3B" firstAttribute="leading" secondItem="vz1-v7-GpR" secondAttribute="leading" id="znD-eN-Upp"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                            <box boxType="custom" borderType="none" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Chn-le-RiR">
+                                <rect key="frame" x="10" y="151" width="146" height="26"/>
+                                <view key="contentView" id="8sd-HE-n3x">
+                                    <rect key="frame" x="0.0" y="0.0" width="146" height="26"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ui8-9f-VdY">
+                                            <rect key="frame" x="-1" y="9" width="62" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Debug" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="aEn-zs-SSy">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="complieTypeAction:" target="Jx7-C1-MK8" id="qKQ-Q9-uHm"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vs9-5x-Acs">
+                                            <rect key="frame" x="68" y="9" width="70" height="18"/>
+                                            <buttonCell key="cell" type="radio" title="Release" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Snd-fW-X0C">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="complieTypeAction:" target="Jx7-C1-MK8" id="P6J-4j-hOK"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Vs9-5x-Acs" firstAttribute="centerY" secondItem="Ui8-9f-VdY" secondAttribute="centerY" id="6gH-rK-DuY"/>
+                                        <constraint firstItem="Ui8-9f-VdY" firstAttribute="top" secondItem="8sd-HE-n3x" secondAttribute="top" id="K6x-tY-GEe"/>
+                                        <constraint firstItem="Vs9-5x-Acs" firstAttribute="leading" secondItem="Ui8-9f-VdY" secondAttribute="trailing" constant="10" id="Ms8-on-vDo"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ui8-9f-VdY" secondAttribute="bottom" constant="10" id="dSQ-Vp-QWf"/>
+                                        <constraint firstItem="Ui8-9f-VdY" firstAttribute="leading" secondItem="8sd-HE-n3x" secondAttribute="leading" id="scJ-Fy-qj0"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vs9-5x-Acs" secondAttribute="trailing" constant="10" id="tiq-db-pxn"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE1-RP-Ml8">
+                                <rect key="frame" x="10" y="119" width="200" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="J9B-VO-nDp"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Project Directory" drawsBackground="YES" id="qKD-gK-EIF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nbT-Ix-jyC">
+                                <rect key="frame" x="214" y="113" width="87" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="Jsb-fa-5Fy"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6gA-Tl-0bp">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="projectDirSelectAction:" target="Jx7-C1-MK8" id="oJ4-VM-3P2"/>
+                                </connections>
+                            </button>
+                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v6O-yX-Bpj">
+                                <rect key="frame" x="10" y="85" width="163" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="9Vb-AX-n0V"/>
+                                </constraints>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Select Scheme Target" drawsBackground="YES" completes="NO" numberOfVisibleItems="3" id="ETO-Of-ySi">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </comboBoxCell>
+                            </comboBox>
+                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNI-v3-5QV">
+                                <rect key="frame" x="10" y="57" width="200" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="yGm-rm-Eqj"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="ipa ExportOptions.plist" drawsBackground="YES" id="t6o-xj-ZXI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BZp-CJ-MPg">
+                                <rect key="frame" x="230" y="3" width="71" height="32"/>
+                                <buttonCell key="cell" type="push" title="Build" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mhs-wy-KSa">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="buildAction:" target="Jx7-C1-MK8" id="pJ4-CA-ZK8"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k15-jM-CHL">
+                                <rect key="frame" x="214" y="50" width="87" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="ShC-4d-Lon"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Choose" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NcG-VO-jH6">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="optionsPlistSelectAction:" target="Jx7-C1-MK8" id="yjt-X0-veD"/>
+                                </connections>
+                            </button>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="TgN-6d-Jzy">
+                                <rect key="frame" x="210" y="13" width="16" height="16"/>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BZp-CJ-MPg" secondAttribute="trailing" constant="10" id="1gh-1C-M1Y"/>
+                            <constraint firstItem="RE1-RP-Ml8" firstAttribute="top" secondItem="Chn-le-RiR" secondAttribute="bottom" constant="10" id="5D9-jX-Fd9"/>
+                            <constraint firstItem="k15-jM-CHL" firstAttribute="centerY" secondItem="YNI-v3-5QV" secondAttribute="centerY" id="7Vv-Ca-Jql"/>
+                            <constraint firstItem="hKK-Ec-Ygc" firstAttribute="top" secondItem="CIH-Hj-Ewv" secondAttribute="top" constant="10" id="8po-B3-AWh"/>
+                            <constraint firstItem="nbT-Ix-jyC" firstAttribute="leading" secondItem="RE1-RP-Ml8" secondAttribute="trailing" constant="10" id="9LF-fw-Zfp"/>
+                            <constraint firstItem="YNI-v3-5QV" firstAttribute="leading" secondItem="CIH-Hj-Ewv" secondAttribute="leading" constant="10" id="Die-Ua-aA6"/>
+                            <constraint firstAttribute="trailing" secondItem="nbT-Ix-jyC" secondAttribute="trailing" constant="10" id="F1p-gm-Zqa"/>
+                            <constraint firstItem="TgN-6d-Jzy" firstAttribute="centerY" secondItem="BZp-CJ-MPg" secondAttribute="centerY" id="G4W-Dh-AIF"/>
+                            <constraint firstItem="Chn-le-RiR" firstAttribute="leading" secondItem="CIH-Hj-Ewv" secondAttribute="leading" constant="10" id="InF-J9-wIz"/>
+                            <constraint firstItem="Chn-le-RiR" firstAttribute="top" secondItem="hKK-Ec-Ygc" secondAttribute="bottom" id="LPH-lo-5dA"/>
+                            <constraint firstItem="k15-jM-CHL" firstAttribute="leading" secondItem="YNI-v3-5QV" secondAttribute="trailing" constant="10" id="MGg-g8-FaD"/>
+                            <constraint firstItem="YNI-v3-5QV" firstAttribute="top" secondItem="v6O-yX-Bpj" secondAttribute="bottom" constant="10" id="T08-an-MSp"/>
+                            <constraint firstItem="v6O-yX-Bpj" firstAttribute="top" secondItem="RE1-RP-Ml8" secondAttribute="bottom" constant="10" id="ZeD-ee-Wx5"/>
+                            <constraint firstAttribute="bottom" secondItem="BZp-CJ-MPg" secondAttribute="bottom" constant="10" id="ebE-tY-L7Y"/>
+                            <constraint firstItem="hKK-Ec-Ygc" firstAttribute="leading" secondItem="CIH-Hj-Ewv" secondAttribute="leading" constant="10" id="hYb-Dm-art"/>
+                            <constraint firstItem="v6O-yX-Bpj" firstAttribute="leading" secondItem="CIH-Hj-Ewv" secondAttribute="leading" constant="10" id="k4i-D9-j6x"/>
+                            <constraint firstItem="BZp-CJ-MPg" firstAttribute="leading" secondItem="TgN-6d-Jzy" secondAttribute="trailing" constant="10" id="kqE-Dv-zAx"/>
+                            <constraint firstItem="RE1-RP-Ml8" firstAttribute="leading" secondItem="CIH-Hj-Ewv" secondAttribute="leading" constant="10" id="ptv-Nm-1vQ"/>
+                            <constraint firstItem="nbT-Ix-jyC" firstAttribute="centerY" secondItem="RE1-RP-Ml8" secondAttribute="centerY" id="y3U-HF-Pvh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buildBtn" destination="BZp-CJ-MPg" id="6yx-fl-08N"/>
+                        <outlet property="debugBtn" destination="Ui8-9f-VdY" id="jP5-dQ-Y0C"/>
+                        <outlet property="frameworkBtn" destination="mVM-SY-Er7" id="ggQ-pk-114"/>
+                        <outlet property="ipaBtn" destination="mDg-2e-f3B" id="sa9-nj-A6S"/>
+                        <outlet property="optionsPlistChooseBtn" destination="k15-jM-CHL" id="Bat-JK-qfk"/>
+                        <outlet property="optionsPlistTextField" destination="YNI-v3-5QV" id="2uZ-XR-pSR"/>
+                        <outlet property="progressIcon" destination="TgN-6d-Jzy" id="0WE-PU-bMM"/>
+                        <outlet property="projectDirTextField" destination="RE1-RP-Ml8" id="LGz-6b-hfQ"/>
+                        <outlet property="releaseBtn" destination="Vs9-5x-Acs" id="i1Y-ob-qiR"/>
+                        <outlet property="schemeTargetBox" destination="v6O-yX-Bpj" id="lhx-qj-woW"/>
+                        <outlet property="selectDirBtn" destination="nbT-Ix-jyC" id="HLN-S2-pa6"/>
+                    </connections>
+                </viewController>
+                <customObject id="gUh-b0-mbd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22.5" y="243.5"/>
+        </scene>
+    </scenes>
+</document>

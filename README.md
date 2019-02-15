@@ -15,6 +15,7 @@ A Mac application for useful tools, build it just for learning :)
 * Move Files
 * StatusIcon(not implenment)
 * ImageInfo
+* AutoPack(iOS)
 
 
 

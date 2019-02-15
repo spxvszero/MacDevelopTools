@@ -17,6 +17,7 @@
 #import "JKMoveFileViewController.h"
 #import "JKStatusIconManagerViewController.h"
 #import "JKImageInfoViewController.h"
+#import "JKAutoPackViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -171,6 +172,11 @@
         return vc;
     }
     
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKAutoPackViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"AutoPack" bundle:nil];
+        NSViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
     
     return nil;
 }
@@ -189,6 +195,7 @@
                               [JKMoveFileViewController class],
                               [JKStatusIconManagerViewController class],
                               [JKImageInfoViewController class],
+                              [JKAutoPackViewController class],
                               nil];
     }
     return _viewControllerArr;
@@ -205,6 +212,7 @@
                        @"Move File",
                        @"Status Icon Manager",
                        @"Image Info",
+                       @"Auto Pack",
                        nil];
     }
     return _toolTipArr;

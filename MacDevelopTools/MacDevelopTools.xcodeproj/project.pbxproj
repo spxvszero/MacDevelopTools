@@ -44,6 +44,9 @@
 		96628A0E21C3B590005463F8 /* JKWallPaperImagePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96628A0D21C3B590005463F8 /* JKWallPaperImagePanelController.m */; };
 		96628A1321C3C704005463F8 /* JKEncodingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96628A1121C3C704005463F8 /* JKEncodingViewController.m */; };
 		96628A1621C3C714005463F8 /* Encoding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96628A1521C3C714005463F8 /* Encoding.storyboard */; };
+		966BD2F32216681A008AA4D5 /* JKAutoPackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966BD2F22216681A008AA4D5 /* JKAutoPackViewController.m */; };
+		966BD2F522166991008AA4D5 /* AutoPack.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966BD2F422166991008AA4D5 /* AutoPack.storyboard */; };
+		966BD2F722166B3D008AA4D5 /* projectPackage.sh in Resources */ = {isa = PBXBuildFile; fileRef = 966BD2F622166B3D008AA4D5 /* projectPackage.sh */; };
 		96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A14E21C8FC0C00F21813 /* NSButton+JKRightAction.m */; };
 		96A9A15621CA57F600F21813 /* JKJSONModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A15521CA57F600F21813 /* JKJSONModelViewController.m */; };
 		96A9A15821CA582400F21813 /* JSONModel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9A15721CA582400F21813 /* JSONModel.storyboard */; };
@@ -349,6 +352,10 @@
 		96628A1021C3C704005463F8 /* JKEncodingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKEncodingViewController.h; sourceTree = "<group>"; };
 		96628A1121C3C704005463F8 /* JKEncodingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKEncodingViewController.m; sourceTree = "<group>"; };
 		96628A1521C3C714005463F8 /* Encoding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Encoding.storyboard; sourceTree = "<group>"; };
+		966BD2F12216681A008AA4D5 /* JKAutoPackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKAutoPackViewController.h; sourceTree = "<group>"; };
+		966BD2F22216681A008AA4D5 /* JKAutoPackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKAutoPackViewController.m; sourceTree = "<group>"; };
+		966BD2F422166991008AA4D5 /* AutoPack.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AutoPack.storyboard; sourceTree = "<group>"; };
+		966BD2F622166B3D008AA4D5 /* projectPackage.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = projectPackage.sh; sourceTree = "<group>"; };
 		96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSButton+JKRightAction.h"; sourceTree = "<group>"; };
 		96A9A14E21C8FC0C00F21813 /* NSButton+JKRightAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSButton+JKRightAction.m"; sourceTree = "<group>"; };
 		96A9A15421CA57F600F21813 /* JKJSONModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONModelViewController.h; sourceTree = "<group>"; };
@@ -806,6 +813,17 @@
 			path = Encoding;
 			sourceTree = "<group>";
 		};
+		966BD2F0221667E7008AA4D5 /* AutoPack */ = {
+			isa = PBXGroup;
+			children = (
+				966BD2F622166B3D008AA4D5 /* projectPackage.sh */,
+				966BD2F12216681A008AA4D5 /* JKAutoPackViewController.h */,
+				966BD2F22216681A008AA4D5 /* JKAutoPackViewController.m */,
+				966BD2F422166991008AA4D5 /* AutoPack.storyboard */,
+			);
+			path = AutoPack;
+			sourceTree = "<group>";
+		};
 		96A9A15321CA57D500F21813 /* JSONToModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,6 +927,7 @@
 				96628A0F21C3BF14005463F8 /* Encoding */,
 				96628A0321C38491005463F8 /* WallPaper */,
 				96C335DB21C1095B00C9374E /* SmartPush */,
+				966BD2F0221667E7008AA4D5 /* AutoPack */,
 				96C335C021C0A8E100C9374E /* AppDelegate.h */,
 				96C335C121C0A8E100C9374E /* AppDelegate.m */,
 				96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */,
@@ -1062,11 +1081,13 @@
 				96C335C721C0A8E400C9374E /* Assets.xcassets in Resources */,
 				96C335CA21C0A8E400C9374E /* Main.storyboard in Resources */,
 				96A9A16421CB9BC500F21813 /* ResizeImage.storyboard in Resources */,
+				966BD2F722166B3D008AA4D5 /* projectPackage.sh in Resources */,
 				962FCB2A21D207C100D79971 /* StatusIcon.storyboard in Resources */,
 				96A9A16D21CCB80D00F21813 /* MoveFile.storyboard in Resources */,
 				96C335D721C0E07700C9374E /* MainMenu.xib in Resources */,
 				962FCB3921D75A4600D79971 /* ImageInfo.storyboard in Resources */,
 				96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */,
+				966BD2F522166991008AA4D5 /* AutoPack.storyboard in Resources */,
 				96C335F321C10A2F00C9374E /* SmartPush.storyboard in Resources */,
 				96A9A15821CA582400F21813 /* JSONModel.storyboard in Resources */,
 				96628A0821C384D6005463F8 /* WallPaper.storyboard in Resources */,
@@ -1101,6 +1122,7 @@
 				96A9A16B21CCB80000F21813 /* JKMoveFileViewController.m in Sources */,
 				962FCB3321D7081C00D79971 /* JKBaseViewController.mm in Sources */,
 				962FCB4821DC8AA600D79971 /* JKInfoImageView.m in Sources */,
+				966BD2F32216681A008AA4D5 /* JKAutoPackViewController.m in Sources */,
 				96C335EE21C10A0700C9374E /* TextFieldDrag.m in Sources */,
 				96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */,
 				962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */,

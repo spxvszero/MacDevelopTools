@@ -172,8 +172,8 @@ typedef enum : NSInteger {
 - (void)resizeImageWithWidth:(size_t)width height:(size_t)height image:(MagickCore::Image *)imageInfo name:(NSString *)nameStr
 {
     MagickCore::Image *outPutimageInfo = MagickCore::ResizeImage(imageInfo, width, height, MagickCore::UndefinedFilter, MagickCore::AcquireExceptionInfo());
-    MagickCore::ConvertImageCommand(outPutimageInfo, 2, {"",""}, NULL, MagickCore::AcquireExceptionInfo());
-    MagickCore::ImageInfo
+//    MagickCore::ConvertImageCommand(outPutimageInfo, 2, {"",""}, NULL, MagickCore::AcquireExceptionInfo());
+//    MagickCore::ImageInfo
     
     NSString *outputPath = [[self.openPanel directoryURL] relativePath];
     [self outputData:outPutimageInfo withUrl:[outputPath stringByAppendingPathComponent:nameStr]];
