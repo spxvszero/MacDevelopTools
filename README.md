@@ -16,6 +16,7 @@ A Mac application for useful tools, build it just for learning :)
 * StatusIcon(not implenment)
 * ImageInfo
 * AutoPack(iOS)
+* QRCode
 
 
 

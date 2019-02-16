@@ -25,6 +25,11 @@
     }
 }
 
+- (void)setImageWithNoBlock:(NSImage *)image
+{
+    [super setImage:image];
+}
+
 - (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender
 {
     NSError *err;

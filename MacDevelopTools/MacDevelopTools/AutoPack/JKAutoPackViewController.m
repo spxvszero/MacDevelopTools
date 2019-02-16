@@ -31,11 +31,23 @@
 
 @implementation JKAutoPackViewController
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
     
     self.comboxArr = [NSMutableArray array];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
+}
+
+- (void)statusItemClose
+{
+    [self.openPanel cancel:nil];
 }
 
 - (IBAction)packTypeAction:(id)sender
@@ -132,7 +144,7 @@
 - (void)resetSchemeBox
 {
     [self.schemeTargetBox removeAllItems];
-    self.schemeTargetBox.stringValue = @"Select Scheme Target";
+    self.schemeTargetBox.stringValue = @"";
 }
 
 - (NSOpenPanel *)openPanel

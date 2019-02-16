@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) void (^ImageDidChangeBlock)(JKInfoImageView *imageView,NSURL *fileUrl ,NSImage *image);
 
+- (void)setImageWithNoBlock:(NSImage *)image;
+
 @end

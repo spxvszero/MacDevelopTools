@@ -18,6 +18,7 @@
 #import "JKStatusIconManagerViewController.h"
 #import "JKImageInfoViewController.h"
 #import "JKAutoPackViewController.h"
+#import "JKQRCodeViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -178,6 +179,12 @@
         return vc;
     }
     
+    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKQRCodeViewController class])]) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"QRCode" bundle:nil];
+        NSViewController *vc = [sb instantiateInitialController];
+        return vc;
+    }
+    
     return nil;
 }
 
@@ -196,6 +203,7 @@
                               [JKStatusIconManagerViewController class],
                               [JKImageInfoViewController class],
                               [JKAutoPackViewController class],
+                              [JKQRCodeViewController class],
                               nil];
     }
     return _viewControllerArr;
@@ -213,6 +221,7 @@
                        @"Status Icon Manager",
                        @"Image Info",
                        @"Auto Pack",
+                       @"QRCode",
                        nil];
     }
     return _toolTipArr;
