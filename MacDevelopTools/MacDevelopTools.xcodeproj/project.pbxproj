@@ -50,6 +50,10 @@
 		966BD2FC2217A2EE008AA4D5 /* JKQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966BD2FA2217A2EE008AA4D5 /* JKQRCodeViewController.m */; };
 		966BD2FF2217A2FE008AA4D5 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966BD2FE2217A2FE008AA4D5 /* QRCode.storyboard */; };
 		966BD3022217A67C008AA4D5 /* NSImage+JKConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 966BD3012217A67C008AA4D5 /* NSImage+JKConvert.m */; };
+		966BD352221A46B2008AA4D5 /* JSONFormat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966BD351221A46B2008AA4D5 /* JSONFormat.storyboard */; };
+		966BD356221A46C5008AA4D5 /* JKJSONFormatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966BD354221A46C5008AA4D5 /* JKJSONFormatViewController.m */; };
+		966BD35A221A5AEA008AA4D5 /* JKJSONFormatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 966BD359221A5AEA008AA4D5 /* JKJSONFormatCell.m */; };
+		966BD35D221AB100008AA4D5 /* JKJSONFormatHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966BD35C221AB100008AA4D5 /* JKJSONFormatHistoryViewController.m */; };
 		96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A14E21C8FC0C00F21813 /* NSButton+JKRightAction.m */; };
 		96A9A15621CA57F600F21813 /* JKJSONModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A15521CA57F600F21813 /* JKJSONModelViewController.m */; };
 		96A9A15821CA582400F21813 /* JSONModel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9A15721CA582400F21813 /* JSONModel.storyboard */; };
@@ -364,6 +368,13 @@
 		966BD2FE2217A2FE008AA4D5 /* QRCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
 		966BD3002217A67C008AA4D5 /* NSImage+JKConvert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+JKConvert.h"; sourceTree = "<group>"; };
 		966BD3012217A67C008AA4D5 /* NSImage+JKConvert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+JKConvert.m"; sourceTree = "<group>"; };
+		966BD351221A46B2008AA4D5 /* JSONFormat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JSONFormat.storyboard; sourceTree = "<group>"; };
+		966BD353221A46C5008AA4D5 /* JKJSONFormatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONFormatViewController.h; sourceTree = "<group>"; };
+		966BD354221A46C5008AA4D5 /* JKJSONFormatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJSONFormatViewController.m; sourceTree = "<group>"; };
+		966BD358221A5AEA008AA4D5 /* JKJSONFormatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONFormatCell.h; sourceTree = "<group>"; };
+		966BD359221A5AEA008AA4D5 /* JKJSONFormatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJSONFormatCell.m; sourceTree = "<group>"; };
+		966BD35B221AB100008AA4D5 /* JKJSONFormatHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONFormatHistoryViewController.h; sourceTree = "<group>"; };
+		966BD35C221AB100008AA4D5 /* JKJSONFormatHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJSONFormatHistoryViewController.m; sourceTree = "<group>"; };
 		96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSButton+JKRightAction.h"; sourceTree = "<group>"; };
 		96A9A14E21C8FC0C00F21813 /* NSButton+JKRightAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSButton+JKRightAction.m"; sourceTree = "<group>"; };
 		96A9A15421CA57F600F21813 /* JKJSONModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONModelViewController.h; sourceTree = "<group>"; };
@@ -842,6 +853,20 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		966BD350221A469F008AA4D5 /* JSONFormat */ = {
+			isa = PBXGroup;
+			children = (
+				966BD351221A46B2008AA4D5 /* JSONFormat.storyboard */,
+				966BD353221A46C5008AA4D5 /* JKJSONFormatViewController.h */,
+				966BD354221A46C5008AA4D5 /* JKJSONFormatViewController.m */,
+				966BD35B221AB100008AA4D5 /* JKJSONFormatHistoryViewController.h */,
+				966BD35C221AB100008AA4D5 /* JKJSONFormatHistoryViewController.m */,
+				966BD358221A5AEA008AA4D5 /* JKJSONFormatCell.h */,
+				966BD359221A5AEA008AA4D5 /* JKJSONFormatCell.m */,
+			);
+			path = JSONFormat;
+			sourceTree = "<group>";
+		};
 		96A9A15321CA57D500F21813 /* JSONToModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -947,6 +972,7 @@
 				96C335DB21C1095B00C9374E /* SmartPush */,
 				966BD2F0221667E7008AA4D5 /* AutoPack */,
 				966BD2F82217A024008AA4D5 /* QRCode */,
+				966BD350221A469F008AA4D5 /* JSONFormat */,
 				96C335C021C0A8E100C9374E /* AppDelegate.h */,
 				96C335C121C0A8E100C9374E /* AppDelegate.m */,
 				96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */,
@@ -1107,6 +1133,7 @@
 				962FCB2A21D207C100D79971 /* StatusIcon.storyboard in Resources */,
 				96A9A16D21CCB80D00F21813 /* MoveFile.storyboard in Resources */,
 				96C335D721C0E07700C9374E /* MainMenu.xib in Resources */,
+				966BD352221A46B2008AA4D5 /* JSONFormat.storyboard in Resources */,
 				962FCB3921D75A4600D79971 /* ImageInfo.storyboard in Resources */,
 				96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */,
 				966BD2F522166991008AA4D5 /* AutoPack.storyboard in Resources */,
@@ -1136,7 +1163,9 @@
 				96628A0621C384AD005463F8 /* JKWallPaperViewController.m in Sources */,
 				962FCB3C21D7628C00D79971 /* JKImageInfoInspectorViewController.mm in Sources */,
 				96A9A15B21CB2FB800F21813 /* JKJSONModelObjectiveC.m in Sources */,
+				966BD35A221A5AEA008AA4D5 /* JKJSONFormatCell.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
+				966BD356221A46C5008AA4D5 /* JKJSONFormatViewController.m in Sources */,
 				96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */,
 				962FCB4521DC53D700D79971 /* JKImageInfoCellView.m in Sources */,
 				96C335E721C10A0000C9374E /* ioSock.c in Sources */,
@@ -1147,6 +1176,7 @@
 				962FCB4821DC8AA600D79971 /* JKInfoImageView.m in Sources */,
 				966BD2F32216681A008AA4D5 /* JKAutoPackViewController.m in Sources */,
 				966BD3022217A67C008AA4D5 /* NSImage+JKConvert.m in Sources */,
+				966BD35D221AB100008AA4D5 /* JKJSONFormatHistoryViewController.m in Sources */,
 				96C335EE21C10A0700C9374E /* TextFieldDrag.m in Sources */,
 				96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */,
 				962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */,
@@ -1314,6 +1344,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/lib",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.ccc.MacDevelopTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1349,6 +1380,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/lib",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.ccc.MacDevelopTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";

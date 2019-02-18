@@ -19,6 +19,7 @@
 #import "JKImageInfoViewController.h"
 #import "JKAutoPackViewController.h"
 #import "JKQRCodeViewController.h"
+#import "JKJSONFormatViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -29,6 +30,7 @@
 
 @property (nonatomic, strong) NSMutableArray *viewControllerArr;
 @property (nonatomic, strong) NSMutableArray *toolTipArr;
+@property (nonatomic, strong) NSMutableDictionary *vcNameToSbDic;
 @property (nonatomic, strong) NSMutableDictionary *viewControllerDic;
 
 @property (nonatomic, weak) NSView *currentView;
@@ -119,10 +121,10 @@
 
 - (NSViewController *)getVCFromClass:(Class)class
 {
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([PushViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"SmartPush" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
+    NSString *sbName = [self.vcNameToSbDic objectForKey:NSStringFromClass(class)];
+    
+    if (!sbName || sbName.length <= 0) {
+        return nil;
     }
     
     if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKWallPaperViewController class])]) {
@@ -130,62 +132,14 @@
         JKBaseViewController *vc = [sb instantiateInitialController];
         __weak typeof(self) weakSelf = self;
         vc.MeunSizeChangeBlock = ^(NSSize size) {
-            
             [weakSelf resizeWithViewSize:size];
-            
         };
         return vc;
     }
     
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKEncodingViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"Encoding" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
-    }
-    
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKJSONModelViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"JSONModel" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
-    }
-    
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKResizeImageViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"ResizeImage" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
-    }
-    
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKMoveFileViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"MoveFile" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
-    }
-    
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKStatusIconManagerViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"StatusIcon" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
-    }
-    
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKImageInfoViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"ImageInfo" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
-    }
-    
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKAutoPackViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"AutoPack" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
-    }
-    
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKQRCodeViewController class])]) {
-        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"QRCode" bundle:nil];
-        NSViewController *vc = [sb instantiateInitialController];
-        return vc;
-    }
-    
-    return nil;
+    NSStoryboard *sb = [NSStoryboard storyboardWithName:sbName bundle:nil];
+    NSViewController *vc = [sb instantiateInitialController];
+    return vc;
 }
 
 #pragma mark - getter
@@ -204,6 +158,7 @@
                               [JKImageInfoViewController class],
                               [JKAutoPackViewController class],
                               [JKQRCodeViewController class],
+                              [JKJSONFormatViewController class],
                               nil];
     }
     return _viewControllerArr;
@@ -222,9 +177,30 @@
                        @"Image Info",
                        @"Auto Pack",
                        @"QRCode",
+                       @"JSON Format",
                        nil];
     }
     return _toolTipArr;
+}
+
+- (NSMutableDictionary *)vcNameToSbDic
+{
+    if (!_vcNameToSbDic) {
+        _vcNameToSbDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                          @"SmartPush",NSStringFromClass([PushViewController class]),
+                          @"WallPaper",NSStringFromClass([JKWallPaperViewController class]),
+                          @"Encoding",NSStringFromClass([JKEncodingViewController class]),
+                          @"JSONModel",NSStringFromClass([JKJSONModelViewController class]),
+                          @"ResizeImage",NSStringFromClass([JKResizeImageViewController class]),
+                          @"MoveFile",NSStringFromClass([JKMoveFileViewController class]),
+                          @"StatusIcon",NSStringFromClass([JKStatusIconManagerViewController class]),
+                          @"ImageInfo",NSStringFromClass([JKImageInfoViewController class]),
+                          @"AutoPack",NSStringFromClass([JKAutoPackViewController class]),
+                          @"QRCode",NSStringFromClass([JKQRCodeViewController class]),
+                          @"JSONFormat",NSStringFromClass([JKJSONFormatViewController class]),
+                          nil];
+    }
+    return _vcNameToSbDic;
 }
 
 @end

@@ -17,6 +17,7 @@ A Mac application for useful tools, build it just for learning :)
 * ImageInfo
 * AutoPack(iOS)
 * QRCode
+* JSON Format
 
 
 
