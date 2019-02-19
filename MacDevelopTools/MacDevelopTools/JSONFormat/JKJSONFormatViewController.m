@@ -47,6 +47,10 @@
     
     NSStoryboard *sb = [NSStoryboard storyboardWithName:@"JSONFormat" bundle:nil];
     self.historyVC = [sb instantiateControllerWithIdentifier:NSStringFromClass([JKJSONFormatHistoryViewController class])];
+    __weak typeof(self) weakSelf = self;
+    self.historyVC.SelectStrBlock = ^(JKJSONFormatHistoryViewController *vc, NSString *historyStr) {
+        weakSelf.txtView.string = historyStr;
+    };
     [self.view addSubview:self.historyVC.view];
     
     self.historyVC.view.hidden = YES;
@@ -173,7 +177,6 @@
             
         }];
     }else{
-        
         __weak typeof(self) weakSelf = self;
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
             [[weakSelf.historyBtn animator] setFrame:NSMakeRect(weakSelf.view.bounds.size.width - 10 - weakSelf.formatBtn.bounds.size.width, weakSelf.formatBtn.frame.origin.y, weakSelf.formatBtn.bounds.size.width, weakSelf.formatBtn.bounds.size.height)];

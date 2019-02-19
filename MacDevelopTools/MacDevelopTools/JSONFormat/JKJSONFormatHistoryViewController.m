@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *keysFromDic;
 
+@property (nonatomic, weak) NSEvent *localEvent;
+
 @end
 
 @implementation JKJSONFormatHistoryViewController
@@ -27,6 +29,8 @@
     
     self.outlineView.delegate = self;
     self.outlineView.dataSource = self;
+    self.outlineView.target = self;
+    self.outlineView.doubleAction = @selector(oulineViewClickAction);
     
     self.keysFromDic = [NSMutableDictionary dictionary];
     
@@ -34,7 +38,68 @@
 
 - (void)reloadData
 {
+    [self.keysFromDic removeAllObjects];
     [self.outlineView reloadData];
+}
+
+- (void)oulineViewClickAction
+{
+    id clickItem = [self.outlineView itemAtRow:[self.outlineView clickedRow]];
+    
+    if (clickItem && [clickItem isKindOfClass:[NSDictionary class]]) {
+        
+        NSString *key = [[(NSDictionary *)clickItem allKeys] firstObject];
+        
+        if ([key isEqualToString:@"value"]) {
+            if (self.SelectStrBlock) {
+                self.SelectStrBlock(self, [(NSDictionary *)clickItem objectForKey:key]);
+            }
+        }
+    }
+}
+
+- (void)viewWillAppear
+{
+    [super viewWillAppear];
+    
+    __weak typeof(self) weakSelf = self;
+    self.localEvent = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyDown handler:^NSEvent * _Nullable(NSEvent *evt) {
+        
+        if ([[[NSApplication sharedApplication] keyWindow] firstResponder] == weakSelf.outlineView) {
+            
+            if (evt.keyCode == 0x33) {
+                
+                if (weakSelf.outlineView.selectedRow >= 0) {
+                    
+                    id obj = [weakSelf.outlineView itemAtRow:[weakSelf.outlineView selectedRow]];
+                    
+                    if (obj && ([obj isKindOfClass:[NSDictionary class]] || [obj isKindOfClass:[NSArray class]])) {
+                        
+                        if ([weakSelf.outlineView isExpandable:obj]) {
+                            [weakSelf removeHistory:obj index:-1];
+                        }else{
+                            id parentObj = [weakSelf.outlineView parentForItem:obj];
+                            
+                            NSInteger childIndex = [weakSelf.outlineView childIndexForItem:obj];
+                            
+                            [weakSelf removeHistory:parentObj index:childIndex];
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+        return evt;
+    }];
+        
+}
+
+- (void)viewWillDisappear
+{
+    [super viewWillDisappear];
+    
+    [NSEvent removeMonitor:self.localEvent];
 }
 
 
@@ -106,7 +171,8 @@
     }
     
     if ([item isKindOfClass:[NSArray class]]) {
-        return [NSDictionary dictionaryWithObject:[(NSArray *)item objectAtIndex:index] forKey:[NSString stringWithFormat:@"[%ld]",(long)index]];;
+//        return [NSDictionary dictionaryWithObject:[(NSArray *)item objectAtIndex:index] forKey:[NSString stringWithFormat:@"[%ld]",(long)index]];;
+        return [NSDictionary dictionaryWithObject:[(NSArray *)item objectAtIndex:index] forKey:[NSString stringWithFormat:@"value"]];;
     }
     
     return @"";
@@ -158,6 +224,40 @@
     if (!duplicate) {
         [historyArr addObject:jsonStr];
     }
+}
+
+- (void)removeHistory:(id)obj index:(NSInteger)index
+{
+    id value = [[(NSDictionary *)obj allValues] firstObject];
+    if (index < 0) {
+        NSArray *allKeys = [self.historyDic allKeys];
+        for (NSString *key in allKeys) {
+            id innervalue = [self.historyDic objectForKey:key];
+            if (value == innervalue) {
+                [self.historyDic removeObjectForKey:key];
+                break;
+            }
+        }
+    }else{
+        if ([value isKindOfClass:[NSArray class]]) {
+            if ([(NSArray *)value count] > 1 && (index < [(NSArray *)value count])) {
+                
+                [(NSMutableArray *)value removeObjectAtIndex:index];
+                
+            }else{
+                NSArray *allKeys = [self.historyDic allKeys];
+                for (NSString *key in allKeys) {
+                    id innervalue = [self.historyDic objectForKey:key];
+                    if (value == innervalue) {
+                        [self.historyDic removeObjectForKey:key];
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    
+    [self reloadData];
 }
 
 - (NSMutableArray *)obtainHistoryArr
