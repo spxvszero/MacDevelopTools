@@ -80,14 +80,45 @@
         
         if ([[[NSApplication sharedApplication] keyWindow] firstResponder] == weakSelf.outlineView) {
             
-            if ((([evt modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask) == NSEventModifierFlagCommand) && [evt.characters isEqualToString:@"c"]) {
+            if ((([evt modifierFlags] & NSEventModifierFlagDeviceIndependentFlagsMask) == NSEventModifierFlagCommand)) {
                 
                 if (weakSelf.outlineView.selectedRow >= 0) {
                     
                     id obj = [weakSelf.outlineView itemAtRow:[weakSelf.outlineView selectedRow]];
                     
                     if (obj && ([obj isKindOfClass:[NSDictionary class]] || [obj isKindOfClass:[NSArray class]])) {
-                        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:0 error:nil];
+                        
+                        id jsonObj = nil;
+                        if ([evt.characters isEqualToString:@"c"]) {
+                            //copy all
+                            jsonObj = obj;
+                        }
+                        
+                        if ([evt.characters isEqualToString:@"d"]) {
+                            //copy key
+                            NSString *key = [[obj allKeys] firstObject];
+                            [[NSPasteboard generalPasteboard] clearContents];
+                            [[NSPasteboard generalPasteboard] writeObjects:@[key?:@""]];
+                            
+                            [weakSelf.outlineView deselectRow:[weakSelf.outlineView selectedRow]];
+                            return nil;
+                        }
+                        
+                        if ([evt.characters isEqualToString:@"f"]) {
+                            //copy value
+                            id value = [[obj allValues] firstObject];
+                            if ([value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSArray class]]) {
+                                jsonObj = value;
+                            }else{
+                                [[NSPasteboard generalPasteboard] clearContents];
+                                [[NSPasteboard generalPasteboard] writeObjects:@[value?:@""]];
+                                
+                                [weakSelf.outlineView deselectRow:[weakSelf.outlineView selectedRow]];
+                                return nil;
+                            }
+                        }
+                        
+                        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObj options:0 error:nil];
                         if (jsonData) {
                             NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
                             

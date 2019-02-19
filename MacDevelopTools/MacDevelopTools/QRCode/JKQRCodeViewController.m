@@ -76,7 +76,7 @@
             if (self.textView.string && self.textView.string.length > 0) {
                 [self startGenerateCode];
             }else{
-                self.imgView.image = nil;
+                [self.imgView setImageWithNoBlock:nil];
             }
         }
     }
