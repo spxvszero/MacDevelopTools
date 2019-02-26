@@ -2,7 +2,7 @@
 //  JKAutoPackViewController.m
 //  MacDevelopTools
 //
-//  Created by 曾坚 on 2019/2/15.
+//  Created by jacky on 2019/2/15.
 //  Copyright © 2019年 JK. All rights reserved.
 //
 
@@ -43,6 +43,8 @@
     self.comboxArr = [NSMutableArray array];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
+    
+    self.progressIcon.hidden = YES;
 }
 
 - (void)statusItemClose

@@ -28,11 +28,17 @@ static float const     kStatusBarIconPadding = 0.25;
 
 @property (nonatomic, strong) NSPopover *popOver;
 
+@property (nonatomic, strong) int (^IntBlock)(int a, int b);
+
 @end
 
 @implementation AppDelegate
 
 - (void) initStatusBarItem {
+    
+    self.IntBlock = ^int(int a, int b) {
+        return a + b;
+    };
     
     self.statusBarItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     

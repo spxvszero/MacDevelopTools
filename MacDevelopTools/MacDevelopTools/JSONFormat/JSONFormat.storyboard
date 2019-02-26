@@ -46,7 +46,7 @@
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45K-vL-mmw">
                                 <rect key="frame" x="10" y="10" width="430" height="200"/>
                                 <clipView key="contentView" id="147-yV-ryW">
-                                    <rect key="frame" x="1" y="23" width="428" height="176"/>
+                                    <rect key="frame" x="1" y="0.0" width="428" height="199"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="tTg-dC-aNA" viewBased="YES" indentationPerLevel="16" outlineTableColumn="gVE-bG-IGi" id="2ba-Xf-9Ld">
@@ -227,7 +227,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" selectable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" continuousSpellChecking="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="g4P-QC-IKS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="104.33599853515625"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.27059" green="0.27059" blue="0.27059" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>

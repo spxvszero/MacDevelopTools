@@ -20,6 +20,7 @@
 #import "JKAutoPackViewController.h"
 #import "JKQRCodeViewController.h"
 #import "JKJSONFormatViewController.h"
+#import "JKShellManagerViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -50,6 +51,8 @@
     [super viewDidLoad];
     // Do view setup here.
     self.viewControllerDic = [NSMutableDictionary dictionary];
+    
+    [self initailizeViewControllers];
     
     self.view.wantsLayer = YES;
     self.itemCollectionView.layer.backgroundColor = [NSColor clearColor].CGColor;
@@ -142,43 +145,54 @@
     return vc;
 }
 
+- (void)addViewControllerWithClass:(Class)className toolTip:(NSString *)toolTip storyBoardName:(NSString *)sbName
+{
+    [self.viewControllerArr addObject:className];
+    [self.toolTipArr addObject:toolTip];
+    [self.vcNameToSbDic setObject:sbName forKey:NSStringFromClass(className)];
+}
+
+- (void)initailizeViewControllers
+{
+    [self addViewControllerWithClass:[PushViewController class] toolTip:@"Apple Push" storyBoardName:@"SmartPush"];
+    
+    [self addViewControllerWithClass:[JKWallPaperViewController class] toolTip:@"Wallpaper" storyBoardName:@"WallPaper"];
+    
+    [self addViewControllerWithClass:[JKEncodingViewController class] toolTip:@"Encode" storyBoardName:@"Encoding"];
+    
+    [self addViewControllerWithClass:[JKJSONModelViewController class] toolTip:@"Json To Model" storyBoardName:@"JSONModel"];
+    
+    [self addViewControllerWithClass:[JKResizeImageViewController class] toolTip:@"Resize Image" storyBoardName:@"ResizeImage"];
+    
+    [self addViewControllerWithClass:[JKMoveFileViewController class] toolTip:@"Move File" storyBoardName:@"MoveFile"];
+    
+    [self addViewControllerWithClass:[JKStatusIconManagerViewController class] toolTip:@"Status Icon Manager" storyBoardName:@"StatusIcon"];
+    
+    [self addViewControllerWithClass:[JKImageInfoViewController class] toolTip:@"Image Info" storyBoardName:@"ImageInfo"];
+    
+    [self addViewControllerWithClass:[JKAutoPackViewController class] toolTip:@"Auto Pack" storyBoardName:@"AutoPack"];
+    
+    [self addViewControllerWithClass:[JKQRCodeViewController class] toolTip:@"QRCode" storyBoardName:@"QRCode"];
+    
+    [self addViewControllerWithClass:[JKJSONFormatViewController class] toolTip:@"JSON Format" storyBoardName:@"JSONFormat"];
+    
+    [self addViewControllerWithClass:[JKShellManagerViewController class] toolTip:@"Shell Manager" storyBoardName:@"ShellManager"];
+
+}
+
 #pragma mark - getter
 
 - (NSMutableArray *)viewControllerArr
 {
-    if (!_viewControllerArr) {
-        _viewControllerArr = [NSMutableArray arrayWithObjects:
-                              [PushViewController class],
-                              [JKWallPaperViewController class],
-                              [JKEncodingViewController class],
-                              [JKJSONModelViewController class],
-                              [JKResizeImageViewController class],
-                              [JKMoveFileViewController class],
-                              [JKStatusIconManagerViewController class],
-                              [JKImageInfoViewController class],
-                              [JKAutoPackViewController class],
-                              [JKQRCodeViewController class],
-                              [JKJSONFormatViewController class],
-                              nil];
+     if (!_viewControllerArr) {
+         _viewControllerArr = [NSMutableArray array];
     }
     return _viewControllerArr;
 }
 - (NSMutableArray *)toolTipArr
 {
     if (!_toolTipArr) {
-        _toolTipArr = [NSMutableArray arrayWithObjects:
-                       @"Apple Push",
-                       @"Wallpaper",
-                       @"Encode",
-                       @"Json To Model",
-                       @"Resize Image",
-                       @"Move File",
-                       @"Status Icon Manager",
-                       @"Image Info",
-                       @"Auto Pack",
-                       @"QRCode",
-                       @"JSON Format",
-                       nil];
+        _toolTipArr = [NSMutableArray array];
     }
     return _toolTipArr;
 }
@@ -186,19 +200,7 @@
 - (NSMutableDictionary *)vcNameToSbDic
 {
     if (!_vcNameToSbDic) {
-        _vcNameToSbDic = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                          @"SmartPush",NSStringFromClass([PushViewController class]),
-                          @"WallPaper",NSStringFromClass([JKWallPaperViewController class]),
-                          @"Encoding",NSStringFromClass([JKEncodingViewController class]),
-                          @"JSONModel",NSStringFromClass([JKJSONModelViewController class]),
-                          @"ResizeImage",NSStringFromClass([JKResizeImageViewController class]),
-                          @"MoveFile",NSStringFromClass([JKMoveFileViewController class]),
-                          @"StatusIcon",NSStringFromClass([JKStatusIconManagerViewController class]),
-                          @"ImageInfo",NSStringFromClass([JKImageInfoViewController class]),
-                          @"AutoPack",NSStringFromClass([JKAutoPackViewController class]),
-                          @"QRCode",NSStringFromClass([JKQRCodeViewController class]),
-                          @"JSONFormat",NSStringFromClass([JKJSONFormatViewController class]),
-                          nil];
+        _vcNameToSbDic = [NSMutableDictionary dictionary];
     }
     return _vcNameToSbDic;
 }
