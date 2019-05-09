@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="wNU-qY-SMU">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -185,13 +186,25 @@ DQ
                                             <action selector="buttonSelectAction:" target="fIi-53-oKn" id="TVp-RT-ppw"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="uXJ-mq-lbV">
+                                        <rect key="frame" x="202" y="35" width="120" height="18"/>
+                                        <buttonCell key="cell" type="radio" title="AndroidAppIcon" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="jWf-qU-i9t">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="buttonSelectAction:" target="fIi-53-oKn" id="p7J-4X-MI8"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Zk0-Z6-57W" firstAttribute="leading" secondItem="FiX-sg-aEm" secondAttribute="leading" constant="10" id="0HC-1Y-vSX"/>
                                     <constraint firstAttribute="bottom" secondItem="Zk0-Z6-57W" secondAttribute="bottom" constant="10" id="2Ra-j9-3pJ"/>
+                                    <constraint firstItem="uXJ-mq-lbV" firstAttribute="centerY" secondItem="CBF-7P-8vK" secondAttribute="centerY" id="3hE-3P-Mkz"/>
                                     <constraint firstItem="RBO-AG-mDM" firstAttribute="leading" secondItem="FiX-sg-aEm" secondAttribute="leading" constant="10" id="NJf-9L-1Dv"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5MI-rF-kIX" secondAttribute="trailing" constant="10" id="Ql7-kh-uTq"/>
                                     <constraint firstItem="Zk0-Z6-57W" firstAttribute="width" secondItem="RBO-AG-mDM" secondAttribute="width" id="VIm-of-mgC"/>
+                                    <constraint firstItem="uXJ-mq-lbV" firstAttribute="leading" secondItem="CBF-7P-8vK" secondAttribute="trailing" constant="20" id="WuQ-xz-b7b"/>
                                     <constraint firstItem="Zk0-Z6-57W" firstAttribute="top" secondItem="RBO-AG-mDM" secondAttribute="bottom" constant="10" id="YUa-fu-aYM"/>
                                     <constraint firstItem="5MI-rF-kIX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zk0-Z6-57W" secondAttribute="trailing" constant="10" id="bIB-Cz-1pg"/>
                                     <constraint firstItem="CBF-7P-8vK" firstAttribute="centerY" secondItem="RBO-AG-mDM" secondAttribute="centerY" id="cVK-9F-Dvm"/>
@@ -225,10 +238,13 @@ DQ
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="androidAppIcon" destination="uXJ-mq-lbV" id="jjV-KC-xBJ"/>
                         <outlet property="appIconButton" destination="RBO-AG-mDM" id="AmS-19-p1i"/>
                         <outlet property="button2x" destination="CBF-7P-8vK" id="9un-NJ-YhU"/>
                         <outlet property="customButton" destination="Zk0-Z6-57W" id="LVY-0t-qRQ"/>
+                        <outlet property="customHeightTxtField" destination="7GY-xR-296" id="cEP-K8-AaX"/>
                         <outlet property="customInputBox" destination="5MI-rF-kIX" id="Wza-c0-8f0"/>
+                        <outlet property="customWidthTxtField" destination="iJH-ZU-HqZ" id="l1i-Za-6ot"/>
                         <outlet property="imageSizeLabel" destination="duf-Y5-gmR" id="biO-zv-flU"/>
                     </connections>
                 </viewController>
