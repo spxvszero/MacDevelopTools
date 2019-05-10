@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,12 +59,12 @@
         <scene sceneID="yBi-wD-qrv">
             <objects>
                 <viewController storyboardIdentifier="JKResizeImageExportViewController" id="fIi-53-oKn" customClass="JKResizeImageExportViewController" sceneMemberID="viewController">
-                    <view key="view" id="HIO-rW-JCZ">
-                        <rect key="frame" x="0.0" y="0.0" width="353" height="113"/>
+                    <view key="view" misplaced="YES" id="HIO-rW-JCZ">
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="115"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ONj-dk-x1A">
-                                <rect key="frame" x="189" y="3" width="82" height="32"/>
+                                <rect key="frame" x="216" y="3" width="82" height="32"/>
                                 <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Z6d-X9-34r">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -76,7 +77,7 @@ Gw
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zeg-Pd-XH4">
-                                <rect key="frame" x="269" y="3" width="80" height="32"/>
+                                <rect key="frame" x="296" y="3" width="80" height="32"/>
                                 <buttonCell key="cell" type="push" title="Export" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="IMQ-sy-TMB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -89,7 +90,7 @@ DQ
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="FiX-sg-aEm">
-                                <rect key="frame" x="10" y="41" width="333" height="62"/>
+                                <rect key="frame" x="10" y="41" width="360" height="62"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RBO-AG-mDM">
                                         <rect key="frame" x="9" y="35" width="103" height="18"/>
@@ -115,9 +116,9 @@ DQ
                                         </connections>
                                     </button>
                                     <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="5MI-rF-kIX">
-                                        <rect key="frame" x="145" y="5" width="178" height="26"/>
+                                        <rect key="frame" x="145" y="5" width="198" height="26"/>
                                         <view key="contentView" id="x64-fT-Frx">
-                                            <rect key="frame" x="1" y="1" width="176" height="24"/>
+                                            <rect key="frame" x="1" y="1" width="196" height="24"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aeV-Vw-AJV">
@@ -140,7 +141,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pOI-ka-FDe">
-                                                    <rect key="frame" x="86" y="2" width="47" height="20"/>
+                                                    <rect key="frame" x="106" y="2" width="47" height="20"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="height:" id="PKu-J5-KsB">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -148,7 +149,7 @@ DQ
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7GY-xR-296">
-                                                    <rect key="frame" x="136" y="2" width="35" height="20"/>
+                                                    <rect key="frame" x="156" y="2" width="35" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="7mJ-2f-ScU"/>
                                                     </constraints>
@@ -158,21 +159,37 @@ DQ
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="frp-Fb-6kb">
+                                                    <rect key="frame" x="88" y="5" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="frp-Fb-6kb" secondAttribute="height" id="1Dd-9X-B4a"/>
+                                                        <constraint firstAttribute="height" constant="15" id="4zi-ae-UJq"/>
+                                                    </constraints>
+                                                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="lock_lock" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="Fpf-QH-8gc">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="lockBtnAction:" target="fIi-53-oKn" id="Rnm-pz-4em"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="pOI-ka-FDe" firstAttribute="top" secondItem="x64-fT-Frx" secondAttribute="top" constant="2" id="2K2-Me-u6u"/>
                                                 <constraint firstAttribute="bottom" secondItem="iJH-ZU-HqZ" secondAttribute="bottom" constant="2" id="33n-AU-aUb"/>
-                                                <constraint firstItem="pOI-ka-FDe" firstAttribute="leading" secondItem="iJH-ZU-HqZ" secondAttribute="trailing" constant="5" id="4A6-U8-a3T"/>
                                                 <constraint firstAttribute="bottom" secondItem="7GY-xR-296" secondAttribute="bottom" constant="2" id="4Ze-G5-7pz"/>
                                                 <constraint firstItem="aeV-Vw-AJV" firstAttribute="top" secondItem="x64-fT-Frx" secondAttribute="top" constant="2" id="AIf-hy-RXR"/>
                                                 <constraint firstAttribute="bottom" secondItem="pOI-ka-FDe" secondAttribute="bottom" constant="2" id="NfM-7p-nFz"/>
                                                 <constraint firstItem="7GY-xR-296" firstAttribute="top" secondItem="x64-fT-Frx" secondAttribute="top" constant="2" id="PHe-5R-mDb"/>
                                                 <constraint firstItem="aeV-Vw-AJV" firstAttribute="leading" secondItem="x64-fT-Frx" secondAttribute="leading" constant="5" id="Rzx-O8-wdC"/>
+                                                <constraint firstItem="pOI-ka-FDe" firstAttribute="leading" secondItem="frp-Fb-6kb" secondAttribute="trailing" constant="5" id="SHh-z9-EQB"/>
                                                 <constraint firstItem="7GY-xR-296" firstAttribute="leading" secondItem="pOI-ka-FDe" secondAttribute="trailing" constant="5" id="T7b-NE-tht"/>
+                                                <constraint firstItem="frp-Fb-6kb" firstAttribute="leading" secondItem="iJH-ZU-HqZ" secondAttribute="trailing" constant="5" id="YFn-a5-y4G"/>
                                                 <constraint firstItem="iJH-ZU-HqZ" firstAttribute="leading" secondItem="aeV-Vw-AJV" secondAttribute="trailing" constant="5" id="cA4-b4-THe"/>
                                                 <constraint firstAttribute="bottom" secondItem="aeV-Vw-AJV" secondAttribute="bottom" constant="2" id="eES-YP-N7I"/>
                                                 <constraint firstAttribute="trailing" secondItem="7GY-xR-296" secondAttribute="trailing" constant="5" id="fJ7-Bj-jYz"/>
                                                 <constraint firstItem="iJH-ZU-HqZ" firstAttribute="top" secondItem="x64-fT-Frx" secondAttribute="top" constant="2" id="qQt-Qe-L4p"/>
+                                                <constraint firstItem="frp-Fb-6kb" firstAttribute="centerY" secondItem="aeV-Vw-AJV" secondAttribute="centerY" id="qtV-3f-BLv"/>
                                             </constraints>
                                         </view>
                                     </box>
@@ -216,7 +233,7 @@ DQ
                                 </constraints>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="duf-Y5-gmR">
-                                <rect key="frame" x="62" y="12" width="115" height="17"/>
+                                <rect key="frame" x="89" y="12" width="115" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ImageSize: 0x0 px" id="oPH-Ob-Oif">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -246,11 +263,15 @@ DQ
                         <outlet property="customInputBox" destination="5MI-rF-kIX" id="Wza-c0-8f0"/>
                         <outlet property="customWidthTxtField" destination="iJH-ZU-HqZ" id="l1i-Za-6ot"/>
                         <outlet property="imageSizeLabel" destination="duf-Y5-gmR" id="biO-zv-flU"/>
+                        <outlet property="lockBtn" destination="frp-Fb-6kb" id="vSx-J2-3nI"/>
                     </connections>
                 </viewController>
                 <customObject id="j8o-b5-V4L" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333" y="186"/>
+            <point key="canvasLocation" x="333" y="185.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lock_lock" width="50" height="50"/>
+    </resources>
 </document>

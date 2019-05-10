@@ -16,7 +16,7 @@ typedef enum : NSInteger {
     ResizeTypeAndroidIcon,
 } JKResizeSelectType;
 
-@interface JKResizeImageExportViewController ()
+@interface JKResizeImageExportViewController ()<NSTextFieldDelegate>
 
 @property (nonatomic, strong) NSSavePanel *savePanel;
 @property (nonatomic, strong) NSOpenPanel *openPanel;
@@ -31,9 +31,11 @@ typedef enum : NSInteger {
 @property (weak) IBOutlet NSBox *customInputBox;
 @property (weak) IBOutlet NSTextField *customWidthTxtField;
 @property (weak) IBOutlet NSTextField *customHeightTxtField;
+@property (weak) IBOutlet NSButton *lockBtn;
 
 
 
+@property (nonatomic, assign) NSSize currentImageSize;
 @property (weak) IBOutlet NSTextField *imageSizeLabel;
 
 @property (nonatomic, assign) JKResizeSelectType currentSelectType;
@@ -56,6 +58,10 @@ typedef enum : NSInteger {
     self.appIconButton.tag = ResizeTypeIcon;
     self.customButton.tag = ResizeTypeCustom;
     self.button2x.tag = ResizeType2x;
+    self.androidAppIcon.tag = ResizeTypeAndroidIcon;
+    
+    self.customWidthTxtField.delegate = self;
+    self.customHeightTxtField.delegate = self;
     
     self.appIconButton.state = NSControlStateValueOn;
     
@@ -77,8 +83,18 @@ typedef enum : NSInteger {
     [super viewWillAppear];
     
     if (self.single) {
-        NSSize imgSize = [self imageSize];
-        self.imageSizeLabel.stringValue = [NSString stringWithFormat:@"ImageSize: %ldx%ld px",(long)(imgSize.width),(long)(imgSize.height)];        
+        self.appIconButton.enabled = YES;
+        self.androidAppIcon.enabled = YES;
+        self.currentImageSize = [self imageSize];
+        self.imageSizeLabel.stringValue = [NSString stringWithFormat:@"ImageSize: %ldx%ld px",(long)(self.currentImageSize.width),(long)(self.currentImageSize.height)];
+    }else{
+        self.appIconButton.enabled = NO;
+        self.androidAppIcon.enabled = NO;
+        self.imageSizeLabel.stringValue = @"";
+        if (self.currentSelectType == ResizeTypeIcon || self.currentSelectType == ResizeTypeAndroidIcon) {
+            [self buttonSelectAction:self.button2x];
+            self.button2x.state = NSControlStateValueOn;
+        }
     }
     
 }
@@ -113,7 +129,7 @@ typedef enum : NSInteger {
                 [self.savePanel beginWithCompletionHandler:^(NSModalResponse result) {
                     NSLog(@"save 2x -- %@",weakSelf.savePanel.URL.relativePath);
                     if (result == NSModalResponseOK) {
-                        [weakSelf save2xImageToPath:weakSelf.savePanel.URL.relativePath];
+                        [weakSelf save2xImage:weakSelf.imageUrl toPath:weakSelf.savePanel.URL.relativePath];
                     }
                 }];
             }
@@ -123,7 +139,7 @@ typedef enum : NSInteger {
                 [self.savePanel beginWithCompletionHandler:^(NSModalResponse result) {
                     NSLog(@"save custom -- %@",weakSelf.savePanel.URL.relativePath);
                     if (result == NSModalResponseOK) {
-                        [weakSelf customImageToPath:weakSelf.savePanel.URL.relativePath];
+                        [weakSelf customImage:weakSelf.imageUrl toPath:weakSelf.savePanel.URL.relativePath];
                     }
                 }];
             }
@@ -133,21 +149,52 @@ typedef enum : NSInteger {
         }
         
     }else{
-        
+        switch (self.currentSelectType) {
+            case ResizeType2x:
+            {
+                NSString *outputPath = [weakSelf.imageUrl stringByAppendingPathComponent:@"output"];
+                if (![[NSFileManager defaultManager] fileExistsAtPath:outputPath]) {
+                    [[NSFileManager defaultManager] createDirectoryAtPath:outputPath withIntermediateDirectories:NO attributes:nil error:nil];
+                }
+                
+                [weakSelf enumImageFilesWithPath:weakSelf.imageUrl block:^(NSString *subName) {
+                    [weakSelf save2xImage:[weakSelf.imageUrl stringByAppendingPathComponent:subName] toPath:[outputPath stringByAppendingPathComponent:subName]];
+                }];
+                
+                weakSelf.imageSizeLabel.stringValue = [weakSelf finishString];
+            }
+                break;
+            case ResizeTypeCustom:
+            {
+                if (![self hasBoxNumber]) {
+                    return;
+                }
+                
+                NSString *outputPath = [weakSelf.imageUrl stringByAppendingPathComponent:@"output"];
+                if (![[NSFileManager defaultManager] fileExistsAtPath:outputPath]) {
+                    [[NSFileManager defaultManager] createDirectoryAtPath:outputPath withIntermediateDirectories:NO attributes:nil error:nil];
+                }
+                
+                [weakSelf enumImageFilesWithPath:weakSelf.imageUrl block:^(NSString *subName) {
+                    [weakSelf customImage:[weakSelf.imageUrl stringByAppendingPathComponent:subName] toPath:[outputPath stringByAppendingPathComponent:subName]];
+                }];
+                
+                weakSelf.imageSizeLabel.stringValue = [weakSelf finishString];
+            }
+                break;
+            default:
+                break;
+        }
     }
     
-    
-//    if (self.currentSelectType == ResizeTypeIcon) {
-//        [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
-//            if (result == NSModalResponseOK) {
-//                [self appIconExport];
-//            }
-//        }];
-//    }else{
-//        [self.savePanel beginWithCompletionHandler:^(NSModalResponse result) {
-//            NSLog(@"save -- %@",weakSelf.savePanel.URL);
-//        }];
-//    }
+
+}
+
+- (NSString *)finishString
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"HH:mm:ss";
+    return [[fmt stringFromDate:[NSDate date]] stringByAppendingString:@" Finished!"];
 }
 
 - (IBAction)cancelAction:(id)sender
@@ -260,9 +307,12 @@ typedef enum : NSInteger {
     MagickCore::DestroyImage(imageInfo);
 }
 
-- (void)save2xImageToPath:(NSString *)path
+- (void)save2xImage:(NSString *)imageUrl toPath:(NSString *)path
 {
-    NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
+    NSData *data = [NSData dataWithContentsOfFile:imageUrl];
+    if (!data) {
+        return;
+    }
     const void *imageData = [data bytes];
     
     MagickCore::Image *imageInfo = MagickCore::BlobToImage(MagickCore::AcquireImageInfo(), imageData, data.length, MagickCore::AcquireExceptionInfo());
@@ -272,7 +322,7 @@ typedef enum : NSInteger {
     MagickCore::DestroyImage(imageInfo);
 }
 
-- (void)customImageToPath:(NSString *)path
+- (BOOL)hasBoxNumber
 {
     NSInteger width = [self.customWidthTxtField.stringValue integerValue];
     NSInteger height = [self.customHeightTxtField.stringValue integerValue];
@@ -282,17 +332,94 @@ typedef enum : NSInteger {
         [alert beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse returnCode) {
             
         }];
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)customImage:(NSString *)imageUrl toPath:(NSString *)path
+{
+    if (![self hasBoxNumber]) {
         return;
     }
     
-    NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
+    NSData *data = [NSData dataWithContentsOfFile:imageUrl];
     const void *imageData = [data bytes];
     
+    if (!data) {
+        return;
+    }
+    
     MagickCore::Image *imageInfo = MagickCore::BlobToImage(MagickCore::AcquireImageInfo(), imageData, data.length, MagickCore::AcquireExceptionInfo());
+    
+    NSInteger width = [self.customWidthTxtField.stringValue integerValue];
+    NSInteger height = [self.customHeightTxtField.stringValue integerValue];
     
     [self resizeImageWithWidth:width height:height image:imageInfo path:path];
     
     MagickCore::DestroyImage(imageInfo);
+}
+
+- (void)enumImageFilesWithPath:(NSString *)path block:(void (^)(NSString *))enumBlock
+{
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    if (![fileM fileExistsAtPath:path]) {
+        return;
+    }
+    NSArray *filePaths = [fileM subpathsAtPath:path];
+    
+    for (NSString *filePath in filePaths) {
+        if ([filePath hasSuffix:@"png"] || [filePath hasSuffix:@"jpg"]) {
+            if (enumBlock) {
+                enumBlock(filePath);
+            }
+        }
+    }
+    
+}
+
+#pragma mark - lock action
+
+- (void)controlTextDidChange:(NSNotification *)obj
+{
+    NSTextField *txtField = [obj object];
+    if (self.single && self.lockBtn.state == NSControlStateValueOn) {
+        if (self.currentImageSize.width * self.currentImageSize.height <= 0) {
+            return;
+        }
+        CGFloat whRadio = self.currentImageSize.width / self.currentImageSize.height;
+        if (txtField == self.customHeightTxtField) {
+            CGFloat height = [self.customHeightTxtField.stringValue integerValue];
+            CGFloat width = height * whRadio;
+            self.customWidthTxtField.stringValue = [NSString stringWithFormat:@"%zd",(NSInteger)width];
+        }
+        
+        if (txtField == self.customWidthTxtField) {
+            CGFloat width = [self.customWidthTxtField.stringValue integerValue];
+            CGFloat height = width / whRadio;
+            self.customHeightTxtField.stringValue = [NSString stringWithFormat:@"%zd",(NSInteger)height];
+        }
+        
+    }
+}
+
+- (IBAction)lockBtnAction:(id)sender {
+    
+    if (NSControlStateValueOn == self.lockBtn.state) {
+        [self changeLockBtnState:YES];
+    }else{
+        [self changeLockBtnState:NO];
+    }
+}
+
+- (void)changeLockBtnState:(BOOL)on
+{
+    if (on) {
+        self.lockBtn.image = [NSImage imageNamed:@"lock_lock"];
+    }else{
+        self.lockBtn.image = [NSImage imageNamed:@"lock_unlock"];
+    }
 }
 
 #pragma mark - resize
@@ -322,7 +449,11 @@ typedef enum : NSInteger {
 - (NSSize)imageSize
 {
     NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
+    if (!data) {
+        return NSZeroSize;
+    }
     const void *imageData = [data bytes];
+    
     MagickCore::ImageInfo *info = MagickCore::AcquireImageInfo();
     
     MagickCore::Image *imageInfo = MagickCore::BlobToImage(info, imageData, data.length, MagickCore::AcquireExceptionInfo());
