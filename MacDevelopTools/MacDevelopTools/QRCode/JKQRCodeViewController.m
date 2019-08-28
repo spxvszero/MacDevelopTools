@@ -87,13 +87,19 @@
  */
 - (NSString *)stringFromFileImage:(NSImage *)img {
     CIImage *cImg = [img jk_CIImage];
+    
+    //qrcode
     CIDetector *det = [CIDetector detectorOfType:@"CIDetectorTypeQRCode" context:nil options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
-    
     NSArray *arr = [det featuresInImage:cImg];
-    
-    CIQRCodeFeature *qrStr = arr.firstObject;
-    //只返回第一个扫描到的二维码
-    return qrStr.messageString;
+    if (arr.count > 0) {
+        NSMutableString *resStr = [NSMutableString stringWithFormat:@"This Image has %zd QRCode\n\n",arr.count];
+        for (CIQRCodeFeature *qrStr in arr) {
+            [resStr appendFormat:@"%@\n",qrStr.messageString];
+        }
+        return resStr;
+    }
+
+    return @"Error: Nothing Found!";
 }
 
 /**
@@ -101,8 +107,8 @@
  */
 - (void)startGenerateCode
 {
-    //    NSArray *filenames = [CIFilter filterNamesInCategory:kCICategoryBuiltIn];
-    //    NSLog(@"%@", filenames);
+//    NSArray *filenames = [CIFilter filterNamesInCategory:kCICategoryBuiltIn];
+//    NSLog(@"%@", filenames);
     //使用系统自带的生成器
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     NSData *data = [self.textView.string dataUsingEncoding:NSUTF8StringEncoding];
@@ -132,5 +138,19 @@
     return _savePanel;
 }
 
+- (IBAction)captureBtnAction:(id)sender
+{
+//    CGImageRef screenShot = CGWindowListCreateImage(CGRectInfinite, kCGWindowListOptionOnScreenOnly, kCGNullWindowID, kCGWindowImageDefault);
+    
+    CGImageRef screenShot = CGWindowListCreateImage(CGRectInfinite, kCGWindowListOptionOnScreenBelowWindow, (int)[NSApplication sharedApplication].keyWindow.windowNumber, kCGWindowImageDefault);
+    
+    NSBitmapImageRep *bitmapRep = [[NSBitmapImageRep alloc] initWithCGImage:screenShot];
+    // Create an NSImage and add the bitmap rep to it...
+    NSImage *image = [[NSImage alloc] init];
+    [image addRepresentation:bitmapRep];
+    bitmapRep = nil;
+    CFRelease(screenShot);
+    self.imgView.image = image;
+}
 
 @end
