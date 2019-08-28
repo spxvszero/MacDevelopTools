@@ -12,6 +12,23 @@
 #import "JKWallPaperVideoPanelController.h"
 #import <AVFoundation/AVFoundation.h>
 
+@interface JKWallPaperWindowObject : NSObject
+
+@property (nonatomic, weak) NSScreen *screen;
+@property (nonatomic, strong) NSWindow *window;
+@property (nonatomic, assign) BOOL showWindow;
+@property (nonatomic, strong) NSImageView *backImageView;
+@property (nonatomic, strong) NSView *playerLayerBackView;
+@property (nonatomic, strong) AVPlayerLayer *playerlayer;
+
+
+@end
+@implementation JKWallPaperWindowObject
+@end
+
+
+
+
 @interface JKWallPaperViewController ()
 
 @property (weak) IBOutlet JKWellImageView *imageWallView;
@@ -22,13 +39,10 @@
 @property (nonatomic, strong) JKWallPaperVideoPanelController *videoPanelController;
 @property (nonatomic, weak) NSView *currentPanelView;
 
-@property (nonatomic, strong) NSWindow *window;
-@property (nonatomic, assign) BOOL showWindow;
-@property (nonatomic, strong) NSImageView *backImageView;
-@property (nonatomic, assign) NSImageScaling selectedImageScaling;
 @property (nonatomic, strong) AVPlayer *player;
-@property (nonatomic, strong) NSView *playerLayerBackView;
-@property (nonatomic, strong) AVPlayerLayer *playerlayer;
+@property (nonatomic, strong) NSMutableArray<JKWallPaperWindowObject *> *windowObjsArr;
+@property (nonatomic, assign) BOOL showWindow;
+@property (nonatomic, assign) NSImageScaling selectedImageScaling;
 
 @end
 
@@ -44,29 +58,33 @@
     __weak typeof(self) weakSelf = self;
     self.imageWallView.ImageDidChangeBlock = ^(JKWellImageView *imageView, NSImage *image, NSURL *fileUrl, BOOL isImage) {
         
-        if (isImage) {
-            weakSelf.backImageView.image = image;
-            weakSelf.backImageView.hidden = NO;
-            weakSelf.playerLayerBackView.hidden = YES;
-            [weakSelf stopPlay];
-            if (image) {
-                weakSelf.imagePanelController.currentScaling = weakSelf.selectedImageScaling;
-                weakSelf.currentPanelView = weakSelf.imagePanelController.view;
+        for (JKWallPaperWindowObject *windowObj in weakSelf.windowObjsArr) {
+            
+            if (isImage) {
+                windowObj.backImageView.image = image;
+                windowObj.backImageView.hidden = NO;
+                windowObj.playerLayerBackView.hidden = YES;
+                [weakSelf stopPlay];
+                if (image) {
+                    weakSelf.imagePanelController.currentScaling = weakSelf.selectedImageScaling;
+                    weakSelf.currentPanelView = weakSelf.imagePanelController.view;
+                }else{
+                    weakSelf.currentPanelView = nil;
+                }
             }else{
-                weakSelf.currentPanelView = nil;
+                windowObj.backImageView.hidden = YES;
+                windowObj.playerLayerBackView.hidden = NO;
+                
+                AVPlayerItem *item = [AVPlayerItem playerItemWithURL:fileUrl];
+                windowObj.playerlayer.player = self.player;
+                [self.player replaceCurrentItemWithPlayerItem:item];
+                [self.player play];
+                
+                weakSelf.currentPanelView = weakSelf.videoPanelController.view;
             }
-        }else{
-            weakSelf.backImageView.hidden = YES;
-            weakSelf.playerLayerBackView.hidden = NO;
+            [weakSelf resizeView];
             
-            AVPlayerItem *item = [AVPlayerItem playerItemWithURL:fileUrl];
-            self.playerlayer.player = self.player;
-            [self.player replaceCurrentItemWithPlayerItem:item];
-            [self.player play];
-            
-            weakSelf.currentPanelView = weakSelf.videoPanelController.view;
         }
-        [weakSelf resizeView];
     };
     
 }
@@ -79,16 +97,21 @@
 
 - (IBAction)startButtonClickAction:(id)sender
 {
-    if (self.window) {
-        self.showWindow = !self.showWindow;
-        if (self.showWindow) {
-            [self.window makeKeyAndOrderFront:nil];
+    [self buildWindowObj];
+    
+    self.showWindow = !self.showWindow;
+    
+    for (JKWallPaperWindowObject *windowObj in self.windowObjsArr) {
+        if (windowObj.window) {
+            windowObj.showWindow = !windowObj.showWindow;
+            if (self.showWindow) {
+                [windowObj.window makeKeyAndOrderFront:nil];
+            }else{
+                [windowObj.window close];
+            }
         }else{
-            [self.window close];
+            
         }
-    }else{
-        [self setupWindow];
-        self.showWindow = YES;
     }
     
     if (self.showWindow) {
@@ -109,7 +132,6 @@
         self.startButton.title = @"Replace Start";
         self.imageWallView.editable = NO;
     }
-    
 }
 
 - (void)stopPlay
@@ -132,53 +154,101 @@
     }
 }
 
-
-- (void)setupWindow
+- (void)buildWindowObj
 {
-    self.window = [[NSWindow alloc] init];
+    [self clearWindowObj];
     
-    NSScreen *screen = [NSScreen mainScreen];
-    self.window.styleMask = NSWindowStyleMaskBorderless;
-    self.window.level = CGWindowLevelForKey(kCGDesktopWindowLevelKey);
-    self.window.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces;
-    
-    NSRect rect = screen.frame;
-    NSSize size = rect.size;
-    NSPoint point = rect.origin;
-    [self.window setFrameOrigin:point];
-    [self.window setContentSize:size];
-    [self.window setReleasedWhenClosed:NO];
-    
-    [self setupWindowSubviewsWithSize:size];
-    
-    [self.window makeKeyAndOrderFront:nil];
+    NSArray* screensArr = [NSScreen screens];
+    for (NSScreen *screen in screensArr) {
+        JKWallPaperWindowObject *obj = nil;
+        for (JKWallPaperWindowObject *windowObj in self.windowObjsArr) {
+            if (windowObj.screen == screen) {
+                obj = windowObj;
+                break;
+            }
+        }
+        
+        if (obj) {
+        
+        }else{
+            obj = [[JKWallPaperWindowObject alloc] init];
+            obj.screen = screen;
+            [self setupWindowWithWindowObj:obj];
+            [self.windowObjsArr addObject:obj];
+        }
+        
+    }
 }
 
-- (void)setupWindowSubviewsWithSize:(NSSize)size
+- (void)clearWindowObj
 {
-    self.backImageView = [[NSImageView alloc] init];
-    self.backImageView.frame = NSMakeRect(0, 0, size.width, size.height);
-    self.backImageView.hidden = YES;
-    self.backImageView.imageScaling = self.selectedImageScaling;
+    NSMutableArray *arr = [NSMutableArray array];
+    for (JKWallPaperWindowObject *windowObj in self.windowObjsArr) {
+        if (!windowObj.screen) {
+            [arr addObject:windowObj];
+        }
+    }
+    [self.windowObjsArr removeObjectsInArray:arr];
+}
+
+
+- (void)setupWindowWithWindowObj:(JKWallPaperWindowObject *)windowObj
+{
+    if (!windowObj.window) {
+        windowObj.window = [[NSWindow alloc] init];
+        
+        windowObj.window.styleMask = NSWindowStyleMaskBorderless;
+        windowObj.window.level = CGWindowLevelForKey(kCGDesktopWindowLevelKey);
+        windowObj.window.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces;
+    }
     
-    self.playerLayerBackView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
-    self.playerLayerBackView.wantsLayer = YES;
+    NSRect rect = windowObj.screen.frame;
+    NSSize size = rect.size;
+    NSPoint point = rect.origin;
+    [windowObj.window setFrameOrigin:point];
+    [windowObj.window setContentSize:size];
+    [windowObj.window setReleasedWhenClosed:NO];
     
-    self.playerlayer = [[AVPlayerLayer alloc] init];
-    self.playerlayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    self.playerlayer.frame = NSMakeRect(0, 0, size.width, size.height);
-    [self.playerLayerBackView.layer addSublayer:self.playerlayer];
+    [self setupWindowSubviewsWithSize:size windowObj:windowObj];
     
+    [windowObj.window makeKeyAndOrderFront:nil];
+}
+
+- (void)setupWindowSubviewsWithSize:(NSSize)size windowObj:(JKWallPaperWindowObject *)windowObj
+{
+    if (!windowObj.backImageView) {
+        windowObj.backImageView = [[NSImageView alloc] init];
+        windowObj.backImageView.frame = NSMakeRect(0, 0, size.width, size.height);
+        windowObj.backImageView.hidden = YES;
+        windowObj.backImageView.imageScaling = self.selectedImageScaling;
+    }
     
-    self.window.contentView.wantsLayer = YES;
-    [self.window.contentView addSubview:self.backImageView];
-    [self.window.contentView addSubview:self.playerLayerBackView];
+    if (!windowObj.playerLayerBackView) {
+        windowObj.playerLayerBackView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, size.width, size.height)];
+        windowObj.playerLayerBackView.wantsLayer = YES;
+    }else{
+        windowObj.playerLayerBackView.frame = NSMakeRect(0, 0, size.width, size.height);
+    }
+    
+    if (!windowObj.playerlayer) {
+        windowObj.playerlayer = [[AVPlayerLayer alloc] init];
+        windowObj.playerlayer.videoGravity = AVLayerVideoGravityResizeAspect;
+        windowObj.playerlayer.frame = NSMakeRect(0, 0, size.width, size.height);
+        [windowObj.playerLayerBackView.layer addSublayer:windowObj.playerlayer];
+    }
+    
+    windowObj.window.contentView.wantsLayer = YES;
+    [windowObj.window.contentView addSubview:windowObj.backImageView];
+    [windowObj.window.contentView addSubview:windowObj.playerLayerBackView];
 }
 
 - (void)setSelectedImageScaling:(NSImageScaling)selectedImageScaling
 {
     _selectedImageScaling = selectedImageScaling;
-    self.backImageView.imageScaling = _selectedImageScaling;
+    
+    for (JKWallPaperWindowObject *windowObj in self.windowObjsArr) {
+        windowObj.backImageView.imageScaling = _selectedImageScaling;
+    }
 }
 
 #pragma mark - notification
@@ -263,7 +333,9 @@
                     break;
             }
             
-            weakSelf.playerlayer.videoGravity =  resStr;
+            for (JKWallPaperWindowObject *windowObj in weakSelf.windowObjsArr) {
+                windowObj.playerlayer.videoGravity =  resStr;
+            }
         };
         
         _videoPanelController.VideoVoiceEnableBlock = ^(BOOL enable) {
@@ -280,6 +352,14 @@
         
     }
     return _videoPanelController;
+}
+
+- (NSMutableArray<JKWallPaperWindowObject *> *)windowObjsArr
+{
+    if (!_windowObjsArr) {
+        _windowObjsArr = [NSMutableArray array];
+    }
+    return _windowObjsArr;
 }
 
 @end
