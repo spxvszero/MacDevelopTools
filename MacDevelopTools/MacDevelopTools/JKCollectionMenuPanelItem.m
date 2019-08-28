@@ -17,6 +17,14 @@
 
 @implementation JKCollectionMenuPanelItem
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.imgName = @"bug";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
@@ -27,9 +35,9 @@
     [super viewWillAppear];
     
     if (self.selected) {
-        self.panelImageView.image = [NSImage imageNamed:@"bug_fill"];
+        self.panelImageView.image = [NSImage imageNamed:[self.imgName stringByAppendingString:@"_selected"]];
     }else{
-        self.panelImageView.image = [NSImage imageNamed:@"bug"];
+        self.panelImageView.image = [NSImage imageNamed:self.imgName];
     }
 }
 
@@ -38,9 +46,9 @@
     [super setSelected:selected];
     
     if (selected) {
-        self.panelImageView.image = [NSImage imageNamed:@"bug_fill"];
+        self.panelImageView.image = [NSImage imageNamed:[self.imgName stringByAppendingString:@"_selected"]];
     }else{
-        self.panelImageView.image = [NSImage imageNamed:@"bug"];
+        self.panelImageView.image = [NSImage imageNamed:self.imgName];
     }
 }
 

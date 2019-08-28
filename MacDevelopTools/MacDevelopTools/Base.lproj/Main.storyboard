@@ -696,14 +696,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="wKf-8O-Zv8">
-                                <rect key="frame" x="10" y="265" width="430" height="25"/>
+                            <scrollView autoresizesSubviews="NO" wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="wKf-8O-Zv8">
+                                <rect key="frame" x="10" y="260" width="430" height="30"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="oxV-2U-D0N">
-                                    <rect key="frame" x="0.0" y="0.0" width="430" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="430" height="30"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="e9c-SD-1Ip">
-                                            <rect key="frame" x="0.0" y="0.0" width="430" height="158"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="30"/>
                                             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="OIe-jI-1lC">
                                                 <size key="itemSize" width="20" height="20"/>
@@ -714,11 +714,11 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </clipView>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="s3M-T2-cnX"/>
+                                    <constraint firstAttribute="height" constant="30" id="s3M-T2-cnX"/>
                                 </constraints>
                                 <edgeInsets key="scrollerInsets" left="0.0" right="0.0" top="0.0" bottom="100"/>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="DwY-b4-1zq">
-                                    <rect key="frame" x="-100" y="-100" width="428" height="16"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="DwY-b4-1zq">
+                                    <rect key="frame" x="0.0" y="-86" width="430" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="4PG-p2-Zer">
@@ -727,7 +727,7 @@
                                 </scroller>
                             </scrollView>
                             <containerView autoresizesSubviews="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAI-fZ-yNv">
-                                <rect key="frame" x="10" y="10" width="430" height="245"/>
+                                <rect key="frame" x="10" y="10" width="430" height="240"/>
                             </containerView>
                         </subviews>
                         <constraints>

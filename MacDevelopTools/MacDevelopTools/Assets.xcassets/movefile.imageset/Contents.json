@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "movefile.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "QQ20181214-111322@2x.png",
       "scale" : "2x"
     },
     {

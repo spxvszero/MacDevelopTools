@@ -11,5 +11,6 @@
 @interface JKCollectionMenuPanelItem : NSCollectionViewItem
 
 @property (nonatomic, strong) NSString *toolTips;
+@property (nonatomic, strong) NSString *imgName;
 
 @end

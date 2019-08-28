@@ -24,13 +24,14 @@
 
 #define kCollectionItemIdentify @"normal"
 
-@interface JKMeunPanelViewController ()<NSCollectionViewDataSource,NSCollectionViewDelegate>
+@interface JKMeunPanelViewController ()<NSCollectionViewDataSource,NSCollectionViewDelegate,NSCollectionViewDelegateFlowLayout>
 
 @property (weak) IBOutlet NSCollectionView *itemCollectionView;
 @property (weak) IBOutlet NSView *containView;
 
 @property (nonatomic, strong) NSMutableArray *viewControllerArr;
 @property (nonatomic, strong) NSMutableArray *toolTipArr;
+@property (nonatomic, strong) NSMutableArray *imageNamesArr;
 @property (nonatomic, strong) NSMutableDictionary *vcNameToSbDic;
 @property (nonatomic, strong) NSMutableDictionary *viewControllerDic;
 
@@ -84,6 +85,12 @@
         item.toolTips = @"No Description";
     }
     
+    if (indexPath.item < self.toolTipArr.count) {
+        item.imgName = [self.imageNamesArr objectAtIndex:indexPath.item];
+    }else{
+        item.imgName = @"bug";
+    }
+    
     return item;
 }
 
@@ -101,6 +108,11 @@
     }
     
     [self changeToNewView:vc.view];
+}
+
+- (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NSMakeSize(30, 30);
 }
 
 #pragma mark - tool
@@ -148,23 +160,32 @@
 - (void)addViewControllerWithClass:(Class)className toolTip:(NSString *)toolTip storyBoardName:(NSString *)sbName
 {
     [self.viewControllerArr addObject:className];
+    [self.imageNamesArr addObject:@"bug"];
+    [self.toolTipArr addObject:toolTip];
+    [self.vcNameToSbDic setObject:sbName forKey:NSStringFromClass(className)];
+}
+
+- (void)addViewControllerWithClass:(Class)className toolTip:(NSString *)toolTip storyBoardName:(NSString *)sbName img:(NSString *)imgName
+{
+    [self.viewControllerArr addObject:className];
+    [self.imageNamesArr addObject:imgName];
     [self.toolTipArr addObject:toolTip];
     [self.vcNameToSbDic setObject:sbName forKey:NSStringFromClass(className)];
 }
 
 - (void)initailizeViewControllers
 {
-    [self addViewControllerWithClass:[PushViewController class] toolTip:@"Apple Push" storyBoardName:@"SmartPush"];
+    [self addViewControllerWithClass:[PushViewController class] toolTip:@"Apple Push" storyBoardName:@"SmartPush" img:@"applepush"];
     
-    [self addViewControllerWithClass:[JKWallPaperViewController class] toolTip:@"Wallpaper" storyBoardName:@"WallPaper"];
+    [self addViewControllerWithClass:[JKWallPaperViewController class] toolTip:@"Wallpaper" storyBoardName:@"WallPaper" img:@"wallpaper"];
     
-    [self addViewControllerWithClass:[JKEncodingViewController class] toolTip:@"Encode" storyBoardName:@"Encoding"];
+    [self addViewControllerWithClass:[JKEncodingViewController class] toolTip:@"Encode" storyBoardName:@"Encoding" img:@"encode"];
     
-    [self addViewControllerWithClass:[JKJSONModelViewController class] toolTip:@"Json To Model" storyBoardName:@"JSONModel"];
+    [self addViewControllerWithClass:[JKJSONModelViewController class] toolTip:@"Json To Model" storyBoardName:@"JSONModel" img:@"jsonmodel"];
     
-    [self addViewControllerWithClass:[JKResizeImageViewController class] toolTip:@"Resize Image" storyBoardName:@"ResizeImage"];
+    [self addViewControllerWithClass:[JKResizeImageViewController class] toolTip:@"Resize Image" storyBoardName:@"ResizeImage" img:@"imgresize"];
     
-    [self addViewControllerWithClass:[JKMoveFileViewController class] toolTip:@"Move File" storyBoardName:@"MoveFile"];
+    [self addViewControllerWithClass:[JKMoveFileViewController class] toolTip:@"Move File" storyBoardName:@"MoveFile" img:@"movefile"];
     
     [self addViewControllerWithClass:[JKStatusIconManagerViewController class] toolTip:@"Status Icon Manager" storyBoardName:@"StatusIcon"];
     
@@ -172,7 +193,7 @@
     
     [self addViewControllerWithClass:[JKAutoPackViewController class] toolTip:@"Auto Pack" storyBoardName:@"AutoPack"];
     
-    [self addViewControllerWithClass:[JKQRCodeViewController class] toolTip:@"QRCode" storyBoardName:@"QRCode"];
+    [self addViewControllerWithClass:[JKQRCodeViewController class] toolTip:@"QRCode" storyBoardName:@"QRCode" img:@"qrcode"];
     
     [self addViewControllerWithClass:[JKJSONFormatViewController class] toolTip:@"JSON Format" storyBoardName:@"JSONFormat"];
     
@@ -195,6 +216,14 @@
         _toolTipArr = [NSMutableArray array];
     }
     return _toolTipArr;
+}
+
+- (NSMutableArray *)imageNamesArr
+{
+    if (!_imageNamesArr) {
+        _imageNamesArr = [NSMutableArray array];
+    }
+    return _imageNamesArr;
 }
 
 - (NSMutableDictionary *)vcNameToSbDic
