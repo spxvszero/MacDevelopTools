@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="nEb-w3-7k1">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Clock View Controller-->
+        <scene sceneID="J38-eG-5Na">
+            <objects>
+                <viewController storyboardIdentifier="JKClockViewController" id="nEb-w3-7k1" customClass="JKClockViewController" sceneMemberID="viewController">
+                    <view key="view" id="efR-o7-bw2">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="294"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vW-sy-dV3">
+                                <rect key="frame" x="10" y="10" width="430" height="120"/>
+                                <clipView key="contentView" id="PXz-7K-LMI">
+                                    <rect key="frame" x="1" y="0.0" width="428" height="119"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="pIp-IU-TMy" id="NGE-sB-6Bt">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="" width="215.5" minWidth="40" maxWidth="1000" id="e92-Mu-jmw">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="F8C-0v-RDr">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                                <tableColumn identifier="" width="206.5" minWidth="40" maxWidth="1000" id="gVu-J7-CrM">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="C1Q-s8-1oC">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="D58-Nl-Nkd"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2mB-pU-1Ed">
+                                    <rect key="frame" x="1" y="103" width="428" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="8Je-xp-xPD">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="pIp-IU-TMy">
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZUB-dD-JiU">
+                                <rect key="frame" x="4" y="133" width="89" height="32"/>
+                                <buttonCell key="cell" type="push" title="Remove" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qQV-YM-A8G">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="removeBtnAction:" target="nEb-w3-7k1" id="aAM-17-8iL"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1pO-Y6-Xlg">
+                                <rect key="frame" x="381" y="133" width="65" height="32"/>
+                                <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CPX-CN-yT8">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addBtnAction:" target="nEb-w3-7k1" id="g5g-dp-rGR"/>
+                                </connections>
+                            </button>
+                            <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-wM-wOE" customClass="JKDatePicker">
+                                <rect key="frame" x="10" y="261" width="181" height="27"/>
+                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="rhg-md-I1J">
+                                    <font key="font" metaFont="system"/>
+                                    <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                                        <!--1982-02-12 16:00:00 +0000-->
+                                    </date>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES" second="YES"/>
+                                </datePickerCell>
+                            </datePicker>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f3m-N4-QPa">
+                                <rect key="frame" x="10" y="171" width="430" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="XQl-l0-Ye5"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Qmz-JH-2QV">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-vP-xgz">
+                                <rect key="frame" x="192" y="255" width="75" height="32"/>
+                                <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fOn-xM-CMC">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resetBtnAction:" target="nEb-w3-7k1" id="Tkb-Lr-pPB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="f3m-N4-QPa" firstAttribute="top" secondItem="d2f-wM-wOE" secondAttribute="bottom" constant="10" id="2rF-ho-uvz"/>
+                            <constraint firstAttribute="trailing" secondItem="8vW-sy-dV3" secondAttribute="trailing" constant="10" id="7cp-GF-xJ0"/>
+                            <constraint firstItem="ZUB-dD-JiU" firstAttribute="leading" secondItem="efR-o7-bw2" secondAttribute="leading" constant="10" id="Bc2-zX-KEd"/>
+                            <constraint firstItem="ZUB-dD-JiU" firstAttribute="top" secondItem="f3m-N4-QPa" secondAttribute="bottom" constant="10" id="HgB-W6-6mg"/>
+                            <constraint firstAttribute="trailing" secondItem="f3m-N4-QPa" secondAttribute="trailing" constant="10" id="JtG-pH-gjg"/>
+                            <constraint firstItem="8vW-sy-dV3" firstAttribute="top" secondItem="ZUB-dD-JiU" secondAttribute="bottom" constant="10" id="JtW-C1-PM1"/>
+                            <constraint firstItem="8vW-sy-dV3" firstAttribute="top" secondItem="1pO-Y6-Xlg" secondAttribute="bottom" constant="10" id="KBB-xM-kK8"/>
+                            <constraint firstAttribute="trailing" secondItem="1pO-Y6-Xlg" secondAttribute="trailing" constant="10" id="aUx-Xi-bMY"/>
+                            <constraint firstItem="d2f-wM-wOE" firstAttribute="top" secondItem="efR-o7-bw2" secondAttribute="top" constant="10" id="eO7-GK-3uQ"/>
+                            <constraint firstItem="Vc1-vP-xgz" firstAttribute="leading" secondItem="d2f-wM-wOE" secondAttribute="trailing" constant="10" id="ljW-qz-m6Q"/>
+                            <constraint firstItem="8vW-sy-dV3" firstAttribute="leading" secondItem="efR-o7-bw2" secondAttribute="leading" constant="10" id="oUT-0p-TIn"/>
+                            <constraint firstItem="d2f-wM-wOE" firstAttribute="leading" secondItem="efR-o7-bw2" secondAttribute="leading" constant="10" id="psZ-Of-tsH"/>
+                            <constraint firstAttribute="bottom" secondItem="8vW-sy-dV3" secondAttribute="bottom" constant="10" id="y43-zi-Ehn"/>
+                            <constraint firstItem="Vc1-vP-xgz" firstAttribute="centerY" secondItem="d2f-wM-wOE" secondAttribute="centerY" id="yMw-PO-1gf"/>
+                            <constraint firstItem="f3m-N4-QPa" firstAttribute="leading" secondItem="efR-o7-bw2" secondAttribute="leading" constant="10" id="zH9-T1-FMp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addBtn" destination="1pO-Y6-Xlg" id="9s6-lw-HOV"/>
+                        <outlet property="contentTableView" destination="NGE-sB-6Bt" id="rXF-Sv-qUE"/>
+                        <outlet property="datePicker" destination="d2f-wM-wOE" id="0ZH-Is-8Pu"/>
+                        <outlet property="inputTxtField" destination="f3m-N4-QPa" id="YWu-pI-Knq"/>
+                        <outlet property="removeBtn" destination="ZUB-dD-JiU" id="6nB-2T-SzC"/>
+                        <outlet property="tableView" destination="NGE-sB-6Bt" id="yeB-3L-DXI"/>
+                    </connections>
+                </viewController>
+                <customObject id="WF9-Kz-L0f" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="34"/>
+        </scene>
+    </scenes>
+</document>

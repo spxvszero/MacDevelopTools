@@ -21,6 +21,7 @@
 #import "JKQRCodeViewController.h"
 #import "JKJSONFormatViewController.h"
 #import "JKShellManagerViewController.h"
+#import "JKClockViewController.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -198,6 +199,8 @@
     [self addViewControllerWithClass:[JKJSONFormatViewController class] toolTip:@"JSON Format" storyBoardName:@"JSONFormat"];
     
     [self addViewControllerWithClass:[JKShellManagerViewController class] toolTip:@"Shell Manager" storyBoardName:@"ShellManager"];
+    
+    [self addViewControllerWithClass:[JKClockViewController class] toolTip:@"Clock" storyBoardName:@"Clock" img:@"clock"];
 
 }
 

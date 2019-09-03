@@ -33,6 +33,8 @@
 		962FCB4521DC53D700D79971 /* JKImageInfoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB4421DC53D700D79971 /* JKImageInfoCellView.m */; };
 		962FCB4821DC8AA600D79971 /* JKInfoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB4721DC8AA600D79971 /* JKInfoImageView.m */; };
 		962FCB4B21DCA5FF00D79971 /* ImageInfoHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB4921DCA5FF00D79971 /* ImageInfoHelper.cpp */; };
+		963D7F2B231CEA2000631B13 /* Clock.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 963D7F2A231CEA2000631B13 /* Clock.storyboard */; };
+		963D7F2E231CEA4A00631B13 /* JKClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D7F2D231CEA4A00631B13 /* JKClockViewController.m */; };
 		966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F621C23CB9005463F8 /* TestObjectClass.m */; };
 		966289FA21C26CFA005463F8 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F921C26CFA005463F8 /* WindowController.m */; };
 		966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */; };
@@ -68,6 +70,7 @@
 		96A9A16B21CCB80000F21813 /* JKMoveFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A16A21CCB80000F21813 /* JKMoveFileViewController.m */; };
 		96A9A16D21CCB80D00F21813 /* MoveFile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9A16C21CCB80D00F21813 /* MoveFile.storyboard */; };
 		96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */ = {isa = PBXBuildFile; fileRef = 96A9A16E21CCBC3500F21813 /* packupResource.sh */; };
+		96AFD523231D0F7C00C36CFE /* JKDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AFD522231D0F7C00C36CFE /* JKDatePicker.m */; };
 		96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335C121C0A8E100C9374E /* AppDelegate.m */; };
 		96C335C521C0A8E100C9374E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335C421C0A8E100C9374E /* ViewController.m */; };
 		96C335C721C0A8E400C9374E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C335C621C0A8E400C9374E /* Assets.xcassets */; };
@@ -343,6 +346,9 @@
 		962FCB4721DC8AA600D79971 /* JKInfoImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKInfoImageView.m; sourceTree = "<group>"; };
 		962FCB4921DCA5FF00D79971 /* ImageInfoHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImageInfoHelper.cpp; sourceTree = "<group>"; };
 		962FCB4A21DCA5FF00D79971 /* ImageInfoHelper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ImageInfoHelper.hpp; sourceTree = "<group>"; };
+		963D7F2A231CEA2000631B13 /* Clock.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Clock.storyboard; sourceTree = "<group>"; };
+		963D7F2C231CEA4A00631B13 /* JKClockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKClockViewController.h; sourceTree = "<group>"; };
+		963D7F2D231CEA4A00631B13 /* JKClockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKClockViewController.m; sourceTree = "<group>"; };
 		966289F521C23CB9005463F8 /* TestObjectClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObjectClass.h; sourceTree = "<group>"; };
 		966289F621C23CB9005463F8 /* TestObjectClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjectClass.m; sourceTree = "<group>"; };
 		966289F821C26CFA005463F8 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
@@ -401,6 +407,8 @@
 		96A9A16A21CCB80000F21813 /* JKMoveFileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKMoveFileViewController.m; sourceTree = "<group>"; };
 		96A9A16C21CCB80D00F21813 /* MoveFile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoveFile.storyboard; sourceTree = "<group>"; };
 		96A9A16E21CCBC3500F21813 /* packupResource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = packupResource.sh; sourceTree = "<group>"; };
+		96AFD521231D0F7C00C36CFE /* JKDatePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKDatePicker.h; sourceTree = "<group>"; };
+		96AFD522231D0F7C00C36CFE /* JKDatePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDatePicker.m; sourceTree = "<group>"; };
 		96C335BD21C0A8E100C9374E /* MacDevelopTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDevelopTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C335C021C0A8E100C9374E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96C335C121C0A8E100C9374E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -812,6 +820,18 @@
 			path = ImageInfo;
 			sourceTree = "<group>";
 		};
+		963D7F29231CE9FA00631B13 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				963D7F2A231CEA2000631B13 /* Clock.storyboard */,
+				963D7F2C231CEA4A00631B13 /* JKClockViewController.h */,
+				963D7F2D231CEA4A00631B13 /* JKClockViewController.m */,
+				96AFD521231D0F7C00C36CFE /* JKDatePicker.h */,
+				96AFD522231D0F7C00C36CFE /* JKDatePicker.m */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
 		96628A0321C38491005463F8 /* WallPaper */ = {
 			isa = PBXGroup;
 			children = (
@@ -994,6 +1014,7 @@
 				966BD2F82217A024008AA4D5 /* QRCode */,
 				966BD350221A469F008AA4D5 /* JSONFormat */,
 				966BD35E221C1057008AA4D5 /* ShellManager */,
+				963D7F29231CE9FA00631B13 /* Clock */,
 				96C335C021C0A8E100C9374E /* AppDelegate.h */,
 				96C335C121C0A8E100C9374E /* AppDelegate.m */,
 				96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */,
@@ -1161,6 +1182,7 @@
 				966BD2F522166991008AA4D5 /* AutoPack.storyboard in Resources */,
 				96C335F321C10A2F00C9374E /* SmartPush.storyboard in Resources */,
 				96A9A15821CA582400F21813 /* JSONModel.storyboard in Resources */,
+				963D7F2B231CEA2000631B13 /* Clock.storyboard in Resources */,
 				96628A0821C384D6005463F8 /* WallPaper.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1178,6 +1200,7 @@
 				96C335C521C0A8E100C9374E /* ViewController.m in Sources */,
 				962FCB2D21D207EA00D79971 /* JKStatusIconManagerViewController.m in Sources */,
 				96628A0E21C3B590005463F8 /* JKWallPaperImagePanelController.m in Sources */,
+				963D7F2E231CEA4A00631B13 /* JKClockViewController.m in Sources */,
 				966BD2FC2217A2EE008AA4D5 /* JKQRCodeViewController.m in Sources */,
 				96C335ED21C10A0700C9374E /* DragPopUpButton.m in Sources */,
 				96A9A16221CB9BB900F21813 /* JKResizeImageViewController.mm in Sources */,
@@ -1187,6 +1210,7 @@
 				962FCB3C21D7628C00D79971 /* JKImageInfoInspectorViewController.mm in Sources */,
 				96A9A15B21CB2FB800F21813 /* JKJSONModelObjectiveC.m in Sources */,
 				966BD35A221A5AEA008AA4D5 /* JKJSONFormatCell.m in Sources */,
+				96AFD523231D0F7C00C36CFE /* JKDatePicker.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
 				966BD356221A46C5008AA4D5 /* JKJSONFormatViewController.m in Sources */,
 				96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */,
