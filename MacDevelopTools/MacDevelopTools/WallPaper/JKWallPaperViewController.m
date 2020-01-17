@@ -205,8 +205,8 @@
     NSRect rect = windowObj.screen.frame;
     NSSize size = rect.size;
     NSPoint point = rect.origin;
-    [windowObj.window setFrameOrigin:point];
     [windowObj.window setContentSize:size];
+    [windowObj.window setFrameOrigin:point];
     [windowObj.window setReleasedWhenClosed:NO];
     
     [self setupWindowSubviewsWithSize:size windowObj:windowObj];
