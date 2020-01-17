@@ -8,6 +8,7 @@
 
 #import "JKResizeImageViewController.h"
 #import "JKResizeImageExportViewController.h"
+#import "JKRecodeImageExportViewController.h"
 
 @interface JKResizeImageViewController ()
 
@@ -16,11 +17,13 @@
 @property (nonatomic, strong) NSString *multiPath;
 @property (weak) IBOutlet NSButton *chooseSingleBtn;
 @property (weak) IBOutlet NSButton *chooseMultiBtn;
+@property (weak) IBOutlet NSButton *recodeSingBtn;
 
 @property (nonatomic, strong) NSOpenPanel *openPanel;
 
 
 @property (nonatomic, strong) JKResizeImageExportViewController *exportVC;
+@property (nonatomic, strong) JKRecodeImageExportViewController *recodeVC;
 
 @property (nonatomic, assign) BOOL selectedSingleBtn;
 
@@ -40,7 +43,7 @@
     [self.openPanel close];
 }
 
-- (void)startButtonAction:(NSButton *)sender
+- (void)startButtonAction:(NSViewController *)sender
 {
     NSString *single = self.singlePath;
     NSString *multi = self.multiPath;
@@ -58,14 +61,16 @@
     if (single && single.length > 0) {
         self.exportVC.imageUrl = single;
         self.exportVC.single = YES;
+        self.recodeVC.imageUrl = single;
     }
     
     if (multi && multi.length > 0) {
         self.exportVC.imageUrl = multi;
         self.exportVC.single = NO;
+        self.recodeVC.imageUrl = multi;
     }
     
-    [self presentViewControllerAsSheet:self.exportVC];
+    [self presentViewControllerAsSheet:sender];
 }
 
 
@@ -75,15 +80,24 @@
         return;
     }
     
+    NSViewController *aimVC = nil;
     if (sender == self.chooseSingleBtn) {
         self.openPanel.canChooseFiles = YES;
         self.openPanel.canChooseDirectories = NO;
         self.selectedSingleBtn = YES;
+        aimVC = self.exportVC;
     }
     if (sender == self.chooseMultiBtn) {
         self.openPanel.canChooseFiles = NO;
         self.openPanel.canChooseDirectories = YES;
         self.selectedSingleBtn = NO;
+        aimVC = self.exportVC;
+    }
+    if (sender == self.recodeSingBtn) {
+        self.openPanel.canChooseFiles = YES;
+        self.openPanel.canChooseDirectories = NO;
+        self.selectedSingleBtn = YES;
+        aimVC = self.recodeVC;
     }
     
     __weak typeof(self) weakSelf = self;
@@ -97,7 +111,7 @@
                 weakSelf.singlePath = nil;
             }
             
-            [weakSelf startButtonAction:nil];
+            [weakSelf startButtonAction:aimVC];
         }
     }];
 }
@@ -121,6 +135,15 @@
         _exportVC = [sb instantiateControllerWithIdentifier:@"JKResizeImageExportViewController"];
     }
     return _exportVC;
+}
+
+- (JKRecodeImageExportViewController *)recodeVC
+{
+    if (!_recodeVC) {
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"ResizeImage" bundle:nil];
+        _recodeVC = [sb instantiateControllerWithIdentifier:@"JKRecodeImageExportViewController"];
+    }
+    return _recodeVC;
 }
 
 @end

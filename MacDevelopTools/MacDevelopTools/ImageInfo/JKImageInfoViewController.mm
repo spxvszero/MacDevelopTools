@@ -68,7 +68,7 @@
 //    size_t quality;            /* compression quality setting, meaning varies */
     [resDic setObject:@(imageInfo->quality) forKey:@"Quality"];
 //    OrientationType orientation;        /* photo orientation of image */
-    [resDic setObject:[NSString stringWithFormat:@"%s",JKCompressionType[imageInfo->orientation]] forKey:@"OrientationType"];
+    [resDic setObject:[NSString stringWithFormat:@"%s",JKOrientationType[imageInfo->orientation]] forKey:@"OrientationType"];
 //    MagickBooleanType taint;              /* has image been modified since reading */
     [resDic setObject:[NSString stringWithFormat:@"%s",JKBooleanType[imageInfo->taint]] forKey:@"Taint"];
     

@@ -71,6 +71,7 @@
 		96A9A16D21CCB80D00F21813 /* MoveFile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9A16C21CCB80D00F21813 /* MoveFile.storyboard */; };
 		96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */ = {isa = PBXBuildFile; fileRef = 96A9A16E21CCBC3500F21813 /* packupResource.sh */; };
 		96AFD523231D0F7C00C36CFE /* JKDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AFD522231D0F7C00C36CFE /* JKDatePicker.m */; };
+		96AFD6862330E93300C36CFE /* JKRecodeImageExportViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 96AFD6852330E93300C36CFE /* JKRecodeImageExportViewController.mm */; };
 		96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335C121C0A8E100C9374E /* AppDelegate.m */; };
 		96C335C521C0A8E100C9374E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335C421C0A8E100C9374E /* ViewController.m */; };
 		96C335C721C0A8E400C9374E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C335C621C0A8E400C9374E /* Assets.xcassets */; };
@@ -409,6 +410,8 @@
 		96A9A16E21CCBC3500F21813 /* packupResource.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = packupResource.sh; sourceTree = "<group>"; };
 		96AFD521231D0F7C00C36CFE /* JKDatePicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKDatePicker.h; sourceTree = "<group>"; };
 		96AFD522231D0F7C00C36CFE /* JKDatePicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDatePicker.m; sourceTree = "<group>"; };
+		96AFD6842330E93300C36CFE /* JKRecodeImageExportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKRecodeImageExportViewController.h; sourceTree = "<group>"; };
+		96AFD6852330E93300C36CFE /* JKRecodeImageExportViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JKRecodeImageExportViewController.mm; sourceTree = "<group>"; };
 		96C335BD21C0A8E100C9374E /* MacDevelopTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDevelopTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C335C021C0A8E100C9374E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96C335C121C0A8E100C9374E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -926,6 +929,8 @@
 				96A9A16121CB9BB900F21813 /* JKResizeImageViewController.mm */,
 				96A9A16521CBA33D00F21813 /* JKResizeImageExportViewController.h */,
 				96A9A16621CBA33D00F21813 /* JKResizeImageExportViewController.mm */,
+				96AFD6842330E93300C36CFE /* JKRecodeImageExportViewController.h */,
+				96AFD6852330E93300C36CFE /* JKRecodeImageExportViewController.mm */,
 				96A9A16321CB9BC500F21813 /* ResizeImage.storyboard */,
 			);
 			path = ResizeImage;
@@ -1195,6 +1200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C335DF21C109F200C9374E /* SecManager.m in Sources */,
+				96AFD6862330E93300C36CFE /* JKRecodeImageExportViewController.mm in Sources */,
 				962FCB4B21DCA5FF00D79971 /* ImageInfoHelper.cpp in Sources */,
 				966BD366221CE79A008AA4D5 /* JKShellManagerCell.m in Sources */,
 				96C335C521C0A8E100C9374E /* ViewController.m in Sources */,
