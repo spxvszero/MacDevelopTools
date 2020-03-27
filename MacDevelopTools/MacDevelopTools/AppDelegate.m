@@ -25,14 +25,25 @@ static float const     kStatusBarIconPadding = 0.25;
 
 @property (nonatomic, strong) NSMenu *rightMenu;
 @property (nonatomic, strong) NSStatusItem *statusBarItem;
+@property (nonatomic, strong) NSStatusItem *testItem;
 
 @property (nonatomic, strong) NSPopover *popOver;
 
 @property (nonatomic, strong) int (^IntBlock)(int a, int b);
 
+@property (nonatomic, strong) NSWindowController *managementController;
+
 @end
 
 @implementation AppDelegate
+
+- (void)buildTestItem
+{
+    self.testItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+    self.testItem.button.title = @"asd";
+    self.testItem.button.rightClickTarget = self;
+    self.testItem.button.rightClickAction = @selector(rightClick);
+}
 
 - (void) initStatusBarItem {
     
@@ -41,7 +52,6 @@ static float const     kStatusBarIconPadding = 0.25;
     };
     
     self.statusBarItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
-    
     
     self.statusBarItem.title = [NSRunningApplication currentApplication].localizedName;
     self.statusBarItem.toolTip = self.statusBarItem.title;
@@ -90,6 +100,10 @@ static float const     kStatusBarIconPadding = 0.25;
     self.statusBarItem.button.action = @selector(popOverAction:);
     self.statusBarItem.button.rightClickTarget = self;
     self.statusBarItem.button.rightClickAction = @selector(popUpMenu);
+}
+
+- (void)rightClick{
+    self.testItem.button.hidden = !self.testItem.button.hidden;
 }
 
 - (void)popUpMenu
@@ -172,6 +186,25 @@ static const char *getPropertyType(objc_property_t property) {
     [NSApp terminate:self];
 }
 
+- (void)showManagement
+{
+    if (self.managementController) {
+        self.managementController.window.orderedIndex = 1;
+        [self.managementController showWindow:self.managementController.window];
+        [self.managementController.window orderFrontRegardless];
+        return;
+    }
+    
+    NSStoryboard *sb = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
+    NSWindowController *w = [sb instantiateControllerWithIdentifier:@"JKManagement"];
+    self.managementController = w;
+    [NSApplication.sharedApplication addWindowsItem:w.window title:@"window" filename:false];
+    w.window.orderedIndex = 1;
+    [w showWindow:w.window];
+    [w.window orderFrontRegardless];
+    
+}
+
 #pragma mark - getter
 
 - (NSMenu *)rightMenu
@@ -185,6 +218,13 @@ static const char *getPropertyType(objc_property_t property) {
         quitItem.target = self;
         quitItem.title = @"Quit";
         
+        //Manager Item
+        NSMenuItem *managerItem = [[NSMenuItem alloc] init];
+        managerItem.action = @selector(showManagement);
+        managerItem.target = self;
+        managerItem.title = @"Management";
+        
+        [_rightMenu addItem:managerItem];
         [_rightMenu addItem:quitItem];
     }
     return _rightMenu;

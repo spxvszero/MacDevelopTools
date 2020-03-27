@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="nEb-w3-7k1">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="nEb-w3-7k1">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,7 +11,7 @@
             <objects>
                 <viewController storyboardIdentifier="JKClockViewController" id="nEb-w3-7k1" customClass="JKClockViewController" sceneMemberID="viewController">
                     <view key="view" id="efR-o7-bw2">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="294"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="295"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vW-sy-dV3">
@@ -22,14 +22,14 @@
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="pIp-IU-TMy" id="NGE-sB-6Bt">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="96"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="215.5" minWidth="40" maxWidth="1000" id="e92-Mu-jmw">
+                                                <tableColumn width="215.5" minWidth="40" maxWidth="1000" id="e92-Mu-jmw">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -40,9 +40,9 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn identifier="" width="206.5" minWidth="40" maxWidth="1000" id="gVu-J7-CrM">
+                                                <tableColumn width="206.5" minWidth="40" maxWidth="1000" id="gVu-J7-CrM">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -60,11 +60,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="D58-Nl-Nkd"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2mB-pU-1Ed">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="2mB-pU-1Ed">
                                     <rect key="frame" x="1" y="103" width="428" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="8Je-xp-xPD">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="8Je-xp-xPD">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -97,7 +97,7 @@ DQ
                                 </connections>
                             </button>
                             <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-wM-wOE" customClass="JKDatePicker">
-                                <rect key="frame" x="10" y="261" width="181" height="27"/>
+                                <rect key="frame" x="10" y="261" width="188" height="28"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="rhg-md-I1J">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="-595929600">
@@ -115,12 +115,12 @@ DQ
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Qmz-JH-2QV">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-vP-xgz">
-                                <rect key="frame" x="192" y="255" width="75" height="32"/>
+                                <rect key="frame" x="199" y="256" width="75" height="32"/>
                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fOn-xM-CMC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>

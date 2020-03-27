@@ -12,4 +12,8 @@
 #define kJKStatusItemPopOverCloseNotification @"kJKStatusItemPopOverCloseNotification"
 #define kJKStatusItemPopOverShowNotification @"kJKStatusItemPopOverShowNotification"
 
+#define kJKStatusItemListChangeNotification @"kJKStatusItemListChangeNotification"
+
+#define kJKHasStringValue(x) (x && [x isKindOfClass:[NSString class]] && x.length > 0)
+
 #endif /* JKMacDevelopToolsPrefixHeader_h */

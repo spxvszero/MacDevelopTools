@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		962178E2242B0001003268FC /* JKItemsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962178E1242B0001003268FC /* JKItemsManager.m */; };
+		962178E4242B0C55003268FC /* items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 962178E3242B0C55003268FC /* items.plist */; };
 		962FC53A21D0CA9200D79971 /* libMagick++-7.Q16HDRI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FC52221D0CA9200D79971 /* libMagick++-7.Q16HDRI.a */; };
 		962FC54721D0CA9200D79971 /* libMagickCore-7.Q16HDRI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FC53021D0CA9200D79971 /* libMagickCore-7.Q16HDRI.a */; };
 		962FC54B21D0CA9200D79971 /* libMagickWand-7.Q16HDRI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FC53621D0CA9200D79971 /* libMagickWand-7.Q16HDRI.a */; };
@@ -35,6 +37,9 @@
 		962FCB4B21DCA5FF00D79971 /* ImageInfoHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 962FCB4921DCA5FF00D79971 /* ImageInfoHelper.cpp */; };
 		963D7F2B231CEA2000631B13 /* Clock.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 963D7F2A231CEA2000631B13 /* Clock.storyboard */; };
 		963D7F2E231CEA4A00631B13 /* JKClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 963D7F2D231CEA4A00631B13 /* JKClockViewController.m */; };
+		964AB08A2428B0AC009D8D0C /* JKManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964AB0892428B0AC009D8D0C /* JKManagementController.m */; };
+		964AB08D2428B183009D8D0C /* JKAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964AB08C2428B183009D8D0C /* JKAboutViewController.m */; };
+		964AB0902428B42A009D8D0C /* JKManageListItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 964AB08F2428B42A009D8D0C /* JKManageListItemsViewController.m */; };
 		966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F621C23CB9005463F8 /* TestObjectClass.m */; };
 		966289FA21C26CFA005463F8 /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289F921C26CFA005463F8 /* WindowController.m */; };
 		966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */; };
@@ -91,6 +96,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		962178E0242B0001003268FC /* JKItemsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKItemsManager.h; sourceTree = "<group>"; };
+		962178E1242B0001003268FC /* JKItemsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKItemsManager.m; sourceTree = "<group>"; };
+		962178E3242B0C55003268FC /* items.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = items.plist; sourceTree = "<group>"; };
 		962FC52221D0CA9200D79971 /* libMagick++-7.Q16HDRI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMagick++-7.Q16HDRI.a"; sourceTree = "<group>"; };
 		962FC53021D0CA9200D79971 /* libMagickCore-7.Q16HDRI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMagickCore-7.Q16HDRI.a"; sourceTree = "<group>"; };
 		962FC53621D0CA9200D79971 /* libMagickWand-7.Q16HDRI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMagickWand-7.Q16HDRI.a"; sourceTree = "<group>"; };
@@ -350,6 +358,12 @@
 		963D7F2A231CEA2000631B13 /* Clock.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Clock.storyboard; sourceTree = "<group>"; };
 		963D7F2C231CEA4A00631B13 /* JKClockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKClockViewController.h; sourceTree = "<group>"; };
 		963D7F2D231CEA4A00631B13 /* JKClockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKClockViewController.m; sourceTree = "<group>"; };
+		964AB0882428B0AC009D8D0C /* JKManagementController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKManagementController.h; sourceTree = "<group>"; };
+		964AB0892428B0AC009D8D0C /* JKManagementController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKManagementController.m; sourceTree = "<group>"; };
+		964AB08B2428B183009D8D0C /* JKAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKAboutViewController.h; sourceTree = "<group>"; };
+		964AB08C2428B183009D8D0C /* JKAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKAboutViewController.m; sourceTree = "<group>"; };
+		964AB08E2428B42A009D8D0C /* JKManageListItemsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKManageListItemsViewController.h; sourceTree = "<group>"; };
+		964AB08F2428B42A009D8D0C /* JKManageListItemsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKManageListItemsViewController.m; sourceTree = "<group>"; };
 		966289F521C23CB9005463F8 /* TestObjectClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestObjectClass.h; sourceTree = "<group>"; };
 		966289F621C23CB9005463F8 /* TestObjectClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestObjectClass.m; sourceTree = "<group>"; };
 		966289F821C26CFA005463F8 /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
@@ -1039,6 +1053,15 @@
 				962FCB2421D1C1F800D79971 /* JKMacDevelopToolsPrefixHeader.h */,
 				962FCB3121D7081C00D79971 /* JKBaseViewController.h */,
 				962FCB3221D7081C00D79971 /* JKBaseViewController.mm */,
+				964AB0882428B0AC009D8D0C /* JKManagementController.h */,
+				964AB0892428B0AC009D8D0C /* JKManagementController.m */,
+				964AB08B2428B183009D8D0C /* JKAboutViewController.h */,
+				964AB08C2428B183009D8D0C /* JKAboutViewController.m */,
+				964AB08E2428B42A009D8D0C /* JKManageListItemsViewController.h */,
+				964AB08F2428B42A009D8D0C /* JKManageListItemsViewController.m */,
+				962178E0242B0001003268FC /* JKItemsManager.h */,
+				962178E1242B0001003268FC /* JKItemsManager.m */,
+				962178E3242B0C55003268FC /* items.plist */,
 				966289FB21C26F1B005463F8 /* JKMeunPanelViewController.h */,
 				966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */,
 				966289FE21C35698005463F8 /* JKCollectionMenuPanelItem.h */,
@@ -1181,6 +1204,7 @@
 				96A9A16D21CCB80D00F21813 /* MoveFile.storyboard in Resources */,
 				96C335D721C0E07700C9374E /* MainMenu.xib in Resources */,
 				966BD352221A46B2008AA4D5 /* JSONFormat.storyboard in Resources */,
+				962178E4242B0C55003268FC /* items.plist in Resources */,
 				962FCB3921D75A4600D79971 /* ImageInfo.storyboard in Resources */,
 				96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */,
 				966BD363221C1074008AA4D5 /* ShellManager.storyboard in Resources */,
@@ -1200,6 +1224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C335DF21C109F200C9374E /* SecManager.m in Sources */,
+				962178E2242B0001003268FC /* JKItemsManager.m in Sources */,
 				96AFD6862330E93300C36CFE /* JKRecodeImageExportViewController.mm in Sources */,
 				962FCB4B21DCA5FF00D79971 /* ImageInfoHelper.cpp in Sources */,
 				966BD366221CE79A008AA4D5 /* JKShellManagerCell.m in Sources */,
@@ -1216,6 +1241,7 @@
 				962FCB3C21D7628C00D79971 /* JKImageInfoInspectorViewController.mm in Sources */,
 				96A9A15B21CB2FB800F21813 /* JKJSONModelObjectiveC.m in Sources */,
 				966BD35A221A5AEA008AA4D5 /* JKJSONFormatCell.m in Sources */,
+				964AB08D2428B183009D8D0C /* JKAboutViewController.m in Sources */,
 				96AFD523231D0F7C00C36CFE /* JKDatePicker.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
 				966BD356221A46C5008AA4D5 /* JKJSONFormatViewController.m in Sources */,
@@ -1234,6 +1260,7 @@
 				96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */,
 				962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */,
 				966BD361221C106B008AA4D5 /* JKShellManagerViewController.m in Sources */,
+				964AB08A2428B0AC009D8D0C /* JKManagementController.m in Sources */,
 				966289FA21C26CFA005463F8 /* WindowController.m in Sources */,
 				96C335DA21C0E3AA00C9374E /* JKIconMenu.m in Sources */,
 				96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */,
@@ -1242,6 +1269,7 @@
 				966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */,
 				962FCB3721D75A3B00D79971 /* JKImageInfoViewController.mm in Sources */,
 				96628A0B21C3ADCB005463F8 /* JKWellImageView.m in Sources */,
+				964AB0902428B42A009D8D0C /* JKManageListItemsViewController.m in Sources */,
 				966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */,
 				96628A0121C35698005463F8 /* JKCollectionMenuPanelItem.m in Sources */,
 				96A9A16721CBA33D00F21813 /* JKResizeImageExportViewController.mm in Sources */,
@@ -1266,6 +1294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1324,6 +1353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

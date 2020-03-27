@@ -9,12 +9,12 @@
 #import "JKStatusIconManagerViewController.h"
 #import <ApplicationServices/ApplicationServices.h>
 
-
+#import "AppDelegate.h"
 extern AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID* out);
 
 @interface JKStatusIconManagerViewController ()<NSTableViewDelegate,NSTableViewDataSource>
 @property (weak) IBOutlet NSTableView *tableView;
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -31,7 +31,8 @@ extern AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID* out);
 }
 - (IBAction)buttonAction:(id)sender
 {
-    [self windows];
+    [(AppDelegate *)[NSApplication sharedApplication].delegate buildTestItem];
+//    [self windows];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -55,16 +56,22 @@ extern AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID* out);
     NSLog(@"value -- %@",dic);
 
 //    CGWindowID windowId;
-//    _AXUIElementGetWindow((__bridge AXUIElementRef)NSApp.keyWindow, &windowId);
+    CFNumberRef pidRef =(__bridge CFNumberRef)([dic objectForKey:@"kCGWindowOwnerPID"]);
+    NSNumber *pid = (__bridge NSNumber *)pidRef;
+    AXUIElementRef ref = AXUIElementCreateApplication([pid intValue]);
     
-    NSDictionary *bounds = [dic objectForKey:@"kCGWindowBounds"];
-    AXUIElementRef ref = AXUIElementCreateApplication([[dic objectForKey:@"kCGWindowOwnerPID"] intValue]);
+//    NSDictionary *bounds = [dic objectForKey:@"kCGWindowBounds"];
+//    AXUIElementRef ref = AXUIElementCreateApplication([[dic objectForKey:@"kCGWindowOwnerPID"] intValue]);
+//
+//    AXUIElementRef window;
+//    CFNumberRef xObj = (__bridge CFNumberRef)([bounds objectForKey:@"X"]);
+//    NSNumber *XValue = (__bridge NSNumber *)xObj;
+//    CFNumberRef yObj = (__bridge CFNumberRef)([bounds objectForKey:@"Y"]);
+//    NSNumber *YValue = (__bridge NSNumber *)yObj;
+//    AXUIElementCopyElementAtPosition(ref, [XValue floatValue], [YValue floatValue], &window);
     
-    AXUIElementRef window;
-    AXUIElementCopyElementAtPosition(ref, [[bounds objectForKey:@"X"] floatValue], [[bounds objectForKey:@"Y"] floatValue], &window);
-    
-    
-    NSWindow *testWindow = [[NSWindow alloc]initWithWindowRef:window];
+    NSLog(@"pid",ref);
+//    NSWindow *testWindow = [[NSWindow alloc] initWithWindowRef:window];
     
 //    NSValue *value = [NSValue valueWithSize:NSMakeSize(100, 100)];
 //    AXValueGetValue(sizeValue, kAXValueCGSizeType, &size);
@@ -78,12 +85,31 @@ extern AXError _AXUIElementGetWindow(AXUIElementRef, CGWindowID* out);
 
 - (void)windows
 {
-    CFArrayRef windowsRef = CGWindowListCreateDescriptionFromArray(CGWindowListCreate(kCGWindowListOptionAll, kCGNullWindowID));
-//    CFArrayRef windowsRef = CGWindowListCopyWindowInfo(kCGWindowListOptionAll, kCGNullWindowID);
+//    NSWindow *window = NSApplication.sharedApplication.windows.firstObject;
+//    CFArrayRef windowsRef = CGWindowListCreateDescriptionFromArray(CGWindowListCreate(kCGWindowListOptionAll, kCGNullWindowID));
+    CFArrayRef windowsRef = CGWindowListCopyWindowInfo(kCGWindowListOptionAll, kCGNullWindowID);
     if (windowsRef) {
-        self.dataArray = (__bridge NSArray *)windowsRef;
+        [self.dataArray removeAllObjects];
+        NSArray *arr = (__bridge NSArray *)windowsRef;
+        NSString *windowLayer = (__bridge NSString *)kCGWindowLayer;
+        for (NSDictionary *dic in arr) {
+            if ([[dic objectForKey:windowLayer] integerValue] == kCGStatusWindowLevel ) {
+                [self.dataArray addObject:dic];
+            }
+        }
+//        self.dataArray = (__bridge NSArray *)windowsRef;
     }
+    
+    id value = [[NSStatusBar systemStatusBar] performSelector:@selector(_statusItems) withObject:nil];
     [self.tableView reloadData];
+}
+
+- (NSMutableArray *)dataArray
+{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
 }
 
 

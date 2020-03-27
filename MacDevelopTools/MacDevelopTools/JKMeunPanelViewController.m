@@ -22,6 +22,7 @@
 #import "JKJSONFormatViewController.h"
 #import "JKShellManagerViewController.h"
 #import "JKClockViewController.h"
+#import "JKItemsManager.h"
 
 #define kCollectionItemIdentify @"normal"
 
@@ -30,9 +31,6 @@
 @property (weak) IBOutlet NSCollectionView *itemCollectionView;
 @property (weak) IBOutlet NSView *containView;
 
-@property (nonatomic, strong) NSMutableArray *viewControllerArr;
-@property (nonatomic, strong) NSMutableArray *toolTipArr;
-@property (nonatomic, strong) NSMutableArray *imageNamesArr;
 @property (nonatomic, strong) NSMutableDictionary *vcNameToSbDic;
 @property (nonatomic, strong) NSMutableDictionary *viewControllerDic;
 
@@ -52,9 +50,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.viewControllerDic = [NSMutableDictionary dictionary];
     
-    [self initailizeViewControllers];
+    [self addNotification];
+    
+    self.viewControllerDic = [NSMutableDictionary dictionary];
     
     self.view.wantsLayer = YES;
     self.itemCollectionView.layer.backgroundColor = [NSColor clearColor].CGColor;
@@ -74,23 +73,19 @@
 
 - (NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.viewControllerArr.count;
+    return [[JKItemsManager defaultManager] obtainItemsList].count;
 }
 
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath
 {
     JKCollectionMenuPanelItem *item = [collectionView makeItemWithIdentifier:kCollectionItemIdentify forIndexPath:indexPath];
-    if (indexPath.item < self.toolTipArr.count) {
-        item.toolTips = [self.toolTipArr objectAtIndex:indexPath.item];
-    }else{
-        item.toolTips = @"No Description";
-    }
     
-    if (indexPath.item < self.toolTipArr.count) {
-        item.imgName = [self.imageNamesArr objectAtIndex:indexPath.item];
-    }else{
-        item.imgName = @"bug";
-    }
+    NSArray *arr = [[JKItemsManager defaultManager] obtainItemsList];
+    
+    JKItemsObject *obj = [arr objectAtIndex:indexPath.item];
+    
+    item.toolTips = kJKHasStringValue(obj.toolTip)?obj.toolTip:@"No Description";
+    item.imgName = kJKHasStringValue(obj.itemImageName)?obj.itemImageName:@"bug";
     
     return item;
 }
@@ -101,11 +96,15 @@
 {
     NSLog(@"index path -- %@",indexPaths);
     NSIndexPath *indexP = indexPaths.anyObject;
-    Class className = [self.viewControllerArr objectAtIndex:indexP.item];
-    NSViewController *vc = [self.viewControllerDic objectForKey:NSStringFromClass(className)];
+    
+    NSArray *arr = [[JKItemsManager defaultManager] obtainItemsList];
+    
+    JKItemsObject *obj = [arr objectAtIndex:indexP.item];
+    
+    NSViewController *vc = [self.viewControllerDic objectForKey:obj.vcClassName];
     if (!vc) {
-        vc = [self getVCFromClass:className];
-        [self.viewControllerDic setObject:vc forKey:NSStringFromClass(className)];
+        vc = [self getVCFromClassName:obj.vcClassName sbName:obj.storyBoardName];
+        [self.viewControllerDic setObject:vc forKey:obj.vcClassName];
     }
     
     [self changeToNewView:vc.view];
@@ -113,7 +112,40 @@
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return NSMakeSize(30, 30);
+    NSArray *arr = [[JKItemsManager defaultManager] obtainItemsList];
+    
+    JKItemsObject *obj = [arr objectAtIndex:indexPath.item];
+    
+    if (obj.visable) {
+        return NSMakeSize(40, 30);
+    }else{
+        return NSMakeSize(0.00001, 30);
+    }
+}
+
+- (CGFloat)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+- (CGFloat)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+- (NSEdgeInsets)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return NSEdgeInsetsMake(0, 10, 0, 10);
+}
+
+#pragma mark - notification
+
+- (void)addNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemListChange:) name:kJKStatusItemListChangeNotification object:nil];
+}
+
+- (void)itemListChange:(NSNotification *)notify
+{
+    [self.itemCollectionView reloadData];
 }
 
 #pragma mark - tool
@@ -135,15 +167,13 @@
     }
 }
 
-- (NSViewController *)getVCFromClass:(Class)class
+- (NSViewController *)getVCFromClassName:(NSString *)className sbName:(NSString *)sbName
 {
-    NSString *sbName = [self.vcNameToSbDic objectForKey:NSStringFromClass(class)];
-    
     if (!sbName || sbName.length <= 0) {
         return nil;
     }
     
-    if ([NSStringFromClass(class) isEqualToString:NSStringFromClass([JKWallPaperViewController class])]) {
+    if ([className isEqualToString:NSStringFromClass([JKWallPaperViewController class])]) {
         NSStoryboard *sb = [NSStoryboard storyboardWithName:@"WallPaper" bundle:nil];
         JKBaseViewController *vc = [sb instantiateInitialController];
         __weak typeof(self) weakSelf = self;
@@ -158,83 +188,5 @@
     return vc;
 }
 
-- (void)addViewControllerWithClass:(Class)className toolTip:(NSString *)toolTip storyBoardName:(NSString *)sbName
-{
-    [self.viewControllerArr addObject:className];
-    [self.imageNamesArr addObject:@"bug"];
-    [self.toolTipArr addObject:toolTip];
-    [self.vcNameToSbDic setObject:sbName forKey:NSStringFromClass(className)];
-}
-
-- (void)addViewControllerWithClass:(Class)className toolTip:(NSString *)toolTip storyBoardName:(NSString *)sbName img:(NSString *)imgName
-{
-    [self.viewControllerArr addObject:className];
-    [self.imageNamesArr addObject:imgName];
-    [self.toolTipArr addObject:toolTip];
-    [self.vcNameToSbDic setObject:sbName forKey:NSStringFromClass(className)];
-}
-
-- (void)initailizeViewControllers
-{
-    [self addViewControllerWithClass:[PushViewController class] toolTip:@"Apple Push" storyBoardName:@"SmartPush" img:@"applepush"];
-    
-    [self addViewControllerWithClass:[JKWallPaperViewController class] toolTip:@"Wallpaper" storyBoardName:@"WallPaper" img:@"wallpaper"];
-    
-    [self addViewControllerWithClass:[JKEncodingViewController class] toolTip:@"Encode" storyBoardName:@"Encoding" img:@"encode"];
-    
-    [self addViewControllerWithClass:[JKJSONModelViewController class] toolTip:@"Json To Model" storyBoardName:@"JSONModel" img:@"jsonmodel"];
-    
-    [self addViewControllerWithClass:[JKResizeImageViewController class] toolTip:@"Resize Image" storyBoardName:@"ResizeImage" img:@"imgresize"];
-    
-    [self addViewControllerWithClass:[JKMoveFileViewController class] toolTip:@"Move File" storyBoardName:@"MoveFile" img:@"movefile"];
-    
-    [self addViewControllerWithClass:[JKStatusIconManagerViewController class] toolTip:@"Status Icon Manager" storyBoardName:@"StatusIcon"];
-    
-    [self addViewControllerWithClass:[JKImageInfoViewController class] toolTip:@"Image Info" storyBoardName:@"ImageInfo"];
-    
-    [self addViewControllerWithClass:[JKAutoPackViewController class] toolTip:@"Auto Pack" storyBoardName:@"AutoPack"];
-    
-    [self addViewControllerWithClass:[JKQRCodeViewController class] toolTip:@"QRCode" storyBoardName:@"QRCode" img:@"qrcode"];
-    
-    [self addViewControllerWithClass:[JKJSONFormatViewController class] toolTip:@"JSON Format" storyBoardName:@"JSONFormat"];
-    
-    [self addViewControllerWithClass:[JKShellManagerViewController class] toolTip:@"Shell Manager" storyBoardName:@"ShellManager"];
-    
-    [self addViewControllerWithClass:[JKClockViewController class] toolTip:@"Clock" storyBoardName:@"Clock" img:@"clock"];
-
-}
-
-#pragma mark - getter
-
-- (NSMutableArray *)viewControllerArr
-{
-     if (!_viewControllerArr) {
-         _viewControllerArr = [NSMutableArray array];
-    }
-    return _viewControllerArr;
-}
-- (NSMutableArray *)toolTipArr
-{
-    if (!_toolTipArr) {
-        _toolTipArr = [NSMutableArray array];
-    }
-    return _toolTipArr;
-}
-
-- (NSMutableArray *)imageNamesArr
-{
-    if (!_imageNamesArr) {
-        _imageNamesArr = [NSMutableArray array];
-    }
-    return _imageNamesArr;
-}
-
-- (NSMutableDictionary *)vcNameToSbDic
-{
-    if (!_vcNameToSbDic) {
-        _vcNameToSbDic = [NSMutableDictionary dictionary];
-    }
-    return _vcNameToSbDic;
-}
 
 @end

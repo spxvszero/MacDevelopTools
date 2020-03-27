@@ -10,6 +10,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+- (void)buildTestItem;
 
 @end
 

@@ -59,4 +59,12 @@
     self.toolTipsButton.toolTip = toolTips;
 }
 
+- (void)setImgName:(NSString *)imgName
+{
+    _imgName = imgName;
+    if (kJKHasStringValue(imgName)) {
+        self.panelImageView.image = [NSImage imageNamed:self.imgName];
+    }
+}
+
 @end
