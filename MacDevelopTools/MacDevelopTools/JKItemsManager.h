@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *storyBoardName;
 @property (nonatomic, strong) NSString *vcClassName;
 
+- (instancetype)initWithDic:(NSDictionary *)dic;
+- (NSDictionary *)dicValue;
+
 @end
 
 

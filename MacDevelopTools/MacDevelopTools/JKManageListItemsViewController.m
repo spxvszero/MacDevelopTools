@@ -59,6 +59,7 @@
 @interface JKManageListItemTableView : NSTableView
 
 @property (nonatomic, strong) void (^DragUpdateRowBlock)(NSInteger row);
+@property (nonatomic, strong) void (^NeedUpdateScrollViewBlock)(BOOL up);
 @property (nonatomic, strong) NSView *lineView;
 
 @end
@@ -76,9 +77,11 @@
 
 - (void)draggingSession:(NSDraggingSession *)session movedToPoint:(NSPoint)screenPoint
 {
-    NSPoint convertP = [self convertPoint:[self.window convertPointFromScreen:screenPoint] fromView:nil];
+    NSPoint windowP = [self.window convertPointFromScreen:screenPoint];
+    NSPoint convertP = [self convertPoint:windowP fromView:nil];
     NSInteger row = [self rowAtPoint:convertP];
     [self filterWithRowHeight:convertP row:row];
+    [self scrollFitting:windowP.y];
 }
 
 - (void)filterWithRowHeight:(NSPoint)point row:(NSInteger)row
@@ -107,6 +110,25 @@
     }
 }
 
+- (void)scrollFitting:(CGFloat)y
+{
+    
+    if (y < 0) {
+        //scroll bottom
+        if (self.NeedUpdateScrollViewBlock) {
+            self.NeedUpdateScrollViewBlock(false);
+        }
+    }
+    
+    CGFloat frameHeight = self.superview.frame.size.height;
+    if (y > frameHeight) {
+        //scroll top
+        if (self.NeedUpdateScrollViewBlock) {
+            self.NeedUpdateScrollViewBlock(true);
+        }
+    }
+}
+
 - (void)endDragging
 {
     self.lineView.hidden = YES;
@@ -128,6 +150,8 @@
 
 
 @interface JKManageListItemsViewController ()<NSTableViewDataSource,NSTableViewDelegate>
+
+@property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet JKManageListItemTableView *tableview;
 
 @property (nonatomic, assign) NSInteger beginRow;
@@ -150,6 +174,11 @@
     self.tableview.DragUpdateRowBlock = ^(NSInteger row) {
         weakSelf.tempAimRow = row;
     };
+    self.tableview.NeedUpdateScrollViewBlock = ^(BOOL up){
+        [weakSelf.tableview scrollPoint:NSMakePoint(0, weakSelf.scrollView.contentView.bounds.origin.y + (up?-1:1))];
+        //do not use scrollview.contentview.scrollToPoint
+        //this will change the position of clipview but contentOffset
+    };
     
 }
 
@@ -170,6 +199,8 @@
 
 - (void)tableView:(NSTableView *)tableView draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
 {
+    [self.tableview endDragging];
+    
     if (self.tempAimRow < self.beginRow) {
         self.tempAimRow += 1;
     }
@@ -184,7 +215,6 @@
     
     [self.tableview moveRowAtIndex:self.beginRow toIndex:self.tempAimRow];
     
-    [self.tableview endDragging];
     [[NSNotificationCenter defaultCenter] postNotificationName:kJKStatusItemListChangeNotification object:nil];
 }
 

@@ -814,30 +814,30 @@
         <scene sceneID="b78-Fv-1pQ">
             <objects>
                 <viewController storyboardIdentifier="JKManageListItemsViewController" id="o8S-qO-14C" customClass="JKManageListItemsViewController" sceneMemberID="viewController">
-                    <view key="view" id="yl2-v0-wcr">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="277"/>
+                    <view key="view" misplaced="YES" id="yl2-v0-wcr">
+                        <rect key="frame" x="0.0" y="0.0" width="454" height="275"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-Yb-v9A">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="277"/>
+                            <scrollView borderType="groove" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-Yb-v9A">
+                                <rect key="frame" x="0.0" y="0.0" width="454" height="272"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="aNY-Hf-tGk">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="277"/>
+                                    <rect key="frame" x="2" y="2" width="450" height="268"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="woJ-Zv-WSf" customClass="JKManageListItemTableView">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="277"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="268"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="447" minWidth="40" maxWidth="1000" id="HWF-Oi-IUa">
+                                                <tableColumn editable="NO" width="447" minWidth="40" maxWidth="1000" id="HWF-Oi-IUa">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="menu" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="6At-c0-xBb">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" drawsBackground="YES" id="6At-c0-xBb">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -850,7 +850,7 @@
                                                             <subviews>
                                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VEZ-5W-in1">
                                                                     <rect key="frame" x="18" y="9" width="411" height="18"/>
-                                                                    <buttonCell key="cell" type="check" title="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="45D-nA-eiu">
+                                                                    <buttonCell key="cell" type="check" title="check" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="45D-nA-eiu">
                                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                         <font key="font" metaFont="system"/>
                                                                     </buttonCell>
@@ -876,7 +876,7 @@
                                 </clipView>
                                 <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="feA-dW-9g0">
-                                    <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                    <rect key="frame" x="2" y="258" width="446" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="hZ0-gf-gOa">
@@ -893,6 +893,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="scrollView" destination="2Kv-Yb-v9A" id="VoL-R0-dtr"/>
                         <outlet property="tableview" destination="woJ-Zv-WSf" id="jth-Qw-Mmk"/>
                     </connections>
                 </viewController>
@@ -922,6 +923,9 @@
                             <constraint firstItem="aQu-uk-yAG" firstAttribute="centerX" secondItem="kNo-VF-R1L" secondAttribute="centerX" id="s9z-UA-hdL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aboutTxtField" destination="aQu-uk-yAG" id="k4F-H6-I8d"/>
+                    </connections>
                 </viewController>
                 <customObject id="GKh-YA-9AW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

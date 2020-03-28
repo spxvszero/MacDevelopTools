@@ -198,7 +198,8 @@ static const char *getPropertyType(objc_property_t property) {
     NSStoryboard *sb = [NSStoryboard storyboardWithName:@"Main" bundle:nil];
     NSWindowController *w = [sb instantiateControllerWithIdentifier:@"JKManagement"];
     self.managementController = w;
-    [NSApplication.sharedApplication addWindowsItem:w.window title:@"window" filename:false];
+    w.window.title = @"Management";
+    [NSApplication.sharedApplication addWindowsItem:w.window title:@"Management" filename:false];
     w.window.orderedIndex = 1;
     [w showWindow:w.window];
     [w.window orderFrontRegardless];

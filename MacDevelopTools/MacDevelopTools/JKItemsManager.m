@@ -10,6 +10,31 @@
 
 
 @implementation JKItemsObject
+- (NSDictionary *)dicValue
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:@(self.visable) forKey:@"Visable"];
+    [dic setObject:self.toolTip?:@"" forKey:@"ToolTip"];
+    [dic setObject:self.itemImageName?:@"" forKey:@"ItemImageName"];
+    [dic setObject:self.storyBoardName?:@"" forKey:@"StoryBoardName"];
+    [dic setObject:self.vcClassName?:@"" forKey:@"ClassName"];
+    return dic;
+    
+}
+
+- (instancetype)initWithDic:(NSDictionary *)dic
+{
+    if (self = [super init]) {
+        if (dic) {
+            self.visable = [[dic objectForKey:@"Visable"] boolValue];
+            self.toolTip = [dic objectForKey:@"ToolTip"];
+            self.itemImageName = [dic objectForKey:@"ItemImageName"];
+            self.storyBoardName = [dic objectForKey:@"StoryBoardName"];
+            self.vcClassName = [dic objectForKey:@"ClassName"];
+        }
+    }
+    return self;
+}
 @end
 
 
@@ -20,6 +45,10 @@
 @end
 @implementation JKItemsManager
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 - (NSMutableArray<JKItemsObject *> *)obtainItemsList
@@ -29,7 +58,7 @@
 
 - (void)readFromPlist
 {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"items" ofType:@"plist"];
+    NSString *plistPath = [self itemsListPath];
     NSArray *listArr = [NSArray arrayWithContentsOfFile:plistPath];
     
     if (listArr && listArr.count > 0) {
@@ -40,15 +69,32 @@
 - (void)seralizeListItems:(NSArray *)listArr
 {
     for (NSDictionary *item in listArr) {
-        JKItemsObject *obj = [[JKItemsObject alloc] init];
-        obj.visable = [[item objectForKey:@"Visable"] boolValue];
-        obj.toolTip = [item objectForKey:@"ToolTip"];
-        obj.itemImageName = [item objectForKey:@"ItemImageName"];
-        obj.storyBoardName = [item objectForKey:@"StoryBoardName"];
-        obj.vcClassName = [item objectForKey:@"ClassName"];
-        
+        JKItemsObject *obj = [[JKItemsObject alloc] initWithDic:item];
         [self.listItemsArr addObject:obj];
     }
+}
+
+- (void)updatePlistFile
+{
+    NSMutableArray *writeArr = [NSMutableArray array];
+    for (JKItemsObject *obj in self.listItemsArr) {
+        [writeArr addObject:[obj dicValue]];
+    }
+    [writeArr writeToFile:[self itemsListPath] atomically:true];
+}
+
+- (NSString *)itemsListPath
+{
+    return [[NSBundle mainBundle] pathForResource:@"items" ofType:@"plist"];
+}
+- (void)addNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemListChange) name:kJKStatusItemListChangeNotification object:nil];
+}
+
+- (void)itemListChange
+{
+    [self updatePlistFile];
 }
 
 #pragma mark - getter
@@ -74,6 +120,7 @@
     dispatch_once(&onceToken, ^{
         if ((obj = [super init])) {
             [self readFromPlist];
+            [self addNotification];
         }
     });
     return obj;
