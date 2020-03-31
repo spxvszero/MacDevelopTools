@@ -163,7 +163,7 @@
 - (void)resizeWithViewSize:(NSSize)viewSize
 {
     if (self.MeunSizeChangeBlock) {
-        self.MeunSizeChangeBlock(NSMakeSize(viewSize.width + 20, viewSize.height + 50));
+        self.MeunSizeChangeBlock(NSMakeSize(viewSize.width + 20, viewSize.height + 60));
     }
 }
 

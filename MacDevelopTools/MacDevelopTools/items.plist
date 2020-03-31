@@ -158,5 +158,17 @@
 		<key>ClassName</key>
 		<string>JKClockViewController</string>
 	</dict>
+	<dict>
+		<key>Visable</key>
+		<true/>
+		<key>ToolTip</key>
+		<string>For Lottie Animate</string>
+		<key>ItemImageName</key>
+		<string></string>
+		<key>StoryBoardName</key>
+		<string>LottiePreviewer</string>
+		<key>ClassName</key>
+		<string>JKLottiePreviewController</string>
+	</dict>
 </array>
 </plist>
