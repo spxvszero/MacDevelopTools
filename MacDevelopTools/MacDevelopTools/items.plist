@@ -162,7 +162,7 @@
 		<key>Visable</key>
 		<true/>
 		<key>ToolTip</key>
-		<string>For Lottie Animate</string>
+		<string>Lottie Animate Preview</string>
 		<key>ItemImageName</key>
 		<string></string>
 		<key>StoryBoardName</key>
