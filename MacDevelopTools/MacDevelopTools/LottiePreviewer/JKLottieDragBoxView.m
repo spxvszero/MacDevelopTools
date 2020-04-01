@@ -50,7 +50,6 @@
 {
     [[self window] setAcceptsMouseMovedEvents:YES];
     [[self window] makeFirstResponder:self];
-    NSLog(@"enter");
     if (self.MouseActionBlock) {
         self.MouseActionBlock(true);
     }
@@ -58,7 +57,6 @@
 
 - (void)mouseExited:(NSEvent *)event
 {
-    NSLog(@"exit");
     if (self.MouseActionBlock) {
         self.MouseActionBlock(false);
     }

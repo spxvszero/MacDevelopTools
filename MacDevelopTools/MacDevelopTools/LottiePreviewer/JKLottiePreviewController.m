@@ -28,10 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    
-//    self.progressSlider.floatValue = self.contentView.animationProgress;
-//
-//    [self.contentView addObserver:self forKeyPath:@"animationProgress" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld|NSKeyValueObservingOptionPrior|NSKeyValueObservingOptionInitial context:nil];
 
     __weak typeof(self) weakSelf = self;
     self.dragBoxView.OpenJsonLottieObjectBlock = ^(id  _Nonnull jsonObj) {
@@ -41,24 +37,60 @@
         weakSelf.controlPanel.hidden = !isEnter;
     };
     
+    self.playBtn.image = [NSImage imageNamed:@"play"];
     
-    
+    self.progressSlider.minValue = 0;
+    self.progressSlider.maxValue = 1;
+    self.progressSlider.floatValue = self.contentView.animationProgress;
+    self.contentView.LOTAnimationProgressBlock = ^(LOTAnimationView * _Nullable animView) {
+        weakSelf.progressSlider.floatValue = animView.animationProgress;
+    };
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+- (IBAction)sliderValueChange:(id)sender
 {
-    NSLog(@"observer -- %@ -- %@",keyPath,change);
+    [self.contentView setAnimationProgress:self.progressSlider.doubleValue];
 }
 
 - (IBAction)playAction:(id)sender
 {
-    [self.contentView play];
-    NSLog(@"progress -- %@",[self.contentView valueForKey:@"animationProgress"]);
+    if (!self.contentView.sceneModel) {
+        return;
+    }
+    
+    if (self.contentView.isAnimationPlaying) {
+        [self.contentView pause];
+        [self updateBtnWithCurrentState:false];
+    }else{
+        [self contentPlayAnimation];
+    }
     
 //    NSColorPanel *p = [NSColorPanel sharedColorPanel];
 //    p.hidesOnDeactivate = false;
 //    [NSApp orderFrontColorPanel:nil];
 
+}
+
+- (void)updateBtnWithCurrentState:(BOOL)play
+{
+    if (play) {
+        self.playBtn.state = NSControlStateValueOn;
+        self.playBtn.image = [NSImage imageNamed:@"pause"];
+    }else{
+        self.playBtn.state = NSControlStateValueOff;
+        self.playBtn.image = [NSImage imageNamed:@"play"];
+    }
+}
+
+- (void)contentPlayAnimation
+{
+    __weak typeof(self) weakSelf = self;
+    [self.contentView playWithCompletion:^(BOOL animationFinished) {
+        if (animationFinished) {
+            [weakSelf updateBtnWithCurrentState:false];
+        }
+    }];
+    [self updateBtnWithCurrentState:true];
 }
 
 - (void)reloadViewWithJsonObj:(id)jsonObj
@@ -70,7 +102,8 @@
     LOTComposition *laScene = [[LOTComposition alloc] initWithJSON:jsonObj withAssetBundle:[NSBundle mainBundle]];
     self.contentView.sceneModel = laScene;
     self.contentView.contentMode = LOTViewContentModeScaleAspectFit;
-    [self.contentView play];
+    [self contentPlayAnimation];
+    
 }
 
 - (void)paste:(id)sender {
