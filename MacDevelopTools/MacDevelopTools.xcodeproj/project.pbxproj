@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */; };
 		962178E2242B0001003268FC /* JKItemsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962178E1242B0001003268FC /* JKItemsManager.m */; };
 		962178E4242B0C55003268FC /* items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 962178E3242B0C55003268FC /* items.plist */; };
 		962FC53A21D0CA9200D79971 /* libMagick++-7.Q16HDRI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FC52221D0CA9200D79971 /* libMagick++-7.Q16HDRI.a */; };
@@ -116,6 +117,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		961EF7D32435E56200EAB18D /* JKLottieMoreSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLottieMoreSettingViewController.h; sourceTree = "<group>"; };
+		961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKLottieMoreSettingViewController.m; sourceTree = "<group>"; };
 		962178E0242B0001003268FC /* JKItemsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKItemsManager.h; sourceTree = "<group>"; };
 		962178E1242B0001003268FC /* JKItemsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKItemsManager.m; sourceTree = "<group>"; };
 		962178E3242B0C55003268FC /* items.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = items.plist; sourceTree = "<group>"; };
@@ -1016,6 +1019,8 @@
 				96578E372432E0FC00F828C5 /* JKLottiePreviewController.m */,
 				96578FA224332A2900F828C5 /* JKLottieDragBoxView.h */,
 				96578FA324332A2900F828C5 /* JKLottieDragBoxView.m */,
+				961EF7D32435E56200EAB18D /* JKLottieMoreSettingViewController.h */,
+				961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */,
 				96578E392432E11900F828C5 /* LottiePreviewer.storyboard */,
 			);
 			path = LottiePreviewer;
@@ -1688,6 +1693,7 @@
 				96A9A15E21CB922A00F21813 /* NSString+URLEncode.m in Sources */,
 				966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */,
 				962FCB3721D75A3B00D79971 /* JKImageInfoViewController.mm in Sources */,
+				961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */,
 				96628A0B21C3ADCB005463F8 /* JKWellImageView.m in Sources */,
 				964AB0902428B42A009D8D0C /* JKManageListItemsViewController.m in Sources */,
 				966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */,

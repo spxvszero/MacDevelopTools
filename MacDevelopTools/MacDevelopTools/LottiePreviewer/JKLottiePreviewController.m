@@ -11,6 +11,7 @@
 #import "LottieFilesURL.h"
 #import <Lottie/Lottie.h>
 #import <Quartz/Quartz.h>
+#import "JKLottieMoreSettingViewController.h"
 
 @interface JKLottiePreviewController ()
 @property (weak) IBOutlet NSBox *controlPanel;
@@ -20,6 +21,8 @@
 
 @property (weak) IBOutlet JKLottieDragBoxView *dragBoxView;
 @property (weak) IBOutlet LOTAnimationView *contentView;
+
+@property (nonatomic, strong) NSWindowController *moreSettingController;
 
 @end
 
@@ -45,11 +48,36 @@
     self.contentView.LOTAnimationProgressBlock = ^(LOTAnimationView * _Nullable animView) {
         weakSelf.progressSlider.floatValue = animView.animationProgress;
     };
+    
 }
 
 - (IBAction)sliderValueChange:(id)sender
 {
     [self.contentView setAnimationProgress:self.progressSlider.doubleValue];
+}
+- (IBAction)moreAction:(id)sender
+{
+    [self showMoreSettingController];
+}
+
+- (void)showMoreSettingController
+{
+    if (self.moreSettingController) {
+        self.moreSettingController.window.orderedIndex = 1;
+        [self.moreSettingController showWindow:self.moreSettingController.window];
+        [self.moreSettingController.window orderFrontRegardless];
+    }else{
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"LottiePreviewer" bundle:nil];
+        NSWindowController *w = [sb instantiateControllerWithIdentifier:@"MoreSetting"];
+        self.moreSettingController = w;
+        w.window.title = @"More";
+        [NSApplication.sharedApplication addWindowsItem:w.window title:@"More" filename:false];
+        w.window.orderedIndex = 1;
+        [w showWindow:w.window];
+        [w.window orderFrontRegardless];
+    }
+    
+    [(JKLottieMoreSettingViewController *)self.moreSettingController.contentViewController updateWithLOTAnimationView:self.contentView];
 }
 
 - (IBAction)playAction:(id)sender
