@@ -13,6 +13,10 @@
 
 @property (weak) IBOutlet NSColorWell *backgroundColorWell;
 @property (weak) IBOutlet NSPopUpButton *contentModePopBtn;
+@property (weak) IBOutlet NSSlider *rotateSlider;
+@property (weak) IBOutlet NSTextField *rotatetxtField;
+
+
 @property (weak) IBOutlet NSButton *loopBtn;
 @property (weak) IBOutlet NSButton *autoReverseBtn;
 
@@ -20,6 +24,7 @@
 @property (weak) IBOutlet NSStepper *speedStepper;
 
 
+@property (nonatomic, weak) NSView *transBackView;
 @property (nonatomic, weak) LOTAnimationView *lotView;
 
 @end
@@ -51,7 +56,7 @@
     self.speedStepper.maxValue = 100;
 }
 
-- (void)updateWithLOTAnimationView:(LOTAnimationView *)lotView
+- (void)updateWithLOTAnimationView:(LOTAnimationView *)lotView transBackView:(nonnull NSView *)backView
 {
     if (!lotView) {
         return;
@@ -64,6 +69,14 @@
     self.speedTxtField.stringValue = [NSString stringWithFormat:@"x%.1f",lotView.animationSpeed];
     
     self.lotView = lotView;
+    
+    if (backView) {
+        self.transBackView = backView;
+        self.transBackView.layer.anchorPoint = CGPointMake(0.5, 0.5);
+        self.transBackView.layer.position = CGPointMake(self.transBackView.bounds.size.width * 0.5, self.transBackView.bounds.size.height * 0.5);
+    }else{
+        self.transBackView = nil;
+    }
 }
 
 #pragma mark - action
@@ -72,10 +85,49 @@
 {
     self.lotView.layer.backgroundColor = self.backgroundColorWell.color.CGColor;
 }
+
 - (IBAction)popUpItemsSelected:(id)sender
 {
     self.lotView.contentMode = [self.contentModePopBtn indexOfSelectedItem];
 }
+
+- (IBAction)rotateSliderAction:(id)sender
+{
+    [self.transBackView.layer setAffineTransform:CGAffineTransformMakeRotation(self.rotateSlider.doubleValue * 0.01 * 2 * M_PI)];
+    self.rotatetxtField.doubleValue = self.rotateSlider.doubleValue * 0.01 * 360;
+}
+
+- (IBAction)rotateTxtAction:(id)sender
+{
+    CGFloat value = self.rotatetxtField.doubleValue;
+    BOOL minus = false;
+    if (value > 0) {
+    }else{
+        minus = true;
+    }
+    
+    if (ABS(value) / 360.f > 1) {
+        value = value - ((NSInteger)value / 360 * 360);
+    }
+    
+    if (minus) {
+        value = 360 + value;
+    }
+    
+    self.rotateSlider.floatValue = (value / 360.0) * 100;
+    [self.transBackView.layer setAffineTransform:CGAffineTransformMakeRotation(self.rotateSlider.doubleValue * 0.01 * 2 * M_PI)];
+    
+    self.rotatetxtField.doubleValue = value;
+}
+
+- (IBAction)rotateClearBtnAction:(id)sender
+{
+    self.rotateSlider.floatValue = 0;
+    self.rotatetxtField.doubleValue = 0;
+    [self.transBackView.layer setAffineTransform:CGAffineTransformIdentity];
+}
+
+
 - (IBAction)loopBtnClickAction:(id)sender
 {
     self.lotView.loopAnimation = (self.loopBtn.state == NSControlStateValueOn);
@@ -87,6 +139,13 @@
 - (IBAction)stepperClick:(id)sender
 {
     self.lotView.animationSpeed = self.speedStepper.doubleValue;
+    [self updateSpeedText];
+}
+
+- (IBAction)speedTxtAction:(id)sender
+{
+    float value = self.speedTxtField.floatValue;
+    self.lotView.animationSpeed = value;
     [self updateSpeedText];
 }
 

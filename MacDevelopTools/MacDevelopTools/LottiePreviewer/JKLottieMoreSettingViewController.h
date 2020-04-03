@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JKLottieMoreSettingViewController : NSViewController
 
-- (void)updateWithLOTAnimationView:(LOTAnimationView *)lotView;
+- (void)updateWithLOTAnimationView:(LOTAnimationView *)lotView transBackView:(NSView *)backView;
 
 @end
 

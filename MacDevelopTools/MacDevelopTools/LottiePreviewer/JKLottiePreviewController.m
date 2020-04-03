@@ -20,6 +20,7 @@
 
 
 @property (weak) IBOutlet JKLottieDragBoxView *dragBoxView;
+@property (weak) IBOutlet NSView *contentBackView;
 @property (weak) IBOutlet LOTAnimationView *contentView;
 
 @property (nonatomic, strong) NSWindowController *moreSettingController;
@@ -77,7 +78,7 @@
         [w.window orderFrontRegardless];
     }
     
-    [(JKLottieMoreSettingViewController *)self.moreSettingController.contentViewController updateWithLOTAnimationView:self.contentView];
+    [(JKLottieMoreSettingViewController *)self.moreSettingController.contentViewController updateWithLOTAnimationView:self.contentView transBackView:self.contentBackView];
 }
 
 - (IBAction)playAction:(id)sender
