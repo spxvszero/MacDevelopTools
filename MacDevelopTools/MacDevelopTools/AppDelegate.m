@@ -97,6 +97,7 @@ static float const     kStatusBarIconPadding = 0.25;
     
     
 //    self.statusBarItem.button.menu = self.iconMenu;
+    self.statusBarItem.button.target = self;
     self.statusBarItem.button.action = @selector(popOverAction:);
     self.statusBarItem.button.rightClickTarget = self;
     self.statusBarItem.button.rightClickAction = @selector(popUpMenu);
@@ -167,6 +168,10 @@ static const char *getPropertyType(objc_property_t property) {
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:kJKStatusItemPopOverCloseNotification object:nil];
     [self.popOver performClose:sender];
+}
+- (void)closePopOver
+{
+    [self.popOver performClose:self.popOver];
 }
 
 

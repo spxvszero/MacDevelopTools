@@ -103,7 +103,15 @@
     
     NSViewController *vc = [self.viewControllerDic objectForKey:obj.vcClassName];
     if (!vc) {
+        if (![obj.vcClassName isKindOfClass:[NSString class]] || obj.vcClassName.length <= 0) {
+            NSLog(@"Failed To Load View Controller , class name is unavailiable");
+            return;
+        }
         vc = [self getVCFromClassName:obj.vcClassName sbName:obj.storyBoardName];
+        if (!vc) {
+            NSLog(@"Failed To Load View Controller , View Controller object not found");
+            return;
+        }
         [self.viewControllerDic setObject:vc forKey:obj.vcClassName];
     }
     

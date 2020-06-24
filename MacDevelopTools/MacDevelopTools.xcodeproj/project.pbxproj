@@ -71,6 +71,60 @@
 		966BD361221C106B008AA4D5 /* JKShellManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966BD360221C106B008AA4D5 /* JKShellManagerViewController.m */; };
 		966BD363221C1074008AA4D5 /* ShellManager.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966BD362221C1074008AA4D5 /* ShellManager.storyboard */; };
 		966BD366221CE79A008AA4D5 /* JKShellManagerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 966BD365221CE79A008AA4D5 /* JKShellManagerCell.m */; };
+		9693F9AA2486201800BEB9A8 /* LAppAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9952486201800BEB9A8 /* LAppAllocator.cpp */; };
+		9693F9AB2486201800BEB9A8 /* LAppPal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9962486201800BEB9A8 /* LAppPal.cpp */; };
+		9693F9AC2486201800BEB9A8 /* TouchManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9972486201800BEB9A8 /* TouchManager.cpp */; };
+		9693F9AD2486201800BEB9A8 /* LAppModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9982486201800BEB9A8 /* LAppModel.cpp */; };
+		9693F9AF2486201800BEB9A8 /* LAppDefine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F99F2486201800BEB9A8 /* LAppDefine.cpp */; };
+		9693F9B02486201800BEB9A8 /* LAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9A02486201800BEB9A8 /* LAppDelegate.cpp */; };
+		9693F9B12486201800BEB9A8 /* LAppTextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9A12486201800BEB9A8 /* LAppTextureManager.cpp */; };
+		9693F9B22486201800BEB9A8 /* LAppView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9A22486201800BEB9A8 /* LAppView.cpp */; };
+		9693F9B32486201800BEB9A8 /* LAppLive2DManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9A32486201800BEB9A8 /* LAppLive2DManager.cpp */; };
+		9693F9B52486201800BEB9A8 /* LAppSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9A92486201800BEB9A8 /* LAppSprite.cpp */; };
+		9693FA382486219900BEB9A8 /* CubismFramework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9B92486219900BEB9A8 /* CubismFramework.cpp */; };
+		9693FA3A2486219900BEB9A8 /* CubismModelSettingJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9BC2486219900BEB9A8 /* CubismModelSettingJson.cpp */; };
+		9693FA3B2486219900BEB9A8 /* CubismPose.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9BF2486219900BEB9A8 /* CubismPose.cpp */; };
+		9693FA3D2486219900BEB9A8 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9C12486219900BEB9A8 /* CubismEyeBlink.cpp */; };
+		9693FA3E2486219900BEB9A8 /* CubismBreath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9C22486219900BEB9A8 /* CubismBreath.cpp */; };
+		9693FA3F2486219900BEB9A8 /* CubismCdiJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9C62486219900BEB9A8 /* CubismCdiJson.cpp */; };
+		9693FA412486219900BEB9A8 /* CubismJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9C92486219900BEB9A8 /* CubismJson.cpp */; };
+		9693FA422486219900BEB9A8 /* CubismString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9CA2486219900BEB9A8 /* CubismString.cpp */; };
+		9693FA432486219900BEB9A8 /* CubismDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9CD2486219900BEB9A8 /* CubismDebug.cpp */; };
+		9693FA452486219900BEB9A8 /* ACubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9D32486219900BEB9A8 /* ACubismMotion.cpp */; };
+		9693FA462486219900BEB9A8 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9D42486219900BEB9A8 /* CubismMotion.cpp */; };
+		9693FA472486219900BEB9A8 /* CubismMotionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9D52486219900BEB9A8 /* CubismMotionManager.cpp */; };
+		9693FA482486219900BEB9A8 /* CubismMotionQueueManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9D82486219900BEB9A8 /* CubismMotionQueueManager.cpp */; };
+		9693FA492486219900BEB9A8 /* CubismExpressionMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9DD2486219900BEB9A8 /* CubismExpressionMotion.cpp */; };
+		9693FA4A2486219900BEB9A8 /* CubismMotionJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9DE2486219900BEB9A8 /* CubismMotionJson.cpp */; };
+		9693FA4B2486219900BEB9A8 /* CubismMotionQueueEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9DF2486219900BEB9A8 /* CubismMotionQueueEntry.cpp */; };
+		9693FA4C2486219900BEB9A8 /* CubismModelMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9E12486219900BEB9A8 /* CubismModelMatrix.cpp */; };
+		9693FA4D2486219900BEB9A8 /* CubismViewMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9E22486219900BEB9A8 /* CubismViewMatrix.cpp */; };
+		9693FA4F2486219900BEB9A8 /* CubismVector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9E52486219900BEB9A8 /* CubismVector2.cpp */; };
+		9693FA502486219900BEB9A8 /* CubismTargetPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9E62486219900BEB9A8 /* CubismTargetPoint.cpp */; };
+		9693FA512486219900BEB9A8 /* CubismMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9E82486219900BEB9A8 /* CubismMath.cpp */; };
+		9693FA522486219900BEB9A8 /* CubismMatrix44.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9EB2486219900BEB9A8 /* CubismMatrix44.cpp */; };
+		9693FA542486219900BEB9A8 /* csmString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9F42486219900BEB9A8 /* csmString.cpp */; };
+		9693FA552486219900BEB9A8 /* csmRectF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9F62486219900BEB9A8 /* csmRectF.cpp */; };
+		9693FA562486219900BEB9A8 /* CubismModelUserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9FC2486219900BEB9A8 /* CubismModelUserData.cpp */; };
+		9693FA582486219900BEB9A8 /* CubismModelUserDataJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9FE2486219900BEB9A8 /* CubismModelUserDataJson.cpp */; };
+		9693FA592486219900BEB9A8 /* CubismUserModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693F9FF2486219900BEB9A8 /* CubismUserModel.cpp */; };
+		9693FA5A2486219900BEB9A8 /* CubismMoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA002486219900BEB9A8 /* CubismMoc.cpp */; };
+		9693FA5B2486219900BEB9A8 /* CubismModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA042486219900BEB9A8 /* CubismModel.cpp */; };
+		9693FA672486219900BEB9A8 /* CubismRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA222486219900BEB9A8 /* CubismRenderer.cpp */; };
+		9693FA692486219900BEB9A8 /* CubismRenderer_OpenGLES2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA262486219900BEB9A8 /* CubismRenderer_OpenGLES2.cpp */; };
+		9693FA6A2486219900BEB9A8 /* CubismOffscreenSurface_OpenGLES2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA272486219900BEB9A8 /* CubismOffscreenSurface_OpenGLES2.cpp */; };
+		9693FA6B2486219900BEB9A8 /* CubismDefaultParameterId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA292486219900BEB9A8 /* CubismDefaultParameterId.cpp */; };
+		9693FA6D2486219900BEB9A8 /* CubismIdManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA2E2486219900BEB9A8 /* CubismIdManager.cpp */; };
+		9693FA6E2486219900BEB9A8 /* CubismId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA2F2486219900BEB9A8 /* CubismId.cpp */; };
+		9693FA702486219A00BEB9A8 /* CubismPhysicsJson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA352486219900BEB9A8 /* CubismPhysicsJson.cpp */; };
+		9693FA712486219A00BEB9A8 /* CubismPhysics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9693FA362486219900BEB9A8 /* CubismPhysics.cpp */; };
+		9693FA7A2486235300BEB9A8 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9693FA782486235300BEB9A8 /* libglfw3.a */; };
+		9693FA9624862A7E00BEB9A8 /* libLive2DCubismCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9693FA9224862A7E00BEB9A8 /* libLive2DCubismCore.a */; };
+		9693FA9824862A7E00BEB9A8 /* Live2DCubismCore.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9693FA9524862A7E00BEB9A8 /* Live2DCubismCore.bundle */; };
+		9693FAA52486322600BEB9A8 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9693FAA32486322600BEB9A8 /* libGLEW.a */; };
+		9693FAAA248636B000BEB9A8 /* JKLive2dHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9693FAA9248636B000BEB9A8 /* JKLive2dHelper.mm */; };
+		9693FB9524879AB300BEB9A8 /* JKLive2dViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9693FB9424879AB300BEB9A8 /* JKLive2dViewController.m */; };
+		9693FB9724879AD900BEB9A8 /* Live2d.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9693FB9624879AD900BEB9A8 /* Live2d.storyboard */; };
 		96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A14E21C8FC0C00F21813 /* NSButton+JKRightAction.m */; };
 		96A9A15621CA57F600F21813 /* JKJSONModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A9A15521CA57F600F21813 /* JKJSONModelViewController.m */; };
 		96A9A15821CA582400F21813 /* JSONModel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A9A15721CA582400F21813 /* JSONModel.storyboard */; };
@@ -564,6 +618,142 @@
 		966BD362221C1074008AA4D5 /* ShellManager.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShellManager.storyboard; sourceTree = "<group>"; };
 		966BD364221CE79A008AA4D5 /* JKShellManagerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKShellManagerCell.h; sourceTree = "<group>"; };
 		966BD365221CE79A008AA4D5 /* JKShellManagerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKShellManagerCell.m; sourceTree = "<group>"; };
+		9693F9942486201800BEB9A8 /* LAppLive2DManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppLive2DManager.hpp; sourceTree = "<group>"; };
+		9693F9952486201800BEB9A8 /* LAppAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppAllocator.cpp; sourceTree = "<group>"; };
+		9693F9962486201800BEB9A8 /* LAppPal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppPal.cpp; sourceTree = "<group>"; };
+		9693F9972486201800BEB9A8 /* TouchManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchManager.cpp; sourceTree = "<group>"; };
+		9693F9982486201800BEB9A8 /* LAppModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppModel.cpp; sourceTree = "<group>"; };
+		9693F9992486201800BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693F99A2486201800BEB9A8 /* LAppSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppSprite.hpp; sourceTree = "<group>"; };
+		9693F99B2486201800BEB9A8 /* LAppDefine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppDefine.hpp; sourceTree = "<group>"; };
+		9693F99C2486201800BEB9A8 /* LAppDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppDelegate.hpp; sourceTree = "<group>"; };
+		9693F99D2486201800BEB9A8 /* LAppTextureManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppTextureManager.hpp; sourceTree = "<group>"; };
+		9693F99E2486201800BEB9A8 /* LAppView.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppView.hpp; sourceTree = "<group>"; };
+		9693F99F2486201800BEB9A8 /* LAppDefine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppDefine.cpp; sourceTree = "<group>"; };
+		9693F9A02486201800BEB9A8 /* LAppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppDelegate.cpp; sourceTree = "<group>"; };
+		9693F9A12486201800BEB9A8 /* LAppTextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppTextureManager.cpp; sourceTree = "<group>"; };
+		9693F9A22486201800BEB9A8 /* LAppView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppView.cpp; sourceTree = "<group>"; };
+		9693F9A32486201800BEB9A8 /* LAppLive2DManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppLive2DManager.cpp; sourceTree = "<group>"; };
+		9693F9A42486201800BEB9A8 /* LAppAllocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppAllocator.hpp; sourceTree = "<group>"; };
+		9693F9A52486201800BEB9A8 /* LAppPal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppPal.hpp; sourceTree = "<group>"; };
+		9693F9A62486201800BEB9A8 /* TouchManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TouchManager.hpp; sourceTree = "<group>"; };
+		9693F9A72486201800BEB9A8 /* LAppModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LAppModel.hpp; sourceTree = "<group>"; };
+		9693F9A92486201800BEB9A8 /* LAppSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAppSprite.cpp; sourceTree = "<group>"; };
+		9693F9B82486219900BEB9A8 /* CubismDefaultParameterId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDefaultParameterId.hpp; sourceTree = "<group>"; };
+		9693F9B92486219900BEB9A8 /* CubismFramework.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismFramework.cpp; sourceTree = "<group>"; };
+		9693F9BA2486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693F9BB2486219900BEB9A8 /* ICubismModelSetting.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ICubismModelSetting.hpp; sourceTree = "<group>"; };
+		9693F9BC2486219900BEB9A8 /* CubismModelSettingJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismModelSettingJson.cpp; sourceTree = "<group>"; };
+		9693F9BD2486219900BEB9A8 /* ICubismAllocator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ICubismAllocator.hpp; sourceTree = "<group>"; };
+		9693F9BF2486219900BEB9A8 /* CubismPose.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismPose.cpp; sourceTree = "<group>"; };
+		9693F9C02486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693F9C12486219900BEB9A8 /* CubismEyeBlink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismEyeBlink.cpp; sourceTree = "<group>"; };
+		9693F9C22486219900BEB9A8 /* CubismBreath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismBreath.cpp; sourceTree = "<group>"; };
+		9693F9C32486219900BEB9A8 /* CubismEyeBlink.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismEyeBlink.hpp; sourceTree = "<group>"; };
+		9693F9C42486219900BEB9A8 /* CubismBreath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismBreath.hpp; sourceTree = "<group>"; };
+		9693F9C52486219900BEB9A8 /* CubismPose.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismPose.hpp; sourceTree = "<group>"; };
+		9693F9C62486219900BEB9A8 /* CubismCdiJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismCdiJson.cpp; sourceTree = "<group>"; };
+		9693F9C82486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693F9C92486219900BEB9A8 /* CubismJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismJson.cpp; sourceTree = "<group>"; };
+		9693F9CA2486219900BEB9A8 /* CubismString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismString.cpp; sourceTree = "<group>"; };
+		9693F9CB2486219900BEB9A8 /* CubismDebug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDebug.hpp; sourceTree = "<group>"; };
+		9693F9CC2486219900BEB9A8 /* CubismString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismString.hpp; sourceTree = "<group>"; };
+		9693F9CD2486219900BEB9A8 /* CubismDebug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismDebug.cpp; sourceTree = "<group>"; };
+		9693F9CE2486219900BEB9A8 /* CubismJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismJson.hpp; sourceTree = "<group>"; };
+		9693F9D02486219900BEB9A8 /* CubismMotionQueueEntry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMotionQueueEntry.hpp; sourceTree = "<group>"; };
+		9693F9D12486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693F9D22486219900BEB9A8 /* CubismMotionQueueManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMotionQueueManager.hpp; sourceTree = "<group>"; };
+		9693F9D32486219900BEB9A8 /* ACubismMotion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ACubismMotion.cpp; sourceTree = "<group>"; };
+		9693F9D42486219900BEB9A8 /* CubismMotion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismMotion.cpp; sourceTree = "<group>"; };
+		9693F9D52486219900BEB9A8 /* CubismMotionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismMotionManager.cpp; sourceTree = "<group>"; };
+		9693F9D62486219900BEB9A8 /* CubismExpressionMotion.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismExpressionMotion.hpp; sourceTree = "<group>"; };
+		9693F9D72486219900BEB9A8 /* CubismMotionJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMotionJson.hpp; sourceTree = "<group>"; };
+		9693F9D82486219900BEB9A8 /* CubismMotionQueueManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismMotionQueueManager.cpp; sourceTree = "<group>"; };
+		9693F9D92486219900BEB9A8 /* CubismMotion.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMotion.hpp; sourceTree = "<group>"; };
+		9693F9DA2486219900BEB9A8 /* ACubismMotion.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ACubismMotion.hpp; sourceTree = "<group>"; };
+		9693F9DB2486219900BEB9A8 /* CubismMotionInternal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMotionInternal.hpp; sourceTree = "<group>"; };
+		9693F9DC2486219900BEB9A8 /* CubismMotionManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMotionManager.hpp; sourceTree = "<group>"; };
+		9693F9DD2486219900BEB9A8 /* CubismExpressionMotion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismExpressionMotion.cpp; sourceTree = "<group>"; };
+		9693F9DE2486219900BEB9A8 /* CubismMotionJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismMotionJson.cpp; sourceTree = "<group>"; };
+		9693F9DF2486219900BEB9A8 /* CubismMotionQueueEntry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismMotionQueueEntry.cpp; sourceTree = "<group>"; };
+		9693F9E12486219900BEB9A8 /* CubismModelMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismModelMatrix.cpp; sourceTree = "<group>"; };
+		9693F9E22486219900BEB9A8 /* CubismViewMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismViewMatrix.cpp; sourceTree = "<group>"; };
+		9693F9E32486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693F9E42486219900BEB9A8 /* CubismMath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMath.hpp; sourceTree = "<group>"; };
+		9693F9E52486219900BEB9A8 /* CubismVector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismVector2.cpp; sourceTree = "<group>"; };
+		9693F9E62486219900BEB9A8 /* CubismTargetPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismTargetPoint.cpp; sourceTree = "<group>"; };
+		9693F9E72486219900BEB9A8 /* CubismMatrix44.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMatrix44.hpp; sourceTree = "<group>"; };
+		9693F9E82486219900BEB9A8 /* CubismMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismMath.cpp; sourceTree = "<group>"; };
+		9693F9E92486219900BEB9A8 /* CubismTargetPoint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismTargetPoint.hpp; sourceTree = "<group>"; };
+		9693F9EA2486219900BEB9A8 /* CubismVector2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismVector2.hpp; sourceTree = "<group>"; };
+		9693F9EB2486219900BEB9A8 /* CubismMatrix44.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismMatrix44.cpp; sourceTree = "<group>"; };
+		9693F9EC2486219900BEB9A8 /* CubismModelMatrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismModelMatrix.hpp; sourceTree = "<group>"; };
+		9693F9ED2486219900BEB9A8 /* CubismViewMatrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismViewMatrix.hpp; sourceTree = "<group>"; };
+		9693F9EE2486219900BEB9A8 /* Live2DCubismCore.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Live2DCubismCore.hpp; sourceTree = "<group>"; };
+		9693F9F02486219900BEB9A8 /* csmRectF.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = csmRectF.hpp; sourceTree = "<group>"; };
+		9693F9F12486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693F9F22486219900BEB9A8 /* csmString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = csmString.hpp; sourceTree = "<group>"; };
+		9693F9F32486219900BEB9A8 /* CubismBasicType.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismBasicType.hpp; sourceTree = "<group>"; };
+		9693F9F42486219900BEB9A8 /* csmString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = csmString.cpp; sourceTree = "<group>"; };
+		9693F9F52486219900BEB9A8 /* csmVector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = csmVector.hpp; sourceTree = "<group>"; };
+		9693F9F62486219900BEB9A8 /* csmRectF.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = csmRectF.cpp; sourceTree = "<group>"; };
+		9693F9F72486219900BEB9A8 /* csmMap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = csmMap.hpp; sourceTree = "<group>"; };
+		9693F9F82486219900BEB9A8 /* CubismModelSettingJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismModelSettingJson.hpp; sourceTree = "<group>"; };
+		9693F9F92486219900BEB9A8 /* CubismFrameworkConfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismFrameworkConfig.hpp; sourceTree = "<group>"; };
+		9693F9FA2486219900BEB9A8 /* CubismCdiJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismCdiJson.hpp; sourceTree = "<group>"; };
+		9693F9FC2486219900BEB9A8 /* CubismModelUserData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismModelUserData.cpp; sourceTree = "<group>"; };
+		9693F9FD2486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693F9FE2486219900BEB9A8 /* CubismModelUserDataJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismModelUserDataJson.cpp; sourceTree = "<group>"; };
+		9693F9FF2486219900BEB9A8 /* CubismUserModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismUserModel.cpp; sourceTree = "<group>"; };
+		9693FA002486219900BEB9A8 /* CubismMoc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismMoc.cpp; sourceTree = "<group>"; };
+		9693FA012486219900BEB9A8 /* CubismModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismModel.hpp; sourceTree = "<group>"; };
+		9693FA022486219900BEB9A8 /* CubismUserModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismUserModel.hpp; sourceTree = "<group>"; };
+		9693FA032486219900BEB9A8 /* CubismMoc.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismMoc.hpp; sourceTree = "<group>"; };
+		9693FA042486219900BEB9A8 /* CubismModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismModel.cpp; sourceTree = "<group>"; };
+		9693FA052486219900BEB9A8 /* CubismModelUserData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismModelUserData.hpp; sourceTree = "<group>"; };
+		9693FA062486219900BEB9A8 /* CubismModelUserDataJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismModelUserDataJson.hpp; sourceTree = "<group>"; };
+		9693FA082486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693FA152486219900BEB9A8 /* CubismRenderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismRenderer.hpp; sourceTree = "<group>"; };
+		9693FA222486219900BEB9A8 /* CubismRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismRenderer.cpp; sourceTree = "<group>"; };
+		9693FA242486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693FA252486219900BEB9A8 /* CubismOffscreenSurface_OpenGLES2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismOffscreenSurface_OpenGLES2.hpp; sourceTree = "<group>"; };
+		9693FA262486219900BEB9A8 /* CubismRenderer_OpenGLES2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismRenderer_OpenGLES2.cpp; sourceTree = "<group>"; };
+		9693FA272486219900BEB9A8 /* CubismOffscreenSurface_OpenGLES2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismOffscreenSurface_OpenGLES2.cpp; sourceTree = "<group>"; };
+		9693FA282486219900BEB9A8 /* CubismRenderer_OpenGLES2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismRenderer_OpenGLES2.hpp; sourceTree = "<group>"; };
+		9693FA292486219900BEB9A8 /* CubismDefaultParameterId.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismDefaultParameterId.cpp; sourceTree = "<group>"; };
+		9693FA2B2486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693FA2C2486219900BEB9A8 /* CubismIdManager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismIdManager.hpp; sourceTree = "<group>"; };
+		9693FA2D2486219900BEB9A8 /* CubismId.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismId.hpp; sourceTree = "<group>"; };
+		9693FA2E2486219900BEB9A8 /* CubismIdManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismIdManager.cpp; sourceTree = "<group>"; };
+		9693FA2F2486219900BEB9A8 /* CubismId.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismId.cpp; sourceTree = "<group>"; };
+		9693FA312486219900BEB9A8 /* CubismPhysics.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismPhysics.hpp; sourceTree = "<group>"; };
+		9693FA322486219900BEB9A8 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		9693FA332486219900BEB9A8 /* CubismPhysicsInternal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismPhysicsInternal.hpp; sourceTree = "<group>"; };
+		9693FA342486219900BEB9A8 /* CubismPhysicsJson.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismPhysicsJson.hpp; sourceTree = "<group>"; };
+		9693FA352486219900BEB9A8 /* CubismPhysicsJson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismPhysicsJson.cpp; sourceTree = "<group>"; };
+		9693FA362486219900BEB9A8 /* CubismPhysics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CubismPhysics.cpp; sourceTree = "<group>"; };
+		9693FA372486219900BEB9A8 /* CubismFramework.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismFramework.hpp; sourceTree = "<group>"; };
+		9693FA752486235300BEB9A8 /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
+		9693FA762486235300BEB9A8 /* glfw3native.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3native.h; sourceTree = "<group>"; };
+		9693FA782486235300BEB9A8 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglfw3.a; sourceTree = "<group>"; };
+		9693FA792486235300BEB9A8 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.3.dylib; sourceTree = "<group>"; };
+		9693FA8C2486275800BEB9A8 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		9693FA9024862A7E00BEB9A8 /* Live2DCubismCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Live2DCubismCore.h; sourceTree = "<group>"; };
+		9693FA9224862A7E00BEB9A8 /* libLive2DCubismCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLive2DCubismCore.a; sourceTree = "<group>"; };
+		9693FA9424862A7E00BEB9A8 /* libLive2DCubismCore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libLive2DCubismCore.dylib; sourceTree = "<group>"; };
+		9693FA9524862A7E00BEB9A8 /* Live2DCubismCore.bundle */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.bundle"; path = Live2DCubismCore.bundle; sourceTree = "<group>"; };
+		9693FA9924862EF900BEB9A8 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		9693FA9D2486322600BEB9A8 /* glxew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glxew.h; sourceTree = "<group>"; };
+		9693FA9E2486322600BEB9A8 /* eglew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eglew.h; sourceTree = "<group>"; };
+		9693FA9F2486322600BEB9A8 /* wglew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wglew.h; sourceTree = "<group>"; };
+		9693FAA02486322600BEB9A8 /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
+		9693FAA22486322600BEB9A8 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		9693FAA32486322600BEB9A8 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLEW.a; sourceTree = "<group>"; };
+		9693FAA8248636B000BEB9A8 /* JKLive2dHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLive2dHelper.h; sourceTree = "<group>"; };
+		9693FAA9248636B000BEB9A8 /* JKLive2dHelper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = JKLive2dHelper.mm; sourceTree = "<group>"; };
+		9693FB9324879AB300BEB9A8 /* JKLive2dViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLive2dViewController.h; sourceTree = "<group>"; };
+		9693FB9424879AB300BEB9A8 /* JKLive2dViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKLive2dViewController.m; sourceTree = "<group>"; };
+		9693FB9624879AD900BEB9A8 /* Live2d.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Live2d.storyboard; sourceTree = "<group>"; };
 		96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSButton+JKRightAction.h"; sourceTree = "<group>"; };
 		96A9A14E21C8FC0C00F21813 /* NSButton+JKRightAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSButton+JKRightAction.m"; sourceTree = "<group>"; };
 		96A9A15421CA57F600F21813 /* JKJSONModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONModelViewController.h; sourceTree = "<group>"; };
@@ -623,6 +813,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9693FA9624862A7E00BEB9A8 /* libLive2DCubismCore.a in Frameworks */,
 				962FCB2321D0FA3600D79971 /* LittleCMS.framework in Frameworks */,
 				962FCB2221D0F95C00D79971 /* Carbon.framework in Frameworks */,
 				962FC61121D0D34C00D79971 /* libraw.a in Frameworks */,
@@ -640,6 +831,8 @@
 				962FC5DF21D0CC8600D79971 /* libtiff.a in Frameworks */,
 				962FC5E021D0CC8600D79971 /* libpng.a in Frameworks */,
 				962FC5F921D0D05D00D79971 /* libwebpdemux.a in Frameworks */,
+				9693FAA52486322600BEB9A8 /* libGLEW.a in Frameworks */,
+				9693FA7A2486235300BEB9A8 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1342,6 +1535,344 @@
 			path = ShellManager;
 			sourceTree = "<group>";
 		};
+		9693F8D624861EEB00BEB9A8 /* Live2d */ = {
+			isa = PBXGroup;
+			children = (
+				9693FB9624879AD900BEB9A8 /* Live2d.storyboard */,
+				9693FB9324879AB300BEB9A8 /* JKLive2dViewController.h */,
+				9693FB9424879AB300BEB9A8 /* JKLive2dViewController.m */,
+				9693FAA8248636B000BEB9A8 /* JKLive2dHelper.h */,
+				9693FAA9248636B000BEB9A8 /* JKLive2dHelper.mm */,
+				9693FA9924862EF900BEB9A8 /* stb_image.h */,
+				9693F9932486201800BEB9A8 /* src */,
+			);
+			path = Live2d;
+			sourceTree = "<group>";
+		};
+		9693F9932486201800BEB9A8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9942486201800BEB9A8 /* LAppLive2DManager.hpp */,
+				9693F9952486201800BEB9A8 /* LAppAllocator.cpp */,
+				9693F9962486201800BEB9A8 /* LAppPal.cpp */,
+				9693F9972486201800BEB9A8 /* TouchManager.cpp */,
+				9693F9982486201800BEB9A8 /* LAppModel.cpp */,
+				9693F9992486201800BEB9A8 /* CMakeLists.txt */,
+				9693F99A2486201800BEB9A8 /* LAppSprite.hpp */,
+				9693F99B2486201800BEB9A8 /* LAppDefine.hpp */,
+				9693F99C2486201800BEB9A8 /* LAppDelegate.hpp */,
+				9693F99D2486201800BEB9A8 /* LAppTextureManager.hpp */,
+				9693F99E2486201800BEB9A8 /* LAppView.hpp */,
+				9693F99F2486201800BEB9A8 /* LAppDefine.cpp */,
+				9693F9A02486201800BEB9A8 /* LAppDelegate.cpp */,
+				9693F9A12486201800BEB9A8 /* LAppTextureManager.cpp */,
+				9693F9A22486201800BEB9A8 /* LAppView.cpp */,
+				9693F9A32486201800BEB9A8 /* LAppLive2DManager.cpp */,
+				9693F9A42486201800BEB9A8 /* LAppAllocator.hpp */,
+				9693F9A52486201800BEB9A8 /* LAppPal.hpp */,
+				9693F9A62486201800BEB9A8 /* TouchManager.hpp */,
+				9693F9A72486201800BEB9A8 /* LAppModel.hpp */,
+				9693F9A92486201800BEB9A8 /* LAppSprite.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		9693F9B62486219900BEB9A8 /* CubismNativeFramework */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9B72486219900BEB9A8 /* src */,
+			);
+			path = CubismNativeFramework;
+			sourceTree = "<group>";
+		};
+		9693F9B72486219900BEB9A8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9B82486219900BEB9A8 /* CubismDefaultParameterId.hpp */,
+				9693F9B92486219900BEB9A8 /* CubismFramework.cpp */,
+				9693F9BA2486219900BEB9A8 /* CMakeLists.txt */,
+				9693F9BB2486219900BEB9A8 /* ICubismModelSetting.hpp */,
+				9693F9BC2486219900BEB9A8 /* CubismModelSettingJson.cpp */,
+				9693F9BD2486219900BEB9A8 /* ICubismAllocator.hpp */,
+				9693F9BE2486219900BEB9A8 /* Effect */,
+				9693F9C62486219900BEB9A8 /* CubismCdiJson.cpp */,
+				9693F9C72486219900BEB9A8 /* Utils */,
+				9693F9CF2486219900BEB9A8 /* Motion */,
+				9693F9E02486219900BEB9A8 /* Math */,
+				9693F9EE2486219900BEB9A8 /* Live2DCubismCore.hpp */,
+				9693F9EF2486219900BEB9A8 /* Type */,
+				9693F9F82486219900BEB9A8 /* CubismModelSettingJson.hpp */,
+				9693F9F92486219900BEB9A8 /* CubismFrameworkConfig.hpp */,
+				9693F9FA2486219900BEB9A8 /* CubismCdiJson.hpp */,
+				9693F9FB2486219900BEB9A8 /* Model */,
+				9693FA072486219900BEB9A8 /* Rendering */,
+				9693FA292486219900BEB9A8 /* CubismDefaultParameterId.cpp */,
+				9693FA2A2486219900BEB9A8 /* Id */,
+				9693FA302486219900BEB9A8 /* Physics */,
+				9693FA372486219900BEB9A8 /* CubismFramework.hpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		9693F9BE2486219900BEB9A8 /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9BF2486219900BEB9A8 /* CubismPose.cpp */,
+				9693F9C02486219900BEB9A8 /* CMakeLists.txt */,
+				9693F9C12486219900BEB9A8 /* CubismEyeBlink.cpp */,
+				9693F9C22486219900BEB9A8 /* CubismBreath.cpp */,
+				9693F9C32486219900BEB9A8 /* CubismEyeBlink.hpp */,
+				9693F9C42486219900BEB9A8 /* CubismBreath.hpp */,
+				9693F9C52486219900BEB9A8 /* CubismPose.hpp */,
+			);
+			path = Effect;
+			sourceTree = "<group>";
+		};
+		9693F9C72486219900BEB9A8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9C82486219900BEB9A8 /* CMakeLists.txt */,
+				9693F9C92486219900BEB9A8 /* CubismJson.cpp */,
+				9693F9CA2486219900BEB9A8 /* CubismString.cpp */,
+				9693F9CB2486219900BEB9A8 /* CubismDebug.hpp */,
+				9693F9CC2486219900BEB9A8 /* CubismString.hpp */,
+				9693F9CD2486219900BEB9A8 /* CubismDebug.cpp */,
+				9693F9CE2486219900BEB9A8 /* CubismJson.hpp */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9693F9CF2486219900BEB9A8 /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9D02486219900BEB9A8 /* CubismMotionQueueEntry.hpp */,
+				9693F9D12486219900BEB9A8 /* CMakeLists.txt */,
+				9693F9D22486219900BEB9A8 /* CubismMotionQueueManager.hpp */,
+				9693F9D32486219900BEB9A8 /* ACubismMotion.cpp */,
+				9693F9D42486219900BEB9A8 /* CubismMotion.cpp */,
+				9693F9D52486219900BEB9A8 /* CubismMotionManager.cpp */,
+				9693F9D62486219900BEB9A8 /* CubismExpressionMotion.hpp */,
+				9693F9D72486219900BEB9A8 /* CubismMotionJson.hpp */,
+				9693F9D82486219900BEB9A8 /* CubismMotionQueueManager.cpp */,
+				9693F9D92486219900BEB9A8 /* CubismMotion.hpp */,
+				9693F9DA2486219900BEB9A8 /* ACubismMotion.hpp */,
+				9693F9DB2486219900BEB9A8 /* CubismMotionInternal.hpp */,
+				9693F9DC2486219900BEB9A8 /* CubismMotionManager.hpp */,
+				9693F9DD2486219900BEB9A8 /* CubismExpressionMotion.cpp */,
+				9693F9DE2486219900BEB9A8 /* CubismMotionJson.cpp */,
+				9693F9DF2486219900BEB9A8 /* CubismMotionQueueEntry.cpp */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
+		9693F9E02486219900BEB9A8 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9E12486219900BEB9A8 /* CubismModelMatrix.cpp */,
+				9693F9E22486219900BEB9A8 /* CubismViewMatrix.cpp */,
+				9693F9E32486219900BEB9A8 /* CMakeLists.txt */,
+				9693F9E42486219900BEB9A8 /* CubismMath.hpp */,
+				9693F9E52486219900BEB9A8 /* CubismVector2.cpp */,
+				9693F9E62486219900BEB9A8 /* CubismTargetPoint.cpp */,
+				9693F9E72486219900BEB9A8 /* CubismMatrix44.hpp */,
+				9693F9E82486219900BEB9A8 /* CubismMath.cpp */,
+				9693F9E92486219900BEB9A8 /* CubismTargetPoint.hpp */,
+				9693F9EA2486219900BEB9A8 /* CubismVector2.hpp */,
+				9693F9EB2486219900BEB9A8 /* CubismMatrix44.cpp */,
+				9693F9EC2486219900BEB9A8 /* CubismModelMatrix.hpp */,
+				9693F9ED2486219900BEB9A8 /* CubismViewMatrix.hpp */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		9693F9EF2486219900BEB9A8 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9F02486219900BEB9A8 /* csmRectF.hpp */,
+				9693F9F12486219900BEB9A8 /* CMakeLists.txt */,
+				9693F9F22486219900BEB9A8 /* csmString.hpp */,
+				9693F9F32486219900BEB9A8 /* CubismBasicType.hpp */,
+				9693F9F42486219900BEB9A8 /* csmString.cpp */,
+				9693F9F52486219900BEB9A8 /* csmVector.hpp */,
+				9693F9F62486219900BEB9A8 /* csmRectF.cpp */,
+				9693F9F72486219900BEB9A8 /* csmMap.hpp */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		9693F9FB2486219900BEB9A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9693F9FC2486219900BEB9A8 /* CubismModelUserData.cpp */,
+				9693F9FD2486219900BEB9A8 /* CMakeLists.txt */,
+				9693F9FE2486219900BEB9A8 /* CubismModelUserDataJson.cpp */,
+				9693F9FF2486219900BEB9A8 /* CubismUserModel.cpp */,
+				9693FA002486219900BEB9A8 /* CubismMoc.cpp */,
+				9693FA012486219900BEB9A8 /* CubismModel.hpp */,
+				9693FA022486219900BEB9A8 /* CubismUserModel.hpp */,
+				9693FA032486219900BEB9A8 /* CubismMoc.hpp */,
+				9693FA042486219900BEB9A8 /* CubismModel.cpp */,
+				9693FA052486219900BEB9A8 /* CubismModelUserData.hpp */,
+				9693FA062486219900BEB9A8 /* CubismModelUserDataJson.hpp */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9693FA072486219900BEB9A8 /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA082486219900BEB9A8 /* CMakeLists.txt */,
+				9693FA152486219900BEB9A8 /* CubismRenderer.hpp */,
+				9693FA222486219900BEB9A8 /* CubismRenderer.cpp */,
+				9693FA232486219900BEB9A8 /* OpenGL */,
+			);
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		9693FA232486219900BEB9A8 /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA242486219900BEB9A8 /* CMakeLists.txt */,
+				9693FA252486219900BEB9A8 /* CubismOffscreenSurface_OpenGLES2.hpp */,
+				9693FA262486219900BEB9A8 /* CubismRenderer_OpenGLES2.cpp */,
+				9693FA272486219900BEB9A8 /* CubismOffscreenSurface_OpenGLES2.cpp */,
+				9693FA282486219900BEB9A8 /* CubismRenderer_OpenGLES2.hpp */,
+			);
+			path = OpenGL;
+			sourceTree = "<group>";
+		};
+		9693FA2A2486219900BEB9A8 /* Id */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA2B2486219900BEB9A8 /* CMakeLists.txt */,
+				9693FA2C2486219900BEB9A8 /* CubismIdManager.hpp */,
+				9693FA2D2486219900BEB9A8 /* CubismId.hpp */,
+				9693FA2E2486219900BEB9A8 /* CubismIdManager.cpp */,
+				9693FA2F2486219900BEB9A8 /* CubismId.cpp */,
+			);
+			path = Id;
+			sourceTree = "<group>";
+		};
+		9693FA302486219900BEB9A8 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA312486219900BEB9A8 /* CubismPhysics.hpp */,
+				9693FA322486219900BEB9A8 /* CMakeLists.txt */,
+				9693FA332486219900BEB9A8 /* CubismPhysicsInternal.hpp */,
+				9693FA342486219900BEB9A8 /* CubismPhysicsJson.hpp */,
+				9693FA352486219900BEB9A8 /* CubismPhysicsJson.cpp */,
+				9693FA362486219900BEB9A8 /* CubismPhysics.cpp */,
+			);
+			path = Physics;
+			sourceTree = "<group>";
+		};
+		9693FA722486235300BEB9A8 /* OpenGLFW */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA732486235300BEB9A8 /* include */,
+				9693FA772486235300BEB9A8 /* lib-macos */,
+			);
+			path = OpenGLFW;
+			sourceTree = "<group>";
+		};
+		9693FA732486235300BEB9A8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA742486235300BEB9A8 /* GLFW */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9693FA742486235300BEB9A8 /* GLFW */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA752486235300BEB9A8 /* glfw3.h */,
+				9693FA762486235300BEB9A8 /* glfw3native.h */,
+			);
+			path = GLFW;
+			sourceTree = "<group>";
+		};
+		9693FA772486235300BEB9A8 /* lib-macos */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA782486235300BEB9A8 /* libglfw3.a */,
+				9693FA792486235300BEB9A8 /* libglfw.3.dylib */,
+			);
+			path = "lib-macos";
+			sourceTree = "<group>";
+		};
+		9693FA8E24862A7E00BEB9A8 /* CubismCore */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA8F24862A7E00BEB9A8 /* include */,
+				9693FA9124862A7E00BEB9A8 /* lib */,
+				9693FA9324862A7E00BEB9A8 /* dll */,
+			);
+			path = CubismCore;
+			sourceTree = "<group>";
+		};
+		9693FA8F24862A7E00BEB9A8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA9024862A7E00BEB9A8 /* Live2DCubismCore.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9693FA9124862A7E00BEB9A8 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA9224862A7E00BEB9A8 /* libLive2DCubismCore.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		9693FA9324862A7E00BEB9A8 /* dll */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA9424862A7E00BEB9A8 /* libLive2DCubismCore.dylib */,
+				9693FA9524862A7E00BEB9A8 /* Live2DCubismCore.bundle */,
+			);
+			path = dll;
+			sourceTree = "<group>";
+		};
+		9693FA9A2486322600BEB9A8 /* libGLFW */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA9B2486322600BEB9A8 /* include */,
+				9693FAA12486322600BEB9A8 /* lib */,
+			);
+			path = libGLFW;
+			sourceTree = "<group>";
+		};
+		9693FA9B2486322600BEB9A8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA9C2486322600BEB9A8 /* GL */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9693FA9C2486322600BEB9A8 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				9693FA9D2486322600BEB9A8 /* glxew.h */,
+				9693FA9E2486322600BEB9A8 /* eglew.h */,
+				9693FA9F2486322600BEB9A8 /* wglew.h */,
+				9693FAA02486322600BEB9A8 /* glew.h */,
+			);
+			path = GL;
+			sourceTree = "<group>";
+		};
+		9693FAA12486322600BEB9A8 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				9693FAA22486322600BEB9A8 /* libGLEW.2.1.0.dylib */,
+				9693FAA32486322600BEB9A8 /* libGLEW.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		96A9A15321CA57D500F21813 /* JSONToModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1382,6 +1913,10 @@
 		96A9A17521D0A87A00F21813 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				9693FA9A2486322600BEB9A8 /* libGLFW */,
+				9693FA8E24862A7E00BEB9A8 /* CubismCore */,
+				9693FA722486235300BEB9A8 /* OpenGLFW */,
+				9693F9B62486219900BEB9A8 /* CubismNativeFramework */,
 				96578F0C2432E9B300F828C5 /* lottie-ios */,
 				96A9A17621D0A8A300F21813 /* ImageMagick */,
 			);
@@ -1401,6 +1936,7 @@
 		96A9A23221D0AE8E00F21813 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9693FA8C2486275800BEB9A8 /* OpenGL.framework */,
 				962FCB1C21D0F78700D79971 /* Carbon.framework */,
 				962FC9AC21D0DE1700D79971 /* libpython2.7.tbd */,
 				962FC9AA21D0DE0D00D79971 /* libpython.tbd */,
@@ -1454,6 +1990,7 @@
 				966BD35E221C1057008AA4D5 /* ShellManager */,
 				963D7F29231CE9FA00631B13 /* Clock */,
 				96578E352432E0C700F828C5 /* LottiePreviewer */,
+				9693F8D624861EEB00BEB9A8 /* Live2d */,
 				96C335C021C0A8E100C9374E /* AppDelegate.h */,
 				96C335C121C0A8E100C9374E /* AppDelegate.m */,
 				96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */,
@@ -1616,8 +2153,10 @@
 			files = (
 				96628A0221C35698005463F8 /* JKCollectionMenuPanelItem.xib in Resources */,
 				96628A1621C3C714005463F8 /* Encoding.storyboard in Resources */,
+				9693FA9824862A7E00BEB9A8 /* Live2DCubismCore.bundle in Resources */,
 				96C335C721C0A8E400C9374E /* Assets.xcassets in Resources */,
 				96C335CA21C0A8E400C9374E /* Main.storyboard in Resources */,
+				9693FB9724879AD900BEB9A8 /* Live2d.storyboard in Resources */,
 				96A9A16421CB9BC500F21813 /* ResizeImage.storyboard in Resources */,
 				966BD2F722166B3D008AA4D5 /* projectPackage.sh in Resources */,
 				966BD2FF2217A2FE008AA4D5 /* QRCode.storyboard in Resources */,
@@ -1646,12 +2185,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				96C335DF21C109F200C9374E /* SecManager.m in Sources */,
+				9693F9AB2486201800BEB9A8 /* LAppPal.cpp in Sources */,
+				9693FA712486219A00BEB9A8 /* CubismPhysics.cpp in Sources */,
+				9693FA5B2486219900BEB9A8 /* CubismModel.cpp in Sources */,
 				96578FA724332C9E00F828C5 /* LottieFilesURL.m in Sources */,
 				962178E2242B0001003268FC /* JKItemsManager.m in Sources */,
 				96AFD6862330E93300C36CFE /* JKRecodeImageExportViewController.mm in Sources */,
+				9693FA3F2486219900BEB9A8 /* CubismCdiJson.cpp in Sources */,
+				9693FA522486219900BEB9A8 /* CubismMatrix44.cpp in Sources */,
 				962FCB4B21DCA5FF00D79971 /* ImageInfoHelper.cpp in Sources */,
 				966BD366221CE79A008AA4D5 /* JKShellManagerCell.m in Sources */,
 				96578E382432E0FC00F828C5 /* JKLottiePreviewController.m in Sources */,
+				9693FA4B2486219900BEB9A8 /* CubismMotionQueueEntry.cpp in Sources */,
+				9693F9AD2486201800BEB9A8 /* LAppModel.cpp in Sources */,
 				96C335C521C0A8E100C9374E /* ViewController.m in Sources */,
 				962FCB2D21D207EA00D79971 /* JKStatusIconManagerViewController.m in Sources */,
 				96628A0E21C3B590005463F8 /* JKWallPaperImagePanelController.m in Sources */,
@@ -1659,7 +2205,10 @@
 				966BD2FC2217A2EE008AA4D5 /* JKQRCodeViewController.m in Sources */,
 				96C335ED21C10A0700C9374E /* DragPopUpButton.m in Sources */,
 				96A9A16221CB9BB900F21813 /* JKResizeImageViewController.mm in Sources */,
+				9693FA512486219900BEB9A8 /* CubismMath.cpp in Sources */,
 				96C335CD21C0A8E400C9374E /* main.m in Sources */,
+				9693FA6E2486219900BEB9A8 /* CubismId.cpp in Sources */,
+				9693FA5A2486219900BEB9A8 /* CubismMoc.cpp in Sources */,
 				96A9A15621CA57F600F21813 /* JKJSONModelViewController.m in Sources */,
 				96628A0621C384AD005463F8 /* JKWallPaperViewController.m in Sources */,
 				962FCB3C21D7628C00D79971 /* JKImageInfoInspectorViewController.mm in Sources */,
@@ -1669,35 +2218,74 @@
 				96AFD523231D0F7C00C36CFE /* JKDatePicker.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
 				966BD356221A46C5008AA4D5 /* JKJSONFormatViewController.m in Sources */,
+				9693FA6A2486219900BEB9A8 /* CubismOffscreenSurface_OpenGLES2.cpp in Sources */,
 				96A9A14F21C8FC0C00F21813 /* NSButton+JKRightAction.m in Sources */,
+				9693FA4D2486219900BEB9A8 /* CubismViewMatrix.cpp in Sources */,
+				9693FA552486219900BEB9A8 /* csmRectF.cpp in Sources */,
+				9693FA4F2486219900BEB9A8 /* CubismVector2.cpp in Sources */,
 				962FCB4521DC53D700D79971 /* JKImageInfoCellView.m in Sources */,
 				96C335E721C10A0000C9374E /* ioSock.c in Sources */,
 				96628A1321C3C704005463F8 /* JKEncodingViewController.m in Sources */,
+				9693FA502486219900BEB9A8 /* CubismTargetPoint.cpp in Sources */,
+				9693FA3E2486219900BEB9A8 /* CubismBreath.cpp in Sources */,
 				96C335F121C10A1D00C9374E /* PushViewController.m in Sources */,
 				96A9A16B21CCB80000F21813 /* JKMoveFileViewController.m in Sources */,
+				9693FA452486219900BEB9A8 /* ACubismMotion.cpp in Sources */,
 				962FCB3321D7081C00D79971 /* JKBaseViewController.mm in Sources */,
+				9693FA672486219900BEB9A8 /* CubismRenderer.cpp in Sources */,
 				962FCB4821DC8AA600D79971 /* JKInfoImageView.m in Sources */,
+				9693FA412486219900BEB9A8 /* CubismJson.cpp in Sources */,
+				9693FA4C2486219900BEB9A8 /* CubismModelMatrix.cpp in Sources */,
 				966BD2F32216681A008AA4D5 /* JKAutoPackViewController.m in Sources */,
 				966BD3022217A67C008AA4D5 /* NSImage+JKConvert.m in Sources */,
+				9693FA4A2486219900BEB9A8 /* CubismMotionJson.cpp in Sources */,
+				9693F9B32486201800BEB9A8 /* LAppLive2DManager.cpp in Sources */,
 				966BD35D221AB100008AA4D5 /* JKJSONFormatHistoryViewController.m in Sources */,
+				9693FAAA248636B000BEB9A8 /* JKLive2dHelper.mm in Sources */,
 				96C335EE21C10A0700C9374E /* TextFieldDrag.m in Sources */,
 				96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */,
 				96578FA424332A2900F828C5 /* JKLottieDragBoxView.m in Sources */,
 				962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */,
+				9693F9B52486201800BEB9A8 /* LAppSprite.cpp in Sources */,
 				966BD361221C106B008AA4D5 /* JKShellManagerViewController.m in Sources */,
+				9693FA3B2486219900BEB9A8 /* CubismPose.cpp in Sources */,
+				9693FA6B2486219900BEB9A8 /* CubismDefaultParameterId.cpp in Sources */,
 				964AB08A2428B0AC009D8D0C /* JKManagementController.m in Sources */,
 				966289FA21C26CFA005463F8 /* WindowController.m in Sources */,
 				96C335DA21C0E3AA00C9374E /* JKIconMenu.m in Sources */,
+				9693F9B22486201800BEB9A8 /* LAppView.cpp in Sources */,
 				96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */,
+				9693F9B12486201800BEB9A8 /* LAppTextureManager.cpp in Sources */,
+				9693FA542486219900BEB9A8 /* csmString.cpp in Sources */,
+				9693FA382486219900BEB9A8 /* CubismFramework.cpp in Sources */,
+				9693FB9524879AB300BEB9A8 /* JKLive2dViewController.m in Sources */,
+				9693F9B02486201800BEB9A8 /* LAppDelegate.cpp in Sources */,
+				9693FA582486219900BEB9A8 /* CubismModelUserDataJson.cpp in Sources */,
+				9693FA482486219900BEB9A8 /* CubismMotionQueueManager.cpp in Sources */,
 				96C335F621C1233400C9374E /* JKMouseButton.m in Sources */,
 				96A9A15E21CB922A00F21813 /* NSString+URLEncode.m in Sources */,
 				966289F721C23CB9005463F8 /* TestObjectClass.m in Sources */,
+				9693FA6D2486219900BEB9A8 /* CubismIdManager.cpp in Sources */,
+				9693FA432486219900BEB9A8 /* CubismDebug.cpp in Sources */,
+				9693FA562486219900BEB9A8 /* CubismModelUserData.cpp in Sources */,
+				9693FA462486219900BEB9A8 /* CubismMotion.cpp in Sources */,
+				9693FA692486219900BEB9A8 /* CubismRenderer_OpenGLES2.cpp in Sources */,
+				9693F9AF2486201800BEB9A8 /* LAppDefine.cpp in Sources */,
+				9693F9AC2486201800BEB9A8 /* TouchManager.cpp in Sources */,
+				9693FA3D2486219900BEB9A8 /* CubismEyeBlink.cpp in Sources */,
 				962FCB3721D75A3B00D79971 /* JKImageInfoViewController.mm in Sources */,
+				9693FA472486219900BEB9A8 /* CubismMotionManager.cpp in Sources */,
+				9693FA422486219900BEB9A8 /* CubismString.cpp in Sources */,
+				9693F9AA2486201800BEB9A8 /* LAppAllocator.cpp in Sources */,
 				961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */,
+				9693FA3A2486219900BEB9A8 /* CubismModelSettingJson.cpp in Sources */,
 				96628A0B21C3ADCB005463F8 /* JKWellImageView.m in Sources */,
+				9693FA702486219A00BEB9A8 /* CubismPhysicsJson.cpp in Sources */,
 				964AB0902428B42A009D8D0C /* JKManageListItemsViewController.m in Sources */,
+				9693FA592486219900BEB9A8 /* CubismUserModel.cpp in Sources */,
 				966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */,
 				96628A0121C35698005463F8 /* JKCollectionMenuPanelItem.m in Sources */,
+				9693FA492486219900BEB9A8 /* CubismExpressionMotion.cpp in Sources */,
 				96A9A16721CBA33D00F21813 /* JKResizeImageExportViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1847,6 +2435,9 @@
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/include/ImageMagick-7",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/include",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismNativeFramework/src/",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/libGLFW/include",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/OpenGLFW/include",
 				);
 				INFOPLIST_FILE = MacDevelopTools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1856,6 +2447,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/lib",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/OpenGLFW/lib-macos",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/libGLFW/lib",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/lib",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/dll",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "";
@@ -1886,6 +2481,9 @@
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/include/ImageMagick-7",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/include",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismNativeFramework/src/",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/libGLFW/include",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/OpenGLFW/include",
 				);
 				INFOPLIST_FILE = MacDevelopTools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1895,6 +2493,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/lib",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/OpenGLFW/lib-macos",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/libGLFW/lib",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/lib",
+					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/dll",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "";

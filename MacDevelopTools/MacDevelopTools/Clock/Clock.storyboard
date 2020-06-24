@@ -97,7 +97,7 @@ DQ
                                 </connections>
                             </button>
                             <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-wM-wOE" customClass="JKDatePicker">
-                                <rect key="frame" x="10" y="261" width="188" height="28"/>
+                                <rect key="frame" x="10" y="261" width="165" height="28"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="rhg-md-I1J">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="-595929600">
@@ -120,7 +120,7 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-vP-xgz">
-                                <rect key="frame" x="199" y="256" width="75" height="32"/>
+                                <rect key="frame" x="176" y="256" width="75" height="32"/>
                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fOn-xM-CMC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>

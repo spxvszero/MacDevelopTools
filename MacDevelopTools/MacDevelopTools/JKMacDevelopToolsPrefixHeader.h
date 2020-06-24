@@ -16,4 +16,9 @@
 
 #define kJKHasStringValue(x) (x && [x isKindOfClass:[NSString class]] && x.length > 0)
 
+//opengl mac
+#define CSM_TARGET_MAC_GL
+
+//#define PREMULTIPLIED_ALPHA_ENABLE
+
 #endif /* JKMacDevelopToolsPrefixHeader_h */

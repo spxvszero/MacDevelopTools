@@ -12,5 +12,7 @@
 
 - (void)buildTestItem;
 
+- (void)closePopOver;
+
 @end
 

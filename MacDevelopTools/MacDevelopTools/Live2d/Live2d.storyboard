@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="M8l-Xz-hwd">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Live 2d View Controller-->
+        <scene sceneID="wFU-zZ-cA5">
+            <objects>
+                <viewController storyboardIdentifier="JKLive2dViewController" id="M8l-Xz-hwd" customClass="JKLive2dViewController" sceneMemberID="viewController">
+                    <view key="view" id="tEe-d1-Si8">
+                        <rect key="frame" x="0.0" y="0.0" width="462" height="136"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="emn-Ar-c4g">
+                                <rect key="frame" x="394" y="3" width="64" height="32"/>
+                                <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1yD-WQ-5h8">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="runAction:" target="M8l-Xz-hwd" id="81f-RY-Ibb"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-CE-jZA">
+                                <rect key="frame" x="290" y="3" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kkp-Ms-Zzk">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resizeAction:" target="M8l-Xz-hwd" id="qdB-6y-lz6"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bfx-XN-dQc">
+                                <rect key="frame" x="348" y="34" width="110" height="32"/>
+                                <buttonCell key="cell" type="push" title="Next Scene" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6KN-6R-tyc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="nextSceneAction:" target="M8l-Xz-hwd" id="cJL-xW-nVz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="emn-Ar-c4g" secondAttribute="bottom" constant="10" id="Fx6-ej-1wH"/>
+                            <constraint firstAttribute="trailing" secondItem="Bfx-XN-dQc" secondAttribute="trailing" constant="10" id="Lgk-Ou-RpH"/>
+                            <constraint firstItem="emn-Ar-c4g" firstAttribute="top" secondItem="Bfx-XN-dQc" secondAttribute="bottom" constant="10" id="PcF-8Y-igd"/>
+                            <constraint firstAttribute="trailing" secondItem="emn-Ar-c4g" secondAttribute="trailing" constant="10" id="kUN-zc-Yeq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="runBtn" destination="emn-Ar-c4g" id="n88-jH-P2Z"/>
+                    </connections>
+                </viewController>
+                <customObject id="vCE-Ic-vdV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="50"/>
+        </scene>
+    </scenes>
+</document>
