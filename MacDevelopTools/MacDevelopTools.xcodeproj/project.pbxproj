@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850097A42500F4020029DFF5 /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850097A32500F4020029DFF5 /* freetype.framework */; };
 		961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */; };
 		962178E2242B0001003268FC /* JKItemsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962178E1242B0001003268FC /* JKItemsManager.m */; };
 		962178E4242B0C55003268FC /* items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 962178E3242B0C55003268FC /* items.plist */; };
@@ -23,7 +24,6 @@
 		962FC5FA21D0D05D00D79971 /* libwebp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FC5F721D0D05D00D79971 /* libwebp.a */; };
 		962FC60321D0D0E200D79971 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FC60221D0D0E100D79971 /* libbz2.tbd */; };
 		962FC61121D0D34C00D79971 /* libraw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FC60F21D0D34C00D79971 /* libraw.a */; };
-		962FCAE021D0F08600D79971 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FCADF21D0F08500D79971 /* libfreetype.a */; };
 		962FCB2221D0F95C00D79971 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FCB1C21D0F78700D79971 /* Carbon.framework */; };
 		962FCB2321D0FA3600D79971 /* LittleCMS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962FCB1E21D0F91000D79971 /* LittleCMS.framework */; };
 		962FCB2A21D207C100D79971 /* StatusIcon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962FCB2921D207C100D79971 /* StatusIcon.storyboard */; };
@@ -171,6 +171,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		850097A32500F4020029DFF5 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = freetype.framework; sourceTree = "<group>"; };
 		961EF7D32435E56200EAB18D /* JKLottieMoreSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLottieMoreSettingViewController.h; sourceTree = "<group>"; };
 		961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKLottieMoreSettingViewController.m; sourceTree = "<group>"; };
 		962178E0242B0001003268FC /* JKItemsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKItemsManager.h; sourceTree = "<group>"; };
@@ -359,58 +360,6 @@
 		962FC61C21D0DA0400D79971 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		962FC9AA21D0DE0D00D79971 /* libpython.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libpython.tbd; path = usr/lib/libpython.tbd; sourceTree = SDKROOT; };
 		962FC9AC21D0DE1700D79971 /* libpython2.7.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libpython2.7.tbd; path = usr/lib/libpython2.7.tbd; sourceTree = SDKROOT; };
-		962FCADF21D0F08500D79971 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfreetype.a; sourceTree = "<group>"; };
-		962FCAE221D0F09300D79971 /* ftxf86.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftxf86.h; sourceTree = "<group>"; };
-		962FCAE321D0F09300D79971 /* ftsnames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftsnames.h; sourceTree = "<group>"; };
-		962FCAE421D0F09300D79971 /* ftwinfnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftwinfnt.h; sourceTree = "<group>"; };
-		962FCAE521D0F09300D79971 /* ftsizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftsizes.h; sourceTree = "<group>"; };
-		962FCAE621D0F09300D79971 /* fttypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fttypes.h; sourceTree = "<group>"; };
-		962FCAE721D0F09300D79971 /* ftmm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftmm.h; sourceTree = "<group>"; };
-		962FCAE921D0F09300D79971 /* ftstdlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftstdlib.h; sourceTree = "<group>"; };
-		962FCAEA21D0F09300D79971 /* ftheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftheader.h; sourceTree = "<group>"; };
-		962FCAEB21D0F09300D79971 /* ftconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftconfig.h; sourceTree = "<group>"; };
-		962FCAEC21D0F09300D79971 /* ftoption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftoption.h; sourceTree = "<group>"; };
-		962FCAED21D0F09300D79971 /* ftmodule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftmodule.h; sourceTree = "<group>"; };
-		962FCAEE21D0F09300D79971 /* ftmodapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftmodapi.h; sourceTree = "<group>"; };
-		962FCAEF21D0F09300D79971 /* ftbzip2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftbzip2.h; sourceTree = "<group>"; };
-		962FCAF021D0F09300D79971 /* ttunpat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ttunpat.h; sourceTree = "<group>"; };
-		962FCAF121D0F09300D79971 /* fttrigon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fttrigon.h; sourceTree = "<group>"; };
-		962FCAF221D0F09300D79971 /* ftbbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftbbox.h; sourceTree = "<group>"; };
-		962FCAF321D0F09300D79971 /* ftgzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftgzip.h; sourceTree = "<group>"; };
-		962FCAF421D0F09300D79971 /* ftoutln.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftoutln.h; sourceTree = "<group>"; };
-		962FCAF521D0F09300D79971 /* ftadvanc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftadvanc.h; sourceTree = "<group>"; };
-		962FCAF621D0F09300D79971 /* ftsynth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftsynth.h; sourceTree = "<group>"; };
-		962FCAF721D0F09300D79971 /* fterrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fterrors.h; sourceTree = "<group>"; };
-		962FCAF821D0F09300D79971 /* ftgasp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftgasp.h; sourceTree = "<group>"; };
-		962FCAF921D0F09300D79971 /* ftstroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftstroke.h; sourceTree = "<group>"; };
-		962FCAFA21D0F09300D79971 /* ftcache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftcache.h; sourceTree = "<group>"; };
-		962FCAFB21D0F09300D79971 /* ft2build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ft2build.h; sourceTree = "<group>"; };
-		962FCAFC21D0F09300D79971 /* ftotval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftotval.h; sourceTree = "<group>"; };
-		962FCAFD21D0F09300D79971 /* freetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freetype.h; sourceTree = "<group>"; };
-		962FCAFE21D0F09300D79971 /* ftincrem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftincrem.h; sourceTree = "<group>"; };
-		962FCAFF21D0F09300D79971 /* ftttdrv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftttdrv.h; sourceTree = "<group>"; };
-		962FCB0021D0F09300D79971 /* fterrdef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fterrdef.h; sourceTree = "<group>"; };
-		962FCB0121D0F09300D79971 /* ttnameid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ttnameid.h; sourceTree = "<group>"; };
-		962FCB0221D0F09300D79971 /* ftpfr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftpfr.h; sourceTree = "<group>"; };
-		962FCB0321D0F09300D79971 /* ftgxval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftgxval.h; sourceTree = "<group>"; };
-		962FCB0421D0F09300D79971 /* ftcffdrv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftcffdrv.h; sourceTree = "<group>"; };
-		962FCB0521D0F09300D79971 /* ftchapters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftchapters.h; sourceTree = "<group>"; };
-		962FCB0621D0F09300D79971 /* tttags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tttags.h; sourceTree = "<group>"; };
-		962FCB0721D0F09300D79971 /* ftlzw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftlzw.h; sourceTree = "<group>"; };
-		962FCB0821D0F09300D79971 /* ftsystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftsystem.h; sourceTree = "<group>"; };
-		962FCB0921D0F09300D79971 /* t1tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = t1tables.h; sourceTree = "<group>"; };
-		962FCB0A21D0F09300D79971 /* ftimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftimage.h; sourceTree = "<group>"; };
-		962FCB0B21D0F09300D79971 /* tttables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tttables.h; sourceTree = "<group>"; };
-		962FCB0C21D0F09300D79971 /* ftcid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftcid.h; sourceTree = "<group>"; };
-		962FCB0D21D0F09300D79971 /* ftglyph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftglyph.h; sourceTree = "<group>"; };
-		962FCB0E21D0F09300D79971 /* ftmoderr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftmoderr.h; sourceTree = "<group>"; };
-		962FCB0F21D0F09300D79971 /* ftbitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftbitmap.h; sourceTree = "<group>"; };
-		962FCB1021D0F09300D79971 /* ftlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftlist.h; sourceTree = "<group>"; };
-		962FCB1121D0F09300D79971 /* ftmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftmac.h; sourceTree = "<group>"; };
-		962FCB1221D0F09300D79971 /* ftlcdfil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftlcdfil.h; sourceTree = "<group>"; };
-		962FCB1321D0F09300D79971 /* ftautoh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftautoh.h; sourceTree = "<group>"; };
-		962FCB1421D0F09300D79971 /* ftbdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftbdf.h; sourceTree = "<group>"; };
-		962FCB1521D0F09300D79971 /* ftrender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ftrender.h; sourceTree = "<group>"; };
 		962FCB1C21D0F78700D79971 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		962FCB1E21D0F91000D79971 /* LittleCMS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LittleCMS.framework; sourceTree = "<group>"; };
 		962FCB2421D1C1F800D79971 /* JKMacDevelopToolsPrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKMacDevelopToolsPrefixHeader.h; sourceTree = "<group>"; };
@@ -818,8 +767,8 @@
 				962FCB2221D0F95C00D79971 /* Carbon.framework in Frameworks */,
 				962FC61121D0D34C00D79971 /* libraw.a in Frameworks */,
 				962FC60321D0D0E200D79971 /* libbz2.tbd in Frameworks */,
-				962FCAE021D0F08600D79971 /* libfreetype.a in Frameworks */,
 				962FC5F821D0D05D00D79971 /* libwebpmux.a in Frameworks */,
+				850097A42500F4020029DFF5 /* freetype.framework in Frameworks */,
 				962FC5F221D0CF0300D79971 /* libxml2.tbd in Frameworks */,
 				962FC5F021D0CD7100D79971 /* libz.tbd in Frameworks */,
 				962FC54B21D0CA9200D79971 /* libMagickWand-7.Q16HDRI.a in Frameworks */,
@@ -842,7 +791,6 @@
 		962FC52021D0CA9200D79971 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				962FCADF21D0F08500D79971 /* libfreetype.a */,
 				962FC60F21D0D34C00D79971 /* libraw.a */,
 				962FC5F721D0D05D00D79971 /* libwebp.a */,
 				962FC5F621D0D05D00D79971 /* libwebpdemux.a */,
@@ -868,7 +816,6 @@
 		962FC54F21D0CAA000D79971 /* ImageMagick-7 */ = {
 			isa = PBXGroup;
 			children = (
-				962FCAE121D0F09300D79971 /* freetype2 */,
 				962FC61221D0D35700D79971 /* libraw */,
 				962FC5FB21D0D06900D79971 /* webp */,
 				962FC5E121D0CC9200D79971 /* jpeg */,
@@ -1095,72 +1042,6 @@
 				962FC61921D0D35700D79971 /* libraw_types.h */,
 			);
 			path = libraw;
-			sourceTree = "<group>";
-		};
-		962FCAE121D0F09300D79971 /* freetype2 */ = {
-			isa = PBXGroup;
-			children = (
-				962FCAE221D0F09300D79971 /* ftxf86.h */,
-				962FCAE321D0F09300D79971 /* ftsnames.h */,
-				962FCAE421D0F09300D79971 /* ftwinfnt.h */,
-				962FCAE521D0F09300D79971 /* ftsizes.h */,
-				962FCAE621D0F09300D79971 /* fttypes.h */,
-				962FCAE721D0F09300D79971 /* ftmm.h */,
-				962FCAE821D0F09300D79971 /* config */,
-				962FCAEE21D0F09300D79971 /* ftmodapi.h */,
-				962FCAEF21D0F09300D79971 /* ftbzip2.h */,
-				962FCAF021D0F09300D79971 /* ttunpat.h */,
-				962FCAF121D0F09300D79971 /* fttrigon.h */,
-				962FCAF221D0F09300D79971 /* ftbbox.h */,
-				962FCAF321D0F09300D79971 /* ftgzip.h */,
-				962FCAF421D0F09300D79971 /* ftoutln.h */,
-				962FCAF521D0F09300D79971 /* ftadvanc.h */,
-				962FCAF621D0F09300D79971 /* ftsynth.h */,
-				962FCAF721D0F09300D79971 /* fterrors.h */,
-				962FCAF821D0F09300D79971 /* ftgasp.h */,
-				962FCAF921D0F09300D79971 /* ftstroke.h */,
-				962FCAFA21D0F09300D79971 /* ftcache.h */,
-				962FCAFB21D0F09300D79971 /* ft2build.h */,
-				962FCAFC21D0F09300D79971 /* ftotval.h */,
-				962FCAFD21D0F09300D79971 /* freetype.h */,
-				962FCAFE21D0F09300D79971 /* ftincrem.h */,
-				962FCAFF21D0F09300D79971 /* ftttdrv.h */,
-				962FCB0021D0F09300D79971 /* fterrdef.h */,
-				962FCB0121D0F09300D79971 /* ttnameid.h */,
-				962FCB0221D0F09300D79971 /* ftpfr.h */,
-				962FCB0321D0F09300D79971 /* ftgxval.h */,
-				962FCB0421D0F09300D79971 /* ftcffdrv.h */,
-				962FCB0521D0F09300D79971 /* ftchapters.h */,
-				962FCB0621D0F09300D79971 /* tttags.h */,
-				962FCB0721D0F09300D79971 /* ftlzw.h */,
-				962FCB0821D0F09300D79971 /* ftsystem.h */,
-				962FCB0921D0F09300D79971 /* t1tables.h */,
-				962FCB0A21D0F09300D79971 /* ftimage.h */,
-				962FCB0B21D0F09300D79971 /* tttables.h */,
-				962FCB0C21D0F09300D79971 /* ftcid.h */,
-				962FCB0D21D0F09300D79971 /* ftglyph.h */,
-				962FCB0E21D0F09300D79971 /* ftmoderr.h */,
-				962FCB0F21D0F09300D79971 /* ftbitmap.h */,
-				962FCB1021D0F09300D79971 /* ftlist.h */,
-				962FCB1121D0F09300D79971 /* ftmac.h */,
-				962FCB1221D0F09300D79971 /* ftlcdfil.h */,
-				962FCB1321D0F09300D79971 /* ftautoh.h */,
-				962FCB1421D0F09300D79971 /* ftbdf.h */,
-				962FCB1521D0F09300D79971 /* ftrender.h */,
-			);
-			path = freetype2;
-			sourceTree = "<group>";
-		};
-		962FCAE821D0F09300D79971 /* config */ = {
-			isa = PBXGroup;
-			children = (
-				962FCAE921D0F09300D79971 /* ftstdlib.h */,
-				962FCAEA21D0F09300D79971 /* ftheader.h */,
-				962FCAEB21D0F09300D79971 /* ftconfig.h */,
-				962FCAEC21D0F09300D79971 /* ftoption.h */,
-				962FCAED21D0F09300D79971 /* ftmodule.h */,
-			);
-			path = config;
 			sourceTree = "<group>";
 		};
 		962FCB2521D2079800D79971 /* StatusIconManager */ = {
@@ -1926,6 +1807,7 @@
 		96A9A17621D0A8A300F21813 /* ImageMagick */ = {
 			isa = PBXGroup;
 			children = (
+				850097A32500F4020029DFF5 /* freetype.framework */,
 				962FCB1E21D0F91000D79971 /* LittleCMS.framework */,
 				962FC54E21D0CAA000D79971 /* include */,
 				962FC52021D0CA9200D79971 /* lib */,
@@ -2115,7 +1997,7 @@
 		96C335B521C0A8E100C9374E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
 					96C335BC21C0A8E100C9374E = {
@@ -2360,6 +2242,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -2412,6 +2295,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -2421,7 +2305,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
@@ -2467,7 +2351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
