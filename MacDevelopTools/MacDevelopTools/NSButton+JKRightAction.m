@@ -40,6 +40,12 @@
 
 @implementation NSStatusBarButton (JK)
 
+- (void)otherMouseDown:(NSEvent *)event
+{
+    [super otherMouseDown:event];
+    NSLog(@"other mouse down event : %@",event);
+}
+
 - (void)rightMouseDown:(NSEvent *)event
 {
     NSLog(@"right mouse down");
