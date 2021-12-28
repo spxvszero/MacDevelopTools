@@ -46,6 +46,10 @@
     NSLog(@"mouseMove %@",event);
 }
 
+- (IBAction)centerAction:(id)sender
+{
+    [JKLive2dHelper centerWindow];
+}
 
 - (IBAction)resizeAction:(id)sender
 {

@@ -154,6 +154,7 @@
 		96C335F321C10A2F00C9374E /* SmartPush.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C335F221C10A2F00C9374E /* SmartPush.storyboard */; };
 		96C335F621C1233400C9374E /* JKMouseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F521C1233400C9374E /* JKMouseButton.m */; };
 		96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */; };
+		CB685AD3272FC41B00F5447A /* JKScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB685AD2272FC41B00F5447A /* JKScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -755,6 +756,8 @@
 		96C335F521C1233400C9374E /* JKMouseButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKMouseButton.m; sourceTree = "<group>"; };
 		96C335F721C1F84400C9374E /* JKApplicationHoldManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKApplicationHoldManager.h; sourceTree = "<group>"; };
 		96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKApplicationHoldManager.m; sourceTree = "<group>"; };
+		CB685AD1272FC41B00F5447A /* JKScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKScrollView.h; sourceTree = "<group>"; };
+		CB685AD2272FC41B00F5447A /* JKScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1908,6 +1911,8 @@
 				96628A0021C35698005463F8 /* JKCollectionMenuPanelItem.xib */,
 				96C335F421C1233400C9374E /* JKMouseButton.h */,
 				96C335F521C1233400C9374E /* JKMouseButton.m */,
+				CB685AD1272FC41B00F5447A /* JKScrollView.h */,
+				CB685AD2272FC41B00F5447A /* JKScrollView.m */,
 				96C335C621C0A8E400C9374E /* Assets.xcassets */,
 				96C335C821C0A8E400C9374E /* Main.storyboard */,
 				96C335D621C0E07700C9374E /* MainMenu.xib */,
@@ -2090,6 +2095,7 @@
 				9693FA512486219900BEB9A8 /* CubismMath.cpp in Sources */,
 				96C335CD21C0A8E400C9374E /* main.m in Sources */,
 				9693FA6E2486219900BEB9A8 /* CubismId.cpp in Sources */,
+				CB685AD3272FC41B00F5447A /* JKScrollView.m in Sources */,
 				9693FA5A2486219900BEB9A8 /* CubismMoc.cpp in Sources */,
 				96A9A15621CA57F600F21813 /* JKJSONModelViewController.m in Sources */,
 				96628A0621C384AD005463F8 /* JKWallPaperViewController.m in Sources */,
@@ -2314,6 +2320,11 @@
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/lottie-ios",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MacDevelopTools/JKMacDevelopToolsPrefixHeader.h";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"Live2d_RES='\"$(SRCROOT)/MacDevelopTools/Live2d/\"'",
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GENERATE_PROFILING_CODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/ImageMagick/include/ImageMagick-7",

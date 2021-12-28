@@ -21,6 +21,7 @@ using namespace Csm;
 using namespace std;
 using namespace LAppDefine;
 
+static float bgDefaultColor = 0.0f;
 namespace {
     LAppDelegate* s_instance = NULL;
 }
@@ -72,7 +73,7 @@ bool LAppDelegate::Initialize()
     
     
     // Windowの生成_
-    _window = glfwCreateWindow(RenderTargetWidth, RenderTargetHeight, "SAMPLE", NULL, NULL);
+    _window = glfwCreateWindow(RenderTargetWidth, RenderTargetHeight, "Live2d", NULL, NULL);
     if (_window == NULL)
     {
         if (DebugLogEnable)
@@ -174,7 +175,7 @@ void LAppDelegate::Run()
         LAppPal::UpdateTime();
 
         // 画面の初期化
-        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        glClearColor(bgDefaultColor, bgDefaultColor, bgDefaultColor, bgDefaultColor);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glClearDepth(1.0);
 
@@ -187,6 +188,8 @@ void LAppDelegate::Run()
         // Poll for and process events
         glfwPollEvents();
     }
+    
+    bgDefaultColor = 0.0f;
 
     Release();
 
@@ -196,6 +199,20 @@ void LAppDelegate::Run()
 void LAppDelegate::SetWindowSize(int width,int height)
 {
     glfwSetWindowSize(LAppDelegate::GetInstance()->GetWindow(), width, height);
+}
+
+void LAppDelegate::ShowWindowResize(bool show)
+{
+    glfwSetWindowAttrib(LAppDelegate::GetInstance()->GetWindow(), GLFW_DECORATED, show ? GLFW_TRUE : GLFW_FALSE);
+    glfwSetWindowAttrib(LAppDelegate::GetInstance()->GetWindow(), GLFW_RESIZABLE, show ? GLFW_TRUE : GLFW_FALSE);
+    bgDefaultColor =  show ? 0.6f : 0.0f;
+}
+
+void LAppDelegate::CenterWindow()
+{
+    GLFWmonitor *monitor = glfwGetPrimaryMonitor();
+    const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+    glfwSetWindowPos(LAppDelegate::GetInstance()->GetWindow(), (mode->width - _windowWidth) / 2, (mode->height - _windowHeight) / 2);
 }
 
 LAppDelegate::LAppDelegate():
@@ -365,7 +382,7 @@ void LAppDelegate::SetRootDirectory()
     this->_rootDirectory += "/";
     
     //实际位置与打包之后的资源位置不符合，所以另外设置资源位置，后续修改
-    this->_rootDirectory = "/Users/jason/MacDevelopTools/MacDevelopTools/MacDevelopTools/Live2d/";
+    this->_rootDirectory = Live2d_RES;
 }
 
 Csm::csmVector<string> LAppDelegate::Split(const std::string& baseString, char delimiter)

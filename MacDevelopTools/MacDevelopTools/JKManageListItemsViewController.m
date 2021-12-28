@@ -208,12 +208,16 @@
         return;
     }
     
+    session.animatesToStartingPositionsOnCancelOrFail = NO;
+    
     NSMutableArray *dataArr = [[JKItemsManager defaultManager] obtainItemsList];
     id obj = [dataArr objectAtIndex:self.beginRow];
     [dataArr removeObjectAtIndex:self.beginRow];
     [dataArr insertObject:obj atIndex:self.tempAimRow];
     
+    [self.tableview beginUpdates];
     [self.tableview moveRowAtIndex:self.beginRow toIndex:self.tempAimRow];
+    [self.tableview endUpdates];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kJKStatusItemListChangeNotification object:nil];
 }

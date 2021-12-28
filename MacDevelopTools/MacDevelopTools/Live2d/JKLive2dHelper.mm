@@ -12,6 +12,7 @@
 #import <AppKit/NSScreen.h>
 
 static BOOL live2d_isRunning = false;
+static BOOL live2d_isShowingResize = false;
 static int screen_height = 0;
 static id mouseTrackMonitor = nil;
 
@@ -32,6 +33,7 @@ static id mouseTrackMonitor = nil;
     
     [JKLive2dHelper unregistMouseTracking];
     live2d_isRunning = false;
+    live2d_isShowingResize = false;
     
     NSLog(@"Finish Running");
 }
@@ -52,9 +54,16 @@ static id mouseTrackMonitor = nil;
     LAppDelegate::GetInstance()->NextScene();
 }
 
++ (void)centerWindow
+{
+    LAppDelegate::GetInstance()->CenterWindow();
+}
+
 + (void)resizeWindowWithWidth:(int)width height:(int)height
 {
-    LAppDelegate::GetInstance()->SetWindowSize(width, height);
+//    LAppDelegate::GetInstance()->SetWindowSize(width, height);
+    live2d_isShowingResize = !live2d_isShowingResize;
+    LAppDelegate::GetInstance()->ShowWindowResize(live2d_isShowingResize);
 }
 
 + (void)registMouseTracking

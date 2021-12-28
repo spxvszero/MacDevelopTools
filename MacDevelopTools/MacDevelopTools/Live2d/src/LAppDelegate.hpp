@@ -88,6 +88,16 @@ public:
     * @brief   修改window窗口大小
     */
     void SetWindowSize(int width,int height);
+    
+    /**
+    * @brief   显示是否可以修改大小
+    */
+    void ShowWindowResize(bool show);
+    
+    /**
+    * @brief   居中显示
+    */
+    void CenterWindow();
 
     /**
     * @brief   View情報を取得する。

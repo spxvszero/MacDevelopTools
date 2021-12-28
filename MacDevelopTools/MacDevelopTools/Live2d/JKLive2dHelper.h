@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)nextScene;
 
++ (void)centerWindow;
 + (void)resizeWindowWithWidth:(int)width height:(int)height;
 
 + (void)registMouseTracking;
