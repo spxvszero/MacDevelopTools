@@ -29,4 +29,10 @@
     }
 }
 
+- (void)scrollToPoint:(NSPoint)point
+{
+    float rangeCanScroll = self.contentView.documentRect.size.width - self.contentView.documentVisibleRect.size.width;
+    [self.contentView scrollToPoint:CGPointMake(MIN(rangeCanScroll, MAX(0, point.x)), point.y)];
+}
+
 @end

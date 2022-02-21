@@ -743,6 +743,7 @@
                     <connections>
                         <outlet property="containView" destination="jAI-fZ-yNv" id="Xvh-dk-Ygw"/>
                         <outlet property="itemCollectionView" destination="e9c-SD-1Ip" id="bkM-2M-ufH"/>
+                        <outlet property="scrollView" destination="wKf-8O-Zv8" id="XaA-yy-JRB"/>
                     </connections>
                 </viewController>
                 <customObject id="ADn-6v-bs7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -819,13 +820,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="groove" autohidesScrollers="YES" horizontalLineScroll="37" horizontalPageScroll="10" verticalLineScroll="37" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-Yb-v9A">
-                                <rect key="frame" x="0.0" y="0.0" width="485" height="252"/>
+                                <rect key="frame" x="0.0" y="0.0" width="485" height="249"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="aNY-Hf-tGk">
-                                    <rect key="frame" x="2" y="2" width="481" height="248"/>
+                                    <rect key="frame" x="2" y="2" width="481" height="245"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="35" rowSizeStyle="automatic" viewBased="YES" id="woJ-Zv-WSf" customClass="JKManageListItemTableView">
-                                            <rect key="frame" x="0.0" y="0.0" width="481" height="248"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="481" height="245"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

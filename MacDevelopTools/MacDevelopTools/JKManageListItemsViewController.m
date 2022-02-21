@@ -215,9 +215,10 @@
     [dataArr removeObjectAtIndex:self.beginRow];
     [dataArr insertObject:obj atIndex:self.tempAimRow];
     
-    [self.tableview beginUpdates];
-    [self.tableview moveRowAtIndex:self.beginRow toIndex:self.tempAimRow];
-    [self.tableview endUpdates];
+//    [self.tableview beginUpdates];
+//    [self.tableview moveRowAtIndex:self.beginRow toIndex:self.tempAimRow];
+//    [self.tableview endUpdates];
+    [self.tableview reloadData];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kJKStatusItemListChangeNotification object:nil];
 }
@@ -232,6 +233,7 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     JKManageListItemCell *cell = [tableView makeViewWithIdentifier:@"JKManageListItemCell" owner:self];
+    cell.curRow = row;
     __weak typeof(self) weakSelf = self;
     cell.ChangeCheckStateBlock = ^(JKManageListItemCell *innerCell, BOOL on) {
         NSInteger row = [weakSelf.tableview rowForView:innerCell];

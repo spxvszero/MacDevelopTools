@@ -179,7 +179,7 @@ static const char *getPropertyType(objc_property_t property) {
     // Insert code here to initialize your application
     self.holdManager = [[JKApplicationHoldManager alloc] init];
     [self initStatusBarItem];
-}
+}    
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

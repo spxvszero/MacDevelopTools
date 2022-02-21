@@ -23,11 +23,13 @@
 #import "JKShellManagerViewController.h"
 #import "JKClockViewController.h"
 #import "JKItemsManager.h"
+#import "JKScrollView.h"
 
 #define kCollectionItemIdentify @"normal"
 
 @interface JKMeunPanelViewController ()<NSCollectionViewDataSource,NSCollectionViewDelegate,NSCollectionViewDelegateFlowLayout>
 
+@property (weak) IBOutlet JKScrollView *scrollView;
 @property (weak) IBOutlet NSCollectionView *itemCollectionView;
 @property (weak) IBOutlet NSView *containView;
 
@@ -60,7 +62,6 @@
     self.itemCollectionView.dataSource = self;
     self.itemCollectionView.delegate = self;
     self.itemCollectionView.selectable = YES;
-    
     
     [self.itemCollectionView registerClass:[JKCollectionMenuPanelItem class] forItemWithIdentifier:kCollectionItemIdentify];
 }
@@ -117,6 +118,7 @@
     }
     
     [self changeToNewView:vc.view];
+    [self scrollItemToVisable:indexP];
 }
 
 - (NSSize)collectionView:(NSCollectionView *)collectionView layout:(NSCollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -158,6 +160,15 @@
 }
 
 #pragma mark - tool
+
+- (void)scrollItemToVisable:(NSIndexPath *)iP
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSCollectionViewItem *item = [self.itemCollectionView itemAtIndexPath:iP];
+        [self.scrollView scrollToPoint:NSMakePoint(item.view.frame.origin.x, 0)];
+    });
+}
+
 
 - (void)changeToNewView:(NSView *)view
 {

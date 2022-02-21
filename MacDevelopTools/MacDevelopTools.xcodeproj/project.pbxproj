@@ -158,6 +158,7 @@
 		CBB425B227880ACC00BC4F1D /* JKLive2dConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B027880ACC00BC4F1D /* JKLive2dConfig.cpp */; };
 		CBB425B52788410000BC4F1D /* JKProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B42788410000BC4F1D /* JKProgressIndicator.m */; };
 		CBB425B8278BC41500BC4F1D /* NSPanel+JK.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B7278BC41500BC4F1D /* NSPanel+JK.m */; };
+		CBD47C4F27C3425800CFB7F0 /* JKAuthChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD47C4E27C3425800CFB7F0 /* JKAuthChecker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -767,6 +768,8 @@
 		CBB425B42788410000BC4F1D /* JKProgressIndicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKProgressIndicator.m; sourceTree = "<group>"; };
 		CBB425B6278BC41500BC4F1D /* NSPanel+JK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSPanel+JK.h"; sourceTree = "<group>"; };
 		CBB425B7278BC41500BC4F1D /* NSPanel+JK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSPanel+JK.m"; sourceTree = "<group>"; };
+		CBD47C4D27C3425800CFB7F0 /* JKAuthChecker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKAuthChecker.h; sourceTree = "<group>"; };
+		CBD47C4E27C3425800CFB7F0 /* JKAuthChecker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKAuthChecker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1915,6 +1918,8 @@
 				964AB08F2428B42A009D8D0C /* JKManageListItemsViewController.m */,
 				962178E0242B0001003268FC /* JKItemsManager.h */,
 				962178E1242B0001003268FC /* JKItemsManager.m */,
+				CBD47C4D27C3425800CFB7F0 /* JKAuthChecker.h */,
+				CBD47C4E27C3425800CFB7F0 /* JKAuthChecker.m */,
 				962178E3242B0C55003268FC /* items.plist */,
 				966289FB21C26F1B005463F8 /* JKMeunPanelViewController.h */,
 				966289FC21C26F1B005463F8 /* JKMeunPanelViewController.m */,
@@ -2192,6 +2197,7 @@
 				9693F9AA2486201800BEB9A8 /* LAppAllocator.cpp in Sources */,
 				961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */,
 				9693FA3A2486219900BEB9A8 /* CubismModelSettingJson.cpp in Sources */,
+				CBD47C4F27C3425800CFB7F0 /* JKAuthChecker.m in Sources */,
 				96628A0B21C3ADCB005463F8 /* JKWellImageView.m in Sources */,
 				9693FA702486219A00BEB9A8 /* CubismPhysicsJson.cpp in Sources */,
 				964AB0902428B42A009D8D0C /* JKManageListItemsViewController.m in Sources */,

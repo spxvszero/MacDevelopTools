@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JKScrollView : NSScrollView
 
+- (void)scrollToPoint:(NSPoint)point;
+
 @end
 
 NS_ASSUME_NONNULL_END
