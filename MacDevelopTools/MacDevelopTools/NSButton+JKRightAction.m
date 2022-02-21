@@ -46,28 +46,31 @@
     NSLog(@"other mouse down event : %@",event);
 }
 
-- (void)rightMouseDown:(NSEvent *)event
+//- (void)rightMouseDown:(NSEvent *)event
+// could not figure out why rightMouseDown not always working in MacOS 11. But rightMouseUp seems fine.
+- (void)rightMouseUp:(NSEvent *)event
 {
-    NSLog(@"right mouse down");
-    NSEvent *newEvent = event;
-    BOOL mouseInBounds = NO;
+    NSLog(@"right mouse up");
+//    NSEvent *newEvent = event;
+//    BOOL mouseInBounds = NO;
+    [self rightMouseAction];
     
-    while (YES)
-    {
-        mouseInBounds = NSPointInRect([newEvent locationInWindow], [self convertRect:[self frame] fromView:nil]);
-        [self highlight:NO];
-        
-        newEvent = [[self window] nextEventMatchingMask:NSEventMaskRightMouseDragged | NSEventMaskRightMouseUp];
-        
-        if (NSEventTypeRightMouseUp == [newEvent type])
-        {
-            break;
-        }
-    }
-    if (mouseInBounds)
-    {
-        [self rightMouseAction];
-    }
+//    while (YES)
+//    {
+//        mouseInBounds = NSPointInRect([newEvent locationInWindow], self.frame);
+//        [self highlight:NO];
+//
+//        newEvent = [[self window] nextEventMatchingMask:NSEventMaskRightMouseDragged | NSEventMaskRightMouseUp];
+//
+//        if (NSEventTypeRightMouseUp == [newEvent type])
+//        {
+//            break;
+//        }
+//    }
+//    if (mouseInBounds)
+//    {
+//        [self rightMouseAction];
+//    }
 }
 
 - (void)rightMouseAction

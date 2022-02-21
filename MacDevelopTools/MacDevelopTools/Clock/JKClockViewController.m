@@ -8,6 +8,7 @@
 
 #import "JKClockViewController.h"
 #import "JKDatePicker.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface JKClockScheduleModel : NSObject
 
@@ -173,15 +174,44 @@ static NSInteger JKUserNotificationIdentify = 0;
 
 - (void)postNotificationWithModel:(JKClockScheduleModel *)model
 {
-    NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = @"Your Schedule Alert";
-    notification.subtitle = [self.formatter stringFromDate:model.fireDate];
-    notification.informativeText = model.textAlert;
-    notification.deliveryDate = model.fireDate;
-    notification.identifier = [NSString stringWithFormat:@"%ld",JKUserNotificationIdentify++];
-    
-    model.notification = notification;
-    [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
+    if (@available(macOS 10.14, *)) {
+        
+        UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+        content.title = [NSString localizedUserNotificationStringForKey:@"Wake up!" arguments:nil];
+        content.body = [NSString localizedUserNotificationStringForKey:@"Rise and shine! It's morning time!"
+                arguments:nil];
+         
+//        // Configure the trigger for a 7am wakeup.
+//        NSDateComponents* date = [[NSDateComponents alloc] init];
+//        date.hour = 7;
+//        date.minute = 0;
+//        UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger
+//               triggerWithDateMatchingComponents:date repeats:NO];
+         
+        // Create the request object.
+//        UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
+        
+        UNTimeIntervalNotificationTrigger *timeIntervalTrigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:false];
+        
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"test" content:content trigger:timeIntervalTrigger];
+        [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
+                                                                       withCompletionHandler:^(NSError * _Nullable error) {
+            NSLog(@"Notification : %@",error);
+        }] ;
+        
+
+        
+    }else{
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.title = @"Your Schedule Alert";
+        notification.subtitle = [self.formatter stringFromDate:model.fireDate];
+        notification.informativeText = model.textAlert;
+        notification.deliveryDate = model.fireDate;
+        notification.identifier = [NSString stringWithFormat:@"%ld",JKUserNotificationIdentify++];
+        
+        model.notification = notification;
+        [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
+    }
 }
 
 - (void)removeNotificationWithModel:(JKClockScheduleModel *)model

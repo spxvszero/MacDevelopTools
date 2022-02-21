@@ -7,6 +7,7 @@
 //
 
 #import "JKAutoPackViewController.h"
+#import "NSPanel+JK.h"
 
 @interface JKAutoPackViewController ()
 @property (weak) IBOutlet NSButton *ipaBtn;
@@ -83,7 +84,7 @@
     self.openPanel.canChooseDirectories = YES;
     
     __weak typeof(self) weakSelf = self;
-    [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
+    [self.openPanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
         if (result == NSModalResponseOK) {
             weakSelf.projectDirTextField.stringValue = weakSelf.openPanel.URL.relativePath;
             [weakSelf readTargets:weakSelf.openPanel.URL.relativePath];
@@ -171,7 +172,7 @@
     self.openPanel.canChooseDirectories = NO;
     
     __weak typeof(self) weakSelf = self;
-    [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
+    [self.openPanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
         if (result == NSModalResponseOK) {
             weakSelf.optionsPlistTextField.stringValue = weakSelf.openPanel.URL.relativePath;
         }
@@ -211,7 +212,7 @@
     self.openPanel.canChooseDirectories = YES;
     
     __weak typeof(self) weakSelf = self;
-    [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
+    [self.openPanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
         if (result == NSModalResponseOK) {
             [weakSelf buildToPath:weakSelf.openPanel.URL.relativePath];
         }

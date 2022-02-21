@@ -9,6 +9,7 @@
 #import "JKResizeImageViewController.h"
 #import "JKResizeImageExportViewController.h"
 #import "JKRecodeImageExportViewController.h"
+#import "NSPanel+JK.h"
 
 @interface JKResizeImageViewController ()
 
@@ -101,7 +102,7 @@
     }
     
     __weak typeof(self) weakSelf = self;
-    [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
+    [self.openPanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
         if (result == NSModalResponseOK) {
             if (weakSelf.selectedSingleBtn) {
                 weakSelf.singlePath = weakSelf.openPanel.URL.relativePath;

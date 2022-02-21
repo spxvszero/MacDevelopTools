@@ -22,6 +22,9 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 
+## Resource
+MacDevelopTools/MacDevelopTools/Live2d/Resources/
+
 ## Obj-C/Swift specific
 *.hmap
 *.ipa

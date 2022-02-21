@@ -155,6 +155,9 @@
 		96C335F621C1233400C9374E /* JKMouseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F521C1233400C9374E /* JKMouseButton.m */; };
 		96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */; };
 		CB685AD3272FC41B00F5447A /* JKScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB685AD2272FC41B00F5447A /* JKScrollView.m */; };
+		CBB425B227880ACC00BC4F1D /* JKLive2dConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B027880ACC00BC4F1D /* JKLive2dConfig.cpp */; };
+		CBB425B52788410000BC4F1D /* JKProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B42788410000BC4F1D /* JKProgressIndicator.m */; };
+		CBB425B8278BC41500BC4F1D /* NSPanel+JK.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B7278BC41500BC4F1D /* NSPanel+JK.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -758,6 +761,12 @@
 		96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKApplicationHoldManager.m; sourceTree = "<group>"; };
 		CB685AD1272FC41B00F5447A /* JKScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKScrollView.h; sourceTree = "<group>"; };
 		CB685AD2272FC41B00F5447A /* JKScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKScrollView.m; sourceTree = "<group>"; };
+		CBB425B027880ACC00BC4F1D /* JKLive2dConfig.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JKLive2dConfig.cpp; sourceTree = "<group>"; };
+		CBB425B127880ACC00BC4F1D /* JKLive2dConfig.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JKLive2dConfig.hpp; sourceTree = "<group>"; };
+		CBB425B32788410000BC4F1D /* JKProgressIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKProgressIndicator.h; sourceTree = "<group>"; };
+		CBB425B42788410000BC4F1D /* JKProgressIndicator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKProgressIndicator.m; sourceTree = "<group>"; };
+		CBB425B6278BC41500BC4F1D /* NSPanel+JK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSPanel+JK.h"; sourceTree = "<group>"; };
+		CBB425B7278BC41500BC4F1D /* NSPanel+JK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSPanel+JK.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1427,6 +1436,8 @@
 				9693FB9424879AB300BEB9A8 /* JKLive2dViewController.m */,
 				9693FAA8248636B000BEB9A8 /* JKLive2dHelper.h */,
 				9693FAA9248636B000BEB9A8 /* JKLive2dHelper.mm */,
+				CBB425B127880ACC00BC4F1D /* JKLive2dConfig.hpp */,
+				CBB425B027880ACC00BC4F1D /* JKLive2dConfig.cpp */,
 				9693FA9924862EF900BEB9A8 /* stb_image.h */,
 				9693F9932486201800BEB9A8 /* src */,
 			);
@@ -1876,6 +1887,7 @@
 				963D7F29231CE9FA00631B13 /* Clock */,
 				96578E352432E0C700F828C5 /* LottiePreviewer */,
 				9693F8D624861EEB00BEB9A8 /* Live2d */,
+				CB4DFC5F277C4E1B00CBE4A1 /* AutoControl */,
 				96C335C021C0A8E100C9374E /* AppDelegate.h */,
 				96C335C121C0A8E100C9374E /* AppDelegate.m */,
 				96A9A14D21C8FC0C00F21813 /* NSButton+JKRightAction.h */,
@@ -1913,6 +1925,10 @@
 				96C335F521C1233400C9374E /* JKMouseButton.m */,
 				CB685AD1272FC41B00F5447A /* JKScrollView.h */,
 				CB685AD2272FC41B00F5447A /* JKScrollView.m */,
+				CBB425B32788410000BC4F1D /* JKProgressIndicator.h */,
+				CBB425B42788410000BC4F1D /* JKProgressIndicator.m */,
+				CBB425B6278BC41500BC4F1D /* NSPanel+JK.h */,
+				CBB425B7278BC41500BC4F1D /* NSPanel+JK.m */,
 				96C335C621C0A8E400C9374E /* Assets.xcassets */,
 				96C335C821C0A8E400C9374E /* Main.storyboard */,
 				96C335D621C0E07700C9374E /* MainMenu.xib */,
@@ -1973,6 +1989,13 @@
 				96C335EC21C10A0700C9374E /* TextFieldDrag.h */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		CB4DFC5F277C4E1B00CBE4A1 /* AutoControl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AutoControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2073,6 +2096,7 @@
 			files = (
 				96C335DF21C109F200C9374E /* SecManager.m in Sources */,
 				9693F9AB2486201800BEB9A8 /* LAppPal.cpp in Sources */,
+				CBB425B227880ACC00BC4F1D /* JKLive2dConfig.cpp in Sources */,
 				9693FA712486219A00BEB9A8 /* CubismPhysics.cpp in Sources */,
 				9693FA5B2486219900BEB9A8 /* CubismModel.cpp in Sources */,
 				96578FA724332C9E00F828C5 /* LottieFilesURL.m in Sources */,
@@ -2141,6 +2165,7 @@
 				964AB08A2428B0AC009D8D0C /* JKManagementController.m in Sources */,
 				966289FA21C26CFA005463F8 /* WindowController.m in Sources */,
 				96C335DA21C0E3AA00C9374E /* JKIconMenu.m in Sources */,
+				CBB425B52788410000BC4F1D /* JKProgressIndicator.m in Sources */,
 				9693F9B22486201800BEB9A8 /* LAppView.cpp in Sources */,
 				96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */,
 				9693F9B12486201800BEB9A8 /* LAppTextureManager.cpp in Sources */,
@@ -2172,6 +2197,7 @@
 				964AB0902428B42A009D8D0C /* JKManageListItemsViewController.m in Sources */,
 				9693FA592486219900BEB9A8 /* CubismUserModel.cpp in Sources */,
 				966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */,
+				CBB425B8278BC41500BC4F1D /* NSPanel+JK.m in Sources */,
 				96628A0121C35698005463F8 /* JKCollectionMenuPanelItem.m in Sources */,
 				9693FA492486219900BEB9A8 /* CubismExpressionMotion.cpp in Sources */,
 				96A9A16721CBA33D00F21813 /* JKResizeImageExportViewController.mm in Sources */,
@@ -2311,6 +2337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_ENTITLEMENTS = MacDevelopTools/MacDevelopTools.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2362,6 +2389,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_ENTITLEMENTS = MacDevelopTools/MacDevelopTools.entitlements;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;

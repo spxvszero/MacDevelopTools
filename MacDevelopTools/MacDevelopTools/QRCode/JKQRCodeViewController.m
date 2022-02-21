@@ -10,12 +10,14 @@
 #import "NSImage+JKConvert.h"
 #import <CoreImage/CoreImage.h>
 #import "JKInfoImageView.h"
+#import "NSPanel+JK.h"
 
 @interface JKQRCodeViewController ()<NSTextViewDelegate>
 @property (unsafe_unretained) IBOutlet NSTextView *textView;
 @property (weak) IBOutlet JKInfoImageView *imgView;
 @property (weak) IBOutlet NSButton *saveBtn;
 @property (weak) IBOutlet NSButton *autoLoadBtn;
+@property (weak) IBOutlet NSTextField *errorLabel;
 
 @property (nonatomic, strong) NSSavePanel *savePanel;
 
@@ -38,7 +40,21 @@
     self.imgView.editable = YES;
     __weak typeof(self) weakSelf = self;
     self.imgView.ImageDidChangeBlock = ^(JKInfoImageView *imageView, NSURL *fileUrl, NSImage *image) {
-        weakSelf.textView.string = [weakSelf stringFromFileImage:image];
+        NSArray *codeStrArr = [weakSelf stringFromFileImage:image];
+        if (codeStrArr) {
+            NSMutableString *resStr = [[NSMutableString alloc] init];
+            for (int i = 0; i < codeStrArr.count; i++) {
+                [resStr appendFormat:@"%@", [codeStrArr objectAtIndex:i]];
+                if (i != codeStrArr.count - 1) {
+                    [resStr appendString:@"\n ---------- \n"];
+                }
+            }
+            weakSelf.textView.string = resStr;
+            [weakSelf showSuccessHint:[NSString stringWithFormat:@"Find %ld code.",codeStrArr.count]];
+        }else{
+            weakSelf.textView.string = @"";
+            [weakSelf showErrorHint:@"Nothing Found."];
+        }
     };
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
@@ -49,6 +65,20 @@
     [self.savePanel cancel:nil];
 }
 
+- (void)showErrorHint:(NSString *)str
+{
+    self.errorLabel.textColor = [NSColor systemRedColor];
+    self.errorLabel.stringValue = str;
+    self.errorLabel.hidden = false;
+}
+
+- (void)showSuccessHint:(NSString *)str
+{
+    self.errorLabel.textColor = [NSColor systemGreenColor];
+    self.errorLabel.stringValue = str;
+    self.errorLabel.hidden = false;
+}
+
 - (IBAction)saveAsAction:(id)sender
 {
     if (!self.imgView.image) {
@@ -56,7 +86,7 @@
     }
     
     __weak typeof(self) weakSelf = self;
-    [self.savePanel beginWithCompletionHandler:^(NSModalResponse result) {
+    [self.savePanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
          if (result == NSModalResponseOK) {
              NSLog(@"save -- %@",weakSelf.savePanel.URL);
              NSImage *image = weakSelf.imgView.image;
@@ -74,6 +104,7 @@
     if (notification.object == self.textView) {
         if (self.autoLoadBtn.state == NSControlStateValueOn) {
             if (self.textView.string && self.textView.string.length > 0) {
+                self.errorLabel.hidden = true;
                 [self startGenerateCode];
             }else{
                 [self.imgView setImageWithNoBlock:nil];
@@ -85,21 +116,21 @@
 /**
  * 将二维码图片转化为字符
  */
-- (NSString *)stringFromFileImage:(NSImage *)img {
+- (NSArray<NSString *> *)stringFromFileImage:(NSImage *)img {
     CIImage *cImg = [img jk_CIImage];
     
     //qrcode
     CIDetector *det = [CIDetector detectorOfType:@"CIDetectorTypeQRCode" context:nil options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
     NSArray *arr = [det featuresInImage:cImg];
     if (arr.count > 0) {
-        NSMutableString *resStr = [NSMutableString stringWithFormat:@"This Image has %zd QRCode\n\n",arr.count];
+        NSMutableArray *resArr = [NSMutableArray array];
         for (CIQRCodeFeature *qrStr in arr) {
-            [resStr appendFormat:@"%@\n",qrStr.messageString];
+            [resArr addObject:qrStr.messageString?:@""];
         }
-        return resStr;
+        return resArr;
     }
 
-    return @"Error: Nothing Found!";
+    return nil;
 }
 
 /**

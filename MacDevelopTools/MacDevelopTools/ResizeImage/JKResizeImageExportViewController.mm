@@ -8,6 +8,8 @@
 
 #import "JKResizeImageExportViewController.h"
 #import "Magick++.h"
+#import "JKProgressIndicator.h"
+#import "NSPanel+JK.h"
 
 typedef enum : NSInteger {
     ResizeTypeIcon = 0,
@@ -31,16 +33,24 @@ typedef enum : NSInteger {
 @property (weak) IBOutlet NSBox *customInputBox;
 @property (weak) IBOutlet NSTextField *customWidthTxtField;
 @property (weak) IBOutlet NSTextField *customHeightTxtField;
+@property(nonatomic, assign) NSSize currentCustomSize;
 @property (weak) IBOutlet NSButton *lockBtn;
 
 
 
 @property (nonatomic, assign) NSSize currentImageSize;
 @property (weak) IBOutlet NSTextField *imageSizeLabel;
+@property (weak) IBOutlet JKProgressIndicator *loadingIndicator;
 
 @property (nonatomic, assign) JKResizeSelectType currentSelectType;
 
 @property (nonatomic, strong) NSArray *iconsSize;
+
+
+@property(nonatomic, assign) MagickCore::ImageInfo *imageInfo;
+@property(nonatomic, assign) MagickCore::Image *image;
+
+@property(nonatomic, strong) NSURL *currentPanelUrl;
 
 @end
 
@@ -49,6 +59,19 @@ typedef enum : NSInteger {
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)viewDidDisappear
+{
+    [super viewDidDisappear];
+    
+    MagickCore::DestroyImage(self.image);
+    MagickCore::DestroyImageInfo(self.imageInfo);
+    self.image = nil;
+    self.imageInfo = nil;
+    self.currentImageSize = NSZeroSize;
+    self.imageSizeLabel.stringValue = @"";
+    self.currentCustomSize = NSZeroSize;
 }
 
 - (void)viewDidLoad {
@@ -73,6 +96,28 @@ typedef enum : NSInteger {
 //    Magick::InitializeMagick([arguments[1] cStringUsingEncoding:NSASCIIStringEncoding]);
 }
 
+- (void)loadImage
+{
+    NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
+    if (!data) {
+        NSLog(@"Failed Loaded Image Data : %@",self.imageUrl);
+        return;
+    }
+    const void *imageData = [data bytes];
+    
+    MagickCore::ImageInfo *info = MagickCore::AcquireImageInfo();
+    MagickCore::ExceptionInfo *exception = MagickCore::AcquireExceptionInfo();
+    MagickCore::Image *image = MagickCore::BlobToImage(info, imageData, data.length, exception);
+    
+    self.imageInfo = info;
+    self.image = image;
+    
+    self.currentImageSize = [self imageSize];
+    self.imageSizeLabel.stringValue = [NSString stringWithFormat:@"ImageSize: %ldx%ld px",(long)(self.currentImageSize.width),(long)(self.currentImageSize.height)];
+    [self.loadingIndicator stopLoading];
+    MagickCore::DestroyExceptionInfo(exception);
+}
+
 - (void)statusItemClose
 {
     [self cancelAction:nil];
@@ -85,8 +130,6 @@ typedef enum : NSInteger {
     if (self.single) {
         self.appIconButton.enabled = YES;
         self.androidAppIcon.enabled = YES;
-        self.currentImageSize = [self imageSize];
-        self.imageSizeLabel.stringValue = [NSString stringWithFormat:@"ImageSize: %ldx%ld px",(long)(self.currentImageSize.width),(long)(self.currentImageSize.height)];
     }else{
         self.appIconButton.enabled = NO;
         self.androidAppIcon.enabled = NO;
@@ -97,6 +140,10 @@ typedef enum : NSInteger {
         }
     }
     
+    [self.loadingIndicator startLoading];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self loadImage];
+    });
 }
 
 
@@ -108,38 +155,46 @@ typedef enum : NSInteger {
         switch (self.currentSelectType) {
             case ResizeTypeIcon:
             {
-                [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
+                [self.openPanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
                     if (result == NSModalResponseOK) {
-                        [weakSelf appIconExport];
+                        weakSelf.currentPanelUrl = weakSelf.openPanel.URL;
+                        [weakSelf startTaskIfSingle:true];
                     }
                 }];
             }
                 break;
             case ResizeTypeAndroidIcon:
             {
-                [self.openPanel beginWithCompletionHandler:^(NSModalResponse result) {
+                [self.openPanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
                     if (result == NSModalResponseOK) {
-                        [weakSelf androidAppIconExport:weakSelf.openPanel.URL.relativePath];
+                        weakSelf.currentPanelUrl = weakSelf.openPanel.URL;
+                        [weakSelf startTaskIfSingle:true];
                     }
                 }];
             }
                 break;
             case ResizeType2x:
             {
-                [self.savePanel beginWithCompletionHandler:^(NSModalResponse result) {
+                [self.savePanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
                     NSLog(@"save 2x -- %@",weakSelf.savePanel.URL.relativePath);
                     if (result == NSModalResponseOK) {
-                        [weakSelf save2xImage:weakSelf.imageUrl toPath:weakSelf.savePanel.URL.relativePath];
+                        weakSelf.currentPanelUrl = weakSelf.savePanel.URL;
+                        [weakSelf startTaskIfSingle:true];
                     }
                 }];
             }
                 break;
             case ResizeTypeCustom:
             {
-                [self.savePanel beginWithCompletionHandler:^(NSModalResponse result) {
+                [self.savePanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
                     NSLog(@"save custom -- %@",weakSelf.savePanel.URL.relativePath);
                     if (result == NSModalResponseOK) {
-                        [weakSelf customImage:weakSelf.imageUrl toPath:weakSelf.savePanel.URL.relativePath];
+                        if (![weakSelf hasBoxNumber]) {
+                            return;
+                        }
+                        weakSelf.currentCustomSize = NSMakeSize(weakSelf.customWidthTxtField.stringValue.integerValue, weakSelf.customHeightTxtField.stringValue.integerValue);
+                        weakSelf.currentPanelUrl = weakSelf.savePanel.URL;
+                        [weakSelf startTaskIfSingle:true];
                     }
                 }];
             }
@@ -149,45 +204,110 @@ typedef enum : NSInteger {
         }
         
     }else{
-        switch (self.currentSelectType) {
-            case ResizeType2x:
-            {
-                NSString *outputPath = [weakSelf.imageUrl stringByAppendingPathComponent:@"output"];
-                if (![[NSFileManager defaultManager] fileExistsAtPath:outputPath]) {
-                    [[NSFileManager defaultManager] createDirectoryAtPath:outputPath withIntermediateDirectories:NO attributes:nil error:nil];
-                }
-                
-                [weakSelf enumImageFilesWithPath:weakSelf.imageUrl block:^(NSString *subName) {
-                    [weakSelf save2xImage:[weakSelf.imageUrl stringByAppendingPathComponent:subName] toPath:[outputPath stringByAppendingPathComponent:subName]];
-                }];
-                
-                weakSelf.imageSizeLabel.stringValue = [weakSelf finishString];
-            }
-                break;
-            case ResizeTypeCustom:
-            {
-                if (![self hasBoxNumber]) {
-                    return;
-                }
-                
-                NSString *outputPath = [weakSelf.imageUrl stringByAppendingPathComponent:@"output"];
-                if (![[NSFileManager defaultManager] fileExistsAtPath:outputPath]) {
-                    [[NSFileManager defaultManager] createDirectoryAtPath:outputPath withIntermediateDirectories:NO attributes:nil error:nil];
-                }
-                
-                [weakSelf enumImageFilesWithPath:weakSelf.imageUrl block:^(NSString *subName) {
-                    [weakSelf customImage:[weakSelf.imageUrl stringByAppendingPathComponent:subName] toPath:[outputPath stringByAppendingPathComponent:subName]];
-                }];
-                
-                weakSelf.imageSizeLabel.stringValue = [weakSelf finishString];
-            }
-                break;
-            default:
-                break;
-        }
+        [self startTaskIfSingle:false];
     }
     
 
+}
+
+- (void)startTaskIfSingle:(BOOL)single
+{
+    [self.loadingIndicator startLoading];
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+        if (single) {
+            [self startSingleTaskWithCurrentSelectedType];
+        }else{
+            [self startMultiTaskWithCurrentSelectedType];
+        }
+    });
+}
+
+- (void)finishTask
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.loadingIndicator stopLoading];
+    });
+}
+
+- (void)startSingleTaskWithCurrentSelectedType
+{
+    
+    switch (self.currentSelectType) {
+        case ResizeTypeIcon:
+        {
+            [self appIconExport];
+        }
+            break;
+        case ResizeType2x:
+        {
+            [self save2xImage:self.imageUrl toPath:[self.currentPanelUrl relativePath]];
+        }
+            break;
+        case ResizeTypeAndroidIcon:
+        {
+            [self androidAppIconExport:[self.currentPanelUrl relativePath]];
+        }
+            break;
+        case ResizeTypeCustom:
+        {
+            [self customImage:self.imageUrl toPath:[self.currentPanelUrl relativePath]];
+        }
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (void)startMultiTaskWithCurrentSelectedType
+{
+    switch (self.currentSelectType) {
+        case ResizeTypeIcon:
+        {
+            
+        }
+            break;
+        case ResizeType2x:
+        {
+            NSString *outputPath = [self.imageUrl stringByAppendingPathComponent:@"output"];
+            if (![[NSFileManager defaultManager] fileExistsAtPath:outputPath]) {
+                [[NSFileManager defaultManager] createDirectoryAtPath:outputPath withIntermediateDirectories:NO attributes:nil error:nil];
+            }
+            
+            [self enumImageFilesWithPath:self.imageUrl block:^(NSString *subName) {
+                [self save2xImage:[self.imageUrl stringByAppendingPathComponent:subName] toPath:[outputPath stringByAppendingPathComponent:subName]];
+            }];
+            
+            self.imageSizeLabel.stringValue = [self finishString];
+        }
+            break;
+        case ResizeTypeAndroidIcon:
+        {
+           
+        }
+            break;
+        case ResizeTypeCustom:
+        {
+            if (![self hasBoxNumber]) {
+                return;
+            }
+            
+            NSString *outputPath = [self.imageUrl stringByAppendingPathComponent:@"output"];
+            if (![[NSFileManager defaultManager] fileExistsAtPath:outputPath]) {
+                [[NSFileManager defaultManager] createDirectoryAtPath:outputPath withIntermediateDirectories:NO attributes:nil error:nil];
+            }
+            
+            [self enumImageFilesWithPath:self.imageUrl block:^(NSString *subName) {
+                [self customImage:[self.imageUrl stringByAppendingPathComponent:subName] toPath:[outputPath stringByAppendingPathComponent:subName]];
+            }];
+            
+            self.imageSizeLabel.stringValue = [self finishString];
+        }
+            break;
+        default:
+            break;
+    }
+    
 }
 
 - (NSString *)finishString
@@ -261,27 +381,14 @@ typedef enum : NSInteger {
 
 - (void)appIconExport
 {
-    NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
-    const void *imageData = [data bytes];
-    
-    MagickCore::Image *imageInfo = MagickCore::BlobToImage(MagickCore::AcquireImageInfo(), imageData, data.length, MagickCore::AcquireExceptionInfo());
-    
     for (NSNumber *size in self.iconsSize) {
         int intValue = [size intValue];
-        [self resizeImageWithWidth:intValue height:intValue image:imageInfo name:[NSString stringWithFormat:@"%dx%d.png",intValue,intValue]];
+        [self resizeImageWithWidth:intValue height:intValue image:self.image name:[NSString stringWithFormat:@"%dx%d.png",intValue,intValue]];
     }
-    NSLog(@"finish");
-    
-    MagickCore::DestroyImage(imageInfo);
 }
 
 - (void)androidAppIconExport:(NSString *)path
 {
-    NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
-    const void *imageData = [data bytes];
-    
-    MagickCore::Image *imageInfo = MagickCore::BlobToImage(MagickCore::AcquireImageInfo(), imageData, data.length, MagickCore::AcquireExceptionInfo());
-    
     /*
      192   mipmap-xxxhdpi
      144   -xxhdpi
@@ -299,27 +406,13 @@ typedef enum : NSInteger {
         if (![[NSFileManager defaultManager] fileExistsAtPath:dirPath]) {
             [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:NO attributes:nil error:nil];
         }
-        [self resizeImageWithWidth:intValue height:intValue image:imageInfo path:[dirPath stringByAppendingPathComponent:@"ic_launcher.png"]];
+        [self resizeImageWithWidth:intValue height:intValue image:self.image path:[dirPath stringByAppendingPathComponent:@"ic_launcher.png"]];
     }];
-    
-    NSLog(@"finish");
-    
-    MagickCore::DestroyImage(imageInfo);
 }
 
 - (void)save2xImage:(NSString *)imageUrl toPath:(NSString *)path
 {
-    NSData *data = [NSData dataWithContentsOfFile:imageUrl];
-    if (!data) {
-        return;
-    }
-    const void *imageData = [data bytes];
-    
-    MagickCore::Image *imageInfo = MagickCore::BlobToImage(MagickCore::AcquireImageInfo(), imageData, data.length, MagickCore::AcquireExceptionInfo());
-    
-    [self resizeImageWithWidth:(imageInfo->columns * 2 / 3.f) height:(imageInfo->rows * 2 / 3.f) image:imageInfo path:path];
-    
-    MagickCore::DestroyImage(imageInfo);
+    [self resizeImageWithWidth:(self.image->columns * 2 / 3.f) height:(self.image->rows * 2 / 3.f) image:self.image path:path];
 }
 
 - (BOOL)hasBoxNumber
@@ -340,25 +433,7 @@ typedef enum : NSInteger {
 
 - (void)customImage:(NSString *)imageUrl toPath:(NSString *)path
 {
-    if (![self hasBoxNumber]) {
-        return;
-    }
-    
-    NSData *data = [NSData dataWithContentsOfFile:imageUrl];
-    const void *imageData = [data bytes];
-    
-    if (!data) {
-        return;
-    }
-    
-    MagickCore::Image *imageInfo = MagickCore::BlobToImage(MagickCore::AcquireImageInfo(), imageData, data.length, MagickCore::AcquireExceptionInfo());
-    
-    NSInteger width = [self.customWidthTxtField.stringValue integerValue];
-    NSInteger height = [self.customHeightTxtField.stringValue integerValue];
-    
-    [self resizeImageWithWidth:width height:height image:imageInfo path:path];
-    
-    MagickCore::DestroyImage(imageInfo);
+    [self resizeImageWithWidth:self.currentCustomSize.width height:self.currentCustomSize.height image:self.image path:path];
 }
 
 - (void)enumImageFilesWithPath:(NSString *)path block:(void (^)(NSString *))enumBlock
@@ -426,56 +501,53 @@ typedef enum : NSInteger {
 
 - (void)resizeImageWithWidth:(size_t)width height:(size_t)height image:(MagickCore::Image *)imageInfo name:(NSString *)nameStr
 {
-    MagickCore::Image *outPutimageInfo = MagickCore::ResizeImage(imageInfo, width, height, MagickCore::UndefinedFilter, MagickCore::AcquireExceptionInfo());
-//    MagickCore::ConvertImageCommand(outPutimageInfo, 2, {"",""}, NULL, MagickCore::AcquireExceptionInfo());
-//    MagickCore::ImageInfo
+    MagickCore::ExceptionInfo *exception = MagickCore::AcquireExceptionInfo();
+    MagickCore::Image *outPutimageInfo = MagickCore::ResizeImage(imageInfo, width, height, MagickCore::UndefinedFilter, exception);
     
-    NSString *outputPath = [[self.openPanel directoryURL] relativePath];
+    NSString *outputPath = [self.currentPanelUrl relativePath];
     [self outputData:outPutimageInfo withUrl:[outputPath stringByAppendingPathComponent:nameStr]];
     
     MagickCore::DestroyImage(outPutimageInfo);
+    MagickCore::DestroyExceptionInfo(exception);
 }
 
 - (void)resizeImageWithWidth:(size_t)width height:(size_t)height image:(MagickCore::Image *)imageInfo path:(NSString *)path
 {
-    MagickCore::Image *outPutimageInfo = MagickCore::ResizeImage(imageInfo, width, height, MagickCore::UndefinedFilter, MagickCore::AcquireExceptionInfo());
+    MagickCore::ExceptionInfo *exception = MagickCore::AcquireExceptionInfo();
+    MagickCore::Image *outPutimageInfo = MagickCore::ResizeImage(imageInfo, width, height, MagickCore::UndefinedFilter, exception);
     
     [self outputData:outPutimageInfo withUrl:path];
     
     MagickCore::DestroyImage(outPutimageInfo);
+    MagickCore::DestroyExceptionInfo(exception);
 }
 
 
 - (NSSize)imageSize
 {
-    NSData *data = [NSData dataWithContentsOfFile:self.imageUrl];
-    if (!data) {
-        return NSZeroSize;
-    }
-    const void *imageData = [data bytes];
+    NSLog(@"imageInfo -- %zu,%zu",self.image->columns,self.image->rows);
     
-    MagickCore::ImageInfo *info = MagickCore::AcquireImageInfo();
+    NSSize size = NSMakeSize(self.image->columns, self.image->rows);
     
-    MagickCore::Image *imageInfo = MagickCore::BlobToImage(info, imageData, data.length, MagickCore::AcquireExceptionInfo());
-    
-    NSLog(@"imageInfo -- %zu,%zu",imageInfo->columns,imageInfo->rows);
-    
-//    MagickCore::Image *outPutimageInfo = MagickCore::ResizeImage(imageInfo, 20, 20, MagickCore::UndefinedFilter, MagickCore::AcquireExceptionInfo());
-    
-//    [self outputData:outPutimageInfo withUrl:@"/Users/jason/Desktop/magic/resxxx"];
-    
-    return NSMakeSize(imageInfo->columns, imageInfo->rows);
+    return size;
 }
 
 - (void)outputData:(MagickCore::Image *)imageInfo withUrl:(NSString *)urlStr
 {
     NSLog(@"output url -- %@",urlStr);
     size_t outputSize;
-    const void *outputData = MagickCore::ImageToBlob(MagickCore::AcquireImageInfo(), imageInfo, &outputSize, MagickCore::AcquireExceptionInfo());
+    MagickCore::ImageInfo *info = MagickCore::AcquireImageInfo();
+    MagickCore::ExceptionInfo *exception = MagickCore::AcquireExceptionInfo();
+    const void *outputData = MagickCore::ImageToBlob(info, imageInfo, &outputSize, exception);
     
     NSData *resData = [[NSData alloc] initWithBytes:outputData length:outputSize];
     
     [resData writeToFile:urlStr atomically:YES];
+    
+    MagickCore::DestroyImageInfo(info);
+    MagickCore::DestroyExceptionInfo(exception);
+    
+    [self finishTask];
 }
 
 - (NSArray *)iconsSize

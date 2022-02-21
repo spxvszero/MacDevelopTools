@@ -21,11 +21,11 @@
     float rangeCanScroll = self.contentView.documentRect.size.width - self.contentView.documentVisibleRect.size.width;
     if (rangeCanScroll > 0) {
         float curPointX = self.contentView.documentVisibleRect.origin.x;
-        float destinateX = event.deltaY + curPointX;
-        if (destinateX < 0 || destinateX > rangeCanScroll) {
-            return;
-        }
-        [self.contentView scrollToPoint:CGPointMake(event.deltaY + curPointX, event.deltaX)];
+//        float destinateX = event.deltaY + curPointX;
+        //wanna scroll more quickly, so 4 times it
+        float destinateX = event.deltaY * 4 + curPointX;
+        destinateX = MIN(rangeCanScroll, MAX(0, destinateX));
+        [self.contentView scrollToPoint:CGPointMake(destinateX, event.deltaX)];
     }
 }
 
