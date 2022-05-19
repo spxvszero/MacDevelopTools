@@ -54,6 +54,7 @@
 
 - (IBAction)sliderValueChange:(id)sender
 {
+    [self updateBtnWithCurrentState:false];
     [self.contentView setAnimationProgress:self.progressSlider.doubleValue];
 }
 - (IBAction)moreAction:(id)sender

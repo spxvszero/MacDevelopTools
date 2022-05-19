@@ -174,6 +174,18 @@
 		<key>Visable</key>
 		<true/>
 		<key>ToolTip</key>
+		<string>SVGA Animate Preview</string>
+		<key>ItemImageName</key>
+		<string></string>
+		<key>StoryBoardName</key>
+		<string>SVGAPreviewer</string>
+		<key>ClassName</key>
+		<string>JKSVGAPreviewController</string>
+	</dict>
+	<dict>
+		<key>Visable</key>
+		<true/>
+		<key>ToolTip</key>
 		<string>Live 2d</string>
 		<key>ItemImageName</key>
 		<string></string>

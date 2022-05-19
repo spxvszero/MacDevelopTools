@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="bU7-R8-ocO">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Preview Controller-->
+        <scene sceneID="PEd-7d-5j0">
+            <objects>
+                <viewController id="bU7-R8-ocO" customClass="JKSVGAPreviewController" sceneMemberID="viewController">
+                    <view key="view" id="rkF-7j-Azi">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box boxType="custom" cornerRadius="1" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="WkI-5h-EXe">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <view key="contentView" id="Jye-d9-1Kh" customClass="JKSVGADragBoxView">
+                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="borderColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="fillColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
+                            </box>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="5zs-5E-Yac">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="7qH-84-AC9" customClass="SVGAImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="7qH-84-AC9" secondAttribute="bottom" id="O6L-f0-L3N"/>
+                                    <constraint firstAttribute="trailing" secondItem="7qH-84-AC9" secondAttribute="trailing" id="l2y-hh-ed4"/>
+                                    <constraint firstItem="7qH-84-AC9" firstAttribute="top" secondItem="5zs-5E-Yac" secondAttribute="top" id="sjg-wv-d5i"/>
+                                    <constraint firstItem="7qH-84-AC9" firstAttribute="leading" secondItem="5zs-5E-Yac" secondAttribute="leading" id="y7m-Oo-cfQ"/>
+                                </constraints>
+                            </customView>
+                            <box boxType="custom" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="xso-jw-I9O">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="40"/>
+                                <view key="contentView" id="T7M-w8-kBY">
+                                    <rect key="frame" x="1" y="1" width="448" height="38"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zIb-5M-ywD">
+                                            <rect key="frame" x="18" y="3" width="357" height="28"/>
+                                            <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="YQJ-X4-Nua"/>
+                                            <connections>
+                                                <action selector="slideProgressChangeValue:" target="bU7-R8-ocO" id="q9t-ET-UZ7"/>
+                                            </connections>
+                                        </slider>
+                                        <box title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="pwQ-Ra-LFO">
+                                            <rect key="frame" x="380" y="-4" width="61" height="44"/>
+                                            <view key="contentView" id="Alz-UF-H12">
+                                                <rect key="frame" x="3" y="3" width="55" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kBn-uT-uwm">
+                                                        <rect key="frame" x="10" y="3" width="20" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="HAM-7d-WoX"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="play" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="Jsd-eR-8l1">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="playAction:" target="bU7-R8-ocO" id="8SZ-KG-k7c"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AYR-XP-78E">
+                                                        <rect key="frame" x="35" y="0.0" width="20" height="38"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="KgG-8L-EW6"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="more" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="27b-Kz-RvS">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="kBn-uT-uwm" firstAttribute="leading" secondItem="Alz-UF-H12" secondAttribute="leading" constant="10" id="9vI-Qx-b4w"/>
+                                                    <constraint firstAttribute="trailing" secondItem="AYR-XP-78E" secondAttribute="trailing" id="E2V-D4-ohl"/>
+                                                    <constraint firstItem="AYR-XP-78E" firstAttribute="top" secondItem="Alz-UF-H12" secondAttribute="top" id="LMO-x2-mNI"/>
+                                                    <constraint firstItem="AYR-XP-78E" firstAttribute="leading" secondItem="kBn-uT-uwm" secondAttribute="trailing" constant="5" id="M1q-df-Jtl"/>
+                                                    <constraint firstItem="kBn-uT-uwm" firstAttribute="centerY" secondItem="Alz-UF-H12" secondAttribute="centerY" id="egm-kG-33o"/>
+                                                    <constraint firstAttribute="bottom" secondItem="AYR-XP-78E" secondAttribute="bottom" id="wyq-lw-cyG"/>
+                                                </constraints>
+                                            </view>
+                                        </box>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="pwQ-Ra-LFO" secondAttribute="trailing" constant="10" id="8kB-Un-VBT"/>
+                                        <constraint firstItem="pwQ-Ra-LFO" firstAttribute="leading" secondItem="zIb-5M-ywD" secondAttribute="trailing" constant="10" id="9Ac-aV-YLh"/>
+                                        <constraint firstItem="zIb-5M-ywD" firstAttribute="leading" secondItem="T7M-w8-kBY" secondAttribute="leading" constant="20" id="GiW-Nt-FeV"/>
+                                        <constraint firstAttribute="bottom" secondItem="pwQ-Ra-LFO" secondAttribute="bottom" id="bv0-uG-ZTX"/>
+                                        <constraint firstItem="pwQ-Ra-LFO" firstAttribute="top" secondItem="T7M-w8-kBY" secondAttribute="top" id="iwn-lE-WWX"/>
+                                        <constraint firstItem="zIb-5M-ywD" firstAttribute="centerY" secondItem="T7M-w8-kBY" secondAttribute="centerY" id="tq5-SU-sMl"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="nkX-de-Q7D"/>
+                                </constraints>
+                                <color key="fillColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xso-jw-I9O" secondAttribute="trailing" id="5Dr-JL-iVH"/>
+                            <constraint firstItem="WkI-5h-EXe" firstAttribute="leading" secondItem="rkF-7j-Azi" secondAttribute="leading" id="F84-61-syj"/>
+                            <constraint firstAttribute="bottom" secondItem="5zs-5E-Yac" secondAttribute="bottom" id="Mar-Jy-Nnd"/>
+                            <constraint firstItem="xso-jw-I9O" firstAttribute="leading" secondItem="rkF-7j-Azi" secondAttribute="leading" id="eOx-49-xJq"/>
+                            <constraint firstItem="5zs-5E-Yac" firstAttribute="top" secondItem="rkF-7j-Azi" secondAttribute="top" id="l5S-BW-zP9"/>
+                            <constraint firstAttribute="bottom" secondItem="xso-jw-I9O" secondAttribute="bottom" id="lAz-n9-oPN"/>
+                            <constraint firstAttribute="trailing" secondItem="5zs-5E-Yac" secondAttribute="trailing" id="moA-UB-KsR"/>
+                            <constraint firstItem="WkI-5h-EXe" firstAttribute="top" secondItem="rkF-7j-Azi" secondAttribute="top" id="rBt-Cl-czg"/>
+                            <constraint firstAttribute="bottom" secondItem="WkI-5h-EXe" secondAttribute="bottom" id="s3f-Fw-UfF"/>
+                            <constraint firstItem="5zs-5E-Yac" firstAttribute="leading" secondItem="rkF-7j-Azi" secondAttribute="leading" id="v8h-o5-wHL"/>
+                            <constraint firstAttribute="trailing" secondItem="WkI-5h-EXe" secondAttribute="trailing" id="y1m-fj-QPB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentBackView" destination="5zs-5E-Yac" id="sZ1-6I-eqW"/>
+                        <outlet property="contentView" destination="7qH-84-AC9" id="o7a-y3-CPH"/>
+                        <outlet property="controlPanel" destination="xso-jw-I9O" id="c32-yz-y7P"/>
+                        <outlet property="dragBoxView" destination="Jye-d9-1Kh" id="CxQ-yK-LJU"/>
+                        <outlet property="playBtn" destination="kBn-uT-uwm" id="W0S-vl-03E"/>
+                        <outlet property="progressSlider" destination="zIb-5M-ywD" id="u9m-Rj-8uz"/>
+                    </connections>
+                </viewController>
+                <customObject id="9uD-mB-xHs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="113" y="91"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="Hfh-GU-rvY">
+            <objects>
+                <windowController id="oGR-wS-PVa" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="vcm-YX-hEf">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="294" y="313" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+                        <view key="contentView" id="81v-6v-Lvu">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="oGR-wS-PVa" id="NNT-wS-5x9"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="VmR-dj-BiD" kind="relationship" relationship="window.shadowedContentViewController" id="mtg-D1-TWO"/>
+                    </connections>
+                </windowController>
+                <customObject id="VUU-Xf-1kd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-164" y="559"/>
+        </scene>
+        <!--More Setting View Controller-->
+        <scene sceneID="AZo-qQ-Vpo">
+            <objects>
+                <viewController id="VmR-dj-BiD" customClass="JKSVGAMoreSettingViewController" sceneMemberID="viewController">
+                    <view key="view" id="TkB-9U-LRK">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="ahT-n3-Klb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-164" y="999"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="more" width="32" height="32"/>
+        <image name="play" width="32" height="32"/>
+    </resources>
+</document>
