@@ -128,9 +128,9 @@
     JKItemsObject *obj = [arr objectAtIndex:indexPath.item];
     
     if (obj.visable) {
-        return NSMakeSize(40, 30);
+        return NSMakeSize(40, 35);
     }else{
-        return NSMakeSize(0.00001, 30);
+        return NSMakeSize(0.00001, 35);
     }
 }
 
@@ -183,7 +183,7 @@
 - (void)resizeWithViewSize:(NSSize)viewSize
 {
     if (self.MeunSizeChangeBlock) {
-        self.MeunSizeChangeBlock(NSMakeSize(viewSize.width + 20, viewSize.height + 60));
+        self.MeunSizeChangeBlock(NSMakeSize(viewSize.width + 20, viewSize.height + 70));
     }
 }
 
