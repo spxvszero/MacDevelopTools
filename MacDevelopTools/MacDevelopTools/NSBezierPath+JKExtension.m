@@ -2,7 +2,7 @@
 //  NSBezierPath+JKExtension.m
 //  MacDevelopTools
 //
-//  Created by zqgame on 2022/2/22.
+//  Created by jk on 2022/2/22.
 //  Copyright © 2022 JK. All rights reserved.
 //
 

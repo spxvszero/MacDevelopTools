@@ -154,8 +154,41 @@
 		96C335F321C10A2F00C9374E /* SmartPush.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C335F221C10A2F00C9374E /* SmartPush.storyboard */; };
 		96C335F621C1233400C9374E /* JKMouseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F521C1233400C9374E /* JKMouseButton.m */; };
 		96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */; };
+		CB1258FA2869BB4B00E2E3AB /* JKJSONModelSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1258F92869BB4B00E2E3AB /* JKJSONModelSwift.m */; };
+		CB1A0A702840703200307A11 /* NSString+JSONBeauty.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1A0A6F2840703200307A11 /* NSString+JSONBeauty.m */; };
 		CB5FD7A727C788AA00AE4647 /* JKSVGAMoreSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5FD7A627C788AA00AE4647 /* JKSVGAMoreSettingViewController.m */; };
+		CB653C282851E74D00C0C38B /* JKGoServerActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB653C272851E74D00C0C38B /* JKGoServerActionModel.m */; };
+		CB653C2B2851F53B00C0C38B /* JKGoServerSaveActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB653C2A2851F53B00C0C38B /* JKGoServerSaveActionViewController.m */; };
 		CB685AD3272FC41B00F5447A /* JKScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB685AD2272FC41B00F5447A /* JKScrollView.m */; };
+		CB896CAE283DC197006B5388 /* JKGoServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CAD283DC197006B5388 /* JKGoServerViewController.m */; };
+		CB896CB0283DC1A8006B5388 /* GoServer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB896CAF283DC1A8006B5388 /* GoServer.storyboard */; };
+		CB896CBE283DFF2D006B5388 /* NSData+JKGoControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CB2283DFF2C006B5388 /* NSData+JKGoControl.m */; };
+		CB896CBF283DFF2D006B5388 /* NSData+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CB3283DFF2C006B5388 /* NSData+YYAdd.m */; };
+		CB896CC0283DFF2D006B5388 /* JKGoControlBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CB5283DFF2C006B5388 /* JKGoControlBaseRequest.m */; };
+		CB896CC1283DFF2D006B5388 /* JKGoControlRequestParamsMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CB6283DFF2C006B5388 /* JKGoControlRequestParamsMaker.m */; };
+		CB896CC2283DFF2D006B5388 /* JKGoControlNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CBC283DFF2D006B5388 /* JKGoControlNetworkManager.m */; };
+		CB896CD6283DFF54006B5388 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CB896CC5283DFF54006B5388 /* README.md */; };
+		CB896CD7283DFF54006B5388 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CCB283DFF54006B5388 /* AFURLResponseSerialization.m */; };
+		CB896CD8283DFF54006B5388 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CCC283DFF54006B5388 /* AFHTTPSessionManager.m */; };
+		CB896CD9283DFF54006B5388 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CCE283DFF54006B5388 /* AFURLSessionManager.m */; };
+		CB896CDA283DFF54006B5388 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CCF283DFF54006B5388 /* AFURLRequestSerialization.m */; };
+		CB896CDB283DFF54006B5388 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CD1283DFF54006B5388 /* AFNetworkReachabilityManager.m */; };
+		CB896CDC283DFF54006B5388 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CD2283DFF54006B5388 /* AFSecurityPolicy.m */; };
+		CB896CDF283E0634006B5388 /* JKGoServerEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CDE283E0634006B5388 /* JKGoServerEditViewController.m */; };
+		CB896CE2283E0F09006B5388 /* JKGoServerDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CE1283E0F09006B5388 /* JKGoServerDataModel.m */; };
+		CB896CE5283E1017006B5388 /* JKGoServerDataStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CE4283E1017006B5388 /* JKGoServerDataStorage.m */; };
+		CB896CEC283E217F006B5388 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CE9283E217F006B5388 /* NSObject+YYModel.m */; };
+		CB896CED283E217F006B5388 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CEA283E217F006B5388 /* YYClassInfo.m */; };
+		CB896D09283E3D57006B5388 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CF0283E3D56006B5388 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		CB896D0A283E3D57006B5388 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CF9283E3D56006B5388 /* ViewController+MASAdditions.m */; };
+		CB896D0B283E3D57006B5388 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CFD283E3D56006B5388 /* MASCompositeConstraint.m */; };
+		CB896D0C283E3D57006B5388 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CFE283E3D56006B5388 /* MASConstraintMaker.m */; };
+		CB896D0D283E3D57006B5388 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896CFF283E3D56006B5388 /* MASLayoutConstraint.m */; };
+		CB896D0E283E3D57006B5388 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896D00283E3D56006B5388 /* NSArray+MASAdditions.m */; };
+		CB896D0F283E3D57006B5388 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896D01283E3D56006B5388 /* View+MASAdditions.m */; };
+		CB896D10283E3D57006B5388 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896D04283E3D56006B5388 /* MASConstraint.m */; };
+		CB896D11283E3D57006B5388 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896D06283E3D56006B5388 /* MASViewConstraint.m */; };
+		CB896D12283E3D57006B5388 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = CB896D07283E3D56006B5388 /* MASViewAttribute.m */; };
 		CBB425B227880ACC00BC4F1D /* JKLive2dConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B027880ACC00BC4F1D /* JKLive2dConfig.cpp */; };
 		CBB425B52788410000BC4F1D /* JKProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B42788410000BC4F1D /* JKProgressIndicator.m */; };
 		CBB425B8278BC41500BC4F1D /* NSPanel+JK.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB425B7278BC41500BC4F1D /* NSPanel+JK.m */; };
@@ -824,10 +857,84 @@
 		96C335F521C1233400C9374E /* JKMouseButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKMouseButton.m; sourceTree = "<group>"; };
 		96C335F721C1F84400C9374E /* JKApplicationHoldManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKApplicationHoldManager.h; sourceTree = "<group>"; };
 		96C335F821C1F84400C9374E /* JKApplicationHoldManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKApplicationHoldManager.m; sourceTree = "<group>"; };
+		CB1258F82869BB4B00E2E3AB /* JKJSONModelSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJSONModelSwift.h; sourceTree = "<group>"; };
+		CB1258F92869BB4B00E2E3AB /* JKJSONModelSwift.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJSONModelSwift.m; sourceTree = "<group>"; };
+		CB1A0A6E2840703200307A11 /* NSString+JSONBeauty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+JSONBeauty.h"; sourceTree = "<group>"; };
+		CB1A0A6F2840703200307A11 /* NSString+JSONBeauty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSONBeauty.m"; sourceTree = "<group>"; };
 		CB5FD7A527C788AA00AE4647 /* JKSVGAMoreSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKSVGAMoreSettingViewController.h; sourceTree = "<group>"; };
 		CB5FD7A627C788AA00AE4647 /* JKSVGAMoreSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKSVGAMoreSettingViewController.m; sourceTree = "<group>"; };
+		CB653C262851E74D00C0C38B /* JKGoServerActionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGoServerActionModel.h; sourceTree = "<group>"; };
+		CB653C272851E74D00C0C38B /* JKGoServerActionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGoServerActionModel.m; sourceTree = "<group>"; };
+		CB653C292851F53B00C0C38B /* JKGoServerSaveActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGoServerSaveActionViewController.h; sourceTree = "<group>"; };
+		CB653C2A2851F53B00C0C38B /* JKGoServerSaveActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGoServerSaveActionViewController.m; sourceTree = "<group>"; };
 		CB685AD1272FC41B00F5447A /* JKScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKScrollView.h; sourceTree = "<group>"; };
 		CB685AD2272FC41B00F5447A /* JKScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKScrollView.m; sourceTree = "<group>"; };
+		CB896CAC283DC197006B5388 /* JKGoServerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGoServerViewController.h; sourceTree = "<group>"; };
+		CB896CAD283DC197006B5388 /* JKGoServerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGoServerViewController.m; sourceTree = "<group>"; };
+		CB896CAF283DC1A8006B5388 /* GoServer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoServer.storyboard; sourceTree = "<group>"; };
+		CB896CB2283DFF2C006B5388 /* NSData+JKGoControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+JKGoControl.m"; sourceTree = "<group>"; };
+		CB896CB3283DFF2C006B5388 /* NSData+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YYAdd.m"; sourceTree = "<group>"; };
+		CB896CB4283DFF2C006B5388 /* JKGoControlNetworkRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKGoControlNetworkRoute.h; sourceTree = "<group>"; };
+		CB896CB5283DFF2C006B5388 /* JKGoControlBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKGoControlBaseRequest.m; sourceTree = "<group>"; };
+		CB896CB6283DFF2C006B5388 /* JKGoControlRequestParamsMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKGoControlRequestParamsMaker.m; sourceTree = "<group>"; };
+		CB896CB7283DFF2C006B5388 /* JKGoControlBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKGoControlBaseRequest.h; sourceTree = "<group>"; };
+		CB896CB8283DFF2C006B5388 /* NSData+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YYAdd.h"; sourceTree = "<group>"; };
+		CB896CB9283DFF2D006B5388 /* JKGoControlNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKGoControlNetworkManager.h; sourceTree = "<group>"; };
+		CB896CBA283DFF2D006B5388 /* NSData+JKGoControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+JKGoControl.h"; sourceTree = "<group>"; };
+		CB896CBB283DFF2D006B5388 /* YYKitMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKitMacro.h; sourceTree = "<group>"; };
+		CB896CBC283DFF2D006B5388 /* JKGoControlNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKGoControlNetworkManager.m; sourceTree = "<group>"; };
+		CB896CBD283DFF2D006B5388 /* JKGoControlRequestParamsMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKGoControlRequestParamsMaker.h; sourceTree = "<group>"; };
+		CB896CC5283DFF54006B5388 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CB896CC7283DFF54006B5388 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		CB896CC8283DFF54006B5388 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		CB896CC9283DFF54006B5388 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		CB896CCA283DFF54006B5388 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		CB896CCB283DFF54006B5388 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		CB896CCC283DFF54006B5388 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		CB896CCD283DFF54006B5388 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		CB896CCE283DFF54006B5388 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		CB896CCF283DFF54006B5388 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		CB896CD0283DFF54006B5388 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		CB896CD1283DFF54006B5388 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		CB896CD2283DFF54006B5388 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		CB896CD3283DFF54006B5388 /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
+		CB896CD4283DFF54006B5388 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		CB896CDD283E0634006B5388 /* JKGoServerEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGoServerEditViewController.h; sourceTree = "<group>"; };
+		CB896CDE283E0634006B5388 /* JKGoServerEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGoServerEditViewController.m; sourceTree = "<group>"; };
+		CB896CE0283E0F09006B5388 /* JKGoServerDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGoServerDataModel.h; sourceTree = "<group>"; };
+		CB896CE1283E0F09006B5388 /* JKGoServerDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGoServerDataModel.m; sourceTree = "<group>"; };
+		CB896CE3283E1017006B5388 /* JKGoServerDataStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGoServerDataStorage.h; sourceTree = "<group>"; };
+		CB896CE4283E1017006B5388 /* JKGoServerDataStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGoServerDataStorage.m; sourceTree = "<group>"; };
+		CB896CE7283E217F006B5388 /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		CB896CE8283E217F006B5388 /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		CB896CE9283E217F006B5388 /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		CB896CEA283E217F006B5388 /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		CB896CEB283E217F006B5388 /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		CB896CEF283E3D56006B5388 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		CB896CF0283E3D56006B5388 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		CB896CF1283E3D56006B5388 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		CB896CF2283E3D56006B5388 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		CB896CF3283E3D56006B5388 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		CB896CF4283E3D56006B5388 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		CB896CF5283E3D56006B5388 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		CB896CF6283E3D56006B5388 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		CB896CF7283E3D56006B5388 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		CB896CF8283E3D56006B5388 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		CB896CF9283E3D56006B5388 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		CB896CFA283E3D56006B5388 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		CB896CFB283E3D56006B5388 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		CB896CFC283E3D56006B5388 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		CB896CFD283E3D56006B5388 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		CB896CFE283E3D56006B5388 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		CB896CFF283E3D56006B5388 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		CB896D00283E3D56006B5388 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		CB896D01283E3D56006B5388 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		CB896D02283E3D56006B5388 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		CB896D03283E3D56006B5388 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		CB896D04283E3D56006B5388 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		CB896D05283E3D56006B5388 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		CB896D06283E3D56006B5388 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		CB896D07283E3D56006B5388 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
 		CBB425B027880ACC00BC4F1D /* JKLive2dConfig.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JKLive2dConfig.cpp; sourceTree = "<group>"; };
 		CBB425B127880ACC00BC4F1D /* JKLive2dConfig.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JKLive2dConfig.hpp; sourceTree = "<group>"; };
 		CBB425B32788410000BC4F1D /* JKProgressIndicator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKProgressIndicator.h; sourceTree = "<group>"; };
@@ -1630,6 +1737,8 @@
 				966BD35C221AB100008AA4D5 /* JKJSONFormatHistoryViewController.m */,
 				966BD358221A5AEA008AA4D5 /* JKJSONFormatCell.h */,
 				966BD359221A5AEA008AA4D5 /* JKJSONFormatCell.m */,
+				CB1A0A6E2840703200307A11 /* NSString+JSONBeauty.h */,
+				CB1A0A6F2840703200307A11 /* NSString+JSONBeauty.m */,
 			);
 			path = JSONFormat;
 			sourceTree = "<group>";
@@ -1993,6 +2102,8 @@
 				96A9A15521CA57F600F21813 /* JKJSONModelViewController.m */,
 				96A9A15921CB2FB800F21813 /* JKJSONModelObjectiveC.h */,
 				96A9A15A21CB2FB800F21813 /* JKJSONModelObjectiveC.m */,
+				CB1258F82869BB4B00E2E3AB /* JKJSONModelSwift.h */,
+				CB1258F92869BB4B00E2E3AB /* JKJSONModelSwift.m */,
 				96A9A15721CA582400F21813 /* JSONModel.storyboard */,
 			);
 			path = JSONToModel;
@@ -2026,6 +2137,9 @@
 		96A9A17521D0A87A00F21813 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				CB896CEE283E3D56006B5388 /* Masonry */,
+				CB896CE6283E217F006B5388 /* YYModel */,
+				CB896CC3283DFF54006B5388 /* AFNetworking */,
 				CBD47D2527C4B84200CFB7F0 /* SSZipArchive */,
 				CBD47CB827C4960000CFB7F0 /* Protobuf */,
 				CBD47C8927C494A900CFB7F0 /* SVGAPlayer */,
@@ -2110,6 +2224,7 @@
 				96578E352432E0C700F828C5 /* LottiePreviewer */,
 				CBD47C5427C491D700CFB7F0 /* SVGAPreviewer */,
 				9693F8D624861EEB00BEB9A8 /* Live2d */,
+				CB93014B2836166C00DFCE64 /* GoServer */,
 				CB4DFC5F277C4E1B00CBE4A1 /* AutoControl */,
 				96C335C021C0A8E100C9374E /* AppDelegate.h */,
 				96C335C121C0A8E100C9374E /* AppDelegate.m */,
@@ -2223,6 +2338,120 @@
 			children = (
 			);
 			path = AutoControl;
+			sourceTree = "<group>";
+		};
+		CB896CB1283DFF17006B5388 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				CB896CB7283DFF2C006B5388 /* JKGoControlBaseRequest.h */,
+				CB896CB5283DFF2C006B5388 /* JKGoControlBaseRequest.m */,
+				CB896CB9283DFF2D006B5388 /* JKGoControlNetworkManager.h */,
+				CB896CBC283DFF2D006B5388 /* JKGoControlNetworkManager.m */,
+				CB896CB4283DFF2C006B5388 /* JKGoControlNetworkRoute.h */,
+				CB896CBD283DFF2D006B5388 /* JKGoControlRequestParamsMaker.h */,
+				CB896CB6283DFF2C006B5388 /* JKGoControlRequestParamsMaker.m */,
+				CB896CBA283DFF2D006B5388 /* NSData+JKGoControl.h */,
+				CB896CB2283DFF2C006B5388 /* NSData+JKGoControl.m */,
+				CB896CB8283DFF2C006B5388 /* NSData+YYAdd.h */,
+				CB896CB3283DFF2C006B5388 /* NSData+YYAdd.m */,
+				CB896CBB283DFF2D006B5388 /* YYKitMacro.h */,
+			);
+			path = Control;
+			sourceTree = "<group>";
+		};
+		CB896CC3283DFF54006B5388 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				CB896CC5283DFF54006B5388 /* README.md */,
+				CB896CC6283DFF54006B5388 /* AFNetworking */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		CB896CC6283DFF54006B5388 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				CB896CC7283DFF54006B5388 /* AFSecurityPolicy.h */,
+				CB896CC8283DFF54006B5388 /* AFNetworkReachabilityManager.h */,
+				CB896CC9283DFF54006B5388 /* AFURLSessionManager.h */,
+				CB896CCA283DFF54006B5388 /* AFURLRequestSerialization.h */,
+				CB896CCB283DFF54006B5388 /* AFURLResponseSerialization.m */,
+				CB896CCC283DFF54006B5388 /* AFHTTPSessionManager.m */,
+				CB896CCD283DFF54006B5388 /* AFURLResponseSerialization.h */,
+				CB896CCE283DFF54006B5388 /* AFURLSessionManager.m */,
+				CB896CCF283DFF54006B5388 /* AFURLRequestSerialization.m */,
+				CB896CD0283DFF54006B5388 /* AFNetworking.h */,
+				CB896CD1283DFF54006B5388 /* AFNetworkReachabilityManager.m */,
+				CB896CD2283DFF54006B5388 /* AFSecurityPolicy.m */,
+				CB896CD3283DFF54006B5388 /* AFCompatibilityMacros.h */,
+				CB896CD4283DFF54006B5388 /* AFHTTPSessionManager.h */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		CB896CE6283E217F006B5388 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				CB896CE7283E217F006B5388 /* YYClassInfo.h */,
+				CB896CE8283E217F006B5388 /* YYModel.h */,
+				CB896CE9283E217F006B5388 /* NSObject+YYModel.m */,
+				CB896CEA283E217F006B5388 /* YYClassInfo.m */,
+				CB896CEB283E217F006B5388 /* NSObject+YYModel.h */,
+			);
+			path = YYModel;
+			sourceTree = "<group>";
+		};
+		CB896CEE283E3D56006B5388 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				CB896CEF283E3D56006B5388 /* MASCompositeConstraint.h */,
+				CB896CF0283E3D56006B5388 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				CB896CF1283E3D56006B5388 /* MASConstraint+Private.h */,
+				CB896CF2283E3D56006B5388 /* MASLayoutConstraint.h */,
+				CB896CF3283E3D56006B5388 /* NSArray+MASShorthandAdditions.h */,
+				CB896CF4283E3D56006B5388 /* MASConstraintMaker.h */,
+				CB896CF5283E3D56006B5388 /* View+MASAdditions.h */,
+				CB896CF6283E3D56006B5388 /* NSArray+MASAdditions.h */,
+				CB896CF7283E3D56006B5388 /* MASUtilities.h */,
+				CB896CF8283E3D56006B5388 /* MASViewAttribute.h */,
+				CB896CF9283E3D56006B5388 /* ViewController+MASAdditions.m */,
+				CB896CFA283E3D56006B5388 /* MASViewConstraint.h */,
+				CB896CFB283E3D56006B5388 /* MASConstraint.h */,
+				CB896CFC283E3D56006B5388 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				CB896CFD283E3D56006B5388 /* MASCompositeConstraint.m */,
+				CB896CFE283E3D56006B5388 /* MASConstraintMaker.m */,
+				CB896CFF283E3D56006B5388 /* MASLayoutConstraint.m */,
+				CB896D00283E3D56006B5388 /* NSArray+MASAdditions.m */,
+				CB896D01283E3D56006B5388 /* View+MASAdditions.m */,
+				CB896D02283E3D56006B5388 /* View+MASShorthandAdditions.h */,
+				CB896D03283E3D56006B5388 /* Masonry.h */,
+				CB896D04283E3D56006B5388 /* MASConstraint.m */,
+				CB896D05283E3D56006B5388 /* ViewController+MASAdditions.h */,
+				CB896D06283E3D56006B5388 /* MASViewConstraint.m */,
+				CB896D07283E3D56006B5388 /* MASViewAttribute.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		CB93014B2836166C00DFCE64 /* GoServer */ = {
+			isa = PBXGroup;
+			children = (
+				CB896CB1283DFF17006B5388 /* Control */,
+				CB896CAF283DC1A8006B5388 /* GoServer.storyboard */,
+				CB896CAC283DC197006B5388 /* JKGoServerViewController.h */,
+				CB896CAD283DC197006B5388 /* JKGoServerViewController.m */,
+				CB896CDD283E0634006B5388 /* JKGoServerEditViewController.h */,
+				CB896CDE283E0634006B5388 /* JKGoServerEditViewController.m */,
+				CB653C292851F53B00C0C38B /* JKGoServerSaveActionViewController.h */,
+				CB653C2A2851F53B00C0C38B /* JKGoServerSaveActionViewController.m */,
+				CB896CE0283E0F09006B5388 /* JKGoServerDataModel.h */,
+				CB896CE1283E0F09006B5388 /* JKGoServerDataModel.m */,
+				CB653C262851E74D00C0C38B /* JKGoServerActionModel.h */,
+				CB653C272851E74D00C0C38B /* JKGoServerActionModel.m */,
+				CB896CE3283E1017006B5388 /* JKGoServerDataStorage.h */,
+				CB896CE4283E1017006B5388 /* JKGoServerDataStorage.m */,
+			);
+			path = GoServer;
 			sourceTree = "<group>";
 		};
 		CBD47C5427C491D700CFB7F0 /* SVGAPreviewer */ = {
@@ -2530,9 +2759,11 @@
 				CBD47D0627C4960000CFB7F0 /* LICENSE in Resources */,
 				CBD47C5627C4925B00CFB7F0 /* SVGAPreviewer.storyboard in Resources */,
 				962FCB2A21D207C100D79971 /* StatusIcon.storyboard in Resources */,
+				CB896CD6283DFF54006B5388 /* README.md in Resources */,
 				96A9A16D21CCB80D00F21813 /* MoveFile.storyboard in Resources */,
 				96C335D721C0E07700C9374E /* MainMenu.xib in Resources */,
 				966BD352221A46B2008AA4D5 /* JSONFormat.storyboard in Resources */,
+				CB896CB0283DC1A8006B5388 /* GoServer.storyboard in Resources */,
 				962178E4242B0C55003268FC /* items.plist in Resources */,
 				962FCB3921D75A4600D79971 /* ImageInfo.storyboard in Resources */,
 				96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */,
@@ -2554,6 +2785,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB896CEC283E217F006B5388 /* NSObject+YYModel.m in Sources */,
 				96C335DF21C109F200C9374E /* SecManager.m in Sources */,
 				9693F9AB2486201800BEB9A8 /* LAppPal.cpp in Sources */,
 				CBD47CB327C494A900CFB7F0 /* SVGABezierPath.m in Sources */,
@@ -2562,21 +2794,28 @@
 				CBB425B227880ACC00BC4F1D /* JKLive2dConfig.cpp in Sources */,
 				CBD47D0C27C4960000CFB7F0 /* GPBMessage.m in Sources */,
 				9693FA712486219A00BEB9A8 /* CubismPhysics.cpp in Sources */,
+				CB896D0C283E3D57006B5388 /* MASConstraintMaker.m in Sources */,
 				9693FA5B2486219900BEB9A8 /* CubismModel.cpp in Sources */,
 				96578FA724332C9E00F828C5 /* LottieFilesURL.m in Sources */,
 				CBD47D1127C4960000CFB7F0 /* GPBUnknownFieldSet.m in Sources */,
 				CBD47D0D27C4960000CFB7F0 /* GPBEmpty.pbobjc.m in Sources */,
+				CB896CD8283DFF54006B5388 /* AFHTTPSessionManager.m in Sources */,
 				962178E2242B0001003268FC /* JKItemsManager.m in Sources */,
+				CB896D11283E3D57006B5388 /* MASViewConstraint.m in Sources */,
 				96AFD6862330E93300C36CFE /* JKRecodeImageExportViewController.mm in Sources */,
 				9693FA3F2486219900BEB9A8 /* CubismCdiJson.cpp in Sources */,
 				9693FA522486219900BEB9A8 /* CubismMatrix44.cpp in Sources */,
 				962FCB4B21DCA5FF00D79971 /* ImageInfoHelper.cpp in Sources */,
 				CBD47D4E27C4B84200CFB7F0 /* mz_strm_os_posix.c in Sources */,
+				CB896D0A283E3D57006B5388 /* ViewController+MASAdditions.m in Sources */,
 				966BD366221CE79A008AA4D5 /* JKShellManagerCell.m in Sources */,
 				96578E382432E0FC00F828C5 /* JKLottiePreviewController.m in Sources */,
 				9693FA4B2486219900BEB9A8 /* CubismMotionQueueEntry.cpp in Sources */,
 				9693F9AD2486201800BEB9A8 /* LAppModel.cpp in Sources */,
+				CB896D0F283E3D57006B5388 /* View+MASAdditions.m in Sources */,
+				CB896CAE283DC197006B5388 /* JKGoServerViewController.m in Sources */,
 				CBD47D5B27C4B84200CFB7F0 /* mz_strm_split.c in Sources */,
+				CB896D0B283E3D57006B5388 /* MASCompositeConstraint.m in Sources */,
 				96C335C521C0A8E100C9374E /* ViewController.m in Sources */,
 				CBD47D1727C4960000CFB7F0 /* GPBUnknownField.m in Sources */,
 				CBD47D1527C4960000CFB7F0 /* GPBApi.pbobjc.m in Sources */,
@@ -2606,6 +2845,7 @@
 				964AB08D2428B183009D8D0C /* JKAboutViewController.m in Sources */,
 				96AFD523231D0F7C00C36CFE /* JKDatePicker.m in Sources */,
 				CBD47D0F27C4960000CFB7F0 /* GPBUtilities.m in Sources */,
+				CB653C2B2851F53B00C0C38B /* JKGoServerSaveActionViewController.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
 				966BD356221A46C5008AA4D5 /* JKJSONFormatViewController.m in Sources */,
 				9693FA6A2486219900BEB9A8 /* CubismOffscreenSurface_OpenGLES2.cpp in Sources */,
@@ -2620,6 +2860,7 @@
 				CBD47D5027C4B84200CFB7F0 /* mz_strm_zlib.c in Sources */,
 				9693FA4F2486219900BEB9A8 /* CubismVector2.cpp in Sources */,
 				962FCB4521DC53D700D79971 /* JKImageInfoCellView.m in Sources */,
+				CB896CBE283DFF2D006B5388 /* NSData+JKGoControl.m in Sources */,
 				96C335E721C10A0000C9374E /* ioSock.c in Sources */,
 				CBD47D2427C4B36B00CFB7F0 /* NSBezierPath+JKExtension.m in Sources */,
 				CBD47CB027C494A900CFB7F0 /* SVGAParser.m in Sources */,
@@ -2636,6 +2877,7 @@
 				CBD47D1027C4960000CFB7F0 /* GPBExtensionInternals.m in Sources */,
 				CBD47CAA27C494A900CFB7F0 /* SVGAVideoEntity.m in Sources */,
 				962FCB4821DC8AA600D79971 /* JKInfoImageView.m in Sources */,
+				CB896CC0283DFF2D006B5388 /* JKGoControlBaseRequest.m in Sources */,
 				9693FA412486219900BEB9A8 /* CubismJson.cpp in Sources */,
 				9693FA4C2486219900BEB9A8 /* CubismModelMatrix.cpp in Sources */,
 				966BD2F32216681A008AA4D5 /* JKAutoPackViewController.m in Sources */,
@@ -2655,8 +2897,12 @@
 				CBD47D5827C4B84200CFB7F0 /* mz_os.c in Sources */,
 				CBD47D1B27C4960000CFB7F0 /* GPBFieldMask.pbobjc.m in Sources */,
 				CBD47D0A27C4960000CFB7F0 /* GPBRootObject.m in Sources */,
+				CB1A0A702840703200307A11 /* NSString+JSONBeauty.m in Sources */,
 				966BD361221C106B008AA4D5 /* JKShellManagerViewController.m in Sources */,
 				CBD47D5927C4B84200CFB7F0 /* mz_os_posix.c in Sources */,
+				CB896D12283E3D57006B5388 /* MASViewAttribute.m in Sources */,
+				CB896D09283E3D57006B5388 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				CB896CD7283DFF54006B5388 /* AFURLResponseSerialization.m in Sources */,
 				9693FA3B2486219900BEB9A8 /* CubismPose.cpp in Sources */,
 				9693FA6B2486219900BEB9A8 /* CubismDefaultParameterId.cpp in Sources */,
 				964AB08A2428B0AC009D8D0C /* JKManagementController.m in Sources */,
@@ -2665,12 +2911,15 @@
 				CBB425B52788410000BC4F1D /* JKProgressIndicator.m in Sources */,
 				9693F9B22486201800BEB9A8 /* LAppView.cpp in Sources */,
 				CBD47C5927C492C200CFB7F0 /* JKSVGAPreviewController.m in Sources */,
+				CB896CDB283DFF54006B5388 /* AFNetworkReachabilityManager.m in Sources */,
 				96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */,
+				CB896CC2283DFF2D006B5388 /* JKGoControlNetworkManager.m in Sources */,
 				9693F9B12486201800BEB9A8 /* LAppTextureManager.cpp in Sources */,
 				9693FA542486219900BEB9A8 /* csmString.cpp in Sources */,
 				9693FA382486219900BEB9A8 /* CubismFramework.cpp in Sources */,
 				9693FB9524879AB300BEB9A8 /* JKLive2dViewController.m in Sources */,
 				9693F9B02486201800BEB9A8 /* LAppDelegate.cpp in Sources */,
+				CB896CE2283E0F09006B5388 /* JKGoServerDataModel.m in Sources */,
 				9693FA582486219900BEB9A8 /* CubismModelUserDataJson.cpp in Sources */,
 				9693FA482486219900BEB9A8 /* CubismMotionQueueManager.cpp in Sources */,
 				96C335F621C1233400C9374E /* JKMouseButton.m in Sources */,
@@ -2680,16 +2929,21 @@
 				9693FA6D2486219900BEB9A8 /* CubismIdManager.cpp in Sources */,
 				9693FA432486219900BEB9A8 /* CubismDebug.cpp in Sources */,
 				9693FA562486219900BEB9A8 /* CubismModelUserData.cpp in Sources */,
+				CB653C282851E74D00C0C38B /* JKGoServerActionModel.m in Sources */,
 				CBD47D0827C4960000CFB7F0 /* GPBType.pbobjc.m in Sources */,
 				9693FA462486219900BEB9A8 /* CubismMotion.cpp in Sources */,
 				9693FA692486219900BEB9A8 /* CubismRenderer_OpenGLES2.cpp in Sources */,
 				CBD47D0E27C4960000CFB7F0 /* GPBWireFormat.m in Sources */,
 				9693F9AF2486201800BEB9A8 /* LAppDefine.cpp in Sources */,
 				CBD47D5D27C4B84200CFB7F0 /* SSZipArchive.m in Sources */,
+				CB896CC1283DFF2D006B5388 /* JKGoControlRequestParamsMaker.m in Sources */,
+				CB1258FA2869BB4B00E2E3AB /* JKJSONModelSwift.m in Sources */,
 				CBD47D1E27C4960000CFB7F0 /* GPBCodedOutputStream.m in Sources */,
 				CBD47CB227C494A900CFB7F0 /* SVGAVideoSpriteFrameEntity.m in Sources */,
+				CB896CE5283E1017006B5388 /* JKGoServerDataStorage.m in Sources */,
 				CB5FD7A727C788AA00AE4647 /* JKSVGAMoreSettingViewController.m in Sources */,
 				CBD47CB627C494A900CFB7F0 /* SVGAVectorLayer.m in Sources */,
+				CB896CDC283DFF54006B5388 /* AFSecurityPolicy.m in Sources */,
 				9693F9AC2486201800BEB9A8 /* TouchManager.cpp in Sources */,
 				CBD47D6327C4DD3700CFB7F0 /* JKSVGADragBoxView.m in Sources */,
 				CBD47D5427C4B84200CFB7F0 /* mz_strm_mem.c in Sources */,
@@ -2697,27 +2951,35 @@
 				9693FA3D2486219900BEB9A8 /* CubismEyeBlink.cpp in Sources */,
 				962FCB3721D75A3B00D79971 /* JKImageInfoViewController.mm in Sources */,
 				9693FA472486219900BEB9A8 /* CubismMotionManager.cpp in Sources */,
+				CB896CDA283DFF54006B5388 /* AFURLRequestSerialization.m in Sources */,
 				9693FA422486219900BEB9A8 /* CubismString.cpp in Sources */,
 				CBD47CB527C494A900CFB7F0 /* SVGABitmapLayer.m in Sources */,
 				CBD47D1227C4960000CFB7F0 /* GPBStruct.pbobjc.m in Sources */,
 				9693F9AA2486201800BEB9A8 /* LAppAllocator.cpp in Sources */,
 				961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */,
+				CB896CBF283DFF2D006B5388 /* NSData+YYAdd.m in Sources */,
 				9693FA3A2486219900BEB9A8 /* CubismModelSettingJson.cpp in Sources */,
 				CBD47D1827C4960000CFB7F0 /* GPBSourceContext.pbobjc.m in Sources */,
 				CBD47C4F27C3425800CFB7F0 /* JKAuthChecker.m in Sources */,
 				CBD47D0927C4960000CFB7F0 /* GPBExtensionRegistry.m in Sources */,
 				96628A0B21C3ADCB005463F8 /* JKWellImageView.m in Sources */,
 				CBD47CAF27C494A900CFB7F0 /* SVGAExporter.m in Sources */,
+				CB896D0E283E3D57006B5388 /* NSArray+MASAdditions.m in Sources */,
 				CBD47D5327C4B84200CFB7F0 /* mz_crypt_apple.c in Sources */,
 				CBD47D1C27C4960000CFB7F0 /* GPBDuration.pbobjc.m in Sources */,
+				CB896D10283E3D57006B5388 /* MASConstraint.m in Sources */,
 				9693FA702486219A00BEB9A8 /* CubismPhysicsJson.cpp in Sources */,
 				CBD47D1627C4960000CFB7F0 /* GPBWellKnownTypes.m in Sources */,
 				964AB0902428B42A009D8D0C /* JKManageListItemsViewController.m in Sources */,
 				9693FA592486219900BEB9A8 /* CubismUserModel.cpp in Sources */,
+				CB896D0D283E3D57006B5388 /* MASLayoutConstraint.m in Sources */,
 				966289FD21C26F1B005463F8 /* JKMeunPanelViewController.m in Sources */,
+				CB896CD9283DFF54006B5388 /* AFURLSessionManager.m in Sources */,
 				CBD47CB727C494A900CFB7F0 /* SVGAAudioLayer.m in Sources */,
 				CBB425B8278BC41500BC4F1D /* NSPanel+JK.m in Sources */,
 				CBD47D5A27C4B84200CFB7F0 /* mz_strm_buf.c in Sources */,
+				CB896CDF283E0634006B5388 /* JKGoServerEditViewController.m in Sources */,
+				CB896CED283E217F006B5388 /* YYClassInfo.m in Sources */,
 				96628A0121C35698005463F8 /* JKCollectionMenuPanelItem.m in Sources */,
 				9693FA492486219900BEB9A8 /* CubismExpressionMotion.cpp in Sources */,
 				96A9A16721CBA33D00F21813 /* JKResizeImageExportViewController.mm in Sources */,

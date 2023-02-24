@@ -8,9 +8,11 @@
 
 #import "JKJSONModelViewController.h"
 #import "JKJSONModelObjectiveC.h"
+#import "JKJSONModelSwift.h"
 
 typedef enum : NSUInteger {
     TransformTypeObjectiveC,
+    TransformTypeSwift,
 } JKJSONModelTransformType;
 
 #define kOperationItemTag 233
@@ -34,6 +36,8 @@ typedef enum : NSUInteger {
     // Do view setup here.
     [self disableAutoFormatWithTxtView:self.jsonTxtView];
     [self disableAutoFormatWithTxtView:self.resultTxtView];
+    
+    [self.popUpButton addItemWithTitle:@"Swift"];
     
     NSInteger i = 0;
     for (NSMenuItem *item in self.popUpButton.menu.itemArray) {
@@ -59,7 +63,11 @@ typedef enum : NSUInteger {
             self.resultTxtView.string = [JKJSONModelObjectiveC transformFromJSONString:self.jsonTxtView.string];
         }
             break;
-            
+        case TransformTypeSwift:
+        {
+            self.resultTxtView.string = [JKJSONModelSwift transformFromJSONString:self.jsonTxtView.string];
+        }
+            break;
         default:
         {
             self.resultTxtView.string = @"Unkown selection";

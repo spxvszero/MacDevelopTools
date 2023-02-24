@@ -2,7 +2,7 @@
 //  NSPanel+JK.m
 //  MacDevelopTools
 //
-//  Created by zqgame on 2022/1/10.
+//  Created by jk on 2022/1/10.
 //  Copyright © 2022 JK. All rights reserved.
 //
 

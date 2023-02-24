@@ -2,11 +2,12 @@
 //  JKAuthChecker.m
 //  MacDevelopTools
 //
-//  Created by zqgame on 2022/2/21.
+//  Created by jk on 2022/2/21.
 //  Copyright © 2022 JK. All rights reserved.
 //
 
 #import "JKAuthChecker.h"
+#import <ApplicationServices/ApplicationServices.h>
 
 @implementation JKAuthChecker
 

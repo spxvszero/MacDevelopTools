@@ -9,6 +9,7 @@
 #import "JKJSONFormatViewController.h"
 #import "JKJSONFormatCell.h"
 #import "JKJSONFormatHistoryViewController.h"
+#import "NSString+JSONBeauty.h"
 
 @interface JKJSONFormatViewController ()<NSOutlineViewDelegate,NSOutlineViewDataSource,NSTextViewDelegate>
 
@@ -171,9 +172,12 @@
 {
     if (self.originStr && self.originStr.length > 0) {
         
-        self.jsonModel = [NSJSONSerialization JSONObjectWithData:[self.originStr dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves|NSJSONReadingAllowFragments error:nil];
-        
-//        [self changeTextString];
+        NSError *err = nil;
+        self.jsonModel = [NSJSONSerialization JSONObjectWithData:[[self.originStr unBeautyJSON] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves|NSJSONReadingAllowFragments error:&err];
+        if (err != nil) {
+            NSLog(@"Format Error : %@",err);
+            return;
+        }
         
         [self.historyVC addHistory:[self.originStr copy]];
         
@@ -182,15 +186,16 @@
     }
 }
 
-- (void)changeTextString
-{
-    self.txtView.string = [self.originStr stringByReplacingOccurrencesOfString:@"{" withString:@"{\n"];
-}
-
 - (void)expandOutlineViewWithLevel:(NSInteger)level
 {
     [self.outlineView expandItem:nil expandChildren:YES];
     
+}
+- (IBAction)beautyInputStrAction:(id)sender {
+    self.txtView.string = [self.txtView.string beautyJSON];
+}
+- (IBAction)unBeautyInputStrAction:(id)sender {
+    self.txtView.string = [self.txtView.string unBeautyJSON];
 }
 
 - (IBAction)historyBtnAction:(id)sender
