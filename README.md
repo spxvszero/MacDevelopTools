@@ -8,9 +8,9 @@ A Mac application for useful tools, build it just for learning :)
 
 # Contains
 
-* Apple Push
+* Apple Push Test
 * Wallpaper
-* Encode
+* En/Decode
 * JsonToModel
 * ResizeImage(not implenment)
 * Move Files
@@ -19,9 +19,12 @@ A Mac application for useful tools, build it just for learning :)
 * AutoPack(iOS)
 * QRCode
 * JSON Format
-* Clock
 * Shell Manager(not implenment)
+* Clock
 * Lottie Previewer
+* SVGA Previewer
+* Live2d
+* GoServer
 
 
 
@@ -33,4 +36,6 @@ A Mac application for useful tools, build it just for learning :)
 
 [ImageMagick](http://www.imagemagick.org/script/index.php "Web Home")
 
-[lottie-ios](https://github.com/airbnb/lottie-ios)
+[lottie-ios](https://github.com/airbnb/lottie-ios "Github")
+
+[SVGAPlayer](https://github.com/svga/SVGAPlayer-iOS "Github")
