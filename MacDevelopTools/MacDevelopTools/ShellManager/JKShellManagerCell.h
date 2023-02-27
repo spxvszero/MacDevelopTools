@@ -10,4 +10,6 @@
 
 @interface JKShellManagerCell : NSTableCellView
 
+@property (nonatomic, strong) NSString *name;
+
 @end

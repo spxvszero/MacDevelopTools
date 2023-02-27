@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="bU7-R8-ocO">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="bU7-R8-ocO">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,9 +21,9 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWZ-lm-L4H">
-                                            <rect key="frame" x="0.0" y="20" width="498" height="158"/>
+                                            <rect key="frame" x="0.0" y="21" width="498" height="157"/>
                                             <clipView key="contentView" drawsBackground="NO" id="yt8-jg-SPd">
-                                                <rect key="frame" x="1" y="1" width="496" height="156"/>
+                                                <rect key="frame" x="1" y="0.0" width="496" height="156"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="cLt-FE-6UA" viewBased="YES" indentationPerLevel="16" outlineTableColumn="NxV-Ca-baQ" id="wbg-uY-4XO">
@@ -84,10 +84,10 @@
                                             </tableHeaderView>
                                         </scrollView>
                                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RK5-xI-SI0">
-                                            <rect key="frame" x="284" y="0.0" width="214" height="20"/>
+                                            <rect key="frame" x="248" y="0.0" width="250" height="21"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" tag="226" translatesAutoresizingMaskIntoConstraints="NO" id="Yxg-qd-b2J">
-                                                    <rect key="frame" x="-7" y="-7" width="54" height="32"/>
+                                                    <rect key="frame" x="-6" y="-7" width="59" height="32"/>
                                                     <buttonCell key="cell" type="push" title="➡️" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VTh-PR-e6g">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -97,7 +97,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="225" translatesAutoresizingMaskIntoConstraints="NO" id="aKy-v8-JAW">
-                                                    <rect key="frame" x="41" y="-7" width="54" height="32"/>
+                                                    <rect key="frame" x="49" y="-7" width="59" height="32"/>
                                                     <buttonCell key="cell" type="push" title="🔄" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HGW-cy-rsq">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -107,7 +107,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="224" translatesAutoresizingMaskIntoConstraints="NO" id="til-vz-DYu">
-                                                    <rect key="frame" x="89" y="-7" width="42" height="32"/>
+                                                    <rect key="frame" x="104" y="-7" width="47" height="32"/>
                                                     <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dUh-3a-Y6S">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -117,7 +117,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="223" translatesAutoresizingMaskIntoConstraints="NO" id="9CE-tG-Yht">
-                                                    <rect key="frame" x="125" y="-7" width="44" height="32"/>
+                                                    <rect key="frame" x="147" y="-7" width="49" height="32"/>
                                                     <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kya-bl-uHM">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -127,7 +127,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="222" translatesAutoresizingMaskIntoConstraints="NO" id="efi-R5-Y6x">
-                                                    <rect key="frame" x="163" y="-7" width="58" height="32"/>
+                                                    <rect key="frame" x="192" y="-7" width="64" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Edit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LXJ-om-TbN">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -174,13 +174,13 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mj-zb-UHi">
-                                            <rect key="frame" x="0.0" y="496" width="178" height="138"/>
+                                            <rect key="frame" x="0.0" y="552" width="178" height="82"/>
                                             <clipView key="contentView" ambiguous="YES" id="B5K-7b-ROb">
-                                                <rect key="frame" x="1" y="1" width="176" height="136"/>
+                                                <rect key="frame" x="1" y="0.0" width="176" height="81"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <outlineView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="52" rowSizeStyle="automatic" headerView="OCf-Rc-C2v" viewBased="YES" indentationPerLevel="13" outlineTableColumn="vuC-sb-N5l" id="Jns-d8-d47">
-                                                        <rect key="frame" x="0.0" y="0.0" width="176" height="108"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="176" height="53"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <size key="intercellSpacing" width="17" height="0.0"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -203,7 +203,7 @@
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="arR-CF-fse">
-                                                                                <rect key="frame" x="0.0" y="18" width="4" height="16"/>
+                                                                                <rect key="frame" x="8" y="18" width="4" height="16"/>
                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="VDz-kj-DDF">
                                                                                     <font key="font" usesAppearanceFont="YES"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -240,10 +240,10 @@
                                             </tableHeaderView>
                                         </scrollView>
                                         <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EkP-i7-FMj">
-                                            <rect key="frame" x="64" y="0.0" width="114" height="496"/>
+                                            <rect key="frame" x="64" y="0.0" width="135" height="552"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" tag="224" translatesAutoresizingMaskIntoConstraints="NO" id="ayg-ag-MAH">
-                                                    <rect key="frame" x="-7" y="469" width="42" height="32"/>
+                                                    <rect key="frame" x="-6" y="524" width="47" height="32"/>
                                                     <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v7V-Cg-KaV">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -253,7 +253,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="225" translatesAutoresizingMaskIntoConstraints="NO" id="kmB-r3-4It">
-                                                    <rect key="frame" x="26" y="469" width="54" height="32"/>
+                                                    <rect key="frame" x="34" y="524" width="59" height="32"/>
                                                     <buttonCell key="cell" type="push" title="🔄" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nv9-3U-vaB">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -263,7 +263,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="230" translatesAutoresizingMaskIntoConstraints="NO" id="uay-2Z-eoJ">
-                                                    <rect key="frame" x="71" y="469" width="50" height="32"/>
+                                                    <rect key="frame" x="86" y="524" width="55" height="32"/>
                                                     <buttonCell key="cell" type="push" title="&lt;-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8yW-6h-PkK">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -314,17 +314,17 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TP7-Kl-XNE">
-                                            <rect key="frame" x="0.0" y="20" width="498" height="158"/>
+                                            <rect key="frame" x="0.0" y="21" width="498" height="157"/>
                                             <clipView key="contentView" drawsBackground="NO" id="TMm-XC-7EJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="483" height="158"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="483" height="157"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="8F5-wT-egy">
-                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="158"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="157"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="483" height="158"/>
+                                                        <size key="minSize" width="483" height="157"/>
                                                         <size key="maxSize" width="498" height="10000000"/>
                                                         <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     </textView>
@@ -335,15 +335,15 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="GJb-uk-iiv">
-                                                <rect key="frame" x="483" y="0.0" width="15" height="158"/>
+                                                <rect key="frame" x="483" y="0.0" width="15" height="157"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
                                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpo-O8-9Kf">
-                                            <rect key="frame" x="334" y="0.0" width="164" height="20"/>
+                                            <rect key="frame" x="310" y="0.0" width="188" height="21"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" tag="229" translatesAutoresizingMaskIntoConstraints="NO" id="SWK-Jg-49B">
-                                                    <rect key="frame" x="-7" y="-7" width="64" height="32"/>
+                                                    <rect key="frame" x="-6" y="-7" width="70" height="32"/>
                                                     <buttonCell key="cell" type="push" title="copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4cz-E6-Xag">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -353,7 +353,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="228" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-VO-Chp">
-                                                    <rect key="frame" x="51" y="-7" width="64" height="32"/>
+                                                    <rect key="frame" x="60" y="-7" width="70" height="32"/>
                                                     <buttonCell key="cell" type="push" title="clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="isa-Hp-Sux">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -363,7 +363,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="227" translatesAutoresizingMaskIntoConstraints="NO" id="taf-F8-LA1">
-                                                    <rect key="frame" x="109" y="-7" width="62" height="32"/>
+                                                    <rect key="frame" x="126" y="-7" width="68" height="32"/>
                                                     <buttonCell key="cell" type="push" title="save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0gk-fF-nFT">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -408,10 +408,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="500" height="40"/>
                                             <subviews>
                                                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Zj-Uh-Eii">
-                                                    <rect key="frame" x="-3" y="6" width="78" height="25"/>
+                                                    <rect key="frame" x="-2" y="7" width="77" height="25"/>
                                                     <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dk9-Wo-SJ4" id="gGV-ou-NJ4">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="menu"/>
+                                                        <font key="font" metaFont="system"/>
                                                         <menu key="menu" id="Kya-rl-wnL">
                                                             <items>
                                                                 <menuItem title="Item 1" state="on" id="dk9-Wo-SJ4"/>
@@ -425,10 +425,10 @@
                                                     </connections>
                                                 </popUpButton>
                                                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WNV-5V-bCC">
-                                                    <rect key="frame" x="221" y="6" width="78" height="25"/>
+                                                    <rect key="frame" x="219" y="7" width="77" height="25"/>
                                                     <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Gxm-pR-8Zu" id="CjI-VM-6ni">
                                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="menu"/>
+                                                        <font key="font" metaFont="system"/>
                                                         <menu key="menu" id="GqF-Qx-E14">
                                                             <items>
                                                                 <menuItem title="Item 1" state="on" id="Gxm-pR-8Zu"/>
@@ -442,7 +442,7 @@
                                                     </connections>
                                                 </popUpButton>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lTy-1o-EEb">
-                                                    <rect key="frame" x="441" y="3" width="66" height="32"/>
+                                                    <rect key="frame" x="435" y="3" width="71" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Send" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nwg-Tj-wor">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -485,17 +485,17 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJV-mV-jLQ">
-                                            <rect key="frame" x="0.0" y="20" width="498" height="158"/>
+                                            <rect key="frame" x="0.0" y="21" width="498" height="157"/>
                                             <clipView key="contentView" drawsBackground="NO" id="dg8-Nw-lWW">
-                                                <rect key="frame" x="0.0" y="0.0" width="483" height="158"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="483" height="157"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="ACz-GY-kKw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="158"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="483" height="157"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        <size key="minSize" width="483" height="158"/>
+                                                        <size key="minSize" width="483" height="157"/>
                                                         <size key="maxSize" width="498" height="10000000"/>
                                                         <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     </textView>
@@ -506,15 +506,15 @@ DQ
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="029-ov-Q3X">
-                                                <rect key="frame" x="483" y="0.0" width="15" height="158"/>
+                                                <rect key="frame" x="483" y="0.0" width="15" height="157"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
                                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xP-GF-Dze">
-                                            <rect key="frame" x="230" y="0.0" width="268" height="20"/>
+                                            <rect key="frame" x="200" y="0.0" width="298" height="21"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" tag="232" translatesAutoresizingMaskIntoConstraints="NO" id="S4S-na-6RB">
-                                                    <rect key="frame" x="-7" y="-7" width="94" height="32"/>
+                                                    <rect key="frame" x="-6" y="-7" width="99" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Unbeauty" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HWY-iS-FSF">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -524,7 +524,7 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="231" translatesAutoresizingMaskIntoConstraints="NO" id="gYH-eG-sbH">
-                                                    <rect key="frame" x="81" y="-7" width="78" height="32"/>
+                                                    <rect key="frame" x="89" y="-7" width="83" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Beauty" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iLy-hu-IwE">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -534,7 +534,7 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="229" translatesAutoresizingMaskIntoConstraints="NO" id="PMn-aE-QXt">
-                                                    <rect key="frame" x="153" y="-7" width="64" height="32"/>
+                                                    <rect key="frame" x="168" y="-7" width="70" height="32"/>
                                                     <buttonCell key="cell" type="push" title="copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m5e-4R-keV">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -544,7 +544,7 @@ DQ
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" tag="228" translatesAutoresizingMaskIntoConstraints="NO" id="T0C-lu-phJ">
-                                                    <rect key="frame" x="211" y="-7" width="64" height="32"/>
+                                                    <rect key="frame" x="234" y="-7" width="70" height="32"/>
                                                     <buttonCell key="cell" type="push" title="clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Dd-I3-EL4">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -893,7 +893,7 @@ DQ
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wh3-Z5-wpn">
-                                            <rect key="frame" x="566" y="-2" width="54" height="32"/>
+                                            <rect key="frame" x="560" y="-2" width="59" height="32"/>
                                             <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fxI-4I-xJ8">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -906,7 +906,7 @@ DQ
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Y6-be-kdg">
-                                            <rect key="frame" x="494" y="-2" width="76" height="32"/>
+                                            <rect key="frame" x="480" y="-2" width="82" height="32"/>
                                             <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XTw-IG-B5I">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1040,7 +1040,7 @@ Gw
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yu1-uX-hmY">
-                                            <rect key="frame" x="383" y="-2" width="54" height="32"/>
+                                            <rect key="frame" x="377" y="-2" width="59" height="32"/>
                                             <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b7l-2Z-ddn">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1053,7 +1053,7 @@ DQ
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4ig-ub-afW">
-                                            <rect key="frame" x="311" y="-2" width="76" height="32"/>
+                                            <rect key="frame" x="297" y="-2" width="82" height="32"/>
                                             <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ReL-kJ-ag8">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>

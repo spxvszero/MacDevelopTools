@@ -8,12 +8,26 @@
 
 #import "JKShellManagerCell.h"
 
+@interface JKShellManagerCell ()
+
+@property (weak) IBOutlet NSTextField *nameTxtField;
+@property (weak) IBOutlet NSImageView *statusImgView;
+
+
+
+@end
 @implementation JKShellManagerCell
 
 - (void)drawRect:(NSRect)dirtyRect {
     [super drawRect:dirtyRect];
     
     // Drawing code here.
+}
+
+- (void)setName:(NSString *)name
+{
+    _name = name;
+    self.nameTxtField.stringValue = name;
 }
 
 @end
