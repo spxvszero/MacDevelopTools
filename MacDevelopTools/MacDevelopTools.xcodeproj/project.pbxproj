@@ -12,6 +12,7 @@
 		8532163429AB6B1E00CBB04D /* JKDragableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532163329AB6B1E00CBB04D /* JKDragableTableView.m */; };
 		8532163729AB6E1D00CBB04D /* JKDragableOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532163629AB6E1D00CBB04D /* JKDragableOutlineView.m */; };
 		8532163A29AC818900CBB04D /* JKShellManagerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532163929AC818900CBB04D /* JKShellManagerViewModel.m */; };
+		85860A8A29ADD6CD00B2B1E1 /* JKMacFileStoragePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 85860A8929ADD6CD00B2B1E1 /* JKMacFileStoragePath.m */; };
 		961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */; };
 		962178E2242B0001003268FC /* JKItemsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962178E1242B0001003268FC /* JKItemsManager.m */; };
 		962178E4242B0C55003268FC /* items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 962178E3242B0C55003268FC /* items.plist */; };
@@ -286,6 +287,8 @@
 		8532163629AB6E1D00CBB04D /* JKDragableOutlineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKDragableOutlineView.m; sourceTree = "<group>"; };
 		8532163829AC818900CBB04D /* JKShellManagerViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKShellManagerViewModel.h; sourceTree = "<group>"; };
 		8532163929AC818900CBB04D /* JKShellManagerViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKShellManagerViewModel.m; sourceTree = "<group>"; };
+		85860A8929ADD6CD00B2B1E1 /* JKMacFileStoragePath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKMacFileStoragePath.m; sourceTree = "<group>"; };
+		85860A8B29ADD6E800B2B1E1 /* JKMacFileStoragePath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKMacFileStoragePath.h; sourceTree = "<group>"; };
 		961EF7D32435E56200EAB18D /* JKLottieMoreSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLottieMoreSettingViewController.h; sourceTree = "<group>"; };
 		961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKLottieMoreSettingViewController.m; sourceTree = "<group>"; };
 		962178E0242B0001003268FC /* JKItemsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKItemsManager.h; sourceTree = "<group>"; };
@@ -2277,6 +2280,8 @@
 				96C335D821C0E3AA00C9374E /* JKIconMenu.h */,
 				96C335D921C0E3AA00C9374E /* JKIconMenu.m */,
 				962FCB2421D1C1F800D79971 /* JKMacDevelopToolsPrefixHeader.h */,
+				85860A8B29ADD6E800B2B1E1 /* JKMacFileStoragePath.h */,
+				85860A8929ADD6CD00B2B1E1 /* JKMacFileStoragePath.m */,
 				962FCB3121D7081C00D79971 /* JKBaseViewController.h */,
 				962FCB3221D7081C00D79971 /* JKBaseViewController.mm */,
 				8532163229AB6B1E00CBB04D /* JKDragableTableView.h */,
@@ -2994,6 +2999,7 @@
 				9693FA422486219900BEB9A8 /* CubismString.cpp in Sources */,
 				CBD47CB527C494A900CFB7F0 /* SVGABitmapLayer.m in Sources */,
 				CBD47D1227C4960000CFB7F0 /* GPBStruct.pbobjc.m in Sources */,
+				85860A8A29ADD6CD00B2B1E1 /* JKMacFileStoragePath.m in Sources */,
 				8532163729AB6E1D00CBB04D /* JKDragableOutlineView.m in Sources */,
 				9693F9AA2486201800BEB9A8 /* LAppAllocator.cpp in Sources */,
 				961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */,

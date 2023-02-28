@@ -11,5 +11,9 @@
 @interface JKShellManagerCell : NSTableCellView
 
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) BOOL status;
+@property (nonatomic, assign) BOOL showStatus;
+
+@property (nonatomic, strong) void (^NameUpdateBlock)(NSString *nName);
 
 @end

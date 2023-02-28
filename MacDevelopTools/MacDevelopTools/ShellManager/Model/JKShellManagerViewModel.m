@@ -7,8 +7,9 @@
 //
 
 #import "JKShellManagerViewModel.h"
+#import "JKMacFileStoragePath.h"
 
-@interface JKShellManagerViewModel ()
+@interface JKShellManagerViewModel ()<NSCoding, NSSecureCoding>
 
 @property (nonatomic, strong) NSString *groupName;
 @property (nonatomic, strong) NSMutableArray<JKShellManagerViewModel *> *containerArr;
@@ -18,11 +19,48 @@
 
 @implementation JKShellManagerViewModel
 
++ (BOOL)supportsSecureCoding
+{
+    return true;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        _isGroup = [coder decodeBoolForKey:@"isGroup"];
+        if (_isGroup) {
+            self.groupName = [coder decodeObjectForKey:@"groupName"];
+            self.containerArr = [coder decodeObjectForKey:@"containerArr"];
+            
+            //relation
+            for (JKShellManagerViewModel *model in self.containerArr) {
+                model.superModel = self;
+            }
+        }else{
+            self.attachModel = [coder decodeObjectForKey:@"attachModel"];
+        }
+        
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeBool:self.isGroup forKey:@"isGroup"];
+    if (self.isGroup) {
+        [coder encodeObject:self.groupName forKey:@"groupName"];
+        [coder encodeObject:self.containerArr forKey:@"containerArr"];
+    }else{
+        [coder encodeObject:self.attachModel forKey:@"attachModel"];        
+    }
+}
+
 - (instancetype)initWithGroup
 {
     if (self = [super init]) {
         _isGroup = true;
-        _groupName = @"Untitle";
+        _groupName = @"Untitled";
         self.containerArr = [NSMutableArray array];
     }
     return self;
@@ -135,9 +173,54 @@
     }
 }
 
+- (void)updateName:(NSString *)name
+{
+    if (self.isGroup) {
+        self.groupName = name;
+    }else{
+        self.attachModel.name = name;
+    }
+}
+
 - (JKShellModel *)attachModel
 {
     return _attachModel;
+}
+
+
+- (void)saveToDisk
+{
+    NSString *filePath = [[self class] shellDataPath];
+
+    if (@available(macOS 10.13, *)) {
+        NSError *err;
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self requiringSecureCoding:false error:&err];
+        NSLog(@"archiver object error -- %@",err);
+        [data writeToFile:filePath atomically:true];
+    }else{
+        [NSKeyedArchiver archiveRootObject:self toFile:filePath];
+    }
+}
+
++ (JKShellManagerViewModel *)readFromDisk
+{
+    NSString *filePath = [JKShellManagerViewModel shellDataPath];
+    if (@available(macOS 10.13, *)) {
+        NSError *err;
+        NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
+        JKShellManagerViewModel *model = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[JKShellManagerViewModel class],[NSMutableArray class],[JKShellModel class], nil] fromData:data error:&err];
+        NSLog(@"unarchiver object error -- %@",err);
+        return model;
+    }else{
+        return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    }
+}
+
++ (NSString *)shellDataPath
+{
+    // Get a file path to save the archived object to
+    NSString *filePath = [[JKMacFileStoragePath shellManagerDataDirPath] stringByAppendingPathComponent:@"ShellDatas"];
+    return filePath;
 }
 
 @end

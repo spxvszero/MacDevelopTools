@@ -8,6 +8,7 @@
 
 #import "JKGoServerDataStorage.h"
 #import "YYModel.h"
+#import "JKMacFileStoragePath.h"
 
 @implementation JKGoServerDataStorage
 
@@ -89,15 +90,7 @@
 
 + (NSString *)dirPath
 {
-    NSString *dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true) firstObject];
-    if (!dirPath) {
-        return nil;
-    }
-    dirPath = [NSString pathWithComponents:@[dirPath, @"GoServerData"]];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:dirPath]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:false attributes:nil error:nil];
-    }
-    return dirPath;
+    return [JKMacFileStoragePath goServerDataDirPath];
 }
 
 @end

@@ -66,7 +66,7 @@
                                                                                     <constraint firstAttribute="height" constant="15" id="EUk-Qf-tVl"/>
                                                                                     <constraint firstAttribute="width" constant="15" id="WnP-W2-Smm"/>
                                                                                 </constraints>
-                                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="applepush_selected" id="LZD-FL-rGO"/>
+                                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="shell_status_off" id="LZD-FL-rGO"/>
                                                                             </imageView>
                                                                         </subviews>
                                                                         <constraints>
@@ -165,6 +165,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="applepush_selected" width="49.5" height="50"/>
+        <image name="shell_status_off" width="50" height="50"/>
     </resources>
 </document>

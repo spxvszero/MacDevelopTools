@@ -34,6 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSInteger)numberOfCount;
 
 - (NSString *)displayName;
+- (void)updateName:(NSString *)name;
+
+
+- (void)saveToDisk;
++ (JKShellManagerViewModel *)readFromDisk;
 
 
 @end

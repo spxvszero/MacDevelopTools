@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKShellModel : NSObject
+@interface JKShellModel : NSObject<NSCoding, NSSecureCoding>
 
 @property (nonatomic, assign) NSInteger shellId;
 @property (nonatomic, strong) NSString *name;

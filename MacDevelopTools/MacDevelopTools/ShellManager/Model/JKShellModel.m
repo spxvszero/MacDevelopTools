@@ -16,12 +16,32 @@
 
 @property (nonatomic, assign) int master_fd;
 @property (nonatomic, assign) int slave_fd;
+@property (nonatomic, assign) int pid;
 
 @property (nonatomic, strong) NSMutableString *displayStr;
 
 @end
 
 @implementation JKShellModel
+
++ (BOOL)supportsSecureCoding
+{
+    return true;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        self.name = [coder decodeObjectForKey:@"name"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.name forKey:@"name"];
+}
 
 - (void)dealloc
 {
@@ -37,6 +57,9 @@
 
 - (void)writeString:(NSString *)str
 {
+    if (self.master_fd <= 0) {
+        return;
+    }
     // 获取输入管道的文件句柄
     NSFileHandle *fileHandle = [[NSFileHandle alloc] initWithFileDescriptor:_master_fd];
     //        NSFileHandle *fileHandle = [self.inputPipe fileHandleForWriting];
@@ -120,7 +143,6 @@
         case 0:
         {
             // In child process, execute ssh command.
-            NSLog(@"ForkPTY get 0 result.");
             const char* cmd = "/bin/zsh";
             const char* args[] = { cmd, NULL };
             execvp(cmd, (char* const*)args);
@@ -131,7 +153,8 @@
         {
             //close slave handler, or will cause dead loop.
             if (weakSelf.slave_fd > 0) {
-                close(weakSelf.slave_fd);                
+                close(weakSelf.slave_fd);
+                _slave_fd = -1;
             }
             // In parent process, read output from child.
             weakSelf.slave_fd = weakSelf.master_fd;
@@ -139,6 +162,7 @@
             if (login_tty(pid) < 0) {
                 NSLog(@"Try Login Failed. Some device may could not work fine.");
             }
+            self.pid = pid;
             
             NSFileHandle *mfileHandle = [[NSFileHandle alloc] initWithFileDescriptor:weakSelf.master_fd];
             [[NSNotificationCenter defaultCenter] addObserver:weakSelf selector:@selector(dataReady:) name:NSFileHandleReadCompletionNotification object:mfileHandle];
@@ -154,8 +178,18 @@
 
 - (void)closeShell
 {
-    close(_master_fd);
-    close(_slave_fd);
+    if (_master_fd > 0) {
+        close(_master_fd);
+        _master_fd = -1;
+    }
+    if (_slave_fd > 0) {
+        close(_slave_fd);
+        _slave_fd = -1;
+    }
+    if (self.pid > 0) {
+        kill(self.pid, SIGKILL);
+        self.pid = 0;
+    }
 }
 
 - (BOOL)isRunning

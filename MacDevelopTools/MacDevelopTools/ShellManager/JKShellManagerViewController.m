@@ -27,20 +27,11 @@
 @property (nonatomic, weak) NSTextView *textView;
 @property (nonatomic, weak) NSTextView *inputTextView;
 
-@property (nonatomic, strong) NSPipe *inputPipe;
-
-@property (nonatomic, assign) int master_fd;
-@property (nonatomic, assign) int slave_fd;
-@property (nonatomic, strong) dispatch_queue_t cmdQueue;
-
-@property (nonatomic, assign) int testNum;
-
-
 @property (nonatomic, weak) id beginItem;
 @property (nonatomic, assign) NSInteger tempAimRow;
 @property (nonatomic, assign) JKDragableRowPosition dragOperate;
 
-@property (nonatomic, strong) JKShellModel *currentRunningModel;
+@property (nonatomic, weak) JKShellModel *currentRunningModel;
 
 @end
 
@@ -49,7 +40,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    self.dataViewModel = [self fakeData];
+//    self.dataViewModel = [self fakeData];
+    self.dataViewModel = [JKShellManagerViewModel readFromDisk];
+    if (!self.dataViewModel) {
+        self.dataViewModel = [[JKShellManagerViewModel alloc] initWithGroup];
+    }
     
     
     
@@ -107,6 +102,8 @@
     [[txtView textContainer] setContainerSize:NSMakeSize(FLT_MAX, FLT_MAX)];
     [[txtView textContainer] setWidthTracksTextView:NO];
     
+    txtView.editable = false;
+    　
     [self.containerView addSubview:scrollview];
     self.textView = txtView;
     NSTextView *inputTxtView = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, self.containerView.bounds.size.width, heightInputView)];
@@ -145,17 +142,54 @@
 #pragma mark - Shell Btn Action
 
 - (IBAction)addShellBtnClick:(id)sender {
-    self.testNum ++;
-    [self.dataViewModel addModel:[[JKShellManagerViewModel alloc] initWithModel:[JKShellModel modelWithName:@"tmp"]] atIndex:0];
+    [self.dataViewModel addModel:[[JKShellManagerViewModel alloc] initWithModel:[JKShellModel modelWithName:@"Untitled"]] atIndex:0];
+    [self.dataViewModel saveToDisk];
     [self reloadOutLineView];
 }
 - (IBAction)removeShellBtnClick:(id)sender {
     
-    NSString *txt = @"\033[?2004l\n";
-    NSLog(@"write test str : %@",txt);
-    [self.currentRunningModel writeString:txt];
-    
-//    [self reloadOutLineView];
+    JKShellManagerViewModel *item = [self.outlineView itemAtRow:self.outlineView.selectedRow];
+    if (item && [item isKindOfClass:[JKShellManagerViewModel class]]) {
+
+        //Alert Warning
+        NSString *warning = @"";
+        if (item.isGroup) {
+            if (item.numberOfCount > 0) {
+                warning = @"This Group Contains Multiple Items, Would you remove them all ? ";
+            }else{
+                warning = @"This is an empty Group, Would you remove it ? ";
+            }
+        }else{
+            warning = @"This is a normal shell item, Would you remove it ? ";
+        }
+
+        __weak typeof(item) weakItem = item;
+        __weak typeof(self) weakSelf = self;
+        [self showAlertWithTitle:warning okAction:^{
+            [weakItem.superModel removeModel:weakItem];
+            [weakSelf.dataViewModel saveToDisk];
+            [weakSelf reloadOutLineView];
+        }];
+    }
+}
+
+- (void)showAlertWithTitle:(NSString *)title okAction:(void (^)(void))OKActionBlock
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = title;
+    NSButton *cancelBtn = [alert addButtonWithTitle:@"Cancel"];
+    cancelBtn.tag = NSModalResponseCancel;
+    if (OKActionBlock) {
+        NSButton *okBtn = [alert addButtonWithTitle:@"OK"];
+        okBtn.tag = NSModalResponseOK;
+    }
+    [alert beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse returnCode) {
+        if (returnCode == NSModalResponseOK) {
+            if (OKActionBlock) {
+                OKActionBlock();
+            }
+        }
+    }];
 }
 
 
@@ -226,6 +260,8 @@
                 [targetItem.superModel addModel:sourceItem atIndex:targetRow];
             }
         }
+        
+        [self.dataViewModel saveToDisk];
     }else{
         NSLog(@"Operation not permit.");
     }
@@ -272,6 +308,20 @@
         JKShellManagerViewModel *model = (JKShellManagerViewModel *)item;
         
         reuseView.name = model.displayName;
+        __weak typeof(model) weakModel = model;
+        __weak typeof(self) weakSelf = self;
+        reuseView.NameUpdateBlock = ^(NSString *nName) {
+            [weakModel updateName:nName];
+            //re-save
+            [weakSelf.dataViewModel saveToDisk];
+        };
+        if (model.isGroup) {
+            reuseView.showStatus = false;
+            reuseView.status = false;
+        }else{
+            reuseView.showStatus = true;
+            reuseView.status = model.attachModel.isRunning;
+        }
     }
     
     return reuseView;
@@ -296,6 +346,7 @@
             [self.currentRunningModel startShell];
         }
     
+        [self.outlineView reloadItem:clickItem];
     }
 }
 
@@ -314,129 +365,6 @@
     
 }
 
-- (void)buildCMD
-{
-    
-//    self.cmdQueue = dispatch_queue_create("com.example.taskQueue", DISPATCH_QUEUE_SERIAL);
-    __weak typeof(self) weakSelf = self;
-//    dispatch_async(self.cmdQueue, ^{
-        // 创建一个新的伪终端
-        char slave_name[255];
-        Ivar masterFdIvar = class_getInstanceVariable([self class], "_master_fd");
-        int *masterFdPtr = (int *)((__bridge void *)weakSelf + ivar_getOffset(masterFdIvar));
-        Ivar slaveFdIvar = class_getInstanceVariable([self class], "_slave_fd");
-        int *slaveFdPtr = (int *)((__bridge void *)weakSelf + ivar_getOffset(slaveFdIvar));
-        
-        int res = openpty(masterFdPtr, slaveFdPtr, slave_name, NULL, NULL);
-            if (res == -1) {
-                NSLog(@"Failed to open pseudo-terminal");
-                return;
-            }else{
-                NSLog(@"master -- %d",weakSelf.master_fd);
-                NSLog(@"slave -- %d",weakSelf.slave_fd);
-            }
-            
-        //    struct termios attr;
-        //    tcgetattr(_slave_fd, &attr);
-        //    attr.c_lflag &= ~ECHO;
-        //    tcsetattr(_slave_fd, TCSANOW, &attr);
-        
-    pid_t pid;
-    switch (pid = forkpty(masterFdPtr, NULL, NULL, NULL)) {
-            case -1:
-        {
-                NSLog(@"Failed to forkpty: %s", strerror(errno));
-            NSLog(@"Run In MainProcess. ");
-            NSTask *task = [[NSTask alloc] init];
-                    //    [task setLaunchPath:@"/System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal"];
-                        [task setLaunchPath:@"/bin/zsh"];
-                    //    [task setArguments:@[@"-c", @"echo Hello World"]];
-                        
-                    //    NSPipe *pipe = [NSPipe pipe];
-            //            NSPipe *inputPipe = [NSPipe pipe];
-            //            self.inputPipe = inputPipe;
-
-                        // 将伪终端设为标准输入、输出和错误
-                    NSFileHandle *fileHandle = [[NSFileHandle alloc] initWithFileDescriptor:weakSelf.slave_fd];
-                    //    task.standardInput = [[NSFileHandle alloc] initWithFileDescriptor:self.slave_fd];
-                    //    [task setStandardInput:inputPipe];
-                        task.standardInput = fileHandle;
-                        task.standardOutput = fileHandle;
-                        task.standardError = fileHandle;
-                    //    [task setStandardOutput:pipe];
-                    //    [task setStandardInput:inputPipe];
-                    //    NSFileHandle *file = [pipe fileHandleForReading];
-                    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataReady:) name:NSFileHandleReadCompletionNotification object:file];
-                    //    [file readInBackgroundAndNotify];
-                        
-                        // 将伪终端从文件句柄中读取输入并显示在文本视图中
-                    NSFileHandle *mfileHandle = [[NSFileHandle alloc] initWithFileDescriptor:weakSelf.master_fd];
-                        [[NSNotificationCenter defaultCenter] addObserver:weakSelf selector:@selector(dataReady:) name:NSFileHandleReadCompletionNotification object:mfileHandle];
-                        [mfileHandle readInBackgroundAndNotify];
-                    //    [fileHandle setReadabilityHandler:^(NSFileHandle *fh) {
-                    //        NSData *data = fh.availableData;
-                    //        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                    //        dispatch_async(dispatch_get_main_queue(), ^{
-                    //           [self.textView insertText:string replacementRange:NSMakeRange(0, 0)];
-                    //        });
-                    //    }];
-
-                        
-                        [task launch];
-        }
-            break;
-            case 0:
-        {
-                // In child process, execute ssh command.
-               const char* cmd = "/bin/zsh";
-                const char* args[] = { cmd, NULL };
-                execvp(cmd, (char* const*)args);
-                _exit(127);
-        }
-            break;
-            default:
-        {
-            //close slave handler, or will cause dead loop.
-            close(weakSelf.slave_fd);
-                // In parent process, read output from child.
-            weakSelf.slave_fd = weakSelf.master_fd;
-            
-            if (login_tty(pid) < 0) {
-                NSLog(@"Try Login Failed. Some device may could not work fine.");
-            }
-            
-            NSFileHandle *mfileHandle = [[NSFileHandle alloc] initWithFileDescriptor:weakSelf.master_fd];
-            [[NSNotificationCenter defaultCenter] addObserver:weakSelf selector:@selector(dataReady:) name:NSFileHandleReadCompletionNotification object:mfileHandle];
-            [mfileHandle readInBackgroundAndNotify];
-        }
-                break;
-    }
-
-            
-            
-//    });
-    
-    
-    
-}
-
-
-- (void)dataReady:(NSNotification *)notification {
-    NSData *data = [[notification userInfo] objectForKey:NSFileHandleNotificationDataItem];
-    if ([data length]) {
-        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.textView insertText:string replacementRange:NSMakeRange(0, 0)];
-        });
-        NSLog(@"output -- %@",string);
-        [[notification object] readInBackgroundAndNotify];
-    } else {
-        NSLog(@"finish cmd");
-//        [[NSNotificationCenter defaultCenter] removeObserver:self name:NSFileHandleReadCompletionNotification object:[notification object]];
-    }
-}
-
-
 
 #pragma mark TextViewDelegate
 
@@ -447,16 +375,16 @@
         NSString *txt = [textView.string stringByAppendingString:@"\n"];
         NSLog(@"input -- %@", txt);
         
-        [self.currentRunningModel writeString:txt];
-
-//        // 获取输入管道的文件句柄
-//        NSFileHandle *fileHandle = [[NSFileHandle alloc] initWithFileDescriptor:_master_fd];
-////        NSFileHandle *fileHandle = [self.inputPipe fileHandleForWriting];
-//        // 将输入文本写入输入管道
-//        NSData *inputData = [txt dataUsingEncoding:NSUTF8StringEncoding];
-//        [fileHandle writeData:inputData];
-        // 输入管道以便命令行进程知道输入已完成
-//        [fileHandle synchronizeFile];
+        if (self.currentRunningModel) {
+            if (self.currentRunningModel.isRunning) {
+                [self.currentRunningModel writeString:txt];
+            }else{
+                [self showAlertWithTitle:@"This Shell is not running." okAction:nil];
+            }
+        }else{
+            [self showAlertWithTitle:@"Shell is Not Exist." okAction:nil];
+        }
+        
         
         textView.string = @"";
         return NO;
