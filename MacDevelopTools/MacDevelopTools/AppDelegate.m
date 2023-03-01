@@ -15,6 +15,10 @@ static float const     kStatusBarIconPadding = 0.25;
 #import "NSButton+JKRightAction.h"
 #import <objc/runtime.h>
 
+#import <ServiceManagement/ServiceManagement.h>
+
+static NSString *const StartOnLoginKeyStore = @"startOnLogin";
+
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSMenu *fileMenu;
@@ -211,6 +215,62 @@ static const char *getPropertyType(objc_property_t property) {
     
 }
 
++ (BOOL)isStartOnLogin
+{
+    NSString *identifier = [[[NSBundle mainBundle] bundleIdentifier] stringByAppendingString:@"Helper"];
+    //Check If Enable
+    CFArrayRef cfJobDicts = SMCopyAllJobDictionaries(kSMDomainUserLaunchd);
+    NSArray* jobDicts = CFBridgingRelease(cfJobDicts);
+
+    BOOL isEnabled = false;
+    if (jobDicts && [jobDicts count] > 0) {
+        for (NSDictionary* job in jobDicts) {
+            if ([identifier isEqualToString:[job objectForKey:@"Label"]]) {
+                isEnabled = [[job objectForKey:@"OnDemand"] boolValue];
+                break;
+            }
+        }
+    }
+    
+    return isEnabled;
+}
+
+- (void)toggleStartOnLogin:(NSMenuItem *)startItem
+{
+    BOOL startOnLogin = ![[NSUserDefaults standardUserDefaults] boolForKey:StartOnLoginKeyStore];
+    
+    NSString *identifier = [[[NSBundle mainBundle] bundleIdentifier] stringByAppendingString:@"Helper"];
+//    // 添加应用到登录项
+//    NSString *appPath = [[NSBundle mainBundle] bundlePath];
+//    NSURL *appURL = [NSURL fileURLWithPath:appPath];
+//    LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
+//    LSSharedFileListItemRef item = LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemLast, NULL, NULL, (__bridge CFURLRef)appURL, NULL, NULL);
+//    CFRelease(item);
+//    CFRelease(loginItems);
+    
+    if (SMLoginItemSetEnabled((__bridge CFStringRef)identifier, startOnLogin)) {
+        // 设置成功
+        NSLog(@"设置开机自启动成功");
+        [[NSUserDefaults standardUserDefaults] setBool:startOnLogin forKey:StartOnLoginKeyStore];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+
+        startItem.image = [NSImage imageNamed:[[NSUserDefaults standardUserDefaults] boolForKey:StartOnLoginKeyStore]?@"check_box_selected":@"check_box_unselected"];
+
+    } else {
+        // 设置失败
+        NSLog(@"设置开机自启动失败");
+    }
+}
+
+- (void)showAlertWithTitle:(NSString *)title
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = title;
+    [alert beginSheetModalForWindow:NSApp.keyWindow completionHandler:^(NSModalResponse returnCode) {
+        
+    }];
+}
+
 #pragma mark - getter
 
 - (NSMenu *)rightMenu
@@ -230,6 +290,14 @@ static const char *getPropertyType(objc_property_t property) {
         managerItem.target = self;
         managerItem.title = @"Management";
         
+        //startup on boot
+        NSMenuItem *startItem = [[NSMenuItem alloc] init];
+        startItem.action = @selector(toggleStartOnLogin:);
+        startItem.target = self;
+        startItem.title = @"StartOnLogin";
+        startItem.image = [NSImage imageNamed:[[NSUserDefaults standardUserDefaults] boolForKey:StartOnLoginKeyStore]?@"check_box_selected":@"check_box_unselected"];
+        
+        [_rightMenu addItem:startItem];
         [_rightMenu addItem:managerItem];
         [_rightMenu addItem:quitItem];
     }

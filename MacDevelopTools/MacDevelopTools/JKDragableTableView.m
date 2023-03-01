@@ -66,7 +66,7 @@
     self.lineView.frame = NSMakeRect(0, y, self.bounds.size.width, 2);
     
     if (self.DragUpdateRowBlock) {
-        self.DragUpdateRowBlock(MAX(actualRow, 0));
+        self.DragUpdateRowBlock(actualRow);
     }
 }
 

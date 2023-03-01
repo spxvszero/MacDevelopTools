@@ -13,6 +13,13 @@
 		8532163729AB6E1D00CBB04D /* JKDragableOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532163629AB6E1D00CBB04D /* JKDragableOutlineView.m */; };
 		8532163A29AC818900CBB04D /* JKShellManagerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532163929AC818900CBB04D /* JKShellManagerViewModel.m */; };
 		85860A8A29ADD6CD00B2B1E1 /* JKMacFileStoragePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 85860A8929ADD6CD00B2B1E1 /* JKMacFileStoragePath.m */; };
+		85860A8D29AEEA2500B2B1E1 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85860A8C29AEEA2500B2B1E1 /* NetworkExtension.framework */; };
+		85AE178429AF1430007CA07E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AE178329AF1430007CA07E /* AppDelegate.m */; };
+		85AE178929AF1431007CA07E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85AE178829AF1431007CA07E /* Assets.xcassets */; };
+		85AE178C29AF1431007CA07E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85AE178A29AF1431007CA07E /* Main.storyboard */; };
+		85AE178F29AF1431007CA07E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AE178E29AF1431007CA07E /* main.m */; };
+		85AE179729AF240B007CA07E /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AE179629AF240B007CA07E /* ServiceManagement.framework */; };
+		85AE179829AF2B86007CA07E /* MacDevelopToolsHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 85AE178029AF1430007CA07E /* MacDevelopToolsHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */; };
 		962178E2242B0001003268FC /* JKItemsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962178E1242B0001003268FC /* JKItemsManager.m */; };
 		962178E4242B0C55003268FC /* items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 962178E3242B0C55003268FC /* items.plist */; };
@@ -264,6 +271,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		85AE179429AF146C007CA07E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				85AE179829AF2B86007CA07E /* MacDevelopToolsHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96578FA12432F76B00F828C5 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +306,16 @@
 		8532163929AC818900CBB04D /* JKShellManagerViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKShellManagerViewModel.m; sourceTree = "<group>"; };
 		85860A8929ADD6CD00B2B1E1 /* JKMacFileStoragePath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKMacFileStoragePath.m; sourceTree = "<group>"; };
 		85860A8B29ADD6E800B2B1E1 /* JKMacFileStoragePath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKMacFileStoragePath.h; sourceTree = "<group>"; };
+		85860A8C29AEEA2500B2B1E1 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		85AE178029AF1430007CA07E /* MacDevelopToolsHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacDevelopToolsHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85AE178229AF1430007CA07E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		85AE178329AF1430007CA07E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		85AE178829AF1431007CA07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85AE178B29AF1431007CA07E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85AE178D29AF1431007CA07E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85AE178E29AF1431007CA07E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		85AE179029AF1431007CA07E /* MacDevelopToolsHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacDevelopToolsHelper.entitlements; sourceTree = "<group>"; };
+		85AE179629AF240B007CA07E /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		961EF7D32435E56200EAB18D /* JKLottieMoreSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLottieMoreSettingViewController.h; sourceTree = "<group>"; };
 		961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKLottieMoreSettingViewController.m; sourceTree = "<group>"; };
 		962178E0242B0001003268FC /* JKItemsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKItemsManager.h; sourceTree = "<group>"; };
@@ -1108,6 +1135,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		85AE177D29AF1430007CA07E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96C335BA21C0A8E100C9374E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1115,6 +1149,7 @@
 				9693FA9624862A7E00BEB9A8 /* libLive2DCubismCore.a in Frameworks */,
 				962FCB2321D0FA3600D79971 /* LittleCMS.framework in Frameworks */,
 				962FCB2221D0F95C00D79971 /* Carbon.framework in Frameworks */,
+				85860A8D29AEEA2500B2B1E1 /* NetworkExtension.framework in Frameworks */,
 				962FC61121D0D34C00D79971 /* libraw.a in Frameworks */,
 				CBD47D5F27C4C7D600CFB7F0 /* Security.framework in Frameworks */,
 				962FC60321D0D0E200D79971 /* libbz2.tbd in Frameworks */,
@@ -1132,6 +1167,7 @@
 				962FC5E021D0CC8600D79971 /* libpng.a in Frameworks */,
 				CBD47D6027C4C7E900CFB7F0 /* libiconv.tbd in Frameworks */,
 				962FC5F921D0D05D00D79971 /* libwebpdemux.a in Frameworks */,
+				85AE179729AF240B007CA07E /* ServiceManagement.framework in Frameworks */,
 				9693FAA52486322600BEB9A8 /* libGLEW.a in Frameworks */,
 				9693FA7A2486235300BEB9A8 /* libglfw3.a in Frameworks */,
 			);
@@ -1158,6 +1194,20 @@
 				8532163629AB6E1D00CBB04D /* JKDragableOutlineView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		85AE178129AF1430007CA07E /* MacDevelopToolsHelper */ = {
+			isa = PBXGroup;
+			children = (
+				85AE178229AF1430007CA07E /* AppDelegate.h */,
+				85AE178329AF1430007CA07E /* AppDelegate.m */,
+				85AE178829AF1431007CA07E /* Assets.xcassets */,
+				85AE178A29AF1431007CA07E /* Main.storyboard */,
+				85AE178D29AF1431007CA07E /* Info.plist */,
+				85AE178E29AF1431007CA07E /* main.m */,
+				85AE179029AF1431007CA07E /* MacDevelopToolsHelper.entitlements */,
+			);
+			path = MacDevelopToolsHelper;
 			sourceTree = "<group>";
 		};
 		962FC52021D0CA9200D79971 /* lib */ = {
@@ -2204,6 +2254,8 @@
 		96A9A23221D0AE8E00F21813 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85AE179629AF240B007CA07E /* ServiceManagement.framework */,
+				85860A8C29AEEA2500B2B1E1 /* NetworkExtension.framework */,
 				CBD47D5E27C4C7D600CFB7F0 /* Security.framework */,
 				9693FA8C2486275800BEB9A8 /* OpenGL.framework */,
 				962FCB1C21D0F78700D79971 /* Carbon.framework */,
@@ -2228,6 +2280,7 @@
 			isa = PBXGroup;
 			children = (
 				96C335BF21C0A8E100C9374E /* MacDevelopTools */,
+				85AE178129AF1430007CA07E /* MacDevelopToolsHelper */,
 				96C335BE21C0A8E100C9374E /* Products */,
 				96A9A23221D0AE8E00F21813 /* Frameworks */,
 			);
@@ -2237,6 +2290,7 @@
 			isa = PBXGroup;
 			children = (
 				96C335BD21C0A8E100C9374E /* MacDevelopTools.app */,
+				85AE178029AF1430007CA07E /* MacDevelopToolsHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2728,6 +2782,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		85AE177F29AF1430007CA07E /* MacDevelopToolsHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85AE179329AF1431007CA07E /* Build configuration list for PBXNativeTarget "MacDevelopToolsHelper" */;
+			buildPhases = (
+				85AE177C29AF1430007CA07E /* Sources */,
+				85AE177D29AF1430007CA07E /* Frameworks */,
+				85AE177E29AF1430007CA07E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacDevelopToolsHelper;
+			productName = MacDevelopToolsHelper;
+			productReference = 85AE178029AF1430007CA07E /* MacDevelopToolsHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
 		96C335BC21C0A8E100C9374E /* MacDevelopTools */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96C335D121C0A8E400C9374E /* Build configuration list for PBXNativeTarget "MacDevelopTools" */;
@@ -2736,6 +2807,7 @@
 				96C335BA21C0A8E100C9374E /* Frameworks */,
 				96C335BB21C0A8E100C9374E /* Resources */,
 				96578FA12432F76B00F828C5 /* Embed Frameworks */,
+				85AE179429AF146C007CA07E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -2755,6 +2827,9 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = JK;
 				TargetAttributes = {
+					85AE177F29AF1430007CA07E = {
+						CreatedOnToolsVersion = 11.6;
+					};
 					96C335BC21C0A8E100C9374E = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
@@ -2779,11 +2854,21 @@
 			projectRoot = "";
 			targets = (
 				96C335BC21C0A8E100C9374E /* MacDevelopTools */,
+				85AE177F29AF1430007CA07E /* MacDevelopToolsHelper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		85AE177E29AF1430007CA07E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85AE178929AF1431007CA07E /* Assets.xcassets in Resources */,
+				85AE178C29AF1431007CA07E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96C335BB21C0A8E100C9374E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2822,6 +2907,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		85AE177C29AF1430007CA07E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85AE178F29AF1431007CA07E /* main.m in Sources */,
+				85AE178429AF1430007CA07E /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96C335B921C0A8E100C9374E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3035,6 +3129,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		85AE178A29AF1431007CA07E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85AE178B29AF1431007CA07E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		96C335C821C0A8E400C9374E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3046,6 +3148,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		85AE179129AF1431007CA07E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MacDevelopToolsHelper/MacDevelopToolsHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MacDevelopToolsHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.ccc.MacDevelopToolsHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Debug;
+		};
+		85AE179229AF1431007CA07E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MacDevelopToolsHelper/MacDevelopToolsHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MacDevelopToolsHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.ccc.MacDevelopToolsHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+				VALID_ARCHS = "i386 x86_64";
+			};
+			name = Release;
+		};
 		96C335CF21C0A8E400C9374E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3208,6 +3353,7 @@
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/dll",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ON_DEMAND_RESOURCES_PREFETCH_ORDER = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.ccc.MacDevelopTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3255,6 +3401,7 @@
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/dll",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ON_DEMAND_RESOURCES_PREFETCH_ORDER = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacky.ccc.MacDevelopTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3266,6 +3413,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		85AE179329AF1431007CA07E /* Build configuration list for PBXNativeTarget "MacDevelopToolsHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85AE179129AF1431007CA07E /* Debug */,
+				85AE179229AF1431007CA07E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		96C335B821C0A8E100C9374E /* Build configuration list for PBXProject "MacDevelopTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
