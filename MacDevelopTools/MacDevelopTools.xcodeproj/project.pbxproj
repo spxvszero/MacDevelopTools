@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		850097A42500F4020029DFF5 /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850097A32500F4020029DFF5 /* freetype.framework */; };
+		8523E40429BC78030090108C /* JKClockNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523E40329BC78030090108C /* JKClockNotificationViewController.m */; };
+		8523E40729BC78930090108C /* JKClockScheduleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8523E40629BC78930090108C /* JKClockScheduleModel.m */; };
 		8532163029AB541100CBB04D /* JKShellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532162F29AB541100CBB04D /* JKShellModel.m */; };
 		8532163429AB6B1E00CBB04D /* JKDragableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532163329AB6B1E00CBB04D /* JKDragableTableView.m */; };
 		8532163729AB6E1D00CBB04D /* JKDragableOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532163629AB6E1D00CBB04D /* JKDragableOutlineView.m */; };
@@ -296,6 +298,10 @@
 
 /* Begin PBXFileReference section */
 		850097A32500F4020029DFF5 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = freetype.framework; sourceTree = "<group>"; };
+		8523E40229BC78030090108C /* JKClockNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKClockNotificationViewController.h; sourceTree = "<group>"; };
+		8523E40329BC78030090108C /* JKClockNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKClockNotificationViewController.m; sourceTree = "<group>"; };
+		8523E40529BC78930090108C /* JKClockScheduleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKClockScheduleModel.h; sourceTree = "<group>"; };
+		8523E40629BC78930090108C /* JKClockScheduleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKClockScheduleModel.m; sourceTree = "<group>"; };
 		8532162E29AB541100CBB04D /* JKShellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKShellModel.h; sourceTree = "<group>"; };
 		8532162F29AB541100CBB04D /* JKShellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKShellModel.m; sourceTree = "<group>"; };
 		8532163229AB6B1E00CBB04D /* JKDragableTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKDragableTableView.h; sourceTree = "<group>"; };
@@ -1500,6 +1506,10 @@
 				963D7F2A231CEA2000631B13 /* Clock.storyboard */,
 				963D7F2C231CEA4A00631B13 /* JKClockViewController.h */,
 				963D7F2D231CEA4A00631B13 /* JKClockViewController.m */,
+				8523E40229BC78030090108C /* JKClockNotificationViewController.h */,
+				8523E40329BC78030090108C /* JKClockNotificationViewController.m */,
+				8523E40529BC78930090108C /* JKClockScheduleModel.h */,
+				8523E40629BC78930090108C /* JKClockScheduleModel.m */,
 				96AFD521231D0F7C00C36CFE /* JKDatePicker.h */,
 				96AFD522231D0F7C00C36CFE /* JKDatePicker.m */,
 			);
@@ -2941,6 +2951,7 @@
 				9693FA3F2486219900BEB9A8 /* CubismCdiJson.cpp in Sources */,
 				9693FA522486219900BEB9A8 /* CubismMatrix44.cpp in Sources */,
 				962FCB4B21DCA5FF00D79971 /* ImageInfoHelper.cpp in Sources */,
+				8523E40429BC78030090108C /* JKClockNotificationViewController.m in Sources */,
 				CBD47D4E27C4B84200CFB7F0 /* mz_strm_os_posix.c in Sources */,
 				CB896D0A283E3D57006B5388 /* ViewController+MASAdditions.m in Sources */,
 				966BD366221CE79A008AA4D5 /* JKShellManagerCell.m in Sources */,
@@ -2990,6 +3001,7 @@
 				CBD47CAB27C494A900CFB7F0 /* Svga.pbobjc.m in Sources */,
 				CBD47D4F27C4B84200CFB7F0 /* mz_strm_pkcrypt.c in Sources */,
 				9693FA552486219900BEB9A8 /* csmRectF.cpp in Sources */,
+				8523E40729BC78930090108C /* JKClockScheduleModel.m in Sources */,
 				CBD47CA927C494A900CFB7F0 /* SVGAContentLayer.m in Sources */,
 				CBD47D1927C4960000CFB7F0 /* GPBArray.m in Sources */,
 				CBD47D5027C4B84200CFB7F0 /* mz_strm_zlib.c in Sources */,

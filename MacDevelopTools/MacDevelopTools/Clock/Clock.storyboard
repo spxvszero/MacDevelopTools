@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="nEb-w3-7k1">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="nEb-w3-7k1">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +29,6 @@
                                             <tableColumns>
                                                 <tableColumn width="215.5" minWidth="40" maxWidth="1000" id="e92-Mu-jmw">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -40,9 +39,8 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn width="206.5" minWidth="40" maxWidth="1000" id="gVu-J7-CrM">
+                                                <tableColumn width="205.5" minWidth="40" maxWidth="1000" id="gVu-J7-CrM">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -97,7 +95,7 @@ DQ
                                 </connections>
                             </button>
                             <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-wM-wOE" customClass="JKDatePicker">
-                                <rect key="frame" x="10" y="261" width="165" height="28"/>
+                                <rect key="frame" x="10" y="261" width="188" height="28"/>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="rhg-md-I1J">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="-595929600">
@@ -113,14 +111,14 @@ DQ
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="XQl-l0-Ye5"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Qmz-JH-2QV">
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Qmz-JH-2QV">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vc1-vP-xgz">
-                                <rect key="frame" x="176" y="256" width="75" height="32"/>
+                                <rect key="frame" x="199" y="256" width="75" height="32"/>
                                 <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fOn-xM-CMC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -159,7 +157,87 @@ DQ
                 </viewController>
                 <customObject id="WF9-Kz-L0f" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="34"/>
+            <point key="canvasLocation" x="-49" y="64"/>
+        </scene>
+        <!--Clock Notification View Controller-->
+        <scene sceneID="2zH-yx-a20">
+            <objects>
+                <viewController storyboardIdentifier="JKClockNotificationViewController" id="bKz-Ao-dLt" customClass="JKClockNotificationViewController" sceneMemberID="viewController">
+                    <view key="view" misplaced="YES" id="CYz-Fj-Xh2">
+                        <rect key="frame" x="0.0" y="0.0" width="436" height="98"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P2G-ag-ag3">
+                                <rect key="frame" x="185" y="3" width="67" height="32"/>
+                                <buttonCell key="cell" type="push" title="关闭" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9i6-5B-r0B">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeBtnAction:" target="bKz-Ao-dLt" id="4Sr-sK-nlQ"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Iry-hc-e5S">
+                                <rect key="frame" x="300" y="13" width="44" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="分钟后" id="gkZ-OV-3Bw">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JYL-6h-Jpc">
+                                <rect key="frame" x="338" y="3" width="94" height="32"/>
+                                <buttonCell key="cell" type="push" title="再提醒我" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Lv5-Ih-KId">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="remindMeLaterBtnAction:" target="bKz-Ao-dLt" id="3GX-aA-jse"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vJR-iV-1qh">
+                                <rect key="frame" x="8" y="51" width="420" height="26"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" alignment="center" id="2d0-q1-KmY">
+                                    <font key="font" metaFont="system" size="22"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zyw-AM-Q1B">
+                                <rect key="frame" x="270" y="10" width="30" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="kFS-7m-r6Q"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="5" drawsBackground="YES" id="euj-S5-hbc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vJR-iV-1qh" firstAttribute="top" secondItem="CYz-Fj-Xh2" secondAttribute="top" constant="30" id="3KU-6Y-aU9"/>
+                            <constraint firstItem="zyw-AM-Q1B" firstAttribute="centerY" secondItem="Iry-hc-e5S" secondAttribute="centerY" id="5Ig-ss-rgl"/>
+                            <constraint firstAttribute="bottom" secondItem="P2G-ag-ag3" secondAttribute="bottom" constant="10" id="98R-Ts-Wff"/>
+                            <constraint firstItem="P2G-ag-ag3" firstAttribute="centerX" secondItem="CYz-Fj-Xh2" secondAttribute="centerX" id="COh-i7-mOA"/>
+                            <constraint firstItem="vJR-iV-1qh" firstAttribute="leading" secondItem="CYz-Fj-Xh2" secondAttribute="leading" constant="10" id="EmM-SH-28e"/>
+                            <constraint firstItem="JYL-6h-Jpc" firstAttribute="centerY" secondItem="P2G-ag-ag3" secondAttribute="centerY" id="FOZ-Ud-euL"/>
+                            <constraint firstItem="P2G-ag-ag3" firstAttribute="top" secondItem="vJR-iV-1qh" secondAttribute="bottom" constant="20" id="GB5-xc-UJ5"/>
+                            <constraint firstItem="Iry-hc-e5S" firstAttribute="centerY" secondItem="JYL-6h-Jpc" secondAttribute="centerY" id="GrL-3V-mfs"/>
+                            <constraint firstAttribute="trailing" secondItem="JYL-6h-Jpc" secondAttribute="trailing" constant="10" id="Hz7-wr-KNe"/>
+                            <constraint firstItem="Iry-hc-e5S" firstAttribute="leading" secondItem="zyw-AM-Q1B" secondAttribute="trailing" constant="2" id="TNw-h0-62k"/>
+                            <constraint firstItem="JYL-6h-Jpc" firstAttribute="leading" secondItem="Iry-hc-e5S" secondAttribute="trailing" constant="2" id="Y8N-dx-8dO"/>
+                            <constraint firstAttribute="trailing" secondItem="vJR-iV-1qh" secondAttribute="trailing" constant="10" id="hf8-7y-kgQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentTxtField" destination="vJR-iV-1qh" id="0D6-wp-W8R"/>
+                        <outlet property="minutesInputTxtField" destination="zyw-AM-Q1B" id="Jn8-SS-dme"/>
+                    </connections>
+                </viewController>
+                <customObject id="mtr-HI-oRw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5" y="447.5"/>
         </scene>
     </scenes>
 </document>

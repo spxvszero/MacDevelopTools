@@ -14,5 +14,8 @@
 
 - (void)closePopOver;
 
+//this NSStatusBarButton using for some view to show their position related to app icon in status bar.
+- (id)mainItemViewObject;
+
 @end
 

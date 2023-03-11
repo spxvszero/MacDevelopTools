@@ -9,20 +9,13 @@
 #import "JKClockViewController.h"
 #import "JKDatePicker.h"
 #import <UserNotifications/UserNotifications.h>
-
-@interface JKClockScheduleModel : NSObject
-
-@property (nonatomic, strong) NSDate *fireDate;
-@property (nonatomic, strong) NSString *textAlert;
-@property (nonatomic, strong) NSUserNotification *notification;
-
-@end
-@implementation JKClockScheduleModel
-@end
+#import "JKClockScheduleModel.h"
+#import "JKClockNotificationViewController.h"
+#import "Appdelegate.h"
 
 static NSInteger JKUserNotificationIdentify = 0;
 
-@interface JKClockViewController ()<NSTableViewDataSource,NSTableViewDelegate,NSUserNotificationCenterDelegate>
+@interface JKClockViewController ()<NSTableViewDataSource,NSTableViewDelegate,NSUserNotificationCenterDelegate,UNUserNotificationCenterDelegate>
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet JKDatePicker *datePicker;
@@ -38,6 +31,9 @@ static NSInteger JKUserNotificationIdentify = 0;
 @property (nonatomic, strong) NSArray *tableColTitle;
 @property (nonatomic, strong) NSMutableArray<JKClockScheduleModel *> *scheduleArr;
 
+@property (nonatomic, strong) NSPopover *popOver;
+@property (nonatomic, strong) JKClockNotificationViewController *notifyViewController;
+
 @end
 
 @implementation JKClockViewController
@@ -46,7 +42,11 @@ static NSInteger JKUserNotificationIdentify = 0;
     [super viewDidLoad];
     // Do view setup here.
     
-    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    if (@available(macOS 10.14, *)) {
+         [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+    }else{
+        [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    }
     
     self.followTimer = YES;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerFire) userInfo:nil repeats:YES];
@@ -83,11 +83,14 @@ static NSInteger JKUserNotificationIdentify = 0;
     model.fireDate = self.datePicker.dateValue;
     model.textAlert = self.inputTxtField.stringValue;
     
+    if ([model.fireDate timeIntervalSinceNow] <= 0) {
+        NSLog(@"Time Interval should not be a nagetive number.");
+        return;
+    }
+    
     [self addScheduleModel:model];
     
     self.inputTxtField.stringValue = @"";
-    
-    [self.tableView reloadData];
 }
 
 - (void)addScheduleModel:(JKClockScheduleModel *)model
@@ -104,6 +107,8 @@ static NSInteger JKUserNotificationIdentify = 0;
     }
     [self postNotificationWithModel:model];
     [self.scheduleArr insertObject:model atIndex:index];
+    
+    [self.tableView reloadData];
 }
 
 - (IBAction)removeBtnAction:(id)sender
@@ -138,15 +143,29 @@ static NSInteger JKUserNotificationIdentify = 0;
     if (self.followTimer) {
         self.datePicker.dateValue = [NSDate date];
     }
+    [self timeCheck];
 }
 
 - (void)timeCheck
 {
     JKClockScheduleModel *model = [self obtainTimeTopSchedule];
     if (model) {
-        [self postNotificationWithModel:model];
+        [self showNotifyWithModel:model];
+        NSLog(@"Action for model : %@",model.textAlert);
         [self timeCheck];
     }
+}
+
+- (void)showNotifyWithModel:(JKClockScheduleModel *)model
+{
+    if (!self.popOver) {
+        //this method only for quick build view
+        return;
+    }
+    self.notifyViewController.model = model;
+    AppDelegate *del = [[NSApplication sharedApplication] delegate];
+    NSStatusBarButton *btn = [del mainItemViewObject];
+    [self.popOver showRelativeToRect:btn.bounds ofView:btn preferredEdge:NSRectEdgeMinY];
 }
 
 - (JKClockScheduleModel *)obtainTimeTopSchedule
@@ -157,9 +176,8 @@ static NSInteger JKUserNotificationIdentify = 0;
     
     JKClockScheduleModel *model = [self.scheduleArr firstObject];
     
-    NSString *scheduleTime = [self.formatter stringFromDate:model.fireDate];
-    NSString *curTime = [self.formatter stringFromDate:[NSDate date]];
-    if ([scheduleTime isEqualToString:curTime]) {
+    NSTimeInterval time = [model.fireDate timeIntervalSinceNow];
+    if (ABS(time) < 1) {
         [self.scheduleArr removeObject:model];
         [self.tableView reloadData];
         return model;
@@ -177,29 +195,26 @@ static NSInteger JKUserNotificationIdentify = 0;
     if (@available(macOS 10.14, *)) {
         
         UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
-        content.title = [NSString localizedUserNotificationStringForKey:@"Wake up!" arguments:nil];
-        content.body = [NSString localizedUserNotificationStringForKey:@"Rise and shine! It's morning time!"
+        content.title = [NSString localizedUserNotificationStringForKey:@"Alert" arguments:nil];
+        content.body = [NSString localizedUserNotificationStringForKey:model.textAlert
                 arguments:nil];
-         
-//        // Configure the trigger for a 7am wakeup.
-//        NSDateComponents* date = [[NSDateComponents alloc] init];
-//        date.hour = 7;
-//        date.minute = 0;
-//        UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger
-//               triggerWithDateMatchingComponents:date repeats:NO];
-         
-        // Create the request object.
-//        UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
         
-        UNTimeIntervalNotificationTrigger *timeIntervalTrigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:false];
+        NSTimeInterval interval = [model.fireDate timeIntervalSinceNow];
         
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"test" content:content trigger:timeIntervalTrigger];
+        UNTimeIntervalNotificationTrigger *timeIntervalTrigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:interval repeats:false];
+        NSString *identifier = [NSString stringWithFormat:@"%ld",JKUserNotificationIdentify++];
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier
+                                                                              content:content
+                                                                              trigger:timeIntervalTrigger];
+        model.identifier = identifier;
         [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
                                                                        withCompletionHandler:^(NSError * _Nullable error) {
-            NSLog(@"Notification : %@",error);
+            if (error == nil) {
+                NSLog(@"Notification add success.");
+            }else{
+                NSLog(@"Notification add failed: %@",error);
+            }
         }] ;
-        
-
         
     }else{
         NSUserNotification *notification = [[NSUserNotification alloc] init];
@@ -209,24 +224,46 @@ static NSInteger JKUserNotificationIdentify = 0;
         notification.deliveryDate = model.fireDate;
         notification.identifier = [NSString stringWithFormat:@"%ld",JKUserNotificationIdentify++];
         
-        model.notification = notification;
+        model.identifier = notification.identifier;
         [[NSUserNotificationCenter defaultUserNotificationCenter] scheduleNotification:notification];
     }
 }
 
 - (void)removeNotificationWithModel:(JKClockScheduleModel *)model
 {
-    if (model.notification) {
-        [[NSUserNotificationCenter defaultUserNotificationCenter] removeScheduledNotification:model.notification];
+    if (!model || !model.identifier || model.identifier.length <= 0) {
+        return;
+    }
+    if (@available(macOS 10.14, *)) {
+        [[UNUserNotificationCenter currentNotificationCenter] removePendingNotificationRequestsWithIdentifiers:@[model.identifier]];
+        [[UNUserNotificationCenter currentNotificationCenter] removeDeliveredNotificationsWithIdentifiers:@[model.identifier]];
+    }else{
+        if (model.notification) {
+            [[NSUserNotificationCenter defaultUserNotificationCenter] removeScheduledNotification:model.notification];
+            [[NSUserNotificationCenter defaultUserNotificationCenter] removeDeliveredNotification:model.notification];
+        }
     }
 }
 
-#pragma mark - notification delegate
+#pragma mark - UNUserNotificationCenter Delegate
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
+API_AVAILABLE(macos(10.14))
+{
+    NSLog(@"%s",__func__);
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler
+API_AVAILABLE(macos(10.14))
+{
+    NSLog(@"%s",__func__);
+}
+
+#pragma mark - NSUserNotification delegate
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center didDeliverNotification:(NSUserNotification *)notification
 {
     for (JKClockScheduleModel *model in self.scheduleArr) {
-        if ([model.notification.identifier isEqualToString:notification.identifier]) {
+        if ([model.identifier isEqualToString:notification.identifier]) {
             [self.scheduleArr removeObject:model];
             break;
         }
@@ -284,5 +321,28 @@ static NSInteger JKUserNotificationIdentify = 0;
         _scheduleArr = [NSMutableArray array];
     }
     return _scheduleArr;
+}
+
+- (NSPopover *)popOver
+{
+    if (!_popOver) {
+        _popOver = [[NSPopover alloc] init];
+        NSStoryboard *sb = [NSStoryboard storyboardWithName:@"Clock" bundle:nil];
+        JKClockNotificationViewController *vc = [sb instantiateControllerWithIdentifier:NSStringFromClass([JKClockNotificationViewController class])];
+        self.notifyViewController = vc;
+        __weak typeof(self) weakSelf = self;
+        vc.CloseActionBlock = ^{
+            [weakSelf.popOver performClose:nil];
+        };
+        vc.RemindMeLaterActionBlock = ^(JKClockNotificationViewController * _Nonnull vc, NSInteger minutes) {
+            if (minutes <= 0) {
+                return;
+            }
+            vc.model.fireDate = [[NSDate date] dateByAddingTimeInterval:minutes * 60];
+            [weakSelf addScheduleModel:vc.model];
+        };
+        _popOver.contentViewController = vc;
+    }
+    return _popOver;
 }
 @end

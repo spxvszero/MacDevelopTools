@@ -271,6 +271,11 @@ static const char *getPropertyType(objc_property_t property) {
     }];
 }
 
+- (id)mainItemViewObject
+{
+    return self.statusBarItem.button;
+}
+
 #pragma mark - getter
 
 - (NSMenu *)rightMenu
