@@ -19,6 +19,7 @@ static NSInteger JKUserNotificationIdentify = 0;
 
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet JKDatePicker *datePicker;
+@property (weak) IBOutlet NSTextField *additionalMinutes;
 @property (weak) IBOutlet NSTextField *inputTxtField;
 @property (weak) IBOutlet NSButton *removeBtn;
 @property (weak) IBOutlet NSButton *addBtn;
@@ -79,14 +80,22 @@ static NSInteger JKUserNotificationIdentify = 0;
 }
 - (IBAction)addBtnAction:(id)sender
 {
-    JKClockScheduleModel *model = [[JKClockScheduleModel alloc] init];
-    model.fireDate = self.datePicker.dateValue;
-    model.textAlert = self.inputTxtField.stringValue;
+    NSDate *fireDate = self.datePicker.dateValue;
+    if (self.additionalMinutes.stringValue && self.additionalMinutes.stringValue.length > 0) {
+        NSInteger minutes = [self.additionalMinutes.stringValue integerValue];
+        fireDate = [fireDate dateByAddingTimeInterval:minutes * 60];
+    }
     
-    if ([model.fireDate timeIntervalSinceNow] <= 0) {
+    if ([fireDate timeIntervalSinceNow] <= 0) {
         NSLog(@"Time Interval should not be a nagetive number.");
         return;
     }
+    
+    JKClockScheduleModel *model = [[JKClockScheduleModel alloc] init];
+    model.fireDate = fireDate;
+    model.textAlert = self.inputTxtField.stringValue;
+    
+
     
     [self addScheduleModel:model];
     
@@ -129,6 +138,7 @@ static NSInteger JKUserNotificationIdentify = 0;
 - (IBAction)resetBtnAction:(id)sender
 {
     self.datePicker.dateValue = [NSDate date];
+    self.additionalMinutes.stringValue = @"0";
     self.followTimer = YES;
     [self.datePicker.window makeFirstResponder:nil];
 }
