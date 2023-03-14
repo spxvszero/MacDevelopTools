@@ -9,6 +9,7 @@
 #include <CubismFramework.hpp>
 #include <Math/CubismMatrix44.hpp>
 #include <Type/csmVector.hpp>
+#include <string>
 
 class LAppModel;
 
@@ -21,6 +22,9 @@ class LAppLive2DManager
 {
 
 public:
+    
+    void setupResouceRootPath(std::string  path);
+    
     /**
     * @brief   クラスのインスタンス（シングルトン）を返す。<br>
     *           インスタンスが生成されていない場合は内部でインスタンを生成する。

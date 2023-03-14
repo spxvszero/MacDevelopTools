@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="M8l-Xz-hwd">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="M8l-Xz-hwd">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="emn-Ar-c4g">
-                                <rect key="frame" x="401" y="3" width="58" height="32"/>
+                                <rect key="frame" x="394" y="3" width="64" height="32"/>
                                 <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1yD-WQ-5h8">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -25,7 +25,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dpy-CE-jZA">
-                                <rect key="frame" x="297" y="3" width="74" height="32"/>
+                                <rect key="frame" x="282" y="3" width="80" height="32"/>
                                 <buttonCell key="cell" type="push" title="Resize" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kkp-Ms-Zzk">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bfx-XN-dQc">
-                                <rect key="frame" x="355" y="33" width="104" height="32"/>
+                                <rect key="frame" x="348" y="34" width="110" height="32"/>
                                 <buttonCell key="cell" type="push" title="Next Scene" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6KN-6R-tyc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sMV-9w-2Fj">
-                                <rect key="frame" x="191" y="3" width="76" height="32"/>
+                                <rect key="frame" x="169" y="3" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Center" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7gM-rS-h9M">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -54,19 +54,43 @@
                                     <action selector="centerAction:" target="M8l-Xz-hwd" id="Wqc-2t-3QN"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3up-tW-FkI">
+                                <rect key="frame" x="247" y="44" width="4" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingHead" id="sFg-hr-ZkU">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2PU-KK-bm4">
+                                <rect key="frame" x="253" y="34" width="97" height="32"/>
+                                <buttonCell key="cell" type="push" title="Resource" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="A12-CU-1wn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resourceDirSelectAction:" target="M8l-Xz-hwd" id="crj-LS-8qN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="emn-Ar-c4g" secondAttribute="bottom" constant="10" id="Fx6-ej-1wH"/>
                             <constraint firstItem="emn-Ar-c4g" firstAttribute="leading" secondItem="dpy-CE-jZA" secondAttribute="trailing" constant="44" id="KN7-wL-2pV"/>
                             <constraint firstAttribute="trailing" secondItem="Bfx-XN-dQc" secondAttribute="trailing" constant="10" id="Lgk-Ou-RpH"/>
                             <constraint firstItem="emn-Ar-c4g" firstAttribute="top" secondItem="Bfx-XN-dQc" secondAttribute="bottom" constant="10" id="PcF-8Y-igd"/>
+                            <constraint firstItem="3up-tW-FkI" firstAttribute="centerY" secondItem="2PU-KK-bm4" secondAttribute="centerY" id="Zd3-hL-O8e"/>
                             <constraint firstItem="dpy-CE-jZA" firstAttribute="centerY" secondItem="emn-Ar-c4g" secondAttribute="centerY" id="bWZ-f1-nSE"/>
                             <constraint firstItem="sMV-9w-2Fj" firstAttribute="centerY" secondItem="dpy-CE-jZA" secondAttribute="centerY" id="cFt-Oc-6Qu"/>
+                            <constraint firstItem="2PU-KK-bm4" firstAttribute="leading" secondItem="3up-tW-FkI" secondAttribute="trailing" constant="10" id="emP-4s-Ncl"/>
                             <constraint firstAttribute="trailing" secondItem="emn-Ar-c4g" secondAttribute="trailing" constant="10" id="kUN-zc-Yeq"/>
+                            <constraint firstItem="2PU-KK-bm4" firstAttribute="centerY" secondItem="Bfx-XN-dQc" secondAttribute="centerY" id="lLI-eL-KkO"/>
+                            <constraint firstItem="Bfx-XN-dQc" firstAttribute="leading" secondItem="2PU-KK-bm4" secondAttribute="trailing" constant="10" id="ofY-AC-x5g"/>
+                            <constraint firstItem="3up-tW-FkI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tEe-d1-Si8" secondAttribute="leading" constant="10" id="t0t-5P-lF0"/>
                             <constraint firstItem="dpy-CE-jZA" firstAttribute="leading" secondItem="sMV-9w-2Fj" secondAttribute="trailing" constant="44" id="xRu-FP-9xp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pathLabel" destination="3up-tW-FkI" id="h65-Qu-qFN"/>
                         <outlet property="runBtn" destination="emn-Ar-c4g" id="n88-jH-P2Z"/>
                     </connections>
                 </viewController>

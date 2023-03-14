@@ -40,7 +40,7 @@ public:
     /**
     * @brief   APPに必要なものを初期化する。
     */
-    bool Initialize();
+    bool Initialize(std::string resourcePath);
 
     /**
     * @brief   解放する。
@@ -117,7 +117,7 @@ public:
     /**
      * @brief   ルートディレクトリを設定する。
      */
-    void SetRootDirectory();
+    void SetRootDirectory(std::string resourcePath);
     
     
     void NextScene();

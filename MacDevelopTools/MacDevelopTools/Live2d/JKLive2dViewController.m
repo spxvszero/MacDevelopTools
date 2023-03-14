@@ -9,9 +9,13 @@
 #import "JKLive2dViewController.h"
 #import "AppDelegate.h"
 #import "JKLive2dHelper.h"
+#import "NSPanel+JK.h"
 
 @interface JKLive2dViewController ()
 @property (weak) IBOutlet NSButton *runBtn;
+
+@property (nonatomic, strong) NSOpenPanel *openPanel;
+@property (weak) IBOutlet NSTextField *pathLabel;
 
 @end
 
@@ -63,6 +67,38 @@
          NSLog(@"Live2d not running");
     }
 }
+
+
+- (IBAction)resourceDirSelectAction:(id)sender
+{
+    
+    if (self.openPanel.visible) {
+        return;
+    }
+    
+    self.openPanel.canChooseFiles = NO;
+    self.openPanel.canChooseDirectories = YES;
+    
+    __weak typeof(self) weakSelf = self;
+    [self.openPanel jk_beginWithCompletionHandler:^(NSModalResponse result) {
+        if (result == NSModalResponseOK) {
+            weakSelf.pathLabel.stringValue = weakSelf.openPanel.URL.relativePath;
+            [JKLive2dHelper setResoucePath:weakSelf.openPanel.URL.relativePath];
+        }
+    }];
+}
+
+- (NSOpenPanel *)openPanel
+{
+    if (!_openPanel) {
+        _openPanel = [NSOpenPanel openPanel];
+        _openPanel.showsHiddenFiles = YES;
+        _openPanel.canCreateDirectories = YES;
+        _openPanel.showsResizeIndicator = YES;
+    }
+    return _openPanel;
+}
+
 
 
 @end

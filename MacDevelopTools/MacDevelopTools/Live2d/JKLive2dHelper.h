@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)start;
 
++ (BOOL)setResoucePath:(NSString *)str;
+
 + (BOOL)isRunning;
 
 + (void)stop;

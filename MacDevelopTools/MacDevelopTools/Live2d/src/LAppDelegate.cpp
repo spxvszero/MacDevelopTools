@@ -46,7 +46,7 @@ void LAppDelegate::ReleaseInstance()
     s_instance = NULL;
 }
 
-bool LAppDelegate::Initialize()
+bool LAppDelegate::Initialize(std::string resourcePath)
 {
     if (DebugLogEnable)
     {
@@ -127,7 +127,7 @@ bool LAppDelegate::Initialize()
     // Cubism SDK の初期化
     InitializeCubism();
 
-    SetRootDirectory();
+    SetRootDirectory(resourcePath);
 
     //load model
     LAppLive2DManager::GetInstance();
@@ -367,22 +367,24 @@ GLuint LAppDelegate::CreateShader()
     return programId;
 }
 
-void LAppDelegate::SetRootDirectory()
+void LAppDelegate::SetRootDirectory(std::string resourcePath)
 {
-    char path[1024];
-    uint32_t size = sizeof(path);
-    _NSGetExecutablePath(path, &size);
-    Csm::csmVector<string> splitStrings = this->Split(path, '/');
-
-    this->_rootDirectory = "";
-    for(int i = 0; i < splitStrings.GetSize() - 1; i++)
-    {
-        this->_rootDirectory = this->_rootDirectory + "/" +splitStrings[i];
-    }
-    this->_rootDirectory += "/";
+    this->_rootDirectory = resourcePath;
     
-    //实际位置与打包之后的资源位置不符合，所以另外设置资源位置，后续修改
-    this->_rootDirectory = Live2d_RES;
+//    char path[1024];
+//    uint32_t size = sizeof(path);
+//    _NSGetExecutablePath(path, &size);
+//    Csm::csmVector<string> splitStrings = this->Split(path, '/');
+//
+//    this->_rootDirectory = "";
+//    for(int i = 0; i < splitStrings.GetSize() - 1; i++)
+//    {
+//        this->_rootDirectory = this->_rootDirectory + "/" +splitStrings[i];
+//    }
+//    this->_rootDirectory += "/";
+//
+//    //实际位置与打包之后的资源位置不符合，所以另外设置资源位置，后续修改
+//    this->_rootDirectory = Live2d_RES;
 }
 
 Csm::csmVector<string> LAppDelegate::Split(const std::string& baseString, char delimiter)

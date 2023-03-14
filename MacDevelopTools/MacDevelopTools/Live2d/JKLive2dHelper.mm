@@ -15,12 +15,25 @@ static BOOL live2d_isRunning = false;
 static BOOL live2d_isShowingResize = false;
 static int screen_height = 0;
 static id mouseTrackMonitor = nil;
+static NSString *currentResoucePath = nil;
 
 @implementation JKLive2dHelper
 
++ (BOOL)setResoucePath:(NSString *)str
+{
+    currentResoucePath = str;
+    return true;
+}
+
 + (void)start
 {
-    if (LAppDelegate::GetInstance()->Initialize() == GL_FALSE)
+    //check path
+    if (![[NSFileManager defaultManager] fileExistsAtPath:currentResoucePath]) {
+        NSLog(@"Resource Path Not Found.");
+        return;
+    }
+    
+    if (LAppDelegate::GetInstance()->Initialize([currentResoucePath cStringUsingEncoding:NSUTF8StringEncoding]) == GL_FALSE)
     {
         NSLog(@"Failed Start Live2d");
         return;
