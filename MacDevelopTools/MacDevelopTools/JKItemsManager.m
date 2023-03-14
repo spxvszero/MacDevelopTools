@@ -7,7 +7,7 @@
 //
 
 #import "JKItemsManager.h"
-
+#import "JKMacFileStoragePath.h"
 
 @implementation JKItemsObject
 - (NSDictionary *)dicValue
@@ -58,8 +58,13 @@
 
 - (void)readFromPlist
 {
-    NSString *plistPath = [self itemsListPath];
+    //try to read from sand box.
+    NSString *plistPath = [self itemsListSandboxPath];
     NSArray *listArr = [NSArray arrayWithContentsOfFile:plistPath];
+    if (!listArr || listArr.count <= 0) {
+        plistPath = [self itemsListPath];
+        listArr = [NSArray arrayWithContentsOfFile:plistPath];
+    }
     
     if (listArr && listArr.count > 0) {
         [self seralizeListItems:listArr];
@@ -80,13 +85,19 @@
     for (JKItemsObject *obj in self.listItemsArr) {
         [writeArr addObject:[obj dicValue]];
     }
-    [writeArr writeToFile:[self itemsListPath] atomically:true];
+    BOOL res = [writeArr writeToFile:[self itemsListSandboxPath] atomically:true];
+    NSLog(@"write Item res %@",res ?@"success":@"failed");
 }
 
 - (NSString *)itemsListPath
 {
     return [[NSBundle mainBundle] pathForResource:@"items" ofType:@"plist"];
 }
+- (NSString *)itemsListSandboxPath
+{
+    return [[JKMacFileStoragePath itemsManagerListDirPath] stringByAppendingPathComponent:@"items.plist"];
+}
+
 - (void)addNotification
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemListChange) name:kJKStatusItemListChangeNotification object:nil];

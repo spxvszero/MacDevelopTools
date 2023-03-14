@@ -49,5 +49,18 @@
     return dirPath;
 }
 
++ (NSString *)itemsManagerListDirPath
+{
+    NSString *dirPath = [[self class] rootDirPath];
+    if (!dirPath) {
+        return nil;
+    }
+    dirPath = [NSString pathWithComponents:@[dirPath, @"Items"]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dirPath]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:false attributes:nil error:nil];
+    }
+    return dirPath;
+}
+
 @end
 

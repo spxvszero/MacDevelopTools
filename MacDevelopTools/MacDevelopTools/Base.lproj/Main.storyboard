@@ -697,13 +697,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autoresizesSubviews="NO" wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="wKf-8O-Zv8" customClass="JKScrollView">
-                                <rect key="frame" x="10" y="275" width="453" height="45"/>
+                                <rect key="frame" x="10" y="265" width="453" height="55"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="oxV-2U-D0N">
-                                    <rect key="frame" x="0.0" y="0.0" width="453" height="45"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="453" height="55"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="e9c-SD-1Ip">
-                                            <rect key="frame" x="0.0" y="0.0" width="453" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="453" height="55"/>
                                             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="OIe-jI-1lC">
                                                 <size key="itemSize" width="20" height="20"/>
@@ -714,7 +714,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </clipView>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="s3M-T2-cnX"/>
+                                    <constraint firstAttribute="height" constant="55" id="s3M-T2-cnX"/>
                                 </constraints>
                                 <edgeInsets key="scrollerInsets" left="0.0" right="0.0" top="0.0" bottom="100"/>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="DwY-b4-1zq">
@@ -727,7 +727,7 @@
                                 </scroller>
                             </scrollView>
                             <containerView autoresizesSubviews="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAI-fZ-yNv">
-                                <rect key="frame" x="10" y="10" width="453" height="255"/>
+                                <rect key="frame" x="10" y="10" width="453" height="245"/>
                             </containerView>
                         </subviews>
                         <constraints>
@@ -820,13 +820,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="groove" autohidesScrollers="YES" horizontalLineScroll="37" horizontalPageScroll="10" verticalLineScroll="37" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-Yb-v9A">
-                                <rect key="frame" x="0.0" y="0.0" width="492" height="245"/>
+                                <rect key="frame" x="0.0" y="0.0" width="492" height="243"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="aNY-Hf-tGk">
-                                    <rect key="frame" x="2" y="2" width="488" height="241"/>
+                                    <rect key="frame" x="2" y="2" width="488" height="239"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="35" rowSizeStyle="automatic" viewBased="YES" id="woJ-Zv-WSf" customClass="JKManageListItemTableView">
-                                            <rect key="frame" x="0.0" y="0.0" width="488" height="241"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="488" height="239"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

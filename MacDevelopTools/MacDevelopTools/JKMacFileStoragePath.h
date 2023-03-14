@@ -16,5 +16,7 @@
 
 + (NSString *)shellManagerDataDirPath;
 
++ (NSString *)itemsManagerListDirPath;
+
 @end
 
