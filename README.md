@@ -28,6 +28,8 @@ A Mac application for useful tools, build it just for learning :)
 
   This is developed for convinient because xcode always display Chinese in Unicode. And I also add URLEncode in this.
 
+  Preview : 
+
   ![EnDecode](Previews/en_decode.png)
 
   
@@ -36,17 +38,23 @@ A Mac application for useful tools, build it just for learning :)
 
   This is for translating JSON string to Objective-C class. It also support Swift.Maybe i can add more languages in this.
 
+  Preview : 
+
   ![jsonmodel](Previews/jsonmodel.png)
 
 * ResizeImage
 
   This is for quickly resize lot of images. Maybe have some bugs ? I've only used it a few times.
 
+  Preview : 
+
   ![resize](Previews/resize_image.png)
 
 * Move Files
 
   This is for move files with filter quickly.But macOS Catalina+ can do it inner system.So...
+
+  Preview : 
 
   ![move_files](Previews/move_files.png)
 
@@ -58,11 +66,15 @@ A Mac application for useful tools, build it just for learning :)
 
   This is for checking image info quickly.No much to do.
 
+  Preview : 
+
   ![imageinfo](Previews/image_info.png)
 
 * AutoPack(iOS)
 
   For packing ipa quickly. Implement by scripts actually.
+
+  Preview : 
 
   ![autopack](Previews/auto_pack.png)
 
@@ -72,11 +84,15 @@ A Mac application for useful tools, build it just for learning :)
 
   It can generate/read qrcode easily. It also can capture screen and read info directly.
 
+  Preview : 
+
   ![qrcode](Previews/qrcode.png)
 
 * JSON Format
 
   This is also useful. It can beauty JSON data and serialize JSON. You can copy key or value easily with selection by hotkey.
+
+  Preview : 
 
   ![jsonformat](Previews/jsonformat.png)
 
@@ -84,17 +100,23 @@ A Mac application for useful tools, build it just for learning :)
 
   This feature is for manager shell windows like putty or finalshell do. It can use but lack of escape code implement.
 
+  Preview : 
+
   ![shellmanager](Previews/shell_manager.png)
 
 * Clock
 
   This feature is a notification with custom alert, like drink water notify or take a break notify etc
 
+  Preview : 
+
   ![clock](Previews/clock.png)
 
 * Lottie Previewer
 
   This is for easier preview Lottie animation files. You can drag JSON file directly into it. It can also control animation speed、position、size...
+
+  Preview : 
 
   ![lottie](Previews/lottie.png)
 
@@ -110,6 +132,8 @@ A Mac application for useful tools, build it just for learning :)
 
   This is a remote command excute client for other project [GoServer](https://github.com/spxvszero/jacky_go). if you not fimiliar with this, don't use it.
 
+  Preview : 
+  
   ![goserver](Previews/goserver.jpeg)
 
 ## More Settings
