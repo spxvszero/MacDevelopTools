@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSString *nickName;
 @property(nonatomic, assign) NSInteger actionPath;
 @property(nonatomic, assign) NSInteger action;
+@property(nonatomic, assign) BOOL isQuickCMD;
 @property(nonatomic, strong) NSString *content;
 
 

@@ -49,6 +49,8 @@
 
 @property (weak) IBOutlet NSStackView *actionBtnsView;
 @property (weak) IBOutlet NSPopUpButton *actionTemplateItemsView;
+@property (weak) IBOutlet NSButton *optionCheckBox;
+
 @property (weak) IBOutlet NSPopUpButton *actionListItemsView;
 
 @property (weak) IBOutlet NSBox *outputBox;
@@ -72,6 +74,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+    self.inputDataView.enabledTextCheckingTypes = 0;
+    self.outputDataView.enabledTextCheckingTypes = 0;
+    
     self.serverList = [NSMutableArray arrayWithArray:[JKGoServerDataStorage serverListFromDisk]];
     self.actionsList = [NSMutableArray arrayWithArray:[JKGoServerDataStorage actionsListFromDisk]];
     [self setupServerListView];
@@ -237,6 +242,7 @@
             }
             JKGoServerActionModel *model = [self.actionsList objectAtIndex:self.scriptsListView.selectedRow];
             self.inputDataView.string = model.content?:@"";
+            self.optionCheckBox.state = model.isQuickCMD ? NSControlStateValueOn : NSControlStateValueOff;
             [self.actionListItemsView selectItemAtIndex:model.action];
             [self.actionTemplateItemsView selectItemAtIndex:model.actionPath];
         }
@@ -451,10 +457,17 @@
 {
     NSString *reqDataStr = nil;
     NSString *inputStr = self.inputDataView.string;
-    if (inputStr) {
-        reqDataStr = [inputStr unBeautyJSON];
-        self.inputDataView.string = [inputStr beautyJSON];
+    JKGoControlActionCategory catagory = [self getCategory];
+    if (catagory == ActionCategoryCmd && self.optionCheckBox.state == NSControlStateValueOn) {
+        //Quick Command Check, this will bind in bash command
+        reqDataStr = [NSString stringWithFormat:@"{\"cmd\":\"bash\",\"params\":[\"-c\",\"%@\"]}",inputStr];
+    }else{
+        if (inputStr) {
+            reqDataStr = [inputStr unBeautyJSON];
+            self.inputDataView.string = [inputStr beautyJSON];
+        }
     }
+   
     
     __weak typeof(self) weakSelf = self;
     NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
@@ -579,6 +592,7 @@
         actionModel = [[JKGoServerActionModel alloc] init];
         actionModel.actionPath = self.actionTemplateItemsView.indexOfSelectedItem;
         actionModel.action = self.actionListItemsView.indexOfSelectedItem;
+        actionModel.isQuickCMD = (self.optionCheckBox.state == NSControlStateValueOn);
         actionModel.content = [self.inputDataView.string copy];
         c.SaveActionBlock = ^(JKGoServerSaveActionViewController * _Nonnull controller, BOOL confirm) {
             if (confirm) {

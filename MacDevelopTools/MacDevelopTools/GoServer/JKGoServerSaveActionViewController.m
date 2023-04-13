@@ -13,6 +13,7 @@
 @property (weak) IBOutlet NSTextField *nameTxtField;
 @property (weak) IBOutlet NSTextField *contentLabel;
 @property (weak) IBOutlet NSTextField *actionLabel;
+@property (weak) IBOutlet NSTextField *optionStatusLabel;
 
 @end
 
@@ -37,6 +38,12 @@
                                     [JKGoControlRequestParamsMaker describeNameForActionCategory:self.editModel.actionPath],
                                     [JKGoControlRequestParamsMaker describeNameForActionType:self.editModel.action + ActionTypeMin]];
     self.contentLabel.stringValue = self.editModel.content?:@"";
+    
+    if (self.editModel.isQuickCMD) {
+        self.optionStatusLabel.stringValue = @"√";
+    }else{
+        self.optionStatusLabel.stringValue = @"X";
+    }
 }
 
 - (IBAction)finishAction:(id)sender {

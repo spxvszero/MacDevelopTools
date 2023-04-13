@@ -42,6 +42,7 @@
     [self.outlineView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleRegular];
     
     self.txtView.delegate = self;
+    self.txtView.enabledTextCheckingTypes = 0;
     
     self.keysFromDic = [NSMutableDictionary dictionary];
     
