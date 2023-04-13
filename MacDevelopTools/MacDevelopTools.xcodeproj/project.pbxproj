@@ -22,6 +22,7 @@
 		85AE178F29AF1431007CA07E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AE178E29AF1431007CA07E /* main.m */; };
 		85AE179729AF240B007CA07E /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AE179629AF240B007CA07E /* ServiceManagement.framework */; };
 		85AE179829AF2B86007CA07E /* MacDevelopToolsHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 85AE178029AF1430007CA07E /* MacDevelopToolsHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		85C7724D29E7E75D00F81535 /* JKWallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7724C29E7E75D00F81535 /* JKWallImageView.m */; };
 		961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */; };
 		962178E2242B0001003268FC /* JKItemsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962178E1242B0001003268FC /* JKItemsManager.m */; };
 		962178E4242B0C55003268FC /* items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 962178E3242B0C55003268FC /* items.plist */; };
@@ -322,6 +323,8 @@
 		85AE178E29AF1431007CA07E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		85AE179029AF1431007CA07E /* MacDevelopToolsHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacDevelopToolsHelper.entitlements; sourceTree = "<group>"; };
 		85AE179629AF240B007CA07E /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		85C7724B29E7E75D00F81535 /* JKWallImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKWallImageView.h; sourceTree = "<group>"; };
+		85C7724C29E7E75D00F81535 /* JKWallImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKWallImageView.m; sourceTree = "<group>"; };
 		961EF7D32435E56200EAB18D /* JKLottieMoreSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLottieMoreSettingViewController.h; sourceTree = "<group>"; };
 		961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKLottieMoreSettingViewController.m; sourceTree = "<group>"; };
 		962178E0242B0001003268FC /* JKItemsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKItemsManager.h; sourceTree = "<group>"; };
@@ -1782,6 +1785,8 @@
 				96628A0D21C3B590005463F8 /* JKWallPaperImagePanelController.m */,
 				962FCB2E21D6364800D79971 /* JKWallPaperVideoPanelController.h */,
 				962FCB2F21D6364800D79971 /* JKWallPaperVideoPanelController.m */,
+				85C7724B29E7E75D00F81535 /* JKWallImageView.h */,
+				85C7724C29E7E75D00F81535 /* JKWallImageView.m */,
 				96628A0921C3ADCB005463F8 /* JKWellImageView.h */,
 				96628A0A21C3ADCB005463F8 /* JKWellImageView.m */,
 				96628A0721C384D6005463F8 /* WallPaper.storyboard */,
@@ -3033,6 +3038,7 @@
 				9693F9B32486201800BEB9A8 /* LAppLive2DManager.cpp in Sources */,
 				CBD47D1427C4960000CFB7F0 /* GPBCodedInputStream.m in Sources */,
 				966BD35D221AB100008AA4D5 /* JKJSONFormatHistoryViewController.m in Sources */,
+				85C7724D29E7E75D00F81535 /* JKWallImageView.m in Sources */,
 				9693FAAA248636B000BEB9A8 /* JKLive2dHelper.mm in Sources */,
 				96C335EE21C10A0700C9374E /* TextFieldDrag.m in Sources */,
 				CBD47CB127C494A900CFB7F0 /* SVGAAudioEntity.m in Sources */,

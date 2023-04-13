@@ -7,11 +7,24 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "JKWallImageView.h"
+
+typedef enum : NSUInteger {
+    JKWallPaperImagePanelSliderTypeX,
+    JKWallPaperImagePanelSliderTypeY,
+    JKWallPaperImagePanelSliderTypeW,
+    JKWallPaperImagePanelSliderTypeH,
+    JKWallPaperImagePanelSliderTypeScale,
+} JKWallPaperImagePanelSliderType;
 
 @interface JKWallPaperImagePanelController : NSViewController
 
-@property (nonatomic, assign) NSImageScaling currentScaling;
+@property (nonatomic, assign) JKWallImageScaling currentScaling;
 
-@property (nonatomic, strong) void (^ImageScaleButtonSelectBlock)(NSImageScaling scaling);
+@property (nonatomic, strong) void (^ImageScaleButtonSelectBlock)(JKWallImageScaling scaling);
+@property (nonatomic, strong) void (^CustomSliderValueChangedBlock)(JKWallPaperImagePanelSliderType type, CGFloat value, CGRect *listenRect);
+@property (nonatomic, strong) void (^ResetActionBlock)(void);
+
+- (void)resetPanel;
 
 @end

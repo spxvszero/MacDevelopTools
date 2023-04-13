@@ -8,6 +8,7 @@
 
 #import "JKWallPaperViewController.h"
 #import "JKWellImageView.h"
+#import "JKWallImageView.h"
 #import "JKWallPaperImagePanelController.h"
 #import "JKWallPaperVideoPanelController.h"
 #import <AVFoundation/AVFoundation.h>
@@ -17,7 +18,7 @@
 @property (nonatomic, weak) NSScreen *screen;
 @property (nonatomic, strong) NSWindow *window;
 @property (nonatomic, assign) BOOL showWindow;
-@property (nonatomic, strong) NSImageView *backImageView;
+@property (nonatomic, strong) JKWallImageView *backImageView;
 @property (nonatomic, strong) NSView *playerLayerBackView;
 @property (nonatomic, strong) AVPlayerLayer *playerlayer;
 
@@ -42,7 +43,7 @@
 @property (nonatomic, strong) AVPlayer *player;
 @property (nonatomic, strong) NSMutableArray<JKWallPaperWindowObject *> *windowObjsArr;
 @property (nonatomic, assign) BOOL showWindow;
-@property (nonatomic, assign) NSImageScaling selectedImageScaling;
+@property (nonatomic, assign) JKWallImageScaling selectedImageScaling;
 
 @end
 
@@ -67,6 +68,7 @@
                 [weakSelf stopPlay];
                 if (image) {
                     weakSelf.imagePanelController.currentScaling = weakSelf.selectedImageScaling;
+//                    [weakSelf.imagePanelController resetPanel];
                     weakSelf.currentPanelView = weakSelf.imagePanelController.view;
                 }else{
                     weakSelf.currentPanelView = nil;
@@ -91,7 +93,7 @@
 
 - (void)defaultSetting
 {
-    _selectedImageScaling = NSImageScaleNone;
+    _selectedImageScaling = JKWallImageScalingScaleToFill;
     
 }
 
@@ -217,7 +219,7 @@
 - (void)setupWindowSubviewsWithSize:(NSSize)size windowObj:(JKWallPaperWindowObject *)windowObj
 {
     if (!windowObj.backImageView) {
-        windowObj.backImageView = [[NSImageView alloc] init];
+        windowObj.backImageView = [[JKWallImageView alloc] init];
         windowObj.backImageView.frame = NSMakeRect(0, 0, size.width, size.height);
         windowObj.backImageView.hidden = YES;
         windowObj.backImageView.imageScaling = self.selectedImageScaling;
@@ -242,7 +244,7 @@
     [windowObj.window.contentView addSubview:windowObj.playerLayerBackView];
 }
 
-- (void)setSelectedImageScaling:(NSImageScaling)selectedImageScaling
+- (void)setSelectedImageScaling:(JKWallImageScaling)selectedImageScaling
 {
     _selectedImageScaling = selectedImageScaling;
     
@@ -304,8 +306,50 @@
         NSStoryboard *sb = [NSStoryboard storyboardWithName:@"WallPaper" bundle:nil];
         _imagePanelController = [sb instantiateControllerWithIdentifier:@"JKWallPaperImagePanelController"];
         __weak typeof(self) weakSelf = self;
-        _imagePanelController.ImageScaleButtonSelectBlock = ^(NSImageScaling scaling) {
+        _imagePanelController.ImageScaleButtonSelectBlock = ^(JKWallImageScaling scaling) {
             weakSelf.selectedImageScaling = scaling;
+        };
+        _imagePanelController.ResetActionBlock = ^{
+            for (JKWallPaperWindowObject *windowObj in weakSelf.windowObjsArr) {
+                [windowObj.backImageView reset];
+            }
+        };
+        _imagePanelController.CustomSliderValueChangedBlock = ^(JKWallPaperImagePanelSliderType type, CGFloat value, CGRect *listenRect) {
+            for (JKWallPaperWindowObject *windowObj in weakSelf.windowObjsArr) {
+                switch (type) {
+                    case JKWallPaperImagePanelSliderTypeX:
+                    {
+                        CGRect nR = [windowObj.backImageView changeXPos:value];
+                        *listenRect = nR;
+                    }
+                        break;
+                    case JKWallPaperImagePanelSliderTypeY:
+                    {
+                        CGRect nR = [windowObj.backImageView changeYPos:value];
+                        *listenRect = nR;
+                    }
+                        break;
+                    case JKWallPaperImagePanelSliderTypeW:
+                    {
+                        CGRect nR = [windowObj.backImageView changeWPos:value];
+                        *listenRect = nR;
+                    }
+                        break;
+                    case JKWallPaperImagePanelSliderTypeH:
+                    {
+                        CGRect nR = [windowObj.backImageView changeHPos:value];
+                        *listenRect = nR;
+                    }
+                        break;
+                    case JKWallPaperImagePanelSliderTypeScale:
+                    {
+                        [windowObj.backImageView changeScale:value];
+                    }
+                        break;
+                    default:
+                        break;
+                }
+            }
         };
     }
     return _imagePanelController;
