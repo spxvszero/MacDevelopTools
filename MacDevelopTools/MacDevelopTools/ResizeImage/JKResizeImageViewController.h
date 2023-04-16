@@ -6,8 +6,8 @@
 //  Copyright © 2018年 JK. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "JKBaseViewController.h"
 
-@interface JKResizeImageViewController : NSViewController
+@interface JKResizeImageViewController : JKBaseViewController
 
 @end

@@ -21,6 +21,12 @@
 
 @implementation JKLive2dViewController
 
+
+- (void)statusItemClose
+{
+    [self.openPanel cancel:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.

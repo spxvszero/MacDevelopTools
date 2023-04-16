@@ -27,6 +27,13 @@
     [self updateModel];
 }
 
+- (void)statusItemClose
+{
+    if (self.presentingViewController) {
+        [self dismissViewController:self];
+    }
+}
+
 - (IBAction)okBtnAction:(id)sender {
     JKGoServerDataModel *resModel = nil;
     if (self.serverModel) {

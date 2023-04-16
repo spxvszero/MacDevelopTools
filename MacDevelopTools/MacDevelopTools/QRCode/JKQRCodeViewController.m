@@ -26,11 +26,6 @@
 
 @implementation JKQRCodeViewController
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
@@ -56,8 +51,6 @@
             [weakSelf showErrorHint:@"Nothing Found."];
         }
     };
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
 }
 
 - (void)statusItemClose

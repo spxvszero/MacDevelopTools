@@ -56,11 +56,6 @@ typedef enum : NSInteger {
 
 @implementation JKResizeImageExportViewController
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)viewDidDisappear
 {
     [super viewDidDisappear];
@@ -89,8 +84,6 @@ typedef enum : NSInteger {
     self.appIconButton.state = NSControlStateValueOn;
     
     [self buttonSelectAction:self.appIconButton];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
     
 //    NSArray *arguments = [[NSProcessInfo processInfo] arguments];
 //    Magick::InitializeMagick([arguments[1] cStringUsingEncoding:NSASCIIStringEncoding]);

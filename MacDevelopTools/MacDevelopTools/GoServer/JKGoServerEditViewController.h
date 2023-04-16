@@ -6,12 +6,12 @@
 //  Copyright © 2022 JK. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "JKBaseViewController.h"
 #import "JKGoServerDataModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKGoServerEditViewController : NSViewController
+@interface JKGoServerEditViewController : JKBaseViewController
 
 @property(nonatomic, strong) JKGoServerDataModel *serverModel;
 @property(nonatomic, strong) void(^FinishUpdatedWithResultBlock)(JKGoServerDataModel *serverModel, BOOL isUpdate);

@@ -32,7 +32,6 @@
     self.qualitySlider.target = self;
     self.qualitySlider.action = @selector(sliderValueChange);
     self.qualitySlider.altIncrementValue = 1;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
 }
 
 - (void)viewWillAppear

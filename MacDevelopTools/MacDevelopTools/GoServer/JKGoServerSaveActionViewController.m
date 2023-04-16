@@ -19,6 +19,13 @@
 
 @implementation JKGoServerSaveActionViewController
 
+- (void)statusItemClose
+{
+    if (self.presentingViewController) {
+        [self dismissViewController:self];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.

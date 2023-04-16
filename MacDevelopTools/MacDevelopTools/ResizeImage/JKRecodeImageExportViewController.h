@@ -6,9 +6,9 @@
 //  Copyright © 2019年 JK. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "JKBaseViewController.h"
 
-@interface JKRecodeImageExportViewController : NSViewController
+@interface JKRecodeImageExportViewController : JKBaseViewController
 
 @property (nonatomic, strong) NSString *imageUrl;
 @property (nonatomic, assign) BOOL single;

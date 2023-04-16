@@ -14,9 +14,21 @@
 
 @implementation JKBaseViewController
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
+}
+
+- (void)statusItemClose
+{
+    
 }
 
 @end

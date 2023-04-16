@@ -32,18 +32,11 @@
 
 @implementation JKAutoPackViewController
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
     
     self.comboxArr = [NSMutableArray array];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusItemClose) name:kJKStatusItemPopOverCloseNotification object:nil];
     
     self.progressIcon.hidden = YES;
 }

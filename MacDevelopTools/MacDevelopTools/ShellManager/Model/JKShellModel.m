@@ -190,6 +190,8 @@
         kill(self.pid, SIGKILL);
         self.pid = 0;
     }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (BOOL)isRunning

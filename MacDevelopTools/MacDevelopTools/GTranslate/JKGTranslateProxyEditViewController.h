@@ -6,12 +6,12 @@
 //  Copyright © 2023 JK. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "JKBaseViewController.h"
 #import "JKProxyModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JKGTranslateProxyEditViewController : NSViewController
+@interface JKGTranslateProxyEditViewController : JKBaseViewController
 
 @property (nonatomic, strong) JKProxyModel *currentProxy;
 @property (nonatomic, strong) void (^FinishEditActionBlock)(BOOL ok,  JKProxyModel * _Nullable nPorxy);
