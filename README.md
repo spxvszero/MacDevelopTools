@@ -126,7 +126,11 @@ A Mac application for useful tools, build it just for learning :)
 
 * Live2d
 
-  This can create a live2d character into screen. But the library is too old, so it only can run the official example. I have no condition to test the newest one, so i did not update it.
+  This can create a live2d character into screen. But the library is too old, so it only can run the official example. I have no condition to test the newest one, so i did not update it. Load Example Dir in Project for taking a look.
+
+  Preview:
+
+  ![Live2d](Previews/live2d.png)
 
 * GoServer 
 
@@ -135,6 +139,14 @@ A Mac application for useful tools, build it just for learning :)
   Preview : 
   
   ![goserver](Previews/goserver.jpeg)
+  
+* GTranslate
+
+  Embed with google translate. Can also with proxy for using it. 
+
+  Preview:
+  
+  ![GTranslate](Previews/gtranslate.png)
 
 ## More Settings
 Right Click on Status Bar Icon can open settings.

@@ -206,5 +206,17 @@
 		<key>ClassName</key>
 		<string>JKGoServerViewController</string>
 	</dict>
+	<dict>
+		<key>Visable</key>
+		<true/>
+		<key>ToolTip</key>
+		<string>GoogleTranslate</string>
+		<key>ItemImageName</key>
+		<string></string>
+		<key>StoryBoardName</key>
+		<string>GTranslate</string>
+		<key>ClassName</key>
+		<string>JKGTranslateViewController</string>
+	</dict>
 </array>
 </plist>

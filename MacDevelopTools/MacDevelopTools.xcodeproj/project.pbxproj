@@ -23,6 +23,14 @@
 		85AE179729AF240B007CA07E /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85AE179629AF240B007CA07E /* ServiceManagement.framework */; };
 		85AE179829AF2B86007CA07E /* MacDevelopToolsHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 85AE178029AF1430007CA07E /* MacDevelopToolsHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		85C7724D29E7E75D00F81535 /* JKWallImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7724C29E7E75D00F81535 /* JKWallImageView.m */; };
+		85C7725529E9037E00F81535 /* JKGTranslateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7725429E9037E00F81535 /* JKGTranslateViewController.m */; };
+		85C7725729E9039800F81535 /* GTranslate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C7725629E9039800F81535 /* GTranslate.storyboard */; };
+		85C7725D29EA902B00F81535 /* JKGTranslateProxyEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7725C29EA902B00F81535 /* JKGTranslateProxyEditViewController.m */; };
+		85C7726029EAC11D00F81535 /* JKGTranslateStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7725F29EAC11D00F81535 /* JKGTranslateStorage.m */; };
+		85C7726329EBB5BA00F81535 /* JKProxyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7726229EBB5BA00F81535 /* JKProxyModel.m */; };
+		85C7726629EBB62800F81535 /* JKProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7726529EBB62800F81535 /* JKProxy.m */; };
+		85C7726B29EBB7BF00F81535 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 85C7726A29EBB7BE00F81535 /* GTMBase64.m */; };
+		85C7727129EBD1A200F81535 /* libgtranslate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85C7727029EBD1A200F81535 /* libgtranslate.a */; };
 		961EF7D52435E56200EAB18D /* JKLottieMoreSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */; };
 		962178E2242B0001003268FC /* JKItemsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 962178E1242B0001003268FC /* JKItemsManager.m */; };
 		962178E4242B0C55003268FC /* items.plist in Resources */ = {isa = PBXBuildFile; fileRef = 962178E3242B0C55003268FC /* items.plist */; };
@@ -325,6 +333,22 @@
 		85AE179629AF240B007CA07E /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		85C7724B29E7E75D00F81535 /* JKWallImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKWallImageView.h; sourceTree = "<group>"; };
 		85C7724C29E7E75D00F81535 /* JKWallImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKWallImageView.m; sourceTree = "<group>"; };
+		85C7725329E9037E00F81535 /* JKGTranslateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGTranslateViewController.h; sourceTree = "<group>"; };
+		85C7725429E9037E00F81535 /* JKGTranslateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGTranslateViewController.m; sourceTree = "<group>"; };
+		85C7725629E9039800F81535 /* GTranslate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GTranslate.storyboard; sourceTree = "<group>"; };
+		85C7725B29EA902B00F81535 /* JKGTranslateProxyEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGTranslateProxyEditViewController.h; sourceTree = "<group>"; };
+		85C7725C29EA902B00F81535 /* JKGTranslateProxyEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGTranslateProxyEditViewController.m; sourceTree = "<group>"; };
+		85C7725E29EAC11D00F81535 /* JKGTranslateStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKGTranslateStorage.h; sourceTree = "<group>"; };
+		85C7725F29EAC11D00F81535 /* JKGTranslateStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKGTranslateStorage.m; sourceTree = "<group>"; };
+		85C7726129EBB5BA00F81535 /* JKProxyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKProxyModel.h; sourceTree = "<group>"; };
+		85C7726229EBB5BA00F81535 /* JKProxyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKProxyModel.m; sourceTree = "<group>"; };
+		85C7726429EBB62800F81535 /* JKProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKProxy.h; sourceTree = "<group>"; };
+		85C7726529EBB62800F81535 /* JKProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKProxy.m; sourceTree = "<group>"; };
+		85C7726829EBB7BE00F81535 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		85C7726929EBB7BE00F81535 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		85C7726A29EBB7BE00F81535 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		85C7726F29EBD1A200F81535 /* libgtranslate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libgtranslate.h; sourceTree = "<group>"; };
+		85C7727029EBD1A200F81535 /* libgtranslate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtranslate.a; sourceTree = "<group>"; };
 		961EF7D32435E56200EAB18D /* JKLottieMoreSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLottieMoreSettingViewController.h; sourceTree = "<group>"; };
 		961EF7D42435E56200EAB18D /* JKLottieMoreSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKLottieMoreSettingViewController.m; sourceTree = "<group>"; };
 		962178E0242B0001003268FC /* JKItemsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKItemsManager.h; sourceTree = "<group>"; };
@@ -1158,6 +1182,7 @@
 				9693FA9624862A7E00BEB9A8 /* libLive2DCubismCore.a in Frameworks */,
 				962FCB2321D0FA3600D79971 /* LittleCMS.framework in Frameworks */,
 				962FCB2221D0F95C00D79971 /* Carbon.framework in Frameworks */,
+				85C7727129EBD1A200F81535 /* libgtranslate.a in Frameworks */,
 				85860A8D29AEEA2500B2B1E1 /* NetworkExtension.framework in Frameworks */,
 				962FC61121D0D34C00D79971 /* libraw.a in Frameworks */,
 				CBD47D5F27C4C7D600CFB7F0 /* Security.framework in Frameworks */,
@@ -1217,6 +1242,44 @@
 				85AE179029AF1431007CA07E /* MacDevelopToolsHelper.entitlements */,
 			);
 			path = MacDevelopToolsHelper;
+			sourceTree = "<group>";
+		};
+		85C7724E29E9033E00F81535 /* GTranslate */ = {
+			isa = PBXGroup;
+			children = (
+				85C7724F29E9035100F81535 /* lib */,
+				85C7725329E9037E00F81535 /* JKGTranslateViewController.h */,
+				85C7725429E9037E00F81535 /* JKGTranslateViewController.m */,
+				85C7725B29EA902B00F81535 /* JKGTranslateProxyEditViewController.h */,
+				85C7725C29EA902B00F81535 /* JKGTranslateProxyEditViewController.m */,
+				85C7725E29EAC11D00F81535 /* JKGTranslateStorage.h */,
+				85C7725F29EAC11D00F81535 /* JKGTranslateStorage.m */,
+				85C7726129EBB5BA00F81535 /* JKProxyModel.h */,
+				85C7726229EBB5BA00F81535 /* JKProxyModel.m */,
+				85C7726429EBB62800F81535 /* JKProxy.h */,
+				85C7726529EBB62800F81535 /* JKProxy.m */,
+				85C7725629E9039800F81535 /* GTranslate.storyboard */,
+			);
+			path = GTranslate;
+			sourceTree = "<group>";
+		};
+		85C7724F29E9035100F81535 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				85C7727029EBD1A200F81535 /* libgtranslate.a */,
+				85C7726F29EBD1A200F81535 /* libgtranslate.h */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		85C7726729EBB7BE00F81535 /* GTMBase64 */ = {
+			isa = PBXGroup;
+			children = (
+				85C7726829EBB7BE00F81535 /* GTMBase64.h */,
+				85C7726929EBB7BE00F81535 /* GTMDefines.h */,
+				85C7726A29EBB7BE00F81535 /* GTMBase64.m */,
+			);
+			path = GTMBase64;
 			sourceTree = "<group>";
 		};
 		962FC52021D0CA9200D79971 /* lib */ = {
@@ -2239,6 +2302,7 @@
 		96A9A17521D0A87A00F21813 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				85C7726729EBB7BE00F81535 /* GTMBase64 */,
 				CB896CEE283E3D56006B5388 /* Masonry */,
 				CB896CE6283E217F006B5388 /* YYModel */,
 				CB896CC3283DFF54006B5388 /* AFNetworking */,
@@ -2331,6 +2395,7 @@
 				CBD47C5427C491D700CFB7F0 /* SVGAPreviewer */,
 				9693F8D624861EEB00BEB9A8 /* Live2d */,
 				CB93014B2836166C00DFCE64 /* GoServer */,
+				85C7724E29E9033E00F81535 /* GTranslate */,
 				CB4DFC5F277C4E1B00CBE4A1 /* AutoControl */,
 				96C335C021C0A8E100C9374E /* AppDelegate.h */,
 				96C335C121C0A8E100C9374E /* AppDelegate.m */,
@@ -2907,6 +2972,7 @@
 				CB896CB0283DC1A8006B5388 /* GoServer.storyboard in Resources */,
 				962178E4242B0C55003268FC /* items.plist in Resources */,
 				962FCB3921D75A4600D79971 /* ImageInfo.storyboard in Resources */,
+				85C7725729E9039800F81535 /* GTranslate.storyboard in Resources */,
 				96A9A16F21CCBC3500F21813 /* packupResource.sh in Resources */,
 				CBD47D4D27C4B84200CFB7F0 /* LICENSE.txt in Resources */,
 				966BD363221C1074008AA4D5 /* ShellManager.storyboard in Resources */,
@@ -2955,8 +3021,10 @@
 				96AFD6862330E93300C36CFE /* JKRecodeImageExportViewController.mm in Sources */,
 				9693FA3F2486219900BEB9A8 /* CubismCdiJson.cpp in Sources */,
 				9693FA522486219900BEB9A8 /* CubismMatrix44.cpp in Sources */,
+				85C7725529E9037E00F81535 /* JKGTranslateViewController.m in Sources */,
 				962FCB4B21DCA5FF00D79971 /* ImageInfoHelper.cpp in Sources */,
 				8523E40429BC78030090108C /* JKClockNotificationViewController.m in Sources */,
+				85C7726629EBB62800F81535 /* JKProxy.m in Sources */,
 				CBD47D4E27C4B84200CFB7F0 /* mz_strm_os_posix.c in Sources */,
 				CB896D0A283E3D57006B5388 /* ViewController+MASAdditions.m in Sources */,
 				966BD366221CE79A008AA4D5 /* JKShellManagerCell.m in Sources */,
@@ -2996,6 +3064,7 @@
 				964AB08D2428B183009D8D0C /* JKAboutViewController.m in Sources */,
 				96AFD523231D0F7C00C36CFE /* JKDatePicker.m in Sources */,
 				CBD47D0F27C4960000CFB7F0 /* GPBUtilities.m in Sources */,
+				85C7726329EBB5BA00F81535 /* JKProxyModel.m in Sources */,
 				CB653C2B2851F53B00C0C38B /* JKGoServerSaveActionViewController.m in Sources */,
 				96C335E321C109F800C9374E /* Sec.m in Sources */,
 				966BD356221A46C5008AA4D5 /* JKJSONFormatViewController.m in Sources */,
@@ -3044,6 +3113,7 @@
 				CBD47CB127C494A900CFB7F0 /* SVGAAudioEntity.m in Sources */,
 				CBD47D5227C4B84200CFB7F0 /* mz_zip_rw.c in Sources */,
 				96C335F921C1F84400C9374E /* JKApplicationHoldManager.m in Sources */,
+				85C7726B29EBB7BF00F81535 /* GTMBase64.m in Sources */,
 				96578FA424332A2900F828C5 /* JKLottieDragBoxView.m in Sources */,
 				962FCB3021D6364800D79971 /* JKWallPaperVideoPanelController.m in Sources */,
 				9693F9B52486201800BEB9A8 /* LAppSprite.cpp in Sources */,
@@ -3067,11 +3137,13 @@
 				CBD47C5927C492C200CFB7F0 /* JKSVGAPreviewController.m in Sources */,
 				CB896CDB283DFF54006B5388 /* AFNetworkReachabilityManager.m in Sources */,
 				96C335C221C0A8E100C9374E /* AppDelegate.m in Sources */,
+				85C7726029EAC11D00F81535 /* JKGTranslateStorage.m in Sources */,
 				CB896CC2283DFF2D006B5388 /* JKGoControlNetworkManager.m in Sources */,
 				9693F9B12486201800BEB9A8 /* LAppTextureManager.cpp in Sources */,
 				9693FA542486219900BEB9A8 /* csmString.cpp in Sources */,
 				9693FA382486219900BEB9A8 /* CubismFramework.cpp in Sources */,
 				9693FB9524879AB300BEB9A8 /* JKLive2dViewController.m in Sources */,
+				85C7725D29EA902B00F81535 /* JKGTranslateProxyEditViewController.m in Sources */,
 				9693F9B02486201800BEB9A8 /* LAppDelegate.cpp in Sources */,
 				CB896CE2283E0F09006B5388 /* JKGoServerDataModel.m in Sources */,
 				9693FA582486219900BEB9A8 /* CubismModelUserDataJson.cpp in Sources */,
@@ -3369,6 +3441,7 @@
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/libGLFW/lib",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/lib",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/dll",
+					"$(PROJECT_DIR)/MacDevelopTools/GTranslate/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ON_DEMAND_RESOURCES_PREFETCH_ORDER = "";
@@ -3417,6 +3490,7 @@
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/libGLFW/lib",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/lib",
 					"$(PROJECT_DIR)/MacDevelopTools/ThirdParty/CubismCore/dll",
+					"$(PROJECT_DIR)/MacDevelopTools/GTranslate/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ON_DEMAND_RESOURCES_PREFETCH_ORDER = "";

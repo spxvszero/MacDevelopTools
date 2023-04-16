@@ -25,37 +25,31 @@
 
 + (NSString *)goServerDataDirPath
 {
-    NSString *dirPath = [[self class] rootDirPath];
-    if (!dirPath) {
-        return nil;
-    }
-    dirPath = [NSString pathWithComponents:@[dirPath, @"GoServerData"]];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:dirPath]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:false attributes:nil error:nil];
-    }
-    return dirPath;
+    return [JKMacFileStoragePath ObtainDirWithName:@"GoServerData"];;
 }
 
 + (NSString *)shellManagerDataDirPath
 {
-    NSString *dirPath = [[self class] rootDirPath];
-    if (!dirPath) {
-        return nil;
-    }
-    dirPath = [NSString pathWithComponents:@[dirPath, @"ShellManager"]];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:dirPath]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:false attributes:nil error:nil];
-    }
-    return dirPath;
+    return [JKMacFileStoragePath ObtainDirWithName:@"ShellManager"];
 }
 
 + (NSString *)itemsManagerListDirPath
+{
+    return [JKMacFileStoragePath ObtainDirWithName:@"Items"];
+}
+
++ (NSString *)translateDirPath
+{
+    return [JKMacFileStoragePath ObtainDirWithName:@"GTranslate"];
+}
+
++ (NSString *)ObtainDirWithName:(NSString *)name
 {
     NSString *dirPath = [[self class] rootDirPath];
     if (!dirPath) {
         return nil;
     }
-    dirPath = [NSString pathWithComponents:@[dirPath, @"Items"]];
+    dirPath = [NSString pathWithComponents:@[dirPath, name]];
     if (![[NSFileManager defaultManager] fileExistsAtPath:dirPath]) {
         [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:false attributes:nil error:nil];
     }

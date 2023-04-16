@@ -58,16 +58,48 @@
 
 - (void)readFromPlist
 {
+    NSMutableArray *resultArr = [NSMutableArray array];
     //try to read from sand box.
     NSString *plistPath = [self itemsListSandboxPath];
+    NSLog(@"read item list from sandbox : %@",plistPath);
     NSArray *listArr = [NSArray arrayWithContentsOfFile:plistPath];
     if (!listArr || listArr.count <= 0) {
+        NSLog(@"sandbox item list is empty.");
         plistPath = [self itemsListPath];
         listArr = [NSArray arrayWithContentsOfFile:plistPath];
+        [resultArr addObjectsFromArray:listArr];
+    }else{
+        NSLog(@"sandbox item list is exsit. check if need sync.");
+        //check if need sync list.
+        NSString *packPlistPath = [self itemsListPath];
+        NSArray *packListArr = [NSArray arrayWithContentsOfFile:packPlistPath];
+        if (listArr.count != packListArr.count) {
+            NSLog(@"found item list is not sync with current app. update local list.");
+            //need sync list cause pack list have new feature.
+            //new feature always append to the tail, but in case exception condition, we loop for it.
+            for (NSDictionary *newFeature in packListArr) {
+                BOOL findOne = false;
+                NSString *nName = [newFeature objectForKey:@"ClassName"];
+                for (NSDictionary *oldFeature in listArr) {
+                    NSString *oName = [oldFeature objectForKey:@"ClassName"];
+                    if ([oName isKindOfClass:[NSString class]] && [oName isEqualToString:nName]) {
+                        findOne = true;
+                        [resultArr addObject:oldFeature];
+                        break;
+                    }
+                }
+                if (findOne == false) {
+                    [resultArr addObject:newFeature];
+                }
+            }
+        }else{
+            NSLog(@"no need sync item list.");
+            [resultArr addObjectsFromArray:listArr];
+        }
     }
     
-    if (listArr && listArr.count > 0) {
-        [self seralizeListItems:listArr];
+    if (resultArr && resultArr.count > 0) {
+        [self seralizeListItems:resultArr];
     }
 }
 

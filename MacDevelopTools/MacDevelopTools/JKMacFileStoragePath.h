@@ -18,5 +18,7 @@
 
 + (NSString *)itemsManagerListDirPath;
 
++ (NSString *)translateDirPath;
+
 @end
 
